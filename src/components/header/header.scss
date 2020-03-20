@@ -1,5 +1,26 @@
 @import '../../styles/colors';
 
 .header {
+  align-items: center;
   background-color: $black;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+
+  .nav-links-section {
+    margin: 0 1rem;
+
+    .nav-link {
+      color: $white;
+      margin: 0 0.5rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .selected-nav-link {
+      color: $green;
+    }
+  }
 }
