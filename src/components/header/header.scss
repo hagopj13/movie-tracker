@@ -4,11 +4,28 @@
   align-items: center;
   background-color: $black;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding: 1.5rem;
+
+  .left,
+  .right {
+    display: flex;
+    flex: 1;
+    min-width: -webkit-min-content;
+  }
+
+  .left {
+    justify-content: flex-start;
+  }
+
+  .right {
+    justify-content: flex-end;
+  }
 
   .nav-section {
     margin: 0 1rem;
+    // display: flex;
+    // justify-content: center;
 
     .nav-link {
       color: $white;

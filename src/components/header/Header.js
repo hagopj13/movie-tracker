@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 import './header.scss';
+import SearchField from '../searchField/SearchField';
 
 const useStyles = makeStyles((theme) => ({
   buttons: {
@@ -19,7 +20,9 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div>Search</div>
+      <div className="left">
+        <SearchField />
+      </div>
       <div className="nav-section">
         <NavLink exact to="/" className="nav-link" activeClassName="selected-nav-link">
           Discover
@@ -28,7 +31,7 @@ const Header = () => {
           Profile
         </NavLink>
       </div>
-      <div className={classes.buttons}>
+      <div className={`right ${classes.buttons}`}>
         <Button variant="contained">Signup</Button>
         <Button variant="contained" color="primary">
           Login
