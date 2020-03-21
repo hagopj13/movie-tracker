@@ -1,0 +1,19 @@
+@import 'styles/colors';
+
+.navigation {
+  margin: 0 1rem;
+
+  .nav-link {
+    color: $white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .selected {
+    color: $green;
+  }
+}

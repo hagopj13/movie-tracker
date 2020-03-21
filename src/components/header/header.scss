@@ -1,10 +1,9 @@
-@import '../../styles/colors';
+@import 'styles/colors';
 
 .header {
   align-items: center;
   background-color: $black;
   display: flex;
-  // justify-content: space-between;
   padding: 1.5rem;
 
   .left,
@@ -20,24 +19,5 @@
 
   .right {
     justify-content: flex-end;
-  }
-
-  .nav-section {
-    margin: 0 1rem;
-    // display: flex;
-    // justify-content: center;
-
-    .nav-link {
-      color: $white;
-      margin: 0 0.5rem;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    .selected-nav-link {
-      color: $green;
-    }
   }
 }
