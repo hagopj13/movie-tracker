@@ -25,6 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
+    "format": "prettier --write .",
     "flow": "flow"
   },
   "eslintConfig": {
@@ -47,6 +48,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.0"
   }
 }
