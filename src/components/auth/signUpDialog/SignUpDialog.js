@@ -20,7 +20,9 @@ const SignUpDialog = (props: Props) => {
         <DialogContentText>SignUpForm</DialogContentText>
         <DialogActions>
           <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={onClose}>Sign Up</Button>
+          <Button onClick={onClose} color="primary">
+            Sign Up
+          </Button>
         </DialogActions>
       </DialogContent>
     </Dialog>
