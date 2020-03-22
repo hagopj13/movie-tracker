@@ -3,7 +3,7 @@ import React from 'react';
 import './header.scss';
 import SearchField from '../searchField/SearchField';
 import Navigation from './navigation/Navigation';
-import AuthButtons from './authButtons/AuthButtons';
+import AuthButtons from '../auth/authButtons/AuthButtons';
 
 const Header = () => (
   <div className="header">
@@ -18,4 +18,5 @@ const Header = () => (
     </div>
   </div>
 );
+
 export default Header;
