@@ -1,5 +1,7 @@
 import { createMuiTheme } from '@material-ui/core';
 
+import colors from './colors.scss';
+
 export default createMuiTheme({
   typography: {
     htmlFontSize: 10,
@@ -7,7 +9,11 @@ export default createMuiTheme({
   },
   palette: {
     primary: {
-      main: '#0d7c39',
+      main: colors.green,
+    },
+    common: {
+      black: colors.black,
+      white: colors.white,
     },
   },
 });

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   contentText: {
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(2),
     maxWidth: '45ch',
   },
 }));

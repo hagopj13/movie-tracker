@@ -5,28 +5,33 @@ import Button from '@material-ui/core/Button';
 import LoginDialog from '../loginDialog/LoginDialog';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      textTransform: 'none',
-      margin: theme.spacing(0.5),
-    },
+  button: {
+    textTransform: 'none',
+    margin: theme.spacing(0, 0.5),
   },
 }));
 
 const AuthButtons = () => {
   const classes = useStyles();
-  const [logInOpen, setLogInOpen] = useState(false);
+  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
 
-  const handleLoginOpen = () => setLogInOpen(true);
-  const handleLoginClose = () => setLogInOpen(false);
+  const handleLoginDialogOpen = () => setLoginDialogOpen(true);
+  const handleLoginDialogClose = () => setLoginDialogOpen(false);
 
   return (
-    <div className={classes.root}>
-      <Button variant="contained" color="primary" onClick={handleLoginOpen}>
+    <div>
+      <Button
+        variant="contained"
+        className={classes.button}
+        color="primary"
+        onClick={handleLoginDialogOpen}
+      >
         Login
       </Button>
-      <Button variant="contained">Logout</Button>
-      <LoginDialog open={logInOpen} onClose={handleLoginClose} />
+      <Button variant="contained" className={classes.button}>
+        Logout
+      </Button>
+      <LoginDialog open={loginDialogOpen} onClose={handleLoginDialogClose} />
     </div>
   );
 };

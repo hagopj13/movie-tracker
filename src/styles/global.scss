@@ -1,9 +1,5 @@
 @import 'styles/colors';
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   font-size: 62.5%;
 }
@@ -13,12 +9,4 @@ body {
   color: $white;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
-}
-
-button {
-  cursor: pointer;
-}
-
-button:disabled {
-  cursor: default;
 }

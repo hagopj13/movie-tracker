@@ -2,3 +2,10 @@ $black: #0a0a0a;
 $dark-grey: #1d1d1d;
 $green: #0d7c39;
 $white: #fff;
+
+:export {
+  black: $black;
+  darkGrey: $dark-grey;
+  green: $green;
+  white: $white;
+}

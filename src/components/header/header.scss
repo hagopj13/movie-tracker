@@ -4,13 +4,12 @@
   align-items: center;
   background-color: $black;
   display: flex;
-  padding: 1.5rem;
+  padding: 2rem;
 
   .left,
   .right {
     display: flex;
     flex: 1;
-    min-width: -webkit-min-content;
   }
 
   .left {

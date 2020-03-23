@@ -15,11 +15,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       display: 'block',
-      marginBottom: theme.spacing(1),
+      marginBottom: theme.spacing(0.5),
     },
   },
   submitButton: {
-    color: theme.palette.primary.main,
     marginLeft: 'auto',
   },
 }));
@@ -44,6 +43,7 @@ const LoginForm = (props: Props) => {
         inputRef={register}
         autoFocus
         fullWidth
+        size="small"
         variant="outlined"
         label="Username"
         error={!!errors.username}
@@ -53,12 +53,19 @@ const LoginForm = (props: Props) => {
         name="password"
         inputRef={register}
         fullWidth
+        size="small"
         variant="outlined"
         label="Password"
         error={!!errors.password}
         helperText={errors.password?.message ?? ' '}
       />
-      <Button type="submit" className={classes.submitButton} variant="outlined" size="large">
+      <Button
+        type="submit"
+        className={classes.submitButton}
+        size="large"
+        variant="outlined"
+        color="primary"
+      >
         Login
       </Button>
     </form>
