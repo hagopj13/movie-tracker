@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import PasswordTextField from '../../../common/input/passwordTextField/PasswordTextField';
+
 type Props = {
   onSubmit: (data) => void,
 };
@@ -41,15 +43,16 @@ const LoginForm = (props: Props) => {
         name="username"
         inputRef={register}
         autoFocus
+        fullWidth
         variant="outlined"
         label="Username"
         error={!!errors.username}
         helperText={errors.username?.message ?? ' '}
       />
-      <TextField
+      <PasswordTextField
         name="password"
         inputRef={register}
-        type="password"
+        fullWidth
         variant="outlined"
         label="Password"
         error={!!errors.password}
