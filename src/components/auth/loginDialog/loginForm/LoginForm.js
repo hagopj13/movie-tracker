@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import PasswordTextField from '../../../common/input/passwordTextField/PasswordTextField';
 
 type Props = {
+  isLoginLoading: boolean,
   onSubmit: (data) => void,
 };
 
@@ -29,7 +30,7 @@ const schema = yup.object().shape({
 });
 
 const LoginForm = (props: Props) => {
-  const { onSubmit } = props;
+  const { isLoginLoading, onSubmit } = props;
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onSubmit',
@@ -65,6 +66,7 @@ const LoginForm = (props: Props) => {
         size="large"
         variant="outlined"
         color="primary"
+        disabled={isLoginLoading}
       >
         Login
       </Button>

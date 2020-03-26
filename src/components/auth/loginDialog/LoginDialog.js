@@ -10,11 +10,12 @@ import Link from '@material-ui/core/Link';
 import DialogTitle from '../../common/dialog/dialogTitle/DialogTitle';
 import LoginForm from './loginForm/LoginForm';
 import { login } from '../../../redux/auth/auth.actions';
-import { selectIsAuth } from '../../../redux/auth/auth.selectors';
+import { selectIsAuth, selectIsLoginLoading } from '../../../redux/auth/auth.selectors';
 
 type Props = {
   open: boolean,
   isAuth: boolean,
+  isLoginLoading: boolean,
   onClose: () => void,
   onLogin: ({ username: string, password: string }) => void,
 };
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginDialog = (props: Props) => {
-  const { open, onClose, isAuth } = props;
+  const { isAuth, isLoginLoading, open, onClose } = props;
 
   useEffect(() => {
     if (isAuth) {
@@ -57,7 +58,7 @@ const LoginDialog = (props: Props) => {
           </Link>
           .
         </Typography>
-        <LoginForm onSubmit={handleSubmit} />
+        <LoginForm isLoginLoading={isLoginLoading} onSubmit={handleSubmit} />
       </DialogContent>
     </Dialog>
   );
@@ -65,6 +66,7 @@ const LoginDialog = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   isAuth: selectIsAuth,
+  isLoginLoading: selectIsLoginLoading,
 });
 
 const mapDispatchToProps = {
