@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -9,9 +10,11 @@ import Link from '@material-ui/core/Link';
 import DialogTitle from '../../common/dialog/dialogTitle/DialogTitle';
 import LoginForm from './loginForm/LoginForm';
 import { login } from '../../../redux/auth/auth.actions';
+import { selectIsAuth } from '../../../redux/auth/auth.selectors';
 
 type Props = {
   open: boolean,
+  isAuth: boolean,
   onClose: () => void,
   onLogin: ({ username: string, password: string }) => void,
 };
@@ -28,7 +31,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginDialog = (props: Props) => {
-  const { open, onClose } = props;
+  const { open, onClose, isAuth } = props;
+
+  useEffect(() => {
+    if (isAuth) {
+      onClose();
+    }
+  }, [isAuth, onClose]);
 
   const classes = useStyles();
 
@@ -54,8 +63,12 @@ const LoginDialog = (props: Props) => {
   );
 };
 
+const mapStateToProps = createStructuredSelector({
+  isAuth: selectIsAuth,
+});
+
 const mapDispatchToProps = {
   onLogin: login,
 };
 
-export default connect(undefined, mapDispatchToProps)(LoginDialog);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginDialog);
