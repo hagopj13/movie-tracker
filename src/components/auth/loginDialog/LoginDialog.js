@@ -10,7 +10,9 @@ import Link from '@material-ui/core/Link';
 import DialogTitle from '../../common/dialog/dialogTitle/DialogTitle';
 import LoginForm from './loginForm/LoginForm';
 import { login } from '../../../store/auth/auth.actions';
-import { selectIsAuth, selectIsLoginLoading } from '../../../store/auth/auth.selectors';
+import { selectIsAuth } from '../../../store/auth/auth.selectors';
+import AuthActionTypes from '../../../store/auth/auth.types';
+import { createIsLoadingSelector } from '../../../store/api/loading/loading.selectors';
 
 type Props = {
   open: boolean,
@@ -66,7 +68,7 @@ const LoginDialog = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   isAuth: selectIsAuth,
-  isLoginLoading: selectIsLoginLoading,
+  isLoginLoading: createIsLoadingSelector([AuthActionTypes.LOGIN]),
 });
 
 const mapDispatchToProps = {
