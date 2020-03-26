@@ -9,8 +9,8 @@ import Link from '@material-ui/core/Link';
 
 import DialogTitle from '../../common/dialog/dialogTitle/DialogTitle';
 import LoginForm from './loginForm/LoginForm';
-import { login } from '../../../redux/auth/auth.actions';
-import { selectIsAuth, selectIsLoginLoading } from '../../../redux/auth/auth.selectors';
+import { login } from '../../../store/auth/auth.actions';
+import { selectIsAuth, selectIsLoginLoading } from '../../../store/auth/auth.selectors';
 
 type Props = {
   open: boolean,
