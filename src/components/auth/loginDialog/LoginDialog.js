@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -7,10 +8,12 @@ import Link from '@material-ui/core/Link';
 
 import DialogTitle from '../../common/dialog/dialogTitle/DialogTitle';
 import LoginForm from './loginForm/LoginForm';
+import { login } from '../../../redux/auth/auth.actions';
 
 type Props = {
   open: boolean,
   onClose: () => void,
+  onLogin: ({ username: string, password: string }) => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -30,8 +33,7 @@ const LoginDialog = (props: Props) => {
   const classes = useStyles();
 
   const handleSubmit = (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+    props.onLogin(data);
   };
 
   return (
@@ -52,4 +54,8 @@ const LoginDialog = (props: Props) => {
   );
 };
 
-export default LoginDialog;
+const mapDispatchToProps = {
+  onLogin: login,
+};
+
+export default connect(undefined, mapDispatchToProps)(LoginDialog);

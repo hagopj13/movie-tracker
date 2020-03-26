@@ -12,6 +12,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case AuthActionTypes.LOGIN_SUCCESS:
       return {
