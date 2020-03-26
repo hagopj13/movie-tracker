@@ -8,14 +8,14 @@ export function* login({ payload: { username, password } }) {
   yield put(loginStart());
   try {
     const { data: getRequestTokenData } = yield api.getRequestToken();
-    const { request_token: requestToken } = yield getRequestTokenData;
 
-    yield api.login({ username, password, requestToken });
+    yield api.login({ username, password, requestToken: getRequestTokenData.request_token });
 
-    const { data: createSessionData } = yield api.createSession({ requestToken });
-    const { session_id: sessionId } = yield createSessionData;
+    const { data: createSessionData } = yield api.createSession({
+      requestToken: getRequestTokenData.request_token,
+    });
 
-    yield put(loginSuccess(sessionId));
+    yield put(loginSuccess(createSessionData.session_id));
   } catch (error) {
     yield put(loginFailure('Invalid credentials'));
   }
