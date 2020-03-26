@@ -10,5 +10,3 @@ export const selectSessionId = createSelector([selectAuth], (auth) => auth.sessi
 export const selectIsAuth = createSelector([selectSessionId], (sessionId) => !!sessionId);
 
 export const selectIsLoginLoading = createIsLoadingSelector([AuthActionTypes.LOGIN]);
-
-export const selectAuthError = createSelector([selectAuth], (auth) => auth.error);

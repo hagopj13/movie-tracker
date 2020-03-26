@@ -2,7 +2,6 @@ import AuthActionTypes from './auth.types';
 
 const initialState = {
   sessionId: null,
-  error: null,
 };
 
 export default (state = initialState, action) => {
@@ -12,12 +11,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         sessionId: payload.sessionId,
-        error: null,
-      };
-    case AuthActionTypes.LOGIN_FAILURE:
-      return {
-        ...state,
-        error: payload.error,
       };
     default:
       return state;
