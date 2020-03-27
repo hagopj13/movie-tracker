@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 import LoginDialog from '../loginDialog/LoginDialog';
-import { selectIsAuth } from '../../../store/auth/auth.selectors';
 
 type Props = {
   isAuth: boolean,
@@ -47,8 +44,4 @@ const AuthButtons = (props: Props) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  isAuth: selectIsAuth,
-});
-
-export default connect(mapStateToProps)(AuthButtons);
+export default AuthButtons;
