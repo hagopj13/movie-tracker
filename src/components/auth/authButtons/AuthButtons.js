@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
 
 const AuthButtons = () => {
   const classes = useStyles();
-  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
+  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
 
-  const handleLoginDialogOpen = () => setLoginDialogOpen(true);
-  const handleLoginDialogClose = () => setLoginDialogOpen(false);
+  const handleLoginDialogOpen = () => setIsLoginDialogOpen(true);
+  const handleLoginDialogClose = () => setIsLoginDialogOpen(false);
 
   return (
     <div>
@@ -31,7 +31,7 @@ const AuthButtons = () => {
       <Button variant="contained" className={classes.button}>
         Logout
       </Button>
-      <LoginDialog open={loginDialogOpen} onClose={handleLoginDialogClose} />
+      <LoginDialog isOpen={isLoginDialogOpen} onClose={handleLoginDialogClose} />
     </div>
   );
 };

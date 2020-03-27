@@ -9,19 +9,20 @@ import Link from '@material-ui/core/Link';
 
 import DialogTitle from '../../common/dialog/dialogTitle/DialogTitle';
 import LoginForm from './loginForm/LoginForm';
-import { login } from '../../../store/auth/auth.actions';
+import { login, loginClear } from '../../../store/auth/auth.actions';
 import { selectIsAuth } from '../../../store/auth/auth.selectors';
 import AuthActionTypes from '../../../store/auth/auth.types';
 import { createIsLoadingSelector } from '../../../store/api/loading/loading.selectors';
 import { createErrorSelector } from '../../../store/api/error/error.selectors';
 
 type Props = {
-  open: boolean,
+  isOpen: boolean,
   isAuth: boolean,
   isLoginLoading: boolean,
   loginError: string,
   onClose: () => void,
   onLogin: ({ username: string, password: string }) => void,
+  onLoginClear: () => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +37,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginDialog = (props: Props) => {
-  const { isAuth, isLoginLoading, loginError, open, onClose } = props;
+  const { isOpen, isAuth, isLoginLoading, loginError, onClose, onLogin, onLoginClear } = props;
+
+  const classes = useStyles();
 
   useEffect(() => {
     if (isAuth) {
@@ -44,29 +47,29 @@ const LoginDialog = (props: Props) => {
     }
   }, [isAuth, onClose]);
 
-  const classes = useStyles();
+  useEffect(() => {
+    if (!isOpen) {
+      onLoginClear();
+    }
+  }, [isOpen, onLoginClear]);
 
-  const handleSubmit = (data) => {
-    props.onLogin(data);
-  };
+  const renderInfoText = () => (
+    <Typography className={classes.contentText}>
+      This app gets its data from the TMDb APIs. To view your account information, login with your
+      TMDb credentials in the form below. To create one,&nbsp;
+      <Link target="_blank" href="https://www.themoviedb.org/account/signup" color="primary">
+        click here
+      </Link>
+      .
+    </Typography>
+  );
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth={false}>
+    <Dialog open={isOpen} onClose={onClose} maxWidth={false}>
       <DialogTitle onClose={onClose}>Login</DialogTitle>
       <DialogContent className={classes.content}>
-        <Typography className={classes.contentText}>
-          This app gets its data from the TMDb APIs. To view your account information, login with
-          your TMDb credentials in the form below. To create one,&nbsp;
-          <Link target="_blank" href="https://www.themoviedb.org/account/signup" color="primary">
-            click here
-          </Link>
-          .
-        </Typography>
-        <LoginForm
-          isLoginLoading={isLoginLoading}
-          loginError={loginError}
-          onSubmit={handleSubmit}
-        />
+        {renderInfoText()}
+        <LoginForm isLoginLoading={isLoginLoading} loginError={loginError} onSubmit={onLogin} />
       </DialogContent>
     </Dialog>
   );
@@ -80,6 +83,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = {
   onLogin: login,
+  onLoginClear: loginClear,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginDialog);

@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   errorText: {
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(1.5),
   },
 }));
 
