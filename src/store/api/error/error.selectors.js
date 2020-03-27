@@ -8,5 +8,5 @@ export const createErrorSelector = (actions) =>
   createSelector(
     [selectError],
     (errorState) =>
-      actions.map((action) => errorState[action]).filter((errorMessage) => !!errorMessage)[0],
+      actions.map((action) => errorState[action]).filter((errorMessage) => !!errorMessage)[0] ?? '',
   );

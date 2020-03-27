@@ -4,11 +4,13 @@ import * as yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 import PasswordTextField from '../../../common/input/passwordTextField/PasswordTextField';
 
 type Props = {
   isLoginLoading: boolean,
+  loginError: string,
   onSubmit: (data) => void,
 };
 
@@ -19,8 +21,13 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(0.5),
     },
   },
-  submitButton: {
-    marginLeft: 'auto',
+  bottomContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  errorText: {
+    marginLeft: theme.spacing(2),
   },
 }));
 
@@ -30,7 +37,7 @@ const schema = yup.object().shape({
 });
 
 const LoginForm = (props: Props) => {
-  const { isLoginLoading, onSubmit } = props;
+  const { isLoginLoading, loginError, onSubmit } = props;
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onSubmit',
@@ -60,16 +67,21 @@ const LoginForm = (props: Props) => {
         error={!!errors.password}
         helperText={errors.password?.message ?? ' '}
       />
-      <Button
-        type="submit"
-        className={classes.submitButton}
-        size="large"
-        variant="outlined"
-        color="primary"
-        disabled={isLoginLoading}
-      >
-        Login
-      </Button>
+      <div className={classes.bottomContainer}>
+        <Typography color="error" className={classes.errorText}>
+          {loginError}
+        </Typography>
+        <Button
+          type="submit"
+          className={classes.submitButton}
+          size="large"
+          variant="outlined"
+          color="primary"
+          disabled={isLoginLoading}
+        >
+          Login
+        </Button>
+      </div>
     </form>
   );
 };

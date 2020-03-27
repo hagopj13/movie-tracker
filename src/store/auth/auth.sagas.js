@@ -17,7 +17,7 @@ export function* login({ payload: { username, password } }) {
 
     yield put(loginSuccess(createSessionData.session_id));
   } catch (error) {
-    yield put(loginFailure('Invalid credentials'));
+    yield put(loginFailure('Incorrect username or password'));
   }
 }
 

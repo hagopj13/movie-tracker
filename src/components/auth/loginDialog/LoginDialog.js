@@ -13,11 +13,13 @@ import { login } from '../../../store/auth/auth.actions';
 import { selectIsAuth } from '../../../store/auth/auth.selectors';
 import AuthActionTypes from '../../../store/auth/auth.types';
 import { createIsLoadingSelector } from '../../../store/api/loading/loading.selectors';
+import { createErrorSelector } from '../../../store/api/error/error.selectors';
 
 type Props = {
   open: boolean,
   isAuth: boolean,
   isLoginLoading: boolean,
+  loginError: string,
   onClose: () => void,
   onLogin: ({ username: string, password: string }) => void,
 };
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginDialog = (props: Props) => {
-  const { isAuth, isLoginLoading, open, onClose } = props;
+  const { isAuth, isLoginLoading, loginError, open, onClose } = props;
 
   useEffect(() => {
     if (isAuth) {
@@ -60,7 +62,11 @@ const LoginDialog = (props: Props) => {
           </Link>
           .
         </Typography>
-        <LoginForm isLoginLoading={isLoginLoading} onSubmit={handleSubmit} />
+        <LoginForm
+          isLoginLoading={isLoginLoading}
+          loginError={loginError}
+          onSubmit={handleSubmit}
+        />
       </DialogContent>
     </Dialog>
   );
@@ -69,6 +75,7 @@ const LoginDialog = (props: Props) => {
 const mapStateToProps = createStructuredSelector({
   isAuth: selectIsAuth,
   isLoginLoading: createIsLoadingSelector([AuthActionTypes.LOGIN]),
+  loginError: createErrorSelector([AuthActionTypes.LOGIN]),
 });
 
 const mapDispatchToProps = {
