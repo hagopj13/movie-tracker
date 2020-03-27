@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginDialog = (props: Props) => {
   const { isOpen, isAuth, isLoginLoading, loginError, onClose, onLogin, onLoginClear } = props;
-
   const classes = useStyles();
 
   useEffect(() => {
