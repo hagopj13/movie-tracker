@@ -46,12 +46,6 @@ const LoginDialog = (props: Props) => {
     }
   }, [isAuth, onClose]);
 
-  useEffect(() => {
-    if (!isOpen) {
-      onLoginClear();
-    }
-  }, [isOpen, onLoginClear]);
-
   const renderInfoText = () => (
     <Typography className={classes.contentText}>
       This app gets its data from the TMDb APIs. To view your account information, login with your
@@ -64,7 +58,7 @@ const LoginDialog = (props: Props) => {
   );
 
   return (
-    <Dialog open={isOpen} onClose={onClose} maxWidth={false}>
+    <Dialog open={isOpen} onClose={onClose} onExited={onLoginClear} maxWidth={false}>
       <DialogTitle onClose={onClose}>Login</DialogTitle>
       <DialogContent className={classes.content}>
         {renderInfoText()}
