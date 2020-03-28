@@ -3,8 +3,8 @@ import { MuiThemeProvider } from '@material-ui/core';
 import { Switch, Route } from 'react-router-dom';
 import 'normalize.css/normalize.css';
 
-import Header from './components/header/Header';
-import HomePage from './pages/homepage/HomePage';
+import Header from './components/Header/Header';
+import DiscoverPage from './pages/Discover/Discover';
 import theme from './styles/muiTheme';
 import './styles/global.scss';
 
@@ -13,7 +13,7 @@ const App = () => (
     <MuiThemeProvider theme={theme}>
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={DiscoverPage} />
       </Switch>
     </MuiThemeProvider>
   </div>

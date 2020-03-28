@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import PasswordTextField from '../../../common/input/passwordTextField/PasswordTextField';
+import PasswordTextField from '../../../../UI/Input/PasswordTextField/PasswordTextField';
 
 type Props = {
   isLoginLoading: boolean,

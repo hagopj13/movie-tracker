@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import './header.scss';
-import SearchField from '../searchField/SearchField';
-import Navigation from './navigation/Navigation';
-import AuthButtons from '../auth/authButtons/AuthButtons';
+import SearchField from '../Search/SearchField/SearchField';
+import Navigation from './Navigation/Navigation';
+import AuthButtons from '../Auth/Buttons/AuthButtons';
 import { selectIsAuth } from '../../store/auth/auth.selectors';
 
 type Props = {
