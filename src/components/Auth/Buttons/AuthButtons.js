@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import LoginDialog from '../Login/Dialog/LoginDialog';
+import { selectIsAuth } from '../../../store/auth/auth.selectors';
+import { showDialog } from '../../../store/ui/dialog/dialog.actions';
+import DialogTypes from '../../UI/Dialog/types';
 
 type Props = {
   isAuth: boolean,
+  onShowLoginDialog: () => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -16,12 +21,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AuthButtons = (props: Props) => {
-  const { isAuth } = props;
+  const { isAuth, onShowLoginDialog } = props;
   const classes = useStyles();
-  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
-
-  const handleLoginDialogOpen = () => setIsLoginDialogOpen(true);
-  const handleLoginDialogClose = () => setIsLoginDialogOpen(false);
 
   return (
     <div>
@@ -34,14 +35,21 @@ const AuthButtons = (props: Props) => {
           variant="contained"
           className={classes.button}
           color="primary"
-          onClick={handleLoginDialogOpen}
+          onClick={onShowLoginDialog}
         >
           Login
         </Button>
       )}
-      <LoginDialog isOpen={isLoginDialogOpen} onClose={handleLoginDialogClose} />
     </div>
   );
 };
 
-export default AuthButtons;
+const mapStateToProps = createStructuredSelector({
+  isAuth: selectIsAuth,
+});
+
+const mapDispatchToProps = {
+  onShowLoginDialog: () => showDialog(DialogTypes.LOGIN),
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthButtons);

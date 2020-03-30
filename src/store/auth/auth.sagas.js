@@ -2,6 +2,8 @@ import { takeLatest, all, call, put } from 'redux-saga/effects';
 
 import AuthActionTypes from './auth.types';
 import { loginStart, loginSuccess, loginFailure } from './auth.actions';
+import { hideDialog } from '../ui/dialog/dialog.actions';
+import DialogTypes from '../../components/UI/Dialog/types';
 import * as api from '../../api/tmdb';
 
 export function* login({ payload: { username, password } }) {
@@ -16,6 +18,7 @@ export function* login({ payload: { username, password } }) {
     });
 
     yield put(loginSuccess(createSessionData.session_id));
+    yield put(hideDialog(DialogTypes.LOGIN));
   } catch (error) {
     yield put(loginFailure('Incorrect username or password'));
   }

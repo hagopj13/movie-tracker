@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,15 +9,13 @@ import Link from '@material-ui/core/Link';
 
 import DialogTitle from '../../../UI/Dialog/Title/DialogTitle';
 import LoginForm from './Form/LoginForm';
-import { login, loginClear } from '../../../../store/auth/auth.actions';
-import { selectIsAuth } from '../../../../store/auth/auth.selectors';
 import AuthActionTypes from '../../../../store/auth/auth.types';
+import { login, loginClear } from '../../../../store/auth/auth.actions';
 import { createIsLoadingSelector } from '../../../../store/api/loading/loading.selectors';
 import { createErrorSelector } from '../../../../store/api/error/error.selectors';
 
 type Props = {
   isOpen: boolean,
-  isAuth: boolean,
   isLoginLoading: boolean,
   loginError: string,
   onClose: () => void,
@@ -37,14 +35,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginDialog = (props: Props) => {
-  const { isOpen, isAuth, isLoginLoading, loginError, onClose, onLogin, onLoginClear } = props;
+  const { isOpen, isLoginLoading, loginError, onClose, onLogin, onLoginClear } = props;
   const classes = useStyles();
-
-  useEffect(() => {
-    if (isAuth) {
-      onClose();
-    }
-  }, [isAuth, onClose]);
 
   const renderInfoText = () => (
     <Typography className={classes.contentText}>
@@ -58,7 +50,7 @@ const LoginDialog = (props: Props) => {
   );
 
   return (
-    <Dialog open={isOpen} onClose={onClose} onExited={onLoginClear} maxWidth={false}>
+    <Dialog open={isOpen} onClose={onClose} onExited={onLoginClear} disableRestoreFocus>
       <DialogTitle onClose={onClose}>Login</DialogTitle>
       <DialogContent className={classes.content}>
         {renderInfoText()}
@@ -69,7 +61,6 @@ const LoginDialog = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isAuth: selectIsAuth,
   isLoginLoading: createIsLoadingSelector([AuthActionTypes.LOGIN]),
   loginError: createErrorSelector([AuthActionTypes.LOGIN]),
 });
