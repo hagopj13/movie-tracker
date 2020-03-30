@@ -1,3 +1,4 @@
+// @flow
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -14,8 +15,8 @@ const DIALOG_COMPONENTS = {
 };
 
 type Props = {
-  dialogType: string | null,
-  dialogProps: { [key: string]: any },
+  dialogType: string,
+  dialogProps: any,
   onHideDialog: (dialogType: string) => void,
 };
 
@@ -52,7 +53,7 @@ const DialogRoot = (props: Props) => {
     return null;
   }
 
-  return <SelectedDialog isOpen={isOpen} onClose={handleHideDialog} {...dialogProps} />;
+  return <SelectedDialog isOpen={isOpen} onClose={handleHideDialog} {...(dialogProps: any)} />;
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -61,7 +62,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-  onHideDialog: (dialogType) => hideDialog(dialogType),
+  onHideDialog: hideDialog,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DialogRoot);

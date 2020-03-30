@@ -1,20 +1,21 @@
+// @flow
 import AuthActionTypes from './auth.types';
 
-export const login = ({ username, password }) => ({
+export const login = (loginData: { username: string, password: string }) => ({
   type: AuthActionTypes.LOGIN,
-  payload: { username, password },
+  payload: { ...loginData },
 });
 
 export const loginStart = () => ({
   type: AuthActionTypes.LOGIN_START,
 });
 
-export const loginSuccess = (sessionId) => ({
+export const loginSuccess = (sessionId: string) => ({
   type: AuthActionTypes.LOGIN_SUCCESS,
   payload: { sessionId },
 });
 
-export const loginFailure = (error) => ({
+export const loginFailure = (error: string) => ({
   type: AuthActionTypes.LOGIN_FAILURE,
   payload: { error },
 });

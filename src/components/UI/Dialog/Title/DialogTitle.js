@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import type { Node } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,7 +26,7 @@ const DialogTitle = (props: Props) => {
   const classes = useStyles();
 
   return (
-    <MuiDialogTitle disableTypography {...otherProps}>
+    <MuiDialogTitle disableTypography {...(otherProps: any)}>
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>

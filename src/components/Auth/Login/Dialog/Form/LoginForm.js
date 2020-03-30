@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -11,7 +12,7 @@ import PasswordTextField from 'components/UI/Input/PasswordTextField/PasswordTex
 type Props = {
   isLoginLoading: boolean,
   loginError: string,
-  onSubmit: (data) => void,
+  onSubmit: ({ username: string, password: string }) => void,
 };
 
 const useStyles = makeStyles((theme) => ({

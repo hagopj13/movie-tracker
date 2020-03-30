@@ -1,3 +1,4 @@
+// @flow
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -5,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
-const PasswordTextField = (props) => {
+const PasswordTextField = (props: any) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPasswordClick = () => setShowPassword(!showPassword);

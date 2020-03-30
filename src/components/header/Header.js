@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 
 import SearchField from 'components/Search/SearchField/SearchField';

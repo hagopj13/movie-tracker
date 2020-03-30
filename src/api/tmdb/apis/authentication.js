@@ -1,3 +1,4 @@
+// @flow
 import axios from '../axiosInstance';
 
 export const getRequestToken = () => axios.get('/authentication/token/new?s=s');
