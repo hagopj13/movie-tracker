@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-import DialogTitle from '../../../UI/Dialog/Title/DialogTitle';
+import Dialog from '../../../UI/Dialog/Dialog';
 import LoginForm from './Form/LoginForm';
 import AuthActionTypes from '../../../../store/auth/auth.types';
 import { login, loginClear } from '../../../../store/auth/auth.actions';
@@ -34,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const DIALOG_TITLE = 'Login';
+
 const LoginDialog = (props: Props) => {
   const { isOpen, isLoginLoading, loginError, onClose, onLogin, onLoginClear } = props;
   const classes = useStyles();
@@ -50,8 +51,7 @@ const LoginDialog = (props: Props) => {
   );
 
   return (
-    <Dialog open={isOpen} onClose={onClose} onExited={onLoginClear} disableRestoreFocus>
-      <DialogTitle onClose={onClose}>Login</DialogTitle>
+    <Dialog isOpen={isOpen} onClose={onClose} title={DIALOG_TITLE} onExited={onLoginClear}>
       <DialogContent className={classes.content}>
         {renderInfoText()}
         <LoginForm isLoginLoading={isLoginLoading} loginError={loginError} onSubmit={onLogin} />
