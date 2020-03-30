@@ -4,9 +4,9 @@ import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import { selectIsAuth } from '../../../store/auth/auth.selectors';
-import { showDialog } from '../../../store/ui/dialog/dialog.actions';
-import DialogTypes from '../../UI/Dialog/types';
+import DialogTypes from 'components/UI/Dialog/types';
+import { selectIsAuth } from 'store/auth/auth.selectors';
+import { showDialog } from 'store/ui/dialog/dialog.actions';
 
 type Props = {
   isAuth: boolean,

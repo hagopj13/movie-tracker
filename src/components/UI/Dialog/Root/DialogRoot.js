@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { useTheme } from '@material-ui/core/styles';
 
+import LoginDialog from 'components/Auth/Login/Dialog/LoginDialog';
+import { selectDialogType, selectDialogProps } from 'store/ui/dialog/dialog.selectors';
+import { hideDialog } from 'store/ui/dialog/dialog.actions';
+
 import DialogTypes from '../types';
-import { selectDialogType, selectDialogProps } from '../../../../store/ui/dialog/dialog.selectors';
-import { hideDialog } from '../../../../store/ui/dialog/dialog.actions';
-import LoginDialog from '../../../Auth/Login/Dialog/LoginDialog';
 
 const DIALOG_COMPONENTS = {
   [DialogTypes.LOGIN]: LoginDialog,

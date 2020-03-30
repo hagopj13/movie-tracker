@@ -1,10 +1,11 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 
+import * as api from 'api/tmdb';
+import DialogTypes from 'components/UI/Dialog/types';
+import { hideDialog } from 'store/ui/dialog/dialog.actions';
+
 import AuthActionTypes from './auth.types';
 import { loginStart, loginSuccess, loginFailure } from './auth.actions';
-import { hideDialog } from '../ui/dialog/dialog.actions';
-import DialogTypes from '../../components/UI/Dialog/types';
-import * as api from '../../api/tmdb';
 
 export function* login({ payload: { username, password } }) {
   yield put(loginStart());

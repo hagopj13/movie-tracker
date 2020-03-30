@@ -1,9 +1,10 @@
 import React from 'react';
 
+import SearchField from 'components/Search/SearchField/SearchField';
+import Navigation from 'components/Navigation/Navigation';
+import AuthButtons from 'components/Auth/Buttons/AuthButtons';
+
 import './header.scss';
-import SearchField from '../Search/SearchField/SearchField';
-import Navigation from './Navigation/Navigation';
-import AuthButtons from '../Auth/Buttons/AuthButtons';
 
 const Header = () => (
   <div className="header">

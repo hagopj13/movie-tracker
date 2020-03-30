@@ -6,12 +6,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-import Dialog from '../../../UI/Dialog/Dialog';
+import Dialog from 'components/UI/Dialog/Dialog';
+import AuthActionTypes from 'store/auth/auth.types';
+import { login, loginClear } from 'store/auth/auth.actions';
+import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
+import { createErrorSelector } from 'store/api/error/error.selectors';
+
 import LoginForm from './Form/LoginForm';
-import AuthActionTypes from '../../../../store/auth/auth.types';
-import { login, loginClear } from '../../../../store/auth/auth.actions';
-import { createIsLoadingSelector } from '../../../../store/api/loading/loading.selectors';
-import { createErrorSelector } from '../../../../store/api/error/error.selectors';
 
 type Props = {
   isOpen: boolean,
