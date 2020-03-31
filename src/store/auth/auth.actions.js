@@ -23,3 +23,20 @@ export const loginFailure = (error: string) => ({
 export const loginClear = () => ({
   type: AuthActionTypes.LOGIN_CLEAR,
 });
+
+export const logout = () => ({
+  type: AuthActionTypes.LOGOUT,
+});
+
+export const logoutStart = () => ({
+  type: AuthActionTypes.LOGOUT_START,
+});
+
+export const logoutSuccess = () => ({
+  type: AuthActionTypes.LOGOUT_SUCCESS,
+});
+
+export const logoutFailure = (error: string) => ({
+  type: AuthActionTypes.LOGOUT_FAILURE,
+  payload: { error },
+});

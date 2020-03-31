@@ -12,6 +12,11 @@ export default (state = initialState, action) => {
         ...state,
         sessionId: payload.sessionId,
       };
+    case AuthActionTypes.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        sessionId: null,
+      };
     default:
       return state;
   }

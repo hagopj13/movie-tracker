@@ -20,3 +20,9 @@ type CreateSessionBody = {
 };
 export const createSession = ({ requestToken }: CreateSessionBody) =>
   axios.post('/authentication/session/new', { request_token: requestToken });
+
+type DeleteSessionBody = {
+  sessionId: string,
+};
+export const deleteSession = ({ sessionId }: DeleteSessionBody) =>
+  axios.delete('/authentication/session', { data: { session_id: sessionId } });
