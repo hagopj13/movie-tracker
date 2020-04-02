@@ -9,7 +9,7 @@ export default createMuiTheme({
   },
   palette: {
     primary: {
-      main: colors.green,
+      main: colors.lightGreen,
     },
     common: {
       black: colors.black,

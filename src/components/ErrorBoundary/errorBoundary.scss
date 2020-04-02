@@ -1,0 +1,20 @@
+@import 'styles/colors';
+
+.imageOverlay {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorImage {
+  width: 40vh;
+  height: 40vh;
+}
+
+.errorImageText {
+  font-size: 2.8rem;
+  color: $lightGreen;
+}
