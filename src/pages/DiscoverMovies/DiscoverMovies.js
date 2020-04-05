@@ -21,7 +21,7 @@ const DiscoverMoviesPage = (props: Props) => {
   return (
     <div>
       {moviesList.map((movie) => (
-        <p key={movie.id}>{movie.original_title}</p>
+        <p key={movie.id}>{movie.title}</p>
       ))}
     </div>
   );

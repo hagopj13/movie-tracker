@@ -1,7 +1,7 @@
 // @flow
 import axios from '../axiosInstance';
 
-export const getRequestToken = () => axios.get('/authentication/token/new?s=s');
+export const getRequestToken = () => axios.get('/authentication/token/new');
 
 type PostLoginBody = {
   username: string,
