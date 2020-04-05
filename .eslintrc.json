@@ -8,7 +8,8 @@
     "implicit-arrow-linebreak": "off",
     "no-param-reassign": ["error", { "props": false }],
     "object-curly-newline": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "jsx-a11y/alt-text": "off"
   },
   "settings": {
     "import/resolver": {

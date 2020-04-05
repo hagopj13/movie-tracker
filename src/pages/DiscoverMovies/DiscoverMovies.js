@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { getDiscoverMovies } from 'store/movies/discover/discover.actions';
 import { selectDiscoverMoviesList } from 'store/movies/discover/discover.selectors';
+import PosterImage from 'components/UI/Image/PosterImage/PosterImage';
 
 type Props = {
   moviesList: any[],
@@ -21,7 +22,9 @@ const DiscoverMoviesPage = (props: Props) => {
   return (
     <div>
       {moviesList.map((movie) => (
-        <p key={movie.id}>{movie.title}</p>
+        <div key={movie.id}>
+          <PosterImage src={movie.poster_path} />
+        </div>
       ))}
     </div>
   );
