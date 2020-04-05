@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Spinner from 'components/UI/Spinner/Spinner';
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
-import DiscoverPage from 'pages/Discover/Discover';
+import DiscoverMoviesPage from 'pages/DiscoverMovies/DiscoverMovies';
 
 import PrivateRoute from './PrivateRoute';
 
@@ -14,7 +14,7 @@ const AppRoutes = () => (
   <Switch>
     <ErrorBoundary>
       <Suspense fallback={<Spinner />}>
-        <Route exact path="/" component={DiscoverPage} />
+        <Route exact path="/" component={DiscoverMoviesPage} />
         <PrivateRoute exact path="/profile" component={ProfilePage} />
       </Suspense>
     </ErrorBoundary>
