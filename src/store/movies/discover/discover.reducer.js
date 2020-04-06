@@ -1,3 +1,6 @@
+// @flow
+import { convertResultsToMoviesList } from 'store/movies/movies.utils';
+
 import DiscoverMoviesActionTypes from './discover.types';
 
 const initialState = {
@@ -13,9 +16,10 @@ export default (state = initialState, action) => {
         list: [],
       };
     case DiscoverMoviesActionTypes.GET_DISCOVER_MOVIES_SUCCESS:
+      console.log(convertResultsToMoviesList(payload.data.results));
       return {
         ...state,
-        list: payload.data.results,
+        list: convertResultsToMoviesList(payload.data.results),
       };
     default:
       return state;
