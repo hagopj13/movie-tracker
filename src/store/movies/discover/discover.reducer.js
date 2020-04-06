@@ -16,7 +16,6 @@ export default (state = initialState, action) => {
         list: [],
       };
     case DiscoverMoviesActionTypes.GET_DISCOVER_MOVIES_SUCCESS:
-      console.log(convertResultsToMoviesList(payload.data.results));
       return {
         ...state,
         list: convertResultsToMoviesList(payload.data.results),
