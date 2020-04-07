@@ -26,13 +26,13 @@ const App = (props: Props) => {
   }, [onCheckAuthState, onGetConfig]);
 
   return (
-    <div>
+    <>
       <MuiThemeProvider theme={theme}>
         <Header />
         <DialogRoot />
         <AppRoutes />
       </MuiThemeProvider>
-    </div>
+    </>
   );
 };
 

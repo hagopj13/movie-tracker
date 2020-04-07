@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -19,7 +20,7 @@ type Props = {
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 200,
+    width: 200,
   },
   media: {
     height: 300,
@@ -28,17 +29,22 @@ const useStyles = makeStyles({
 
 const MoviesListItem = (props: Props) => {
   const { movie, fullPosterPath } = props;
+
   const classes = useStyles();
+
+  const formattedDate = moment(movie.releaseDate).format('MMM D, YYYY');
+  const votesAverage = `Votes average: ${movie.voteAverage}`;
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia className={classes.media} image={fullPosterPath} />
         <CardContent>
-          <Typography glutterBottom variant="h6">
+          <Typography gutterBottom variant="h6">
             {movie.title}
           </Typography>
-          <Typography>{movie.releaseDate}</Typography>
+          <Typography>{formattedDate}</Typography>
+          <Typography>{votesAverage}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>

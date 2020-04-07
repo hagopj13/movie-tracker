@@ -11,7 +11,13 @@ type Props = {
 
 const MoviesList = (props: Props) => {
   const { moviesList } = props;
-  return moviesList.map((movie) => <MoviesListItem key={movie.id} movie={movie} />);
+  return (
+    <div>
+      {moviesList.map((movie) => (
+        <MoviesListItem key={movie.id} movie={movie} />
+      ))}
+    </div>
+  );
 };
 
 export default MoviesList;

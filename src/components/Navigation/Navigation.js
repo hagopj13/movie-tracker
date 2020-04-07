@@ -16,7 +16,7 @@ const Navigation = (props: Props) => {
   const { isAuth } = props;
 
   return (
-    <div className="navigation">
+    <div>
       <NavLink exact to="/" className="nav-link" activeClassName="nav-link-selected">
         Discover
       </NavLink>
