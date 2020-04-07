@@ -25,21 +25,27 @@ const useStyles = makeStyles((theme) => ({
   navigation: {
     flexGrow: 1,
   },
+  offsetToolbar: {
+    minHeight: 64,
+  },
 }));
 
 const Header = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="sticky" color="inherit" className={classes.root}>
-      <Toolbar className={classes.toolbar}>
-        <div className={classes.navigation}>
-          <Navigation />
-        </div>
-        <SearchField />
-        <AuthButtons />
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar color="inherit" className={classes.root}>
+        <Toolbar className={classes.toolbar}>
+          <div className={classes.navigation}>
+            <Navigation />
+          </div>
+          <SearchField />
+          <AuthButtons />
+        </Toolbar>
+      </AppBar>
+      <Toolbar className={classes.offsetToolbar} />
+    </>
   );
 };
 
