@@ -21,8 +21,8 @@ type Props = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    minWidth: 72,
     textTransform: 'none',
-    margin: theme.spacing(0, 0.5),
     '&$disabled': {
       backgroundColor: theme.palette.grey[300],
     },
@@ -35,7 +35,7 @@ const AuthButtons = (props: Props) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <>
       {isAuth ? (
         <Button
           variant="contained"
@@ -55,7 +55,7 @@ const AuthButtons = (props: Props) => {
           Login
         </Button>
       )}
-    </div>
+    </>
   );
 };
 

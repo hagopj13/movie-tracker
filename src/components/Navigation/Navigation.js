@@ -10,12 +10,16 @@ import { selectIsAuth } from 'store/auth/auth.selectors';
 
 type Props = {
   isAuth: boolean,
+  className: string,
 };
 
 const useStyles = makeStyles((theme) => ({
   navLink: {
     color: theme.palette.common.white,
-    margin: theme.spacing(0, 1),
+    marginRight: theme.spacing(2),
+    '&:last-child': {
+      marginRight: 0,
+    },
   },
   selectedNavLink: {
     color: theme.palette.primary.main,
@@ -23,12 +27,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navigation = (props: Props) => {
-  const { isAuth } = props;
+  const { isAuth, className } = props;
 
   const classes = useStyles();
 
   return (
-    <>
+    <div className={className}>
       <Link
         component={NavLink}
         exact
@@ -48,7 +52,7 @@ const Navigation = (props: Props) => {
           Profile
         </Link>
       )}
-    </>
+    </div>
   );
 };
 
