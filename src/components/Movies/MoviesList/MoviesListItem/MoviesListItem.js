@@ -21,6 +21,7 @@ type Props = {
 const useStyles = makeStyles({
   root: {
     width: 200,
+    minWidth: 200,
   },
   media: {
     height: 300,
