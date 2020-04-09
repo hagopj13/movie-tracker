@@ -2,12 +2,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
+import InfiniteScroll from 'components/UI/InfiniteScroll/InfiniteScroll';
 import type { MoviesListResult } from 'store/movies/movies.utils';
 
 import MoviesListItem from './MoviesListItem/MoviesListItem';
 
 type Props = {
   moviesList: MoviesListResult[],
+  onLoadMore: () => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -23,16 +25,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MoviesList = (props: Props) => {
-  const { moviesList } = props;
-
+  const { moviesList, onLoadMore } = props;
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      {moviesList.map((movie) => (
-        <MoviesListItem key={movie.id} movie={movie} />
-      ))}
-    </div>
+    <InfiniteScroll onLoadMore={onLoadMore}>
+      <div className={classes.root}>
+        {moviesList.map((movie) => (
+          <MoviesListItem key={movie.id} movie={movie} />
+        ))}
+      </div>
+    </InfiniteScroll>
   );
 };
 

@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,6 +38,10 @@ const DiscoverMoviesPage = (props: Props) => {
     onGetDiscoverMovies();
   }, [onGetDiscoverMovies]);
 
+  const handleLoadMore = useCallback(() => {
+    // add code here
+  }, []);
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -45,7 +49,7 @@ const DiscoverMoviesPage = (props: Props) => {
   return (
     <div className={classes.root}>
       <Container className={classes.container}>
-        <MoviesList moviesList={moviesList} />
+        <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
       </Container>
     </div>
   );
