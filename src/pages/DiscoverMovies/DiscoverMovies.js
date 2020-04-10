@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 
 import MoviesList from 'components/Movies/MoviesList/MoviesList';
 import Spinner from 'components/UI/Spinner/Spinner';
-import { getDiscoverMovies } from 'store/movies/discover/discover.actions';
+import { getDiscoverMovies, getMoreDiscoverMovies } from 'store/movies/discover/discover.actions';
 import { selectDiscoverMoviesList } from 'store/movies/discover/discover.selectors';
 import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
 import DiscoverMoviesActionTypes from 'store/movies/discover/discover.types';
@@ -16,7 +16,9 @@ import ConfigActionTypes from 'store/config/config.types';
 type Props = {
   moviesList: any[],
   isLoading: boolean,
+  isLoadingMore: boolean,
   onGetDiscoverMovies: () => void,
+  onGetMoreDiscoverMovies: () => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -25,12 +27,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   container: {
-    padding: theme.spacing(5),
+    padding: theme.spacing(5, 5, 1),
   },
 }));
 
 const DiscoverMoviesPage = (props: Props) => {
-  const { moviesList, isLoading, onGetDiscoverMovies } = props;
+  const {
+    moviesList,
+    isLoading,
+    isLoadingMore,
+    onGetDiscoverMovies,
+    onGetMoreDiscoverMovies,
+  } = props;
 
   const classes = useStyles();
 
@@ -39,8 +47,8 @@ const DiscoverMoviesPage = (props: Props) => {
   }, [onGetDiscoverMovies]);
 
   const handleLoadMore = useCallback(() => {
-    // add code here
-  }, []);
+    onGetMoreDiscoverMovies();
+  }, [onGetMoreDiscoverMovies]);
 
   if (isLoading) {
     return <Spinner />;
@@ -50,6 +58,7 @@ const DiscoverMoviesPage = (props: Props) => {
     <div className={classes.root}>
       <Container className={classes.container}>
         <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
+        {isLoadingMore && <Spinner />}
       </Container>
     </div>
   );
@@ -61,10 +70,12 @@ const mapStateToProps = createStructuredSelector({
     DiscoverMoviesActionTypes.GET_DISCOVER_MOVIES,
     ConfigActionTypes.GET_CONFIG,
   ]),
+  isLoadingMore: createIsLoadingSelector([DiscoverMoviesActionTypes.GET_MORE_DISCOVER_MOVIES]),
 });
 
 const mapDispatchToProps = {
   onGetDiscoverMovies: getDiscoverMovies,
+  onGetMoreDiscoverMovies: getMoreDiscoverMovies,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiscoverMoviesPage);

@@ -1,4 +1,8 @@
 // @flow
 import axios from '../axiosInstance';
 
-export const getDiscoverMovies = () => axios.get('/discover/movie');
+type GetDiscoverMoviesParams = {
+  page?: number,
+};
+export const getDiscoverMovies = (params: GetDiscoverMoviesParams) =>
+  axios.get('/discover/movie', { params });

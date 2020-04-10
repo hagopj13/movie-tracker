@@ -8,3 +8,13 @@ export const selectDiscoverMoviesList = createSelector(
   [selectDiscoverMovies],
   (discoverMovies) => discoverMovies.list,
 );
+
+export const selectDiscoverMoviesCurrentPage = createSelector(
+  [selectDiscoverMovies],
+  (discoverMovies) => discoverMovies.pagination.page ?? 1,
+);
+
+export const selectDiscoverMoviesTotalPages = createSelector(
+  [selectDiscoverMovies],
+  (discoverMovies) => discoverMovies.pagination.totalPages,
+);

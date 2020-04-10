@@ -10,7 +10,7 @@ type Props = {
 const InfiniteScroll = (props: Props) => {
   const { children, onLoadMore } = props;
 
-  const activationDistance = 50;
+  const activationDistance = 20;
   const handleScroll = useCallback(() => {
     const documentHeight = document.body.offsetHeight;
     const scrollHeight = window.innerHeight + window.scrollY;
