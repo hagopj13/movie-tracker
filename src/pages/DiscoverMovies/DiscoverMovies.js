@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useCallback } from 'react';
+import React, { useCallback, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
@@ -42,7 +42,7 @@ const DiscoverMoviesPage = (props: Props) => {
 
   const classes = useStyles();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     onGetDiscoverMovies();
   }, [onGetDiscoverMovies]);
 
