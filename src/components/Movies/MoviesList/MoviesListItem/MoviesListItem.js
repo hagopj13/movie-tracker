@@ -10,6 +10,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Rating from '@material-ui/lab/Rating';
 
 import { createPosterFullPathSelector } from 'store/config/config.selectors';
 import type { MoviesListResult } from 'store/movies/movies.utils';
@@ -19,7 +20,7 @@ type Props = {
   fullPosterPath: string,
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: 200,
     minWidth: 200,
@@ -28,7 +29,14 @@ const useStyles = makeStyles({
   media: {
     height: 300,
   },
-});
+  rating: {
+    display: 'flex',
+    marginTop: theme.spacing(0.75),
+  },
+  ratingText: {
+    marginLeft: theme.spacing(0.5),
+  },
+}));
 
 const MoviesListItem = (props: Props) => {
   const { movie, fullPosterPath } = props;
@@ -37,7 +45,6 @@ const MoviesListItem = (props: Props) => {
   const history = useHistory();
 
   const formattedDate = moment(movie.releaseDate).format('MMM D, YYYY');
-  const votesAverage = `Votes average: ${movie.voteAverage}`;
 
   const handleItemClick = useCallback(() => {
     history.push(`/movies/${movie.id}`);
@@ -52,7 +59,10 @@ const MoviesListItem = (props: Props) => {
             {movie.title}
           </Typography>
           <Typography>{formattedDate}</Typography>
-          <Typography>{votesAverage}</Typography>
+          <div className={classes.rating}>
+            <Rating value={movie.voteAverage} precision={0.5} readOnly />
+            <Typography className={classes.ratingText}>{movie.voteAverage}</Typography>
+          </div>
         </CardContent>
       </CardActionArea>
     </Card>

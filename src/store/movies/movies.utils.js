@@ -12,7 +12,7 @@ export const convertResultsToMoviesList = (results: any): MoviesListResult[] => 
     id: result.id,
     title: result.title,
     releaseDate: result.release_date,
-    voteAverage: result.vote_average,
+    voteAverage: result.vote_average / 2,
     posterPath: result.poster_path,
   }));
 };
