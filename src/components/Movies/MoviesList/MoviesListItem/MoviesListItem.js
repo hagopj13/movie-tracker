@@ -1,7 +1,8 @@
 // @flow
-import React from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
   root: {
     width: 200,
     minWidth: 200,
+    cursor: 'pointer',
   },
   media: {
     height: 300,
@@ -32,12 +34,17 @@ const MoviesListItem = (props: Props) => {
   const { movie, fullPosterPath } = props;
 
   const classes = useStyles();
+  const history = useHistory();
 
   const formattedDate = moment(movie.releaseDate).format('MMM D, YYYY');
   const votesAverage = `Votes average: ${movie.voteAverage}`;
 
+  const handleItemClick = useCallback(() => {
+    history.push(`/movies/${movie.id}`);
+  }, [history, movie]);
+
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={handleItemClick}>
       <CardActionArea>
         <CardMedia className={classes.media} image={fullPosterPath} />
         <CardContent>
