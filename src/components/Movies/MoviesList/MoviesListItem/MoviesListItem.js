@@ -51,7 +51,7 @@ const MoviesListItem = (props: Props) => {
   }, [history, movie]);
 
   return (
-    <Card className={classes.root} onClick={handleItemClick}>
+    <Card className={classes.root} elevation={3} onClick={handleItemClick}>
       <CardActionArea>
         <CardMedia className={classes.media} image={fullPosterPath} />
         <CardContent>

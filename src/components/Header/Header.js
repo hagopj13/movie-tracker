@@ -8,10 +8,11 @@ import Container from '@material-ui/core/Container';
 import SearchField from 'components/Search/SearchField/SearchField';
 import Navigation from 'components/Navigation/Navigation';
 import AuthButton from 'components/Auth/Buttons/AuthButton';
+import colors from 'styles/colors.scss';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: colors.darkBlue,
   },
   toolbar: {
     justifyContent: 'center',
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     padding: theme.spacing(0, 5),
     '& > *': {
-      marginLeft: theme.spacing(3),
+      marginLeft: theme.spacing(2.5),
     },
     '& > :first-child': {
       marginLeft: 0,
@@ -43,7 +44,7 @@ const Header = () => {
 
   return (
     <>
-      <AppBar color="inherit" className={classes.root}>
+      <AppBar className={classes.root} elevation={4}>
         <Toolbar className={classes.toolbar}>
           <Container className={classes.toolbarContent}>
             <Navigation className={classes.navigation} />

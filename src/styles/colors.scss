@@ -1,11 +1,15 @@
 $black: #0a0a0a;
-$dark-grey: #1d1d1d;
+$darkBlue: #072c4b;
+$darkGrey: #1d1d1d;
 $lightGreen: #4ebdb6;
+$offWhite: #fafafa;
 $white: #fff;
 
 :export {
   black: $black;
-  darkGrey: $dark-grey;
+  darkBlue: $darkBlue;
+  darkGrey: $darkGrey;
   lightGreen: $lightGreen;
+  offWhite: $offWhite;
   white: $white;
 }

@@ -23,11 +23,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 72,
     textTransform: 'none',
+    fontSize: 14,
     '&$disabled': {
-      backgroundColor: theme.palette.grey[300],
+      color: theme.palette.grey[300],
     },
   },
   disabled: {},
+  logout: {
+    color: theme.palette.common.white,
+  },
 }));
 
 const AuthButtons = (props: Props) => {
@@ -38,20 +42,14 @@ const AuthButtons = (props: Props) => {
     <>
       {isAuth ? (
         <Button
-          variant="contained"
+          classes={{ root: classes.root, disabled: classes.disabled, text: classes.logout }}
           disabled={isLogoutLoading}
-          classes={{ root: classes.root, disabled: classes.disabled }}
           onClick={onLogout}
         >
           Logout
         </Button>
       ) : (
-        <Button
-          variant="contained"
-          className={classes.root}
-          color="primary"
-          onClick={onShowLoginDialog}
-        >
+        <Button className={classes.root} color="primary" onClick={onShowLoginDialog}>
           Login
         </Button>
       )}
