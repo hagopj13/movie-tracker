@@ -49,20 +49,14 @@ export default (state = initialState, action) => {
           sortBy: payload.sortBy,
         },
       };
-    case DiscoverMoviesActionTypes.DISCOVER_MOVIES_ADD_GENRE_TO_FILTER_LIST:
+    case DiscoverMoviesActionTypes.DISCOVER_MOVIES_TOGGLE_GENRE_FILTER:
       return {
         ...state,
         filters: {
           ...state.filters,
-          genres: state.filters.genres.push(payload.genre),
-        },
-      };
-    case DiscoverMoviesActionTypes.DISCOVER_MOVIES_REMOVE_GENRE_FROM_FILTER_LIST:
-      return {
-        ...state,
-        filters: {
-          ...state.filters,
-          genres: state.filters.genres.filter((genreId) => genreId !== payload.genre),
+          genres: state.filters.genres.includes(payload.genre)
+            ? state.filters.genres.filter((genreId) => genreId !== payload.genre)
+            : state.filters.genres.concat(payload.genre),
         },
       };
     case DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_YEAR:

@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   moviesFiltersContainer: {
-    // flexGrow: 1,
+    maxWidth: 250,
+    marginRight: theme.spacing(2),
   },
   moviesListContainer: {
     flexGrow: 1,

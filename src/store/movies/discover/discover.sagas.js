@@ -27,7 +27,7 @@ export function* getDiscoverMoviesFilterParams() {
   return {
     sort_by: sortBy,
     ...(sortBy.includes('vote_average') && { 'vote_count.gte': 100 }),
-    ...(genres.length && { with_genres: genres }),
+    ...(genres.length && { with_genres: genres.join(',') }),
     ...(releaseYear && { year: releaseYear }),
   };
 }

@@ -41,8 +41,8 @@ export const setSortBy = (sortBy: string) => ({
   payload: { sortBy },
 });
 
-export const addGenreToFilterList = (genre: number) => ({
-  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_ADD_GENRE_TO_FILTER_LIST,
+export const toggleGenreFilter = (genre: number) => ({
+  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_TOGGLE_GENRE_FILTER,
   payload: { genre },
 });
 

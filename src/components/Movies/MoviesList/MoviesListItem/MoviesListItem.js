@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     backgroundColor: theme.palette.grey[200],
   },
-  brokenMedia: {},
   rating: {
     display: 'flex',
     marginTop: theme.spacing(0.75),

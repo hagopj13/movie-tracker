@@ -5,15 +5,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import FilterBox from 'components/UI/Filters/FilterBox/FilterBox';
 import FilterBoxItem from 'components/UI/Filters/FilterBox/FilterBoxItem/FilterBoxItem';
+import ChipsList from 'components/UI/ChipsList/ChipsList';
 import SortBySelect from './SortBySelect/SortBySelect';
 
 type Props = {
+  allGenres: Array<{ id: number, name: string }>,
   selectedSortBy: string,
-  // selectedGenres: number[],
+  selectedGenres: number[],
   // selectedReleaseYear: number,
   onSetSortBy: (string) => void,
-  // onAddGenre: (number) => void,
-  // onRemoveGenre: (number) => void,
+  onToggleGenre: (number) => void,
   // onSetReleaseYear: (number) => void,
 };
 
@@ -32,12 +33,12 @@ const useStyles = makeStyles((theme) => ({
 
 const MoviesFilters = (props: Props) => {
   const {
+    allGenres,
     selectedSortBy,
-    // selectedGenres,
+    selectedGenres,
     // selectedReleaseYear,
     onSetSortBy,
-    // onAddGenre,
-    // onRemoveGenre,
+    onToggleGenre,
     // onSetReleaseYear,
   } = props;
 
@@ -48,6 +49,11 @@ const MoviesFilters = (props: Props) => {
       <FilterBox title="Sort">
         <FilterBoxItem title="Sort by">
           <SortBySelect selectedValue={selectedSortBy} onChange={onSetSortBy} />
+        </FilterBoxItem>
+      </FilterBox>
+      <FilterBox title="Filters">
+        <FilterBoxItem title="Genres">
+          <ChipsList items={allGenres} selectedItems={selectedGenres} onItemClick={onToggleGenre} />
         </FilterBoxItem>
       </FilterBox>
     </div>

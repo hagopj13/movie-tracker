@@ -11,31 +11,31 @@ import {
 } from 'store/movies/discover/discover.selectors';
 import {
   setSortBy,
-  addGenreToFilterList,
-  removeGenreFromFilterList,
+  toggleGenreFilter,
   setReleaseYear,
 } from 'store/movies/discover/discover.actions';
+import { selectAllGenres } from 'store/config/config.selectors';
 
 type Props = {
+  allGenres: Array<{ id: number, name: string }>,
   selectedSortBy: string,
   selectedGenres: number[],
   selectedReleaseYear: number,
   onUpdateList: () => void,
   onSetSortBy: (string) => void,
-  onAddGenre: (number) => void,
-  onRemoveGenre: (number) => void,
+  onToggleGenre: (number) => void,
   onSetReleaseYear: (number) => void,
 };
 
 const DiscoverMoviesFilters = (props: Props) => {
   const {
+    allGenres,
     selectedSortBy,
     selectedGenres,
     selectedReleaseYear,
     onUpdateList,
     onSetSortBy,
-    onAddGenre,
-    onRemoveGenre,
+    onToggleGenre,
     onSetReleaseYear,
   } = props;
 
@@ -47,20 +47,29 @@ const DiscoverMoviesFilters = (props: Props) => {
     [onUpdateList, onSetSortBy],
   );
 
+  const handleToggleGenre = useCallback(
+    (genreId: number) => {
+      onToggleGenre(genreId);
+      onUpdateList();
+    },
+    [onUpdateList, onToggleGenre],
+  );
+
   return (
     <MoviesFilters
+      allGenres={allGenres}
       selectedSortBy={selectedSortBy}
       selectedGenres={selectedGenres}
       selectedReleaseYear={selectedReleaseYear}
       onSetSortBy={handleSetSortBy}
-      onAddGenre={onAddGenre}
-      onRemoveGenre={onRemoveGenre}
+      onToggleGenre={handleToggleGenre}
       onSetReleaseYear={onSetReleaseYear}
     />
   );
 };
 
 const mapStateToProps = createStructuredSelector({
+  allGenres: selectAllGenres,
   selectedSortBy: selectDiscoverMoviesSortByFilter,
   selectedGenres: selectDiscoverMoviesGenresFilter,
   selectedReleaseYear: selectDiscoverMoviesReleaseYearFilter,
@@ -68,8 +77,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = {
   onSetSortBy: setSortBy,
-  onAddGenre: addGenreToFilterList,
-  onRemoveGenre: removeGenreFromFilterList,
+  onToggleGenre: toggleGenreFilter,
   onSetReleaseYear: setReleaseYear,
 };
 
