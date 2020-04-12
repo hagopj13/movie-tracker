@@ -11,6 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
+import Image from '@material-ui/icons/Image';
 
 import { createPosterFullPathSelector } from 'store/config/config.selectors';
 import type { MoviesListResult } from 'store/movies/movies.utils';
@@ -29,6 +30,15 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 300,
   },
+  brokenMediaContainer: {
+    height: 300,
+    width: 200,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.palette.grey[200],
+  },
+  brokenMedia: {},
   rating: {
     display: 'flex',
     marginTop: theme.spacing(0.75),
@@ -44,16 +54,28 @@ const MoviesListItem = (props: Props) => {
   const classes = useStyles();
   const history = useHistory();
 
-  const formattedDate = moment(movie.releaseDate).format('MMM D, YYYY');
+  const formattedDate = movie.releaseDate
+    ? moment(movie.releaseDate).format('MMM D, YYYY')
+    : 'Unknown release date';
 
   const handleItemClick = useCallback(() => {
     history.push(`/movies/${movie.id}`);
   }, [history, movie]);
 
+  const renderMedia = () => {
+    return movie.posterPath ? (
+      <CardMedia className={classes.media} image={fullPosterPath} />
+    ) : (
+      <div className={classes.brokenMediaContainer}>
+        <Image fontSize="large" />
+      </div>
+    );
+  };
+
   return (
     <Card className={classes.root} elevation={3} onClick={handleItemClick}>
       <CardActionArea>
-        <CardMedia className={classes.media} image={fullPosterPath} />
+        {renderMedia()}
         <CardContent>
           <Typography gutterBottom variant="h6">
             {movie.title}
