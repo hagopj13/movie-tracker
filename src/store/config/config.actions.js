@@ -9,9 +9,9 @@ export const getConfigStart = () => ({
   type: ConfigActionTypes.GET_CONFIG_START,
 });
 
-export const getConfigSuccess = (data: any) => ({
+export const getConfigSuccess = (config: { imagesConfig: any, genres: string[] }) => ({
   type: ConfigActionTypes.GET_CONFIG_SUCCESS,
-  payload: { data },
+  payload: config,
 });
 
 export const getConfigFailure = (error: string) => ({

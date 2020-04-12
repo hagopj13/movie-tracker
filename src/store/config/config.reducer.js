@@ -2,9 +2,12 @@
 import ConfigActionTypes from './config.types';
 
 const initialState = {
-  baseImageUrl: '',
-  backdropSize: '',
-  posterSize: '',
+  images: {
+    baseImageUrl: '',
+    backdropSize: '',
+    posterSize: '',
+  },
+  genres: [],
 };
 
 const getDesiredSizeFromList = (desiredSize, sizesList) => {
@@ -20,9 +23,13 @@ export default (state = initialState, action) => {
     case ConfigActionTypes.GET_CONFIG_SUCCESS:
       return {
         ...state,
-        baseImageUrl: payload.data.images.secure_base_url,
-        backdropSize: getDesiredSizeFromList('w1280', payload.data.images.backdrop_sizes),
-        posterSize: getDesiredSizeFromList('w500', payload.data.images.poster_sizes),
+        images: {
+          ...state.images,
+          baseImageUrl: payload.imagesConfig.secure_base_url,
+          backdropSize: getDesiredSizeFromList('w1280', payload.imagesConfig.backdrop_sizes),
+          posterSize: getDesiredSizeFromList('w500', payload.imagesConfig.poster_sizes),
+        },
+        genres: payload.genres,
       };
     default:
       return state;

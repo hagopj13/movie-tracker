@@ -9,8 +9,15 @@ import { getConfigStart, getConfigSuccess, getConfigFailure } from './config.act
 export function* getConfig() {
   yield put(getConfigStart());
   try {
-    const { data } = yield call(api.getConfig);
-    yield put(getConfigSuccess(data));
+    const {
+      data: { images: imagesConfig },
+    } = yield call(api.getConfig);
+
+    const {
+      data: { genres },
+    } = yield call(api.getAllGenres);
+
+    yield put(getConfigSuccess({ imagesConfig, genres }));
   } catch (error) {
     yield put(getConfigFailure(error.status_message));
   }

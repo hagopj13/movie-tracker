@@ -2,11 +2,22 @@ import { createSelector } from 'reselect';
 
 export const selectConfig = (state) => state.config;
 
-export const selectBaseImageUrl = createSelector([selectConfig], (config) => config.baseImageUrl);
+export const selectImagesConfig = createSelector([selectConfig], (config) => config.images);
 
-export const selectBackdropSize = createSelector([selectConfig], (config) => config.backdropSize);
+export const selectBaseImageUrl = createSelector(
+  [selectImagesConfig],
+  (imagesConfig) => imagesConfig.baseImageUrl,
+);
 
-export const selectPosterSize = createSelector([selectConfig], (config) => config.posterSize);
+export const selectBackdropSize = createSelector(
+  [selectImagesConfig],
+  (imagesConfig) => imagesConfig.backdropSize,
+);
+
+export const selectPosterSize = createSelector(
+  [selectImagesConfig],
+  (imagesConfig) => imagesConfig.posterSize,
+);
 
 export const createBackdropFullPathSelector = (backdropPath: string) => {
   return createSelector(
@@ -21,3 +32,5 @@ export const createPosterFullPathSelector = (posterPath: string) => {
     (baseImageUrl, posterSize) => `${baseImageUrl}${posterSize}${posterPath}`,
   );
 };
+
+export const selectAllGenres = createSelector([selectConfig], (config) => config.genres);
