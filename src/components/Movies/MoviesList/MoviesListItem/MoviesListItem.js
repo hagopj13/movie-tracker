@@ -72,6 +72,17 @@ const MoviesListItem = (props: Props) => {
     );
   };
 
+  const renderRating = () => {
+    return movie.voteCount ? (
+      <>
+        <Rating value={movie.voteAverage} precision={0.5} readOnly />
+        <Typography className={classes.ratingText}>{movie.voteAverage}</Typography>
+      </>
+    ) : (
+      <Typography>Not rated yet</Typography>
+    );
+  };
+
   return (
     <Card className={classes.root} elevation={3} onClick={handleItemClick}>
       <CardActionArea>
@@ -81,10 +92,7 @@ const MoviesListItem = (props: Props) => {
             {movie.title}
           </Typography>
           <Typography>{formattedDate}</Typography>
-          <div className={classes.rating}>
-            <Rating value={movie.voteAverage} precision={0.5} readOnly />
-            <Typography className={classes.ratingText}>{movie.voteAverage}</Typography>
-          </div>
+          <div className={classes.rating}>{renderRating()}</div>
         </CardContent>
       </CardActionArea>
     </Card>

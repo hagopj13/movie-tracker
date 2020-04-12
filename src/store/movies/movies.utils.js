@@ -4,6 +4,7 @@ export type MoviesListResult = {
   title: string,
   releaseDate: string,
   voteAverage: number,
+  voteCount: number,
   posterPath: string,
 };
 
@@ -13,6 +14,7 @@ export const convertResultsToMoviesList = (results: any): MoviesListResult[] => 
     title: result.title,
     releaseDate: result.release_date,
     voteAverage: result.vote_average / 2,
+    voteCount: result.vote_count,
     posterPath: result.poster_path,
   }));
 };
