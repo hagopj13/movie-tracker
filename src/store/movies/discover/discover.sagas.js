@@ -15,12 +15,28 @@ import {
 import {
   selectDiscoverMoviesCurrentPage,
   selectDiscoverMoviesTotalPages,
+  selectDiscoverMoviesSortByFilter,
+  selectDiscoverMoviesGenresFilter,
+  selectDiscoverMoviesReleaseYearFilter,
 } from './discover.selectors';
+
+export function* getDiscoverMoviesFilterParams() {
+  const sortBy = yield select(selectDiscoverMoviesSortByFilter);
+  const genres = yield select(selectDiscoverMoviesGenresFilter);
+  const releaseYear = yield select(selectDiscoverMoviesReleaseYearFilter);
+  return {
+    sort_by: sortBy,
+    ...(sortBy.includes('vote_average') && { 'vote_count.gte': 100 }),
+    ...(genres.length && { with_genres: genres }),
+    ...(releaseYear && { year: releaseYear }),
+  };
+}
 
 export function* getDiscoverMovies() {
   yield put(getDiscoverMoviesStart());
   try {
-    const { data } = yield api.getDiscoverMovies();
+    const filterParams = yield getDiscoverMoviesFilterParams();
+    const { data } = yield api.getDiscoverMovies({ ...filterParams });
     yield put(getDiscoverMoviesSuccess(data));
   } catch (error) {
     yield put(getDiscoverMoviesFailure(error.status_message));
@@ -36,11 +52,12 @@ export function* getMoreDiscoverMovies() {
   );
   const currentPage = yield select(selectDiscoverMoviesCurrentPage);
   const totalPages = yield select(selectDiscoverMoviesTotalPages);
+  const filterParams = yield getDiscoverMoviesFilterParams();
 
   if (!isLoading && currentPage < totalPages) {
     yield put(getMoreDiscoverMoviesStart());
     try {
-      const { data } = yield api.getDiscoverMovies({ page: currentPage + 1 });
+      const { data } = yield api.getDiscoverMovies({ page: currentPage + 1, ...filterParams });
       yield put(getMoreDiscoverMoviesSuccess(data));
     } catch (error) {
       yield put(getMoreDiscoverMoviesFailure(error.status_message));

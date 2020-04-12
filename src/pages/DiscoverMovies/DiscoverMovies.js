@@ -13,8 +13,11 @@ import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
 import DiscoverMoviesActionTypes from 'store/movies/discover/discover.types';
 import ConfigActionTypes from 'store/config/config.types';
 
+import DiscoverMoviesFilters from './DiscoverMoviesFilters/DiscoverMoviesFilters';
+
 type Props = {
   moviesList: any[],
+  isLoadingConfig: boolean,
   isLoading: boolean,
   isLoadingMore: boolean,
   onGetDiscoverMovies: () => void,
@@ -28,12 +31,20 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     padding: theme.spacing(5, 5, 1),
+    display: 'flex',
+  },
+  moviesFiltersContainer: {
+    // flexGrow: 1,
+  },
+  moviesListContainer: {
+    flexGrow: 1,
   },
 }));
 
 const DiscoverMoviesPage = (props: Props) => {
   const {
     moviesList,
+    isLoadingConfig,
     isLoading,
     isLoadingMore,
     onGetDiscoverMovies,
@@ -50,15 +61,36 @@ const DiscoverMoviesPage = (props: Props) => {
     onGetMoreDiscoverMovies();
   }, [onGetMoreDiscoverMovies]);
 
-  if (isLoading) {
+  const handleUpdateList = useCallback(() => {
+    onGetDiscoverMovies();
+  }, [onGetDiscoverMovies]);
+
+  if (isLoadingConfig) {
     return <Spinner />;
   }
+
+  const renderList = () => {
+    return (
+      <div className={classes.moviesListContainer}>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
+            {isLoadingMore && <Spinner />}
+          </>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className={classes.root}>
       <Container className={classes.container}>
-        <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
-        {isLoadingMore && <Spinner />}
+        <div className={classes.moviesFiltersContainer}>
+          <DiscoverMoviesFilters onUpdateList={handleUpdateList} />
+        </div>
+        {renderList()}
       </Container>
     </div>
   );
@@ -66,10 +98,8 @@ const DiscoverMoviesPage = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   moviesList: selectDiscoverMoviesList,
-  isLoading: createIsLoadingSelector([
-    DiscoverMoviesActionTypes.GET_DISCOVER_MOVIES,
-    ConfigActionTypes.GET_CONFIG,
-  ]),
+  isLoadingConfig: createIsLoadingSelector([ConfigActionTypes.GET_CONFIG]),
+  isLoading: createIsLoadingSelector([DiscoverMoviesActionTypes.GET_DISCOVER_MOVIES]),
   isLoadingMore: createIsLoadingSelector([DiscoverMoviesActionTypes.GET_MORE_DISCOVER_MOVIES]),
 });
 

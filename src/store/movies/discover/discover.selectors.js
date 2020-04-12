@@ -18,3 +18,23 @@ export const selectDiscoverMoviesTotalPages = createSelector(
   [selectDiscoverMovies],
   (discoverMovies) => discoverMovies.pagination.totalPages,
 );
+
+export const selectDiscoverMoviesFilters = createSelector(
+  [selectDiscoverMovies],
+  (discoverMovies) => discoverMovies.filters,
+);
+
+export const selectDiscoverMoviesSortByFilter = createSelector(
+  [selectDiscoverMoviesFilters],
+  (filters) => filters.sortBy,
+);
+
+export const selectDiscoverMoviesGenresFilter = createSelector(
+  [selectDiscoverMoviesFilters],
+  (filters) => filters.genres,
+);
+
+export const selectDiscoverMoviesReleaseYearFilter = createSelector(
+  [selectDiscoverMoviesFilters],
+  (filters) => filters.releaseYear,
+);

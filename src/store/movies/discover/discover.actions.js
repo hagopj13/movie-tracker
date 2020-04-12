@@ -35,3 +35,23 @@ export const getMoreDiscoverMoviesFailure = (error: string) => ({
   type: DiscoverMoviesActionTypes.GET_MORE_DISCOVER_MOVIES_FAILURE,
   payload: { error },
 });
+
+export const setSortBy = (sortBy: string) => ({
+  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_SORT_BY,
+  payload: { sortBy },
+});
+
+export const addGenreToFilterList = (genre: number) => ({
+  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_ADD_GENRE_TO_FILTER_LIST,
+  payload: { genre },
+});
+
+export const removeGenreFromFilterList = (genre: number) => ({
+  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_REMOVE_GENRE_FROM_FILTER_LIST,
+  payload: { genre },
+});
+
+export const setReleaseYear = (releaseYear: number) => ({
+  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_YEAR,
+  payload: { releaseYear },
+});
