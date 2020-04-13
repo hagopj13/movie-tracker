@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useCallback } from 'react';
 import type { Moment } from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
@@ -16,8 +16,9 @@ type Props = {
   selectedGenres: number[],
   selectedReleaseDateStart: Moment,
   selectedReleaseDateEnd: Moment,
-  onSetSortBy: (string) => void,
-  onToggleGenre: (number) => void,
+  onFiltersChanged: () => void,
+  onSetSortBy: (sortBy: string) => void,
+  onToggleGenre: (genre: number) => void,
   onSetReleaseDateStart: (date: Moment) => void,
   onSetReleaseDateEnd: (date: Moment) => void,
 };
@@ -42,6 +43,7 @@ const MoviesFilters = (props: Props) => {
     selectedGenres,
     selectedReleaseDateStart,
     selectedReleaseDateEnd,
+    onFiltersChanged,
     onSetSortBy,
     onToggleGenre,
     onSetReleaseDateStart,
@@ -50,11 +52,43 @@ const MoviesFilters = (props: Props) => {
 
   const classes = useStyles();
 
+  const handleSetSortBy = useCallback(
+    (sortBy) => {
+      onSetSortBy(sortBy);
+      onFiltersChanged();
+    },
+    [onSetSortBy, onFiltersChanged],
+  );
+
+  const handleToggleGenre = useCallback(
+    (genre) => {
+      onToggleGenre(genre);
+      onFiltersChanged();
+    },
+    [onToggleGenre, onFiltersChanged],
+  );
+
+  const handleSetReleaseDateStart = useCallback(
+    (releaseDateStart) => {
+      onSetReleaseDateStart(releaseDateStart);
+      onFiltersChanged();
+    },
+    [onSetReleaseDateStart, onFiltersChanged],
+  );
+
+  const handleSetReleaseDateEnd = useCallback(
+    (releaseDateEnd) => {
+      onSetReleaseDateEnd(releaseDateEnd);
+      onFiltersChanged();
+    },
+    [onSetReleaseDateEnd, onFiltersChanged],
+  );
+
   return (
     <div className={classes.root}>
       <FilterBox title="Sort">
         <FilterBoxItem title="Sort by">
-          <SortBySelect selectedValue={selectedSortBy} onChange={onSetSortBy} />
+          <SortBySelect selectedValue={selectedSortBy} onChange={handleSetSortBy} />
         </FilterBoxItem>
       </FilterBox>
       <FilterBox title="Filters">
@@ -62,17 +96,21 @@ const MoviesFilters = (props: Props) => {
           <DatePicker
             label="Start"
             selectedDate={selectedReleaseDateStart}
-            onDateChange={onSetReleaseDateStart}
+            onDateChange={handleSetReleaseDateStart}
           />
           <DatePicker
             label="End"
             selectedDate={selectedReleaseDateEnd}
-            onDateChange={onSetReleaseDateEnd}
+            onDateChange={handleSetReleaseDateEnd}
           />
         </FilterBoxItem>
         <Divider light />
         <FilterBoxItem title="Genres">
-          <ChipsList items={allGenres} selectedItems={selectedGenres} onItemClick={onToggleGenre} />
+          <ChipsList
+            items={allGenres}
+            selectedItems={selectedGenres}
+            onItemClick={handleToggleGenre}
+          />
         </FilterBoxItem>
       </FilterBox>
     </div>

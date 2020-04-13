@@ -1,5 +1,5 @@
 // @flow
-import React, { useCallback } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import type { Moment } from 'moment';
@@ -36,38 +36,6 @@ const DiscoverMoviesFilters = (props: Props) => {
     onSetReleaseDateEnd,
   } = props;
 
-  const handleSetSortBy = useCallback(
-    (sortBy: string) => {
-      onSetSortBy(sortBy);
-      onUpdateResults();
-    },
-    [onUpdateResults, onSetSortBy],
-  );
-
-  const handleToggleGenre = useCallback(
-    (genreId: number) => {
-      onToggleGenre(genreId);
-      onUpdateResults();
-    },
-    [onUpdateResults, onToggleGenre],
-  );
-
-  const handleSetReleaseDateStart = useCallback(
-    (date: Moment) => {
-      onSetReleaseDateStart(date);
-      onUpdateResults();
-    },
-    [onUpdateResults, onSetReleaseDateStart],
-  );
-
-  const handleSetReleaseDateEnd = useCallback(
-    (date: Moment) => {
-      onSetReleaseDateEnd(date);
-      onUpdateResults();
-    },
-    [onUpdateResults, onSetReleaseDateEnd],
-  );
-
   return (
     <MoviesFilters
       allGenres={allGenres}
@@ -75,10 +43,11 @@ const DiscoverMoviesFilters = (props: Props) => {
       selectedGenres={selectedGenres}
       selectedReleaseDateStart={selectedReleaseDateStart}
       selectedReleaseDateEnd={selectedReleaseDateEnd}
-      onSetSortBy={handleSetSortBy}
-      onToggleGenre={handleToggleGenre}
-      onSetReleaseDateStart={handleSetReleaseDateStart}
-      onSetReleaseDateEnd={handleSetReleaseDateEnd}
+      onFiltersChanged={onUpdateResults}
+      onSetSortBy={onSetSortBy}
+      onToggleGenre={onToggleGenre}
+      onSetReleaseDateStart={onSetReleaseDateStart}
+      onSetReleaseDateEnd={onSetReleaseDateEnd}
     />
   );
 };
