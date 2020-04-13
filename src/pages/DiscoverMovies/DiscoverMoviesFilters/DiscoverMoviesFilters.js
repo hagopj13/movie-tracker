@@ -92,6 +92,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
+  onUpdateResults: discoverActions.fetchMovies,
   onSetSortBy: discoverActions.setSortBy,
   onToggleGenre: discoverActions.toggleGenre,
   onSetReleaseDateStart: discoverActions.setReleaseDateStart,
