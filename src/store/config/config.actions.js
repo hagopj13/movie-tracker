@@ -1,27 +1,49 @@
 // @flow
 import ConfigActionTypes from './config.types';
 
-const getConfig = () => ({
-  type: ConfigActionTypes.GET_CONFIG,
+const getImagesConfig = () => ({
+  type: ConfigActionTypes.GET_IMAGES_CONFIG,
 });
 
-const getConfigStart = () => ({
-  type: ConfigActionTypes.GET_CONFIG_START,
+const getImagesConfigStart = () => ({
+  type: ConfigActionTypes.GET_IMAGES_CONFIG_START,
 });
 
-const getConfigSuccess = (config: { imagesConfig: any, genres: string[] }) => ({
-  type: ConfigActionTypes.GET_CONFIG_SUCCESS,
-  payload: config,
+const getImagesConfigSuccess = (data: any) => ({
+  type: ConfigActionTypes.GET_IMAGES_CONFIG_SUCCESS,
+  payload: { data },
 });
 
-const getConfigFailure = (error: string) => ({
-  type: ConfigActionTypes.GET_CONFIG_FAILURE,
+const getImagesConfigFailure = (error: string) => ({
+  type: ConfigActionTypes.GET_IMAGES_CONFIG_FAILURE,
+  payload: { error },
+});
+
+const getAllGenres = () => ({
+  type: ConfigActionTypes.GET_ALL_GENRES,
+});
+
+const getAllGenresStart = () => ({
+  type: ConfigActionTypes.GET_ALL_GENRES_START,
+});
+
+const getAllGenresSuccess = (data: any) => ({
+  type: ConfigActionTypes.GET_ALL_GENRES_SUCCESS,
+  payload: { data },
+});
+
+const getAllGenresFailure = (error: string) => ({
+  type: ConfigActionTypes.GET_ALL_GENRES_FAILURE,
   payload: { error },
 });
 
 export default {
-  getConfig,
-  getConfigStart,
-  getConfigSuccess,
-  getConfigFailure,
+  getImagesConfig,
+  getImagesConfigStart,
+  getImagesConfigSuccess,
+  getImagesConfigFailure,
+  getAllGenres,
+  getAllGenresStart,
+  getAllGenresSuccess,
+  getAllGenresFailure,
 };

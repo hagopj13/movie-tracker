@@ -9,12 +9,14 @@ import Spinner from 'components/UI/Spinner/Spinner';
 import discoverActions from 'store/discover/discover.actions';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
+import configActions from 'store/config/config.actions';
 
 import DiscoverMoviesList from './DiscoverMoviesList/DiscoverMoviesList';
 import DiscoverMoviesFilters from './DiscoverMoviesFilters/DiscoverMoviesFilters';
 
 type Props = {
   isLoadingConfig: boolean,
+  onGetAllGenres: () => void,
   onFetchMovies: () => void,
 };
 
@@ -37,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DiscoverMoviesPage = (props: Props) => {
-  const { isLoadingConfig, onFetchMovies } = props;
+  const { isLoadingConfig, onGetAllGenres, onFetchMovies } = props;
 
   const classes = useStyles();
 
   useLayoutEffect(() => {
+    onGetAllGenres();
     onFetchMovies();
-  }, [onFetchMovies]);
+  }, [onGetAllGenres, onFetchMovies]);
 
   if (isLoadingConfig) {
     return <Spinner />;
@@ -64,10 +67,14 @@ const DiscoverMoviesPage = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isLoadingConfig: loadingSelectors.createIsLoadingSelector([ConfigActionTypes.GET_CONFIG]),
+  isLoadingConfig: loadingSelectors.createIsLoadingSelector([
+    ConfigActionTypes.GET_IMAGES_CONFIG,
+    ConfigActionTypes.GET_ALL_GENRES,
+  ]),
 });
 
 const mapDispatchToProps = {
+  onGetAllGenres: configActions.getAllGenres,
   onFetchMovies: discoverActions.fetchMovies,
 };
 

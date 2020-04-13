@@ -20,16 +20,20 @@ const getDesiredSizeFromList = (desiredSize, sizesList) => {
 export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case ConfigActionTypes.GET_CONFIG_SUCCESS:
+    case ConfigActionTypes.GET_IMAGES_CONFIG_SUCCESS:
       return {
         ...state,
         images: {
           ...state.images,
-          baseImageUrl: payload.imagesConfig.secure_base_url,
-          backdropSize: getDesiredSizeFromList('w1280', payload.imagesConfig.backdrop_sizes),
-          posterSize: getDesiredSizeFromList('w500', payload.imagesConfig.poster_sizes),
+          baseImageUrl: payload.data.secure_base_url,
+          backdropSize: getDesiredSizeFromList('w1280', payload.data.backdrop_sizes),
+          posterSize: getDesiredSizeFromList('w500', payload.data.poster_sizes),
         },
-        genres: payload.genres,
+      };
+    case ConfigActionTypes.GET_ALL_GENRES_SUCCESS:
+      return {
+        ...state,
+        genres: payload.data,
       };
     default:
       return state;

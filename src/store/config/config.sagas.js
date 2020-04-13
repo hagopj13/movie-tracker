@@ -6,27 +6,34 @@ import * as api from 'api/tmdb';
 import ConfigActionTypes from './config.types';
 import configActions from './config.actions';
 
-function* getConfig() {
-  yield put(configActions.getConfigStart());
+function* getImagesConfig() {
+  yield put(configActions.getImagesConfigStart());
   try {
-    const {
-      data: { images: imagesConfig },
-    } = yield call(api.getConfig);
-
-    const {
-      data: { genres },
-    } = yield call(api.getAllGenres);
-
-    yield put(configActions.getConfigSuccess({ imagesConfig, genres }));
+    const { data } = yield call(api.getConfig);
+    yield put(configActions.getImagesConfigSuccess(data.images));
   } catch (error) {
-    yield put(configActions.getConfigFailure(error.status_message));
+    yield put(configActions.getImagesConfigFailure(error.status_message));
   }
 }
 
-function* onGetConfig() {
-  yield takeLatest(ConfigActionTypes.GET_CONFIG, getConfig);
+function* getAllGenres() {
+  yield put(configActions.getAllGenresStart());
+  try {
+    const { data } = yield call(api.getAllGenres);
+    yield put(configActions.getAllGenresSuccess(data.genres));
+  } catch (error) {
+    yield put(configActions.getAllGenresFailure(error.status_message));
+  }
+}
+
+function* onGetImagesConfig() {
+  yield takeLatest(ConfigActionTypes.GET_IMAGES_CONFIG, getImagesConfig);
+}
+
+function* onGetAllGenres() {
+  yield takeLatest(ConfigActionTypes.GET_ALL_GENRES, getAllGenres);
 }
 
 export default function* configSagas() {
-  yield all([call(onGetConfig)]);
+  yield all([call(onGetImagesConfig), call(onGetAllGenres)]);
 }
