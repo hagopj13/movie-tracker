@@ -9,9 +9,9 @@ import Link from '@material-ui/core/Link';
 
 import Dialog from 'components/UI/Dialog/Dialog';
 import AuthActionTypes from 'store/auth/auth.types';
-import { login, loginClear } from 'store/auth/auth.actions';
-import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
-import { createErrorSelector } from 'store/api/error/error.selectors';
+import authActions from 'store/auth/auth.actions';
+import loadingSelectors from 'store/api/loading/loading.selectors';
+import errorSelectors from 'store/api/error/error.selectors';
 
 import LoginForm from './Form/LoginForm';
 
@@ -63,13 +63,13 @@ const LoginDialog = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isLoginLoading: createIsLoadingSelector([AuthActionTypes.LOGIN]),
-  loginError: createErrorSelector([AuthActionTypes.LOGIN]),
+  isLoginLoading: loadingSelectors.createIsLoadingSelector([AuthActionTypes.LOGIN]),
+  loginError: errorSelectors.createErrorSelector([AuthActionTypes.LOGIN]),
 });
 
 const mapDispatchToProps = {
-  onLogin: login,
-  onLoginClear: loginClear,
+  onLogin: authActions.login,
+  onLoginClear: authActions.loginClear,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginDialog);

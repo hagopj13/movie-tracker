@@ -2,22 +2,15 @@ import { takeLatest, all, call, put, select } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
 import DialogTypes from 'components/UI/Dialog/types';
-import { hideDialog } from 'store/ui/dialog/dialog.actions';
+import dialogActions from 'store/ui/dialog/dialog.actions';
 import LocalStorageService from 'services/LocalStorageService';
 
 import AuthActionTypes from './auth.types';
-import {
-  loginStart,
-  loginSuccess,
-  loginFailure,
-  logoutStart,
-  logoutSuccess,
-  logoutFailure,
-} from './auth.actions';
-import { selectSessionId } from './auth.selectors';
+import authActions from './auth.actions';
+import authSelectors from './auth.selectors';
 
-export function* login({ payload: { username, password } }) {
-  yield put(loginStart());
+function* login({ payload: { username, password } }) {
+  yield put(authActions.loginStart());
   try {
     const {
       data: { request_token: requestToken },
@@ -30,43 +23,43 @@ export function* login({ payload: { username, password } }) {
     } = yield call(api.createSession, { requestToken });
 
     yield call(LocalStorageService.setItem, 'sessionId', sessionId);
-    yield put(loginSuccess(sessionId));
-    yield put(hideDialog(DialogTypes.LOGIN));
+    yield put(authActions.loginSuccess(sessionId));
+    yield put(dialogActions.hideDialog(DialogTypes.LOGIN));
   } catch (error) {
-    yield put(loginFailure('Incorrect username or password'));
+    yield put(authActions.loginFailure('Incorrect username or password'));
   }
 }
 
-export function* logout() {
-  yield put(logoutStart());
+function* logout() {
+  yield put(authActions.logoutStart());
   try {
-    const sessionId = yield select(selectSessionId);
+    const sessionId = yield select(authSelectors.selectSessionId);
     yield call(api.deleteSession, { sessionId });
     yield call(LocalStorageService.removeItem, 'sessionId');
-    yield put(logoutSuccess());
+    yield put(authActions.logoutSuccess());
   } catch (error) {
-    yield put(logoutFailure(error.status_message));
+    yield put(authActions.logoutFailure(error.status_message));
   }
 }
 
-export function* checkAuthState() {
+function* checkAuthState() {
   const sessionId = yield call(LocalStorageService.getItem, 'sessionId');
   if (sessionId) {
-    yield put(loginSuccess(sessionId));
+    yield put(authActions.loginSuccess(sessionId));
   } else {
-    yield put(logoutSuccess());
+    yield put(authActions.logoutSuccess());
   }
 }
 
-export function* onLogin() {
+function* onLogin() {
   yield takeLatest(AuthActionTypes.LOGIN, login);
 }
 
-export function* onLogout() {
+function* onLogout() {
   yield takeLatest(AuthActionTypes.LOGOUT, logout);
 }
 
-export function* onCheckAuthState() {
+function* onCheckAuthState() {
   yield takeLatest(AuthActionTypes.CHECK_AUTH_STATE, checkAuthState);
 }
 

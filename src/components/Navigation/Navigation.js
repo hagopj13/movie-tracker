@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 
-import { selectIsAuth } from 'store/auth/auth.selectors';
+import authSelectors from 'store/auth/auth.selectors';
 
 type Props = {
   isAuth: boolean,
@@ -57,7 +57,7 @@ const Navigation = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isAuth: selectIsAuth,
+  isAuth: authSelectors.selectIsAuth,
 });
 
 export default connect(mapStateToProps)(Navigation);

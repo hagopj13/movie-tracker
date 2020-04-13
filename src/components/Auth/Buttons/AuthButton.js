@@ -6,11 +6,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 import DialogTypes from 'components/UI/Dialog/types';
-import { selectIsAuth } from 'store/auth/auth.selectors';
-import { logout } from 'store/auth/auth.actions';
+import authSelectors from 'store/auth/auth.selectors';
+import authActions from 'store/auth/auth.actions';
 import AuthActionTypes from 'store/auth/auth.types';
-import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
-import { showDialog } from 'store/ui/dialog/dialog.actions';
+import loadingSelectors from 'store/api/loading/loading.selectors';
+import dialogActions from 'store/ui/dialog/dialog.actions';
 
 type Props = {
   isAuth: boolean,
@@ -58,13 +58,13 @@ const AuthButtons = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isAuth: selectIsAuth,
-  isLogoutLoading: createIsLoadingSelector([AuthActionTypes.LOGOUT]),
+  isAuth: authSelectors.selectIsAuth,
+  isLogoutLoading: loadingSelectors.createIsLoadingSelector([AuthActionTypes.LOGOUT]),
 });
 
 const mapDispatchToProps = {
-  onLogout: logout,
-  onShowLoginDialog: () => showDialog(DialogTypes.LOGIN),
+  onLogout: authActions.logout,
+  onShowLoginDialog: () => dialogActions.showDialog(DialogTypes.LOGIN),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthButtons);

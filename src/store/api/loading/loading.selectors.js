@@ -1,8 +1,12 @@
 import { createSelector } from 'reselect';
 
-import { selectApi } from '../api.selectors';
+import apiSelectors from '../api.selectors';
 
-const selectLoading = createSelector([selectApi], (api) => api.loading);
+const selectLoading = createSelector([apiSelectors.selectApi], (api) => api.loading);
 
-export const createIsLoadingSelector = (actions) =>
+const createIsLoadingSelector = (actions) =>
   createSelector([selectLoading], (loadingState) => actions.some((action) => loadingState[action]));
+
+export default {
+  createIsLoadingSelector,
+};

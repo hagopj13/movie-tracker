@@ -1,46 +1,59 @@
 // @flow
 import AuthActionTypes from './auth.types';
 
-export const login = (loginData: { username: string, password: string }) => ({
+const login = (loginData: { username: string, password: string }) => ({
   type: AuthActionTypes.LOGIN,
   payload: { ...loginData },
 });
 
-export const loginStart = () => ({
+const loginStart = () => ({
   type: AuthActionTypes.LOGIN_START,
 });
 
-export const loginSuccess = (sessionId: string) => ({
+const loginSuccess = (sessionId: string) => ({
   type: AuthActionTypes.LOGIN_SUCCESS,
   payload: { sessionId },
 });
 
-export const loginFailure = (error: string) => ({
+const loginFailure = (error: string) => ({
   type: AuthActionTypes.LOGIN_FAILURE,
   payload: { error },
 });
 
-export const loginClear = () => ({
+const loginClear = () => ({
   type: AuthActionTypes.LOGIN_CLEAR,
 });
 
-export const logout = () => ({
+const logout = () => ({
   type: AuthActionTypes.LOGOUT,
 });
 
-export const logoutStart = () => ({
+const logoutStart = () => ({
   type: AuthActionTypes.LOGOUT_START,
 });
 
-export const logoutSuccess = () => ({
+const logoutSuccess = () => ({
   type: AuthActionTypes.LOGOUT_SUCCESS,
 });
 
-export const logoutFailure = (error: string) => ({
+const logoutFailure = (error: string) => ({
   type: AuthActionTypes.LOGOUT_FAILURE,
   payload: { error },
 });
 
-export const checkAuthState = () => ({
+const checkAuthState = () => ({
   type: AuthActionTypes.CHECK_AUTH_STATE,
 });
+
+export default {
+  login,
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  loginClear,
+  logout,
+  logoutStart,
+  logoutSuccess,
+  logoutFailure,
+  checkAuthState,
+};

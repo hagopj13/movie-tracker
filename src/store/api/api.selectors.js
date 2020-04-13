@@ -1,1 +1,5 @@
-export const selectApi = (state) => state.api;
+const selectApi = (state) => state.api;
+
+export default {
+  selectApi,
+};

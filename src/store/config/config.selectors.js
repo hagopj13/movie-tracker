@@ -1,36 +1,42 @@
 import { createSelector } from 'reselect';
 
-export const selectConfig = (state) => state.config;
+const selectConfig = (state) => state.config;
 
-export const selectImagesConfig = createSelector([selectConfig], (config) => config.images);
+const selectImagesConfig = createSelector([selectConfig], (config) => config.images);
 
-export const selectBaseImageUrl = createSelector(
+const selectBaseImageUrl = createSelector(
   [selectImagesConfig],
   (imagesConfig) => imagesConfig.baseImageUrl,
 );
 
-export const selectBackdropSize = createSelector(
+const selectBackdropSize = createSelector(
   [selectImagesConfig],
   (imagesConfig) => imagesConfig.backdropSize,
 );
 
-export const selectPosterSize = createSelector(
+const selectPosterSize = createSelector(
   [selectImagesConfig],
   (imagesConfig) => imagesConfig.posterSize,
 );
 
-export const createBackdropFullPathSelector = (backdropPath: string) => {
+const createBackdropFullPathSelector = (backdropPath: string) => {
   return createSelector(
     [selectBaseImageUrl, selectBackdropSize],
     (baseImageUrl, backdropSize) => `${baseImageUrl}${backdropSize}${backdropPath}`,
   );
 };
 
-export const createPosterFullPathSelector = (posterPath: string) => {
+const createPosterFullPathSelector = (posterPath: string) => {
   return createSelector(
     [selectBaseImageUrl, selectPosterSize],
     (baseImageUrl, posterSize) => `${baseImageUrl}${posterSize}${posterPath}`,
   );
 };
 
-export const selectAllGenres = createSelector([selectConfig], (config) => config.genres);
+const selectAllGenres = createSelector([selectConfig], (config) => config.genres);
+
+export default {
+  createBackdropFullPathSelector,
+  createPosterFullPathSelector,
+  selectAllGenres,
+};

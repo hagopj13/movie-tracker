@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 
 import Spinner from 'components/UI/Spinner/Spinner';
 import discoverActions from 'store/discover/discover.actions';
-import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
+import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 
 import DiscoverMoviesList from './DiscoverMoviesList/DiscoverMoviesList';
@@ -64,7 +64,7 @@ const DiscoverMoviesPage = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isLoadingConfig: createIsLoadingSelector([ConfigActionTypes.GET_CONFIG]),
+  isLoadingConfig: loadingSelectors.createIsLoadingSelector([ConfigActionTypes.GET_CONFIG]),
 });
 
 const mapDispatchToProps = {

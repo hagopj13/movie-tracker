@@ -1,13 +1,13 @@
 import { all, call, takeLatest, takeEvery, put, select } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
-import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
+import loadingSelectors from 'store/api/loading/loading.selectors';
 
 import DiscoverActionTypes from './discover.types';
 import discoverActions from './discover.actions';
 import discoverSelectors from './discover.selectors';
 
-export function* getFilterParams() {
+function* getFilterParams() {
   const sortBy = yield select(discoverSelectors.selectSortBy);
   const genres = yield select(discoverSelectors.selectGenres);
   const releaseDateStart = yield select(discoverSelectors.selectReleaseDateStart);
@@ -21,7 +21,7 @@ export function* getFilterParams() {
   };
 }
 
-export function* fetchMovies() {
+function* fetchMovies() {
   yield put(discoverActions.fetchMoviesStart());
   try {
     const filterParams = yield getFilterParams();
@@ -32,9 +32,9 @@ export function* fetchMovies() {
   }
 }
 
-export function* fetchMoreMovies() {
+function* fetchMoreMovies() {
   const isLoading = yield select(
-    createIsLoadingSelector([
+    loadingSelectors.createIsLoadingSelector([
       DiscoverActionTypes.FETCH_MOVIES,
       DiscoverActionTypes.FETCH_MORE_MOVIES,
     ]),
@@ -54,11 +54,11 @@ export function* fetchMoreMovies() {
   }
 }
 
-export function* onFetchMovies() {
+function* onFetchMovies() {
   yield takeLatest(DiscoverActionTypes.FETCH_MOVIES, fetchMovies);
 }
 
-export function* onFetchMoreMovies() {
+function* onFetchMoreMovies() {
   yield takeEvery(DiscoverActionTypes.FETCH_MORE_MOVIES, fetchMoreMovies);
 }
 

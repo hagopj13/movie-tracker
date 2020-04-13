@@ -8,7 +8,7 @@ import Spinner from 'components/UI/Spinner/Spinner';
 import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import DiscoverActionTypes from 'store/discover/discover.types';
-import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
+import loadingSelectors from 'store/api/loading/loading.selectors';
 
 type Props = {
   moviesResults: any[],
@@ -38,8 +38,8 @@ const DiscoverMoviesList = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   moviesResults: discoverSelectors.selectResults,
-  isLoading: createIsLoadingSelector([DiscoverActionTypes.FETCH_MOVIES]),
-  isLoadingMore: createIsLoadingSelector([DiscoverActionTypes.FETCH_MORE_MOVIES]),
+  isLoading: loadingSelectors.createIsLoadingSelector([DiscoverActionTypes.FETCH_MOVIES]),
+  isLoadingMore: loadingSelectors.createIsLoadingSelector([DiscoverActionTypes.FETCH_MORE_MOVIES]),
 });
 
 const mapDispatchToProps = {

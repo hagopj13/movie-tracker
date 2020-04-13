@@ -7,8 +7,8 @@ import 'normalize.css/normalize.css';
 import Header from 'components/Header/Header';
 import DialogRoot from 'components/UI/Dialog/Root/DialogRoot';
 import AppRoutes from 'routes/AppRoutes';
-import { checkAuthState } from 'store/auth/auth.actions';
-import { getConfig } from 'store/config/config.actions';
+import authActions from 'store/auth/auth.actions';
+import configActions from 'store/config/config.actions';
 import theme from 'styles/muiTheme';
 import 'styles/global.scss';
 
@@ -37,8 +37,8 @@ const App = (props: Props) => {
 };
 
 const mapDispatchToProps = {
-  onCheckAuthState: checkAuthState,
-  onGetConfig: getConfig,
+  onCheckAuthState: authActions.checkAuthState,
+  onGetConfig: configActions.getConfig,
 };
 
 export default connect(null, mapDispatchToProps)(App);

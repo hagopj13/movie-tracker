@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Route, Redirect } from 'react-router-dom';
 
-import { selectIsAuth } from 'store/auth/auth.selectors';
+import authSelectors from 'store/auth/auth.selectors';
 
 type Props = {
   isAuth: boolean,
@@ -23,7 +23,7 @@ const PrivateRoute = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isAuth: selectIsAuth,
+  isAuth: authSelectors.selectIsAuth,
 });
 
 export default connect(mapStateToProps)(PrivateRoute);

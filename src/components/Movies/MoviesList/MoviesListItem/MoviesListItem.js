@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import Image from '@material-ui/icons/Image';
 
-import { createPosterFullPathSelector } from 'store/config/config.selectors';
+import configSelectors from 'store/config/config.selectors';
 import type { MoviesListResult } from 'store/common/movies/movies.types';
 
 type Props = {
@@ -103,7 +103,7 @@ const MoviesListItem = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   fullPosterPath: (state, ownProps: Props) =>
-    createPosterFullPathSelector(ownProps.movie.posterPath)(state),
+    configSelectors.createPosterFullPathSelector(ownProps.movie.posterPath)(state),
 });
 
 export default connect(mapStateToProps)(MoviesListItem);

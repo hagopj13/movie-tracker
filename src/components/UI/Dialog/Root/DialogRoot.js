@@ -5,8 +5,8 @@ import { createStructuredSelector } from 'reselect';
 import { useTheme } from '@material-ui/core/styles';
 
 import LoginDialog from 'components/Auth/Login/Dialog/LoginDialog';
-import { selectDialogType, selectDialogProps } from 'store/ui/dialog/dialog.selectors';
-import { hideDialog } from 'store/ui/dialog/dialog.actions';
+import dialogSelectors from 'store/ui/dialog/dialog.selectors';
+import dialogActions from 'store/ui/dialog/dialog.actions';
 
 import DialogTypes from '../types';
 
@@ -57,12 +57,12 @@ const DialogRoot = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  dialogType: selectDialogType,
-  dialogProps: selectDialogProps,
+  dialogType: dialogSelectors.selectDialogType,
+  dialogProps: dialogSelectors.selectDialogProps,
 });
 
 const mapDispatchToProps = {
-  onHideDialog: hideDialog,
+  onHideDialog: dialogActions.hideDialog,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DialogRoot);

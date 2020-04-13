@@ -4,10 +4,10 @@ import { takeLatest, all, call, put } from 'redux-saga/effects';
 import * as api from 'api/tmdb';
 
 import ConfigActionTypes from './config.types';
-import { getConfigStart, getConfigSuccess, getConfigFailure } from './config.actions';
+import configActions from './config.actions';
 
-export function* getConfig() {
-  yield put(getConfigStart());
+function* getConfig() {
+  yield put(configActions.getConfigStart());
   try {
     const {
       data: { images: imagesConfig },
@@ -17,13 +17,13 @@ export function* getConfig() {
       data: { genres },
     } = yield call(api.getAllGenres);
 
-    yield put(getConfigSuccess({ imagesConfig, genres }));
+    yield put(configActions.getConfigSuccess({ imagesConfig, genres }));
   } catch (error) {
-    yield put(getConfigFailure(error.status_message));
+    yield put(configActions.getConfigFailure(error.status_message));
   }
 }
 
-export function* onGetConfig() {
+function* onGetConfig() {
   yield takeLatest(ConfigActionTypes.GET_CONFIG, getConfig);
 }
 

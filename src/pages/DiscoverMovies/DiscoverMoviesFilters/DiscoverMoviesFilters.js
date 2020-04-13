@@ -7,7 +7,7 @@ import type { Moment } from 'moment';
 import MoviesFilters from 'components/Movies/MoviesFilters/MoviesFilters';
 import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
-import { selectAllGenres } from 'store/config/config.selectors';
+import configSelectors from 'store/config/config.selectors';
 
 type Props = {
   allGenres: Array<{ id: number, name: string }>,
@@ -53,7 +53,7 @@ const DiscoverMoviesFilters = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  allGenres: selectAllGenres,
+  allGenres: configSelectors.selectAllGenres,
   selectedSortBy: discoverSelectors.selectSortBy,
   selectedGenres: discoverSelectors.selectGenres,
   selectedReleaseDateStart: discoverSelectors.selectReleaseDateStart,

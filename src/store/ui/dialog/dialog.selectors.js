@@ -1,8 +1,13 @@
 import { createSelector } from 'reselect';
 
-import { selectUi } from '../ui.selectors';
+import uiSelectors from '../ui.selectors';
 
-export const selectDialog = createSelector([selectUi], (ui) => ui.dialog);
+const selectDialog = createSelector([uiSelectors.selectUi], (ui) => ui.dialog);
 
-export const selectDialogType = createSelector([selectDialog], (dialog) => dialog.dialogType);
-export const selectDialogProps = createSelector([selectDialog], (dialog) => dialog.dialogProps);
+const selectDialogType = createSelector([selectDialog], (dialog) => dialog.dialogType);
+const selectDialogProps = createSelector([selectDialog], (dialog) => dialog.dialogProps);
+
+export default {
+  selectDialogType,
+  selectDialogProps,
+};

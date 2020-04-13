@@ -1,1 +1,5 @@
-export const selectUi = (state) => state.ui;
+const selectUi = (state) => state.ui;
+
+export default {
+  selectUi,
+};
