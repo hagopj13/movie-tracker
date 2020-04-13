@@ -14,19 +14,21 @@ type Props = {
   onDateChange: (date: Moment) => void,
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
+    marginLeft: theme.spacing(0.5),
   },
   label: {
-    minWith: 50,
-    width: 50,
+    minWidth: 40,
+    width: 40,
+    fontWeight: 300,
   },
   icon: {
     padding: 0,
   },
-});
+}));
 
 const DatePicker = (props: Props) => {
   const { label, selectedDate, onDateChange } = props;

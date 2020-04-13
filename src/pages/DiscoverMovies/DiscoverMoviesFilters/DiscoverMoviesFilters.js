@@ -64,10 +64,12 @@ const DiscoverMoviesFilters = (props: Props) => {
 
   const handleSetReleaseDateStart = useCallback(
     (date: Moment) => {
-      onSetReleaseDateStart(date);
-      onUpdateList();
+      if (date !== selectedReleaseDateStart && !date?.isSame(selectedReleaseDateStart)) {
+        onSetReleaseDateStart(date);
+        onUpdateList();
+      }
     },
-    [onUpdateList, onSetReleaseDateStart],
+    [onUpdateList, onSetReleaseDateStart, selectedReleaseDateStart],
   );
 
   const handleSetReleaseDateEnd = useCallback(
