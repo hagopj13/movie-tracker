@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useCallback } from 'react';
 import type { Moment } from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -35,6 +35,15 @@ const DatePicker = (props: Props) => {
 
   const classes = useStyles();
 
+  const handleDateChange = useCallback(
+    (date: Moment) => {
+      if (date !== selectedDate && !date?.isSame(selectedDate)) {
+        onDateChange(date);
+      }
+    },
+    [onDateChange, selectedDate],
+  );
+
   return (
     <div className={classes.root}>
       {label && <Typography className={classes.label}>{label}</Typography>}
@@ -47,10 +56,10 @@ const DatePicker = (props: Props) => {
           margin="dense"
           color="primary"
           value={selectedDate}
-          onChange={onDateChange}
+          onChange={handleDateChange}
           InputProps={{
             endAdornment: (
-              <IconButton className={classes.icon} onClick={() => onDateChange(null)}>
+              <IconButton className={classes.icon} onClick={() => handleDateChange(null)}>
                 <ClearIcon />
               </IconButton>
             ),
