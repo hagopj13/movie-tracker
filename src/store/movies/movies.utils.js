@@ -13,7 +13,7 @@ export const convertResultsToMoviesList = (results: any): MoviesListResult[] => 
     id: result.id,
     title: result.title,
     releaseDate: result.release_date,
-    voteAverage: result.vote_average / 2,
+    voteAverage: Math.round((result.vote_average / 2) * 10) / 10,
     voteCount: result.vote_count,
     posterPath: result.poster_path,
   }));
