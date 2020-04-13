@@ -17,13 +17,13 @@ type Props = {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    alignItems: 'center',
     marginLeft: theme.spacing(0.5),
   },
   label: {
-    minWidth: 40,
-    width: 40,
+    minWidth: 38,
+    width: 38,
     fontWeight: 300,
+    marginTop: 15,
   },
   icon: {
     padding: 0,
