@@ -4,8 +4,8 @@ import type { Moment } from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 
-import FilterBox from 'components/UI/Filters/FilterBox/FilterBox';
-import FilterBoxItem from 'components/UI/Filters/FilterBox/FilterBoxItem/FilterBoxItem';
+import FilterBox from 'components/UI/FilterBox/FilterBox';
+import FilterBoxItem from 'components/UI/FilterBox/FilterBoxItem/FilterBoxItem';
 import ChipsList from 'components/UI/ChipsList/ChipsList';
 import DatePicker from 'components/UI/Input/DatePicker/DatePicker';
 import SortBySelect from './SortBySelect/SortBySelect';
