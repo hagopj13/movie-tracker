@@ -7,21 +7,21 @@ import Container from '@material-ui/core/Container';
 
 import MoviesList from 'components/Movies/MoviesList/MoviesList';
 import Spinner from 'components/UI/Spinner/Spinner';
-import { getDiscoverMovies, getMoreDiscoverMovies } from 'store/movies/discover/discover.actions';
-import { selectDiscoverMoviesList } from 'store/movies/discover/discover.selectors';
+import discoverActions from 'store/discover/discover.actions';
+import discoverSelectors from 'store/discover/discover.selectors';
+import DiscoverActionTypes from 'store/discover/discover.types';
 import { createIsLoadingSelector } from 'store/api/loading/loading.selectors';
-import DiscoverMoviesActionTypes from 'store/movies/discover/discover.types';
 import ConfigActionTypes from 'store/config/config.types';
 
 import DiscoverMoviesFilters from './DiscoverMoviesFilters/DiscoverMoviesFilters';
 
 type Props = {
-  moviesList: any[],
+  moviesResults: any[],
   isLoadingConfig: boolean,
   isLoading: boolean,
   isLoadingMore: boolean,
-  onGetDiscoverMovies: () => void,
-  onGetMoreDiscoverMovies: () => void,
+  onFetchMovies: () => void,
+  onFetchMoreMovies: () => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -44,27 +44,27 @@ const useStyles = makeStyles((theme) => ({
 
 const DiscoverMoviesPage = (props: Props) => {
   const {
-    moviesList,
+    moviesResults,
     isLoadingConfig,
     isLoading,
     isLoadingMore,
-    onGetDiscoverMovies,
-    onGetMoreDiscoverMovies,
+    onFetchMovies,
+    onFetchMoreMovies,
   } = props;
 
   const classes = useStyles();
 
   useLayoutEffect(() => {
-    onGetDiscoverMovies();
-  }, [onGetDiscoverMovies]);
+    onFetchMovies();
+  }, [onFetchMovies]);
 
   const handleLoadMore = useCallback(() => {
-    onGetMoreDiscoverMovies();
-  }, [onGetMoreDiscoverMovies]);
+    onFetchMoreMovies();
+  }, [onFetchMoreMovies]);
 
-  const handleUpdateList = useCallback(() => {
-    onGetDiscoverMovies();
-  }, [onGetDiscoverMovies]);
+  const handleUpdateResults = useCallback(() => {
+    onFetchMovies();
+  }, [onFetchMovies]);
 
   if (isLoadingConfig) {
     return <Spinner />;
@@ -77,7 +77,7 @@ const DiscoverMoviesPage = (props: Props) => {
           <Spinner />
         ) : (
           <>
-            <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
+            <MoviesList moviesList={moviesResults} onLoadMore={handleLoadMore} />
             {isLoadingMore && <Spinner />}
           </>
         )}
@@ -89,7 +89,7 @@ const DiscoverMoviesPage = (props: Props) => {
     <div className={classes.root}>
       <Container className={classes.container}>
         <div className={classes.moviesFiltersContainer}>
-          <DiscoverMoviesFilters onUpdateList={handleUpdateList} />
+          <DiscoverMoviesFilters onUpdateResults={handleUpdateResults} />
         </div>
         {renderList()}
       </Container>
@@ -98,15 +98,15 @@ const DiscoverMoviesPage = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesList: selectDiscoverMoviesList,
+  moviesResults: discoverSelectors.selectResults,
   isLoadingConfig: createIsLoadingSelector([ConfigActionTypes.GET_CONFIG]),
-  isLoading: createIsLoadingSelector([DiscoverMoviesActionTypes.GET_DISCOVER_MOVIES]),
-  isLoadingMore: createIsLoadingSelector([DiscoverMoviesActionTypes.GET_MORE_DISCOVER_MOVIES]),
+  isLoading: createIsLoadingSelector([DiscoverActionTypes.FETCH_MOVIES]),
+  isLoadingMore: createIsLoadingSelector([DiscoverActionTypes.FETCH_MORE_MOVIES]),
 });
 
 const mapDispatchToProps = {
-  onGetDiscoverMovies: getDiscoverMovies,
-  onGetMoreDiscoverMovies: getMoreDiscoverMovies,
+  onFetchMovies: discoverActions.fetchMovies,
+  onFetchMoreMovies: discoverActions.fetchMoreMovies,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiscoverMoviesPage);

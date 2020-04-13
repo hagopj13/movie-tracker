@@ -5,18 +5,8 @@ import { createStructuredSelector } from 'reselect';
 import type { Moment } from 'moment';
 
 import MoviesFilters from 'components/Movies/MoviesFilters/MoviesFilters';
-import {
-  selectDiscoverMoviesSortByFilter,
-  selectDiscoverMoviesGenresFilter,
-  selectDiscoverMoviesReleaseDateStart,
-  selectDiscoverMoviesReleaseDateEnd,
-} from 'store/movies/discover/discover.selectors';
-import {
-  setSortBy,
-  toggleGenreFilter,
-  setReleaseDateStart,
-  setReleaseDateEnd,
-} from 'store/movies/discover/discover.actions';
+import discoverActions from 'store/discover/discover.actions';
+import discoverSelectors from 'store/discover/discover.selectors';
 import { selectAllGenres } from 'store/config/config.selectors';
 
 type Props = {
@@ -25,7 +15,7 @@ type Props = {
   selectedGenres: number[],
   selectedReleaseDateStart: Moment,
   selectedReleaseDateEnd: Moment,
-  onUpdateList: () => void,
+  onUpdateResults: () => void,
   onSetSortBy: (string) => void,
   onToggleGenre: (number) => void,
   onSetReleaseDateStart: (date: Moment) => void,
@@ -39,7 +29,7 @@ const DiscoverMoviesFilters = (props: Props) => {
     selectedGenres,
     selectedReleaseDateStart,
     selectedReleaseDateEnd,
-    onUpdateList,
+    onUpdateResults,
     onSetSortBy,
     onToggleGenre,
     onSetReleaseDateStart,
@@ -49,33 +39,33 @@ const DiscoverMoviesFilters = (props: Props) => {
   const handleSetSortBy = useCallback(
     (sortBy: string) => {
       onSetSortBy(sortBy);
-      onUpdateList();
+      onUpdateResults();
     },
-    [onUpdateList, onSetSortBy],
+    [onUpdateResults, onSetSortBy],
   );
 
   const handleToggleGenre = useCallback(
     (genreId: number) => {
       onToggleGenre(genreId);
-      onUpdateList();
+      onUpdateResults();
     },
-    [onUpdateList, onToggleGenre],
+    [onUpdateResults, onToggleGenre],
   );
 
   const handleSetReleaseDateStart = useCallback(
     (date: Moment) => {
       onSetReleaseDateStart(date);
-      onUpdateList();
+      onUpdateResults();
     },
-    [onUpdateList, onSetReleaseDateStart],
+    [onUpdateResults, onSetReleaseDateStart],
   );
 
   const handleSetReleaseDateEnd = useCallback(
     (date: Moment) => {
       onSetReleaseDateEnd(date);
-      onUpdateList();
+      onUpdateResults();
     },
-    [onUpdateList, onSetReleaseDateEnd],
+    [onUpdateResults, onSetReleaseDateEnd],
   );
 
   return (
@@ -95,17 +85,17 @@ const DiscoverMoviesFilters = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   allGenres: selectAllGenres,
-  selectedSortBy: selectDiscoverMoviesSortByFilter,
-  selectedGenres: selectDiscoverMoviesGenresFilter,
-  selectedReleaseDateStart: selectDiscoverMoviesReleaseDateStart,
-  selectedReleaseDateEnd: selectDiscoverMoviesReleaseDateEnd,
+  selectedSortBy: discoverSelectors.selectSortBy,
+  selectedGenres: discoverSelectors.selectGenres,
+  selectedReleaseDateStart: discoverSelectors.selectReleaseDateStart,
+  selectedReleaseDateEnd: discoverSelectors.selectReleaseDateEnd,
 });
 
 const mapDispatchToProps = {
-  onSetSortBy: setSortBy,
-  onToggleGenre: toggleGenreFilter,
-  onSetReleaseDateStart: setReleaseDateStart,
-  onSetReleaseDateEnd: setReleaseDateEnd,
+  onSetSortBy: discoverActions.setSortBy,
+  onToggleGenre: discoverActions.toggleGenre,
+  onSetReleaseDateStart: discoverActions.setReleaseDateStart,
+  onSetReleaseDateEnd: discoverActions.setReleaseDateEnd,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiscoverMoviesFilters);

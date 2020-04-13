@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import InfiniteScroll from 'components/UI/InfiniteScroll/InfiniteScroll';
-import type { MoviesListResult } from 'store/movies/movies.utils';
+import type { MoviesListResult } from 'store/common/movies/movies.types';
 
 import MoviesListItem from './MoviesListItem/MoviesListItem';
 

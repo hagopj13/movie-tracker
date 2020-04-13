@@ -14,7 +14,7 @@ import Rating from '@material-ui/lab/Rating';
 import Image from '@material-ui/icons/Image';
 
 import { createPosterFullPathSelector } from 'store/config/config.selectors';
-import type { MoviesListResult } from 'store/movies/movies.utils';
+import type { MoviesListResult } from 'store/common/movies/movies.types';
 
 type Props = {
   movie: MoviesListResult,
