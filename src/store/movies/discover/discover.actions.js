@@ -1,3 +1,5 @@
+import type { Moment } from 'moment';
+
 import DiscoverMoviesActionTypes from './discover.types';
 
 export const getDiscoverMovies = () => ({
@@ -51,7 +53,12 @@ export const removeGenreFromFilterList = (genre: number) => ({
   payload: { genre },
 });
 
-export const setReleaseYear = (releaseYear: number) => ({
-  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_YEAR,
-  payload: { releaseYear },
+export const setReleaseDateStart = (releaseDateStart: Moment) => ({
+  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_DATE_START,
+  payload: { releaseDateStart },
+});
+
+export const setReleaseDateEnd = (releaseDateEnd: Moment) => ({
+  type: DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_DATE_END,
+  payload: { releaseDateEnd },
 });

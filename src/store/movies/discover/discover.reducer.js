@@ -9,7 +9,8 @@ const initialState = {
   filters: {
     sortBy: 'popularity.desc',
     genres: [],
-    releaseYear: null,
+    releaseDateStart: null,
+    releaseDateEnd: null,
   },
 };
 
@@ -59,12 +60,20 @@ export default (state = initialState, action) => {
             : state.filters.genres.concat(payload.genre),
         },
       };
-    case DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_YEAR:
+    case DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_DATE_START:
       return {
         ...state,
         filters: {
           ...state.filters,
-          releaseYear: payload.releaseYear,
+          releaseDateStart: payload.releaseDateStart,
+        },
+      };
+    case DiscoverMoviesActionTypes.DISCOVER_MOVIES_SET_RELEASE_DATE_END:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          releaseDateEnd: payload.releaseDateEnd,
         },
       };
     default:

@@ -17,18 +17,21 @@ import {
   selectDiscoverMoviesTotalPages,
   selectDiscoverMoviesSortByFilter,
   selectDiscoverMoviesGenresFilter,
-  selectDiscoverMoviesReleaseYearFilter,
+  selectDiscoverMoviesReleaseDateStart,
+  selectDiscoverMoviesReleaseDateEnd,
 } from './discover.selectors';
 
 export function* getDiscoverMoviesFilterParams() {
   const sortBy = yield select(selectDiscoverMoviesSortByFilter);
   const genres = yield select(selectDiscoverMoviesGenresFilter);
-  const releaseYear = yield select(selectDiscoverMoviesReleaseYearFilter);
+  const releaseDateStart = yield select(selectDiscoverMoviesReleaseDateStart);
+  const releaseDateEnd = yield select(selectDiscoverMoviesReleaseDateEnd);
   return {
     sort_by: sortBy,
     ...(sortBy.includes('vote_average') && { 'vote_count.gte': 100 }),
     ...(genres.length && { with_genres: genres.join(',') }),
-    ...(releaseYear && { year: releaseYear }),
+    ...(releaseDateStart && { 'primary_release_date.gte': releaseDateStart.format('YYYY-MM-DD') }),
+    ...(releaseDateEnd && { 'primary_release_date.lte': releaseDateEnd.format('YYYY-MM-DD') }),
   };
 }
 

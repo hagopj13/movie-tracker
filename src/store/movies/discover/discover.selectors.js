@@ -34,7 +34,12 @@ export const selectDiscoverMoviesGenresFilter = createSelector(
   (filters) => filters.genres,
 );
 
-export const selectDiscoverMoviesReleaseYearFilter = createSelector(
+export const selectDiscoverMoviesReleaseDateStart = createSelector(
   [selectDiscoverMoviesFilters],
-  (filters) => filters.releaseYear,
+  (filters) => filters.releaseDateStart,
+);
+
+export const selectDiscoverMoviesReleaseDateEnd = createSelector(
+  [selectDiscoverMoviesFilters],
+  (filters) => filters.releaseDateEnd,
 );

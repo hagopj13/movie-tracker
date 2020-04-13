@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 300,
   },
+  title: {
+    fontSize: 16,
+  },
   brokenMediaContainer: {
     height: 300,
     width: 200,
@@ -87,7 +90,7 @@ const MoviesListItem = (props: Props) => {
       <CardActionArea>
         {renderMedia()}
         <CardContent>
-          <Typography gutterBottom variant="h6">
+          <Typography className={classes.title} gutterBottom variant="h6">
             {movie.title}
           </Typography>
           <Typography>{formattedDate}</Typography>

@@ -1,21 +1,25 @@
 // @flow
 import React from 'react';
+import type { Moment } from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
-// import Divider from '@material-ui/core/Divider';
+import Divider from '@material-ui/core/Divider';
 
 import FilterBox from 'components/UI/Filters/FilterBox/FilterBox';
 import FilterBoxItem from 'components/UI/Filters/FilterBox/FilterBoxItem/FilterBoxItem';
 import ChipsList from 'components/UI/ChipsList/ChipsList';
+import DatePicker from 'components/UI/Input/DatePicker/DatePicker';
 import SortBySelect from './SortBySelect/SortBySelect';
 
 type Props = {
   allGenres: Array<{ id: number, name: string }>,
   selectedSortBy: string,
   selectedGenres: number[],
-  // selectedReleaseYear: number,
+  selectedReleaseDateStart: Moment,
+  selectedReleaseDateEnd: Moment,
   onSetSortBy: (string) => void,
   onToggleGenre: (number) => void,
-  // onSetReleaseYear: (number) => void,
+  onSetReleaseDateStart: (date: Moment) => void,
+  onSetReleaseDateEnd: (date: Moment) => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -36,10 +40,12 @@ const MoviesFilters = (props: Props) => {
     allGenres,
     selectedSortBy,
     selectedGenres,
-    // selectedReleaseYear,
+    selectedReleaseDateStart,
+    selectedReleaseDateEnd,
     onSetSortBy,
     onToggleGenre,
-    // onSetReleaseYear,
+    onSetReleaseDateStart,
+    onSetReleaseDateEnd,
   } = props;
 
   const classes = useStyles();
@@ -52,6 +58,19 @@ const MoviesFilters = (props: Props) => {
         </FilterBoxItem>
       </FilterBox>
       <FilterBox title="Filters">
+        <FilterBoxItem title="Release date">
+          <DatePicker
+            label="Start"
+            selectedDate={selectedReleaseDateStart}
+            onDateChange={onSetReleaseDateStart}
+          />
+          <DatePicker
+            label="End"
+            selectedDate={selectedReleaseDateEnd}
+            onDateChange={onSetReleaseDateEnd}
+          />
+        </FilterBoxItem>
+        <Divider light />
         <FilterBoxItem title="Genres">
           <ChipsList items={allGenres} selectedItems={selectedGenres} onItemClick={onToggleGenre} />
         </FilterBoxItem>
