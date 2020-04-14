@@ -1,4 +1,6 @@
 // @flow
+import { handleActions } from 'redux-actions';
+
 import DialogActionTypes from './dialog.types';
 
 type State = {
@@ -11,25 +13,21 @@ const initialState: State = {
   dialogProps: {},
 };
 
-export default (state: State = initialState, action: any) => {
-  const { type, payload } = action;
-  switch (type) {
-    case DialogActionTypes.SHOW_DIALOG:
-      return {
-        ...state,
-        dialogType: payload.dialogType,
-        dialogProps: payload.dialogProps,
-      };
-    case DialogActionTypes.HIDE_DIALOG:
-      if (state.dialogType === payload.dialogType) {
-        return {
-          ...state,
-          dialogType: null,
-          dialogProps: {},
-        };
-      }
-      return state;
-    default:
-      return state;
-  }
+const showDialog = (state: State, action: any) => ({
+  ...state,
+  dialogType: action.payload.dialogType,
+  dialogProps: action.payload.dialogProps,
+});
+
+const hideDialog = (state: State) => ({
+  ...state,
+  dialogType: null,
+  dialogProps: {},
+});
+
+const actionHandler = {
+  [DialogActionTypes.SHOW_DIALOG]: showDialog,
+  [DialogActionTypes.HIDE_DIALOG]: hideDialog,
 };
+
+export default handleActions(actionHandler, initialState);

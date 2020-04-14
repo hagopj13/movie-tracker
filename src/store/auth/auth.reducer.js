@@ -1,4 +1,6 @@
 // @flow
+import { handleActions } from 'redux-actions';
+
 import AuthActionTypes from './auth.types';
 
 type State = {
@@ -9,20 +11,19 @@ const initialState: State = {
   sessionId: null,
 };
 
-export default (state: State = initialState, action: any) => {
-  const { type, payload } = action;
-  switch (type) {
-    case AuthActionTypes.LOGIN_SUCCESS:
-      return {
-        ...state,
-        sessionId: payload.sessionId,
-      };
-    case AuthActionTypes.LOGOUT_SUCCESS:
-      return {
-        ...state,
-        sessionId: null,
-      };
-    default:
-      return state;
-  }
+const loginSuccess = (state: State, action: any) => ({
+  ...state,
+  sessionId: action.payload.sessionId,
+});
+
+const logoutSuccess = (state: State) => ({
+  ...state,
+  sessionId: null,
+});
+
+const actionHandler = {
+  [AuthActionTypes.LOGIN_SUCCESS]: loginSuccess,
+  [AuthActionTypes.LOGOUT_SUCCESS]: logoutSuccess,
 };
+
+export default handleActions(actionHandler, initialState);
