@@ -12,7 +12,7 @@ const InfiniteScroll = (props: Props) => {
 
   const activationDistance = 20;
   const handleScroll = useCallback(() => {
-    const documentHeight = document.body.offsetHeight;
+    const documentHeight = document.body?.offsetHeight;
     const scrollHeight = window.innerHeight + window.scrollY;
     if (scrollHeight + activationDistance >= documentHeight) {
       onLoadMore();

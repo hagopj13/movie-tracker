@@ -9,9 +9,10 @@ import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import DiscoverActionTypes from 'store/discover/discover.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
+import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
 
 type Props = {
-  moviesResults: any[],
+  moviesResults: MoviesResultsItem[],
   isLoading: boolean,
   isLoadingMore: boolean,
   onFetchMoreMovies: () => void,

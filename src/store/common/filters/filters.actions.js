@@ -11,9 +11,9 @@ const setSortBy = (namespace) => (sortBy: string) => ({
   payload: { sortBy },
 });
 
-const toggleGenre = (namespace) => (genre: number) => ({
+const toggleGenre = (namespace) => (genreId: number) => ({
   type: typeGenerator(namespace, FiltersActionTypes.TOGGLE_GENRE),
-  payload: { genre },
+  payload: { genreId },
 });
 
 const setReleaseDateStart = (namespace) => (releaseDateStart: Moment) => ({

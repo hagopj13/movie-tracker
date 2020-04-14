@@ -2,16 +2,18 @@ import { all, call, takeLatest, takeEvery, put, select } from 'redux-saga/effect
 
 import * as api from 'api/tmdb';
 import loadingSelectors from 'store/api/loading/loading.selectors';
+import type { GetDiscoverMoviesParams } from 'api/tmdb/apis/movies';
 
 import DiscoverActionTypes from './discover.types';
 import discoverActions from './discover.actions';
 import discoverSelectors from './discover.selectors';
 
-function* getFilterParams() {
+function* getFilterParams(): $Rest<GetDiscoverMoviesParams, {| page?: number |}> {
   const sortBy = yield select(discoverSelectors.selectSortBy);
   const genres = yield select(discoverSelectors.selectGenres);
   const releaseDateStart = yield select(discoverSelectors.selectReleaseDateStart);
   const releaseDateEnd = yield select(discoverSelectors.selectReleaseDateEnd);
+
   return {
     sort_by: sortBy,
     ...(sortBy.includes('vote_average') && { 'vote_count.gte': 100 }),

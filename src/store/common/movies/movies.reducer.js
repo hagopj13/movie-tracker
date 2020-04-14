@@ -2,11 +2,27 @@
 import reducerGenerator from 'store/common/utils/reducerGenerator';
 
 import MoviesActionTypes from './movies.types';
-import type { MoviesResultsItem } from './movies.types';
 
-const defaultInitialState = {
+export type MoviesResultsItem = {
+  id: string,
+  title: string,
+  releaseDate: string,
+  voteAverage: number,
+  voteCount: number,
+  posterPath: string,
+};
+
+type State = {
+  results: MoviesResultsItem[],
+  pagination: {
+    page: number,
+    totalPages: number,
+  } | null,
+};
+
+const defaultInitialState: State = {
   results: [],
-  pagination: {},
+  pagination: null,
 };
 
 const convertResults = (results: any): MoviesResultsItem[] => {
@@ -24,7 +40,7 @@ const fetchMoviesStart = () => ({
   ...defaultInitialState,
 });
 
-const fetchMoviesSuccess = (state, action) => ({
+const fetchMoviesSuccess = (state: State, action) => ({
   ...state,
   results: convertResults(action.payload.data.results),
   pagination: {
@@ -34,7 +50,7 @@ const fetchMoviesSuccess = (state, action) => ({
   },
 });
 
-const fetchMoreMoviesSuccess = (state, action) => ({
+const fetchMoreMoviesSuccess = (state: State, action) => ({
   ...state,
   results: state.results.concat(convertResults(action.payload.data.results)),
   pagination: {
@@ -49,5 +65,5 @@ const moviesActionHandler = {
   [MoviesActionTypes.FETCH_MORE_MOVIES_SUCCESS]: fetchMoreMoviesSuccess,
 };
 
-export default (namespace: string, initialState?: any) =>
+export default (namespace: string, initialState?: State) =>
   reducerGenerator(namespace, moviesActionHandler, initialState ?? defaultInitialState);

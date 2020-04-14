@@ -8,27 +8,23 @@ import MoviesFilters from 'components/Movies/MoviesFilters/MoviesFilters';
 import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import configSelectors from 'store/config/config.selectors';
+import type { State as FiltersState } from 'store/common/filters/filters.reducer';
+import type { Genre } from 'store/config/config.reducer';
 
 type Props = {
-  allGenres: Array<{ id: number, name: string }>,
-  selectedSortBy: string,
-  selectedGenres: number[],
-  selectedReleaseDateStart: Moment,
-  selectedReleaseDateEnd: Moment,
+  allGenres: Genre[],
+  selectedFilters: FiltersState,
   onUpdateResults: () => void,
-  onSetSortBy: (string) => void,
-  onToggleGenre: (number) => void,
-  onSetReleaseDateStart: (date: Moment) => void,
-  onSetReleaseDateEnd: (date: Moment) => void,
+  onSetSortBy: (sortBy: string) => void,
+  onToggleGenre: (genreId: number) => void,
+  onSetReleaseDateStart: (releaseDateStart: Moment) => void,
+  onSetReleaseDateEnd: (releaseDateEnd: Moment) => void,
 };
 
 const DiscoverMoviesFilters = (props: Props) => {
   const {
     allGenres,
-    selectedSortBy,
-    selectedGenres,
-    selectedReleaseDateStart,
-    selectedReleaseDateEnd,
+    selectedFilters,
     onUpdateResults,
     onSetSortBy,
     onToggleGenre,
@@ -39,10 +35,7 @@ const DiscoverMoviesFilters = (props: Props) => {
   return (
     <MoviesFilters
       allGenres={allGenres}
-      selectedSortBy={selectedSortBy}
-      selectedGenres={selectedGenres}
-      selectedReleaseDateStart={selectedReleaseDateStart}
-      selectedReleaseDateEnd={selectedReleaseDateEnd}
+      selectedFilters={selectedFilters}
       onFiltersChanged={onUpdateResults}
       onSetSortBy={onSetSortBy}
       onToggleGenre={onToggleGenre}
@@ -54,10 +47,7 @@ const DiscoverMoviesFilters = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   allGenres: configSelectors.selectAllGenres,
-  selectedSortBy: discoverSelectors.selectSortBy,
-  selectedGenres: discoverSelectors.selectGenres,
-  selectedReleaseDateStart: discoverSelectors.selectReleaseDateStart,
-  selectedReleaseDateEnd: discoverSelectors.selectReleaseDateEnd,
+  selectedFilters: discoverSelectors.selectFilters,
 });
 
 const mapDispatchToProps = {

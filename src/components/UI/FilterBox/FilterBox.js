@@ -13,7 +13,7 @@ type Props = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 250,
+    minWidth: 270,
   },
   title: {
     fontWeight: theme.typography.fontWeightBold,

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   toolbarContent: {
     alignItems: 'center',
     display: 'flex',
-    padding: theme.spacing(0, 5),
+    padding: theme.spacing(0, 5, 0, 3),
     '& > *': {
       marginLeft: theme.spacing(2.5),
     },

@@ -1,11 +1,17 @@
+// @flow
 import DialogActionTypes from './dialog.types';
 
-const initialState = {
+type State = {
+  dialogType: string | null,
+  dialogProps: any,
+};
+
+const initialState: State = {
   dialogType: null,
   dialogProps: {},
 };
 
-export default (state = initialState, action) => {
+export default (state: State = initialState, action: any) => {
   const { type, payload } = action;
   switch (type) {
     case DialogActionTypes.SHOW_DIALOG:

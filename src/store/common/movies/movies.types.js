@@ -8,12 +8,3 @@ export default {
   FETCH_MORE_MOVIES_SUCCESS: 'FETCH_MORE_MOVIES_SUCCESS',
   FETCH_MORE_MOVIES_FAILURE: 'FETCH_MORE_MOVIES_FAILURE',
 };
-
-export type MoviesResultsItem = {
-  id: string,
-  title: string,
-  releaseDate: string,
-  voteAverage: number,
-  voteCount: number,
-  posterPath: string,
-};

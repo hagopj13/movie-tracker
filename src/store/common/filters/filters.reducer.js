@@ -1,33 +1,42 @@
 // @flow
+import type { Moment } from 'moment';
+
 import reducerGenerator from 'store/common/utils/reducerGenerator';
 
 import FiltersActionTypes from './filters.types';
 
-const defaultInitialState = {
+export type State = {
+  sortBy: string,
+  genres: number[],
+  releaseDateStart: Moment,
+  releaseDateEnd: Moment,
+};
+
+const defaultInitialState: State = {
   sortBy: 'popularity.desc',
   genres: [],
   releaseDateStart: null,
   releaseDateEnd: null,
 };
 
-const setSortBy = (state, action) => ({
+const setSortBy = (state: State, action) => ({
   ...state,
   sortBy: action.payload.sortBy,
 });
 
-const toggleGenre = (state, action) => ({
+const toggleGenre = (state: State, action) => ({
   ...state,
-  genres: state.genres.includes(action.payload.genre)
-    ? state.genres.filter((genre) => genre !== action.payload.genre)
-    : state.genres.concat(action.payload.genre),
+  genres: state.genres.includes(action.payload.genreId)
+    ? state.genres.filter((genre) => genre !== action.payload.genreId)
+    : state.genres.concat(action.payload.genreId),
 });
 
-const setReleaseDateStart = (state, action) => ({
+const setReleaseDateStart = (state: State, action) => ({
   ...state,
   releaseDateStart: action.payload.releaseDateStart,
 });
 
-const setReleaseDateEnd = (state, action) => ({
+const setReleaseDateEnd = (state: State, action) => ({
   ...state,
   releaseDateEnd: action.payload.releaseDateEnd,
 });
@@ -39,5 +48,5 @@ const filtersActionHandler = {
   [FiltersActionTypes.SET_RELEASE_DATE_END]: setReleaseDateEnd,
 };
 
-export default (namespace: string, initialState?: any) =>
+export default (namespace: string, initialState?: State) =>
   reducerGenerator(namespace, filtersActionHandler, initialState ?? defaultInitialState);

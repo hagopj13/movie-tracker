@@ -1,6 +1,11 @@
-const initialState = {};
+// @flow
+type State = {
+  [key: string]: any,
+};
 
-export default (state = initialState, action) => {
+const initialState: State = {};
+
+export default (state: State = initialState, action: any) => {
   const { type, payload } = action;
   const matches = /(.*)_(START|SUCCESS|FAILURE|CLEAR)/.exec(type);
 

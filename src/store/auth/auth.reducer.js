@@ -1,10 +1,15 @@
+// @flow
 import AuthActionTypes from './auth.types';
 
-const initialState = {
+type State = {
+  sessionId: string | null,
+};
+
+const initialState: State = {
   sessionId: null,
 };
 
-export default (state = initialState, action) => {
+export default (state: State = initialState, action: any) => {
   const { type, payload } = action;
   switch (type) {
     case AuthActionTypes.LOGIN_SUCCESS:

@@ -14,10 +14,10 @@ import Rating from '@material-ui/lab/Rating';
 import Image from '@material-ui/icons/Image';
 
 import configSelectors from 'store/config/config.selectors';
-import type { MoviesListResult } from 'store/common/movies/movies.types';
+import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
 
 type Props = {
-  movie: MoviesListResult,
+  movie: MoviesResultsItem,
   fullPosterPath: string,
 };
 

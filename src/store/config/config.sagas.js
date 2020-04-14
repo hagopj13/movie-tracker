@@ -1,4 +1,3 @@
-// @flow
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
