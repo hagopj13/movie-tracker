@@ -18,12 +18,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     minHeight: 64,
     padding: 0,
-    width: '100vw',
   },
   toolbarContent: {
     alignItems: 'center',
     display: 'flex',
-    padding: theme.spacing(0, 5, 0, 3),
+    padding: theme.spacing(0, 4, 0, 5),
     '& > *': {
       marginLeft: theme.spacing(2.5),
     },
