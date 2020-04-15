@@ -1,11 +1,11 @@
 // @flow
 type State = {
-  [key: string]: any,
+  [key: string]: string,
 };
 
-const initialState: State = {};
+const initialState: $Shape<State> = {};
 
-export default (state: State = initialState, action: any) => {
+export default (state: State = initialState, action: any): State => {
   const { type, payload } = action;
   const matches = /(.*)_(START|SUCCESS|FAILURE|CLEAR)/.exec(type);
 

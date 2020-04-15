@@ -6,6 +6,6 @@ import FiltersActionTypes from 'store/common/filters/filters.types';
 export const namespace = 'discover';
 
 export default {
-  ...typesGenerator(namespace, MoviesActionTypes),
-  ...typesGenerator(namespace, FiltersActionTypes),
+  ...typesGenerator<typeof MoviesActionTypes>(namespace, MoviesActionTypes),
+  ...typesGenerator<typeof FiltersActionTypes>(namespace, FiltersActionTypes),
 };

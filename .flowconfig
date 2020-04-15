@@ -15,6 +15,7 @@ module.file_ext=.json
 module.file_ext=.sass
 module.file_ext=.scss
 esproposal.optional_chaining=enable
+exact_by_default=true
 
 [strict]
 

@@ -10,6 +10,7 @@ type Props = {
   title: string,
   children: Node,
   onClose: () => void,
+  ...
 };
 
 const Dialog = (props: Props) => {

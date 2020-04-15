@@ -40,8 +40,24 @@ const fetchMoreMoviesFailure = (namespace) => (error: string) => ({
   payload: { error },
 });
 
-export default (namespace: string) =>
-  actionCreatorGenerator(namespace, {
+type Action = {
+  type: string,
+  payload?: any,
+};
+
+type MoviesActionCreators = {
+  fetchMovies: () => Action,
+  fetchMoviesStart: () => Action,
+  fetchMoviesSuccess: (data: any) => Action,
+  fetchMoviesFailure: (error: string) => Action,
+  fetchMoreMovies: () => Action,
+  fetchMoreMoviesStart: () => Action,
+  fetchMoreMoviesSuccess: (data: any) => Action,
+  fetchMoreMoviesFailure: (error: string) => Action,
+};
+
+export default (namespace: string): MoviesActionCreators =>
+  actionCreatorGenerator<MoviesActionCreators>(namespace, {
     fetchMovies,
     fetchMoviesStart,
     fetchMoviesSuccess,

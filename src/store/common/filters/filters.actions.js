@@ -26,8 +26,20 @@ const setReleaseDateEnd = (namespace) => (releaseDateEnd: Moment) => ({
   payload: { releaseDateEnd },
 });
 
-export default (namespace: string) =>
-  actionCreatorGenerator(namespace, {
+type Action = {
+  type: string,
+  payload?: any,
+};
+
+type FiltersActionCreators = {
+  setSortBy: (sortBy: string) => Action,
+  toggleGenre: (genreId: number) => Action,
+  setReleaseDateStart: (releaseDateStart: Moment) => Action,
+  setReleaseDateEnd: (releaseDateEnd: Moment) => Action,
+};
+
+export default (namespace: string): FiltersActionCreators =>
+  actionCreatorGenerator<FiltersActionCreators>(namespace, {
     setSortBy,
     toggleGenre,
     setReleaseDateStart,
