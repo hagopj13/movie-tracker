@@ -42,6 +42,15 @@ const Navigation = (props: Props) => {
       >
         Discover
       </Link>
+      <Link
+        component={NavLink}
+        exact
+        to="/upcoming"
+        className={classes.navLink}
+        activeClassName={classes.selectedNavLink}
+      >
+        Upcoming
+      </Link>
       {isAuth && (
         <Link
           component={NavLink}
