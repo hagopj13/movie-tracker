@@ -11,3 +11,9 @@ export type GetDiscoverMoviesParams = {
 };
 export const getDiscoverMovies = (params: GetDiscoverMoviesParams) =>
   axios.get('/discover/movie', { params });
+
+export type GetUpcomingMoviesParams = {
+  page?: number,
+};
+export const getUpcomingMovies = (params: GetUpcomingMoviesParams) =>
+  axios.get('/movie/upcoming', { params });
