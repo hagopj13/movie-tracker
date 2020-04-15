@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Node } from 'react';
 
-// import brokenPage from './brokenPage.png';
+import brokenPage from './brokenPage.png';
 import './errorBoundary.scss';
 
 type Props = {
@@ -34,7 +34,7 @@ class ErrorBoundary extends React.Component<Props, State> {
     if (hasError) {
       return (
         <div className="imageOverlay">
-          <img alt="page broken" className="errorImage" />
+          <img src={brokenPage} alt="page broken" className="errorImage" />
           <h2 className="errorImageText">Sorry, this page is broken</h2>
         </div>
       );
