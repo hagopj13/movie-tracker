@@ -16,7 +16,7 @@ type Props = {
 const useStyles = makeStyles((theme) => ({
   navLink: {
     color: theme.palette.common.white,
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(3),
     '&:last-child': {
       marginRight: 0,
     },

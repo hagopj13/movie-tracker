@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   container: {
-    padding: theme.spacing(5, 5, 1),
+    padding: theme.spacing(5, 5, 2),
     display: 'flex',
   },
   moviesFiltersContainer: {
