@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import MoviesList from 'components/Movies/MoviesList/MoviesList';
-import Spinner from 'components/UI/Spinner/Spinner';
+import Spinner from 'components/Spinner/Spinner';
 import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import DiscoverActionTypes from 'store/discover/discover.types';

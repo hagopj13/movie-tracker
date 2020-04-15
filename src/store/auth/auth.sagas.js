@@ -1,7 +1,7 @@
 import { takeLatest, all, call, put, select } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
-import DialogTypes from 'components/UI/Dialog/types';
+import DialogTypes from 'components/Dialog/types';
 import dialogActions from 'store/ui/dialog/dialog.actions';
 import LocalStorageService from 'services/LocalStorageService';
 

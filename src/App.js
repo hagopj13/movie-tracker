@@ -5,7 +5,7 @@ import { MuiThemeProvider } from '@material-ui/core';
 import 'normalize.css/normalize.css';
 
 import Header from 'components/Header/Header';
-import DialogRoot from 'components/UI/Dialog/Root/DialogRoot';
+import DialogRoot from 'components/Dialog/Root/DialogRoot';
 import AppRoutes from 'routes/AppRoutes';
 import authActions from 'store/auth/auth.actions';
 import configActions from 'store/config/config.actions';

@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-import Dialog from 'components/UI/Dialog/Dialog';
+import Dialog from 'components/Dialog/Dialog';
 import AuthActionTypes from 'store/auth/auth.types';
 import authActions from 'store/auth/auth.actions';
 import loadingSelectors from 'store/api/loading/loading.selectors';

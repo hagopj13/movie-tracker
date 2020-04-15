@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import DialogTypes from 'components/UI/Dialog/types';
+import DialogTypes from 'components/Dialog/types';
 import authSelectors from 'store/auth/auth.selectors';
 import authActions from 'store/auth/auth.actions';
 import AuthActionTypes from 'store/auth/auth.types';

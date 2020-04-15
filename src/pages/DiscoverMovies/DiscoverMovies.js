@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import Spinner from 'components/UI/Spinner/Spinner';
+import Spinner from 'components/Spinner/Spinner';
 import discoverActions from 'store/discover/discover.actions';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';

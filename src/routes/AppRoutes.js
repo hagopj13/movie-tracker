@@ -2,7 +2,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Spinner from 'components/UI/Spinner/Spinner';
+import Spinner from 'components/Spinner/Spinner';
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 import DiscoverMoviesPage from 'pages/DiscoverMovies/DiscoverMovies';
 
