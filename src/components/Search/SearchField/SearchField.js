@@ -50,13 +50,13 @@ const SearchField = (props: Props) => {
         <SearchIcon />
       </div>
       <InputBase
+        {...otherProps}
         placeholder="Search…"
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,
         }}
         inputProps={{ 'aria-label': 'search' }}
-        {...otherProps}
       />
     </div>
   );
