@@ -21,6 +21,10 @@ const selectTotalPages = createSelector([selectMovies], (movies) =>
   moviesSelectors.selectTotalPages(movies),
 );
 
+const selectTotalResults = createSelector([selectMovies], (movies) =>
+  moviesSelectors.selectTotalResults(movies),
+);
+
 const selectSortBy = createSelector([selectFilters], (filters) =>
   filtersSelectors.selectSortBy(filters),
 );
@@ -42,6 +46,7 @@ export default {
   selectResults,
   selectCurrentPage,
   selectTotalPages,
+  selectTotalResults,
   selectSortBy,
   selectGenres,
   selectReleaseDateStart,

@@ -8,8 +8,14 @@ const selectCurrentPage = createSelector([selectPagination], (pagination) => pag
 
 const selectTotalPages = createSelector([selectPagination], (pagination) => pagination.totalPages);
 
+const selectTotalResults = createSelector(
+  [selectPagination],
+  (pagination) => pagination.totalResults,
+);
+
 export default {
   selectResults,
   selectCurrentPage,
   selectTotalPages,
+  selectTotalResults,
 };

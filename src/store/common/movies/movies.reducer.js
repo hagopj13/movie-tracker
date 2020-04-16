@@ -17,6 +17,7 @@ type State = {
   pagination: {
     page: number,
     totalPages: number,
+    totalResults: number,
   } | null,
 };
 
@@ -47,6 +48,7 @@ const fetchMoviesSuccess = (state: State, action) => ({
     ...state.pagination,
     page: action.payload.data.page,
     totalPages: action.payload.data.total_pages,
+    totalResults: action.payload.data.total_results,
   },
 });
 

@@ -20,9 +20,14 @@ const selectTotalPages = createSelector([selectMovies], (movies) =>
   moviesSelectors.selectTotalPages(movies),
 );
 
+const selectTotalResults = createSelector([selectMovies], (movies) =>
+  moviesSelectors.selectTotalResults(movies),
+);
+
 export default {
   selectQuery,
   selectResults,
   selectCurrentPage,
   selectTotalPages,
+  selectTotalResults,
 };
