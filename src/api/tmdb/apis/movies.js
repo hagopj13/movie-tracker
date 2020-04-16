@@ -17,3 +17,9 @@ export type GetUpcomingMoviesParams = {
 };
 export const getUpcomingMovies = (params: GetUpcomingMoviesParams) =>
   axios.get('/movie/upcoming', { params });
+
+export type SearchMoviesParams = {
+  page?: number,
+  query: string,
+};
+export const searchMovies = (params: SearchMoviesParams) => axios.get('/search/movie', { params });
