@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 import DiscoverMoviesPage from 'pages/DiscoverMovies/DiscoverMovies';
+import SearchResultsPage from 'pages/SearchResults/SearchResults';
 
 import PrivateRoute from './PrivateRoute';
 
@@ -19,6 +20,7 @@ const AppRoutes = () => (
         <Route exact path="/" component={DiscoverMoviesPage} />
         <Route exact path="/upcoming" component={UpcomingMoviesPage} />
         <PrivateRoute exact path="/profile" component={ProfilePage} />
+        <Route path="/search" component={SearchResultsPage} />
         <Route path="/movies/:id" component={MoviePage} />
       </Suspense>
     </ErrorBoundary>

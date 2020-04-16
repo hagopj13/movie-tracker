@@ -4,13 +4,16 @@ const selectResults = (state) => state.results;
 
 const selectPagination = (state) => state.pagination;
 
-const selectCurrentPage = createSelector([selectPagination], (pagination) => pagination.page ?? 1);
+const selectCurrentPage = createSelector([selectPagination], (pagination) => pagination?.page ?? 1);
 
-const selectTotalPages = createSelector([selectPagination], (pagination) => pagination.totalPages);
+const selectTotalPages = createSelector(
+  [selectPagination],
+  (pagination) => pagination?.totalPages ?? 0,
+);
 
 const selectTotalResults = createSelector(
   [selectPagination],
-  (pagination) => pagination.totalResults,
+  (pagination) => pagination?.totalResults ?? 0,
 );
 
 export default {
