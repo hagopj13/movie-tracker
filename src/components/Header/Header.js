@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
 
-import SearchField from 'components/Search/SearchField/SearchField';
+import Search from 'components/Search/Search';
 import Navigation from 'components/Navigation/Navigation';
 import AuthButton from 'components/Auth/Buttons/AuthButton';
 import colors from 'styles/colors.scss';
@@ -47,7 +47,7 @@ const Header = () => {
         <Toolbar className={classes.toolbar}>
           <Container className={classes.toolbarContent}>
             <Navigation className={classes.navigation} />
-            <SearchField />
+            <Search />
             <AuthButton />
           </Container>
         </Toolbar>

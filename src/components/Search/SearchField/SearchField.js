@@ -4,6 +4,8 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
+type Props = { ... };
+
 const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.common.white,
@@ -38,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchField = () => {
+const SearchField = (props: Props) => {
+  const { ...otherProps } = props;
   const classes = useStyles();
 
   return (
@@ -53,6 +56,7 @@ const SearchField = () => {
           input: classes.inputInput,
         }}
         inputProps={{ 'aria-label': 'search' }}
+        {...otherProps}
       />
     </div>
   );
