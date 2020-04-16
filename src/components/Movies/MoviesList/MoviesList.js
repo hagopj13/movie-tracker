@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 import InfiniteScroll from 'components/InfiniteScroll/InfiniteScroll';
 import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
@@ -22,11 +23,24 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(4, 0, 0, 4),
     },
   },
+  noResultsText: {
+    fontWeight: theme.typography.fontWeightRegular,
+    marginTop: theme.spacing(2),
+    textAlign: 'center',
+  },
 }));
 
 const MoviesList = (props: Props) => {
   const { moviesList, onLoadMore } = props;
   const classes = useStyles();
+
+  if (moviesList.length === 0) {
+    return (
+      <Typography className={classes.noResultsText} variant="h6">
+        No results found!
+      </Typography>
+    );
+  }
 
   return (
     <InfiniteScroll onLoadMore={onLoadMore}>
