@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import MoviesList from 'components/Movies/MoviesList/MoviesList';
+import MoviesList from 'components/Movies/List/MoviesList';
 import Spinner from 'components/Spinner/Spinner';
 import searchActions from 'store/search/search.actions';
 import searchSelectors from 'store/search/search.selectors';

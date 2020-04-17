@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
-import SearchField from 'components/Search/SearchField/SearchField';
+import SearchField from 'components/Search/Field/SearchField';
 
 type Props = {
   selectedQuery: string,

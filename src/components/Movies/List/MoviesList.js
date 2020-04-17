@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import InfiniteScroll from 'components/InfiniteScroll/InfiniteScroll';
 import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
 
-import MoviesListItem from './MoviesListItem/MoviesListItem';
+import MoviesListItem from './Item/MoviesListItem';
 
 type Props = {
   moviesList: MoviesResultsItem[],

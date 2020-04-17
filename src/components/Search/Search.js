@@ -7,7 +7,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import searchActions from 'store/search/search.actions';
 import searchSelectors from 'store/search/search.selectors';
 
-import SearchForm from './SearchForm/SearchForm';
+import SearchForm from './Form/SearchForm';
 
 type Props = {
   selectedSearchQuery: string,

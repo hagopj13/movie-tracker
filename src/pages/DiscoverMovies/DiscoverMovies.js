@@ -11,8 +11,8 @@ import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 import configActions from 'store/config/config.actions';
 
-import DiscoverMoviesList from './DiscoverMoviesList/DiscoverMoviesList';
-import DiscoverMoviesFilters from './DiscoverMoviesFilters/DiscoverMoviesFilters';
+import DiscoverMoviesList from './List/DiscoverMoviesList';
+import DiscoverMoviesFilters from './Filters/DiscoverMoviesFilters';
 
 type Props = {
   isLoadingConfig: boolean,

@@ -3,11 +3,11 @@ import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import MoviesList from 'components/Movies/MoviesList/MoviesList';
+import MoviesList from 'components/Movies/List/MoviesList';
 import Spinner from 'components/Spinner/Spinner';
-import discoverActions from 'store/discover/discover.actions';
-import discoverSelectors from 'store/discover/discover.selectors';
-import DiscoverActionTypes from 'store/discover/discover.types';
+import upcomingActions from 'store/upcoming/upcoming.actions';
+import upcomingSelectors from 'store/upcoming/upcoming.selectors';
+import UpcomingActionTypes from 'store/upcoming/upcoming.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
 
@@ -18,7 +18,7 @@ type Props = {
   onFetchMoreMovies: () => void,
 };
 
-const DiscoverMoviesList = (props: Props) => {
+const UpcomingMoviesList = (props: Props) => {
   const { moviesResults, isLoading, isLoadingMore, onFetchMoreMovies } = props;
 
   const handleLoadMore = useCallback(() => {
@@ -38,13 +38,13 @@ const DiscoverMoviesList = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesResults: discoverSelectors.selectResults,
-  isLoading: loadingSelectors.createIsLoadingSelector([DiscoverActionTypes.FETCH_MOVIES]),
-  isLoadingMore: loadingSelectors.createIsLoadingSelector([DiscoverActionTypes.FETCH_MORE_MOVIES]),
+  moviesResults: upcomingSelectors.selectResults,
+  isLoading: loadingSelectors.createIsLoadingSelector([UpcomingActionTypes.FETCH_MOVIES]),
+  isLoadingMore: loadingSelectors.createIsLoadingSelector([UpcomingActionTypes.FETCH_MORE_MOVIES]),
 });
 
 const mapDispatchToProps = {
-  onFetchMoreMovies: discoverActions.fetchMoreMovies,
+  onFetchMoreMovies: upcomingActions.fetchMoreMovies,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DiscoverMoviesList);
+export default connect(mapStateToProps, mapDispatchToProps)(UpcomingMoviesList);

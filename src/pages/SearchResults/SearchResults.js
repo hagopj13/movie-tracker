@@ -12,8 +12,8 @@ import SearchActionTypes from 'store/search/search.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 
-import SearchResultsOverview from './SearchResultsOverview/SearchResultsOverview';
-import SearchResultsList from './SearchResultsList/SearchResultsList';
+import SearchResultsOverview from './Overview/SearchResultsOverview';
+import SearchResultsList from './List/SearchResultsList';
 
 type Props = {
   isLoading: boolean,

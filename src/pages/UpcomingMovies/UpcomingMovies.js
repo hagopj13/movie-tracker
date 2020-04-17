@@ -10,7 +10,7 @@ import upcomingActions from 'store/upcoming/upcoming.actions';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 
-import UpcomingMoviesList from './UpcomingMoviesList/UpcomingMoviesList';
+import UpcomingMoviesList from './List/UpcomingMoviesList';
 
 type Props = {
   isLoadingConfig: boolean,

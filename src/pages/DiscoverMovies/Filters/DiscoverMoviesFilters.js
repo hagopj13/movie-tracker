@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import type { Moment } from 'moment';
 
-import MoviesFilters from 'components/Movies/MoviesFilters/MoviesFilters';
+import MoviesFilters from 'components/Movies/Filters/MoviesFilters';
 import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import configSelectors from 'store/config/config.selectors';
