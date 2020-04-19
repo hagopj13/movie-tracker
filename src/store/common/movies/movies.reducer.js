@@ -54,7 +54,7 @@ const fetchMoviesSuccess = (state: State, action) => ({
 
 const fetchMoreMoviesSuccess = (state: State, action) => ({
   ...state,
-  list: state.results.concat(convertResultsToList(action.payload.data.results)),
+  list: state.list.concat(convertResultsToList(action.payload.data.results)),
   pagination: {
     ...state.pagination,
     page: action.payload.data.page,
