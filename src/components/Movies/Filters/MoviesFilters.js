@@ -6,12 +6,12 @@ import Divider from '@material-ui/core/Divider';
 
 import FilterBox from 'components/Filter/Box/FilterBox';
 import FilterBoxItem from 'components/Filter/Box/Item/FilterBoxItem';
+import Select from 'components/Input/Select/Select';
 import ChipsList from 'components/Input/ChipsList/ChipsList';
 import DatePicker from 'components/Input/DatePicker/DatePicker';
+import { sortOptions } from 'store/common/filters/filters.reducer';
 import type { State as FiltersState } from 'store/common/filters/filters.reducer';
 import type { Genre } from 'store/config/config.reducer';
-
-import SortBySelect from './SortBySelect/SortBySelect';
 
 type Props = {
   allGenres: Genre[],
@@ -85,7 +85,11 @@ const MoviesFilters = (props: Props) => {
     <div className={classes.root}>
       <FilterBox title="Sort">
         <FilterBoxItem title="Sort by">
-          <SortBySelect selectedValue={selectedFilters.sortBy} onChange={handleSetSortBy} />
+          <Select
+            options={sortOptions}
+            selectedValue={selectedFilters.sortBy}
+            onValueChange={handleSetSortBy}
+          />
         </FilterBoxItem>
       </FilterBox>
       <FilterBox title="Filters">

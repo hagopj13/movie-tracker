@@ -12,8 +12,17 @@ export type State = {
   releaseDateEnd: Moment,
 };
 
+export const sortOptions = [
+  { value: 'popularity.desc', label: 'Popularity Descending' },
+  { value: 'popularity.asc', label: 'Popularity Ascending' },
+  { value: 'vote_average.desc', label: 'Rating Descending' },
+  { value: 'vote_average.asc', label: 'Rating Ascending' },
+  { value: 'release_date.desc', label: 'Release Date Descending' },
+  { value: 'release_date.asc', label: 'Release Date Ascending' },
+];
+
 const defaultInitialState: State = {
-  sortBy: 'popularity.desc',
+  sortBy: sortOptions[0].value,
   genres: [],
   releaseDateStart: null,
   releaseDateEnd: null,
