@@ -24,4 +24,10 @@ export type SearchMoviesParams = {
 };
 export const searchMovies = (params: SearchMoviesParams) => axios.get('/search/movie', { params });
 
-export const getMovieDetails = (id: string) => axios.get(`/movie/${id}`);
+export const getMovieDetails = (id: string, sessionId?: string) =>
+  axios.get(`/movie/${id}`, {
+    params: {
+      session_id: sessionId,
+      append_to_response: 'credits,keywords,reviews,recommendations,account_states',
+    },
+  });

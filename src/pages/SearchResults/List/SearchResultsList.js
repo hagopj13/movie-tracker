@@ -9,7 +9,7 @@ import searchActions from 'store/search/search.actions';
 import searchSelectors from 'store/search/search.selectors';
 import SearchActionTypes from 'store/search/search.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem } from 'types';
 
 type Props = {
   moviesList: MoviesListItem[],

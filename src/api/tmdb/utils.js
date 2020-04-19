@@ -1,17 +1,43 @@
-import type { MoviesListItem } from 'store/common/movies/movies.reducer';
-import type { MovieDetails } from 'store/movieDetails/movieDetails.reducer';
+import type { MoviesListItem, MovieDetails, Actor } from 'types';
 
-export const convertResponseToMoviesList = (response: any): MoviesListItem[] =>
-  response.results.map((result) => ({
-    id: result.id,
-    title: result.title,
-    releaseDate: result.release_date,
-    voteAverage: Math.round((result.vote_average / 2) * 10) / 10,
-    voteCount: result.vote_count,
-    posterPath: result.poster_path,
-  }));
+export const convertResponseToMoviesListItem = (response: any): MoviesListItem => ({
+  id: response.id,
+  title: response.title,
+  releaseDate: response.release_date,
+  voteAverage: Math.round((response.vote_average / 2) * 10) / 10,
+  voteCount: response.vote_count,
+  posterPath: response.poster_path,
+});
+
+export const convertResponseToActor = (response: any): Actor => ({
+  id: response.id,
+  name: response.name,
+  character: response.character,
+  profilePath: response.profile_path,
+});
 
 export const convertResponseToMovieDetails = (response: any): MovieDetails => ({
   id: response.id,
   title: response.title,
+  tagline: response.tagline,
+  overview: response.overview,
+  runtime: response.runtime,
+  status: response.status,
+  releaseDate: response.release_date,
+  genres: response.genres,
+  voteAverage: Math.round((response.vote_average / 2) * 10) / 10,
+  voteCount: response.vote_count,
+  posterPath: response.poster_path,
+  backdropPath: response.backdrop_path,
+  budget: response.budget,
+  revenue: response.revenue,
+  cast: response.credits.cast.map(convertResponseToActor),
+  keywords: response.keywords.keywords,
+  reviews: response.reviews.results,
+  recommendations: response.recommendations.results.map(convertResponseToMoviesListItem),
+  userState: {
+    isFavorite: response.account_states?.favorite ?? false,
+    isInWatchlist: response.account_states?.watchlist ?? false,
+    rating: response.account_states?.rated ? response.account_states.rated.value : null,
+  },
 });

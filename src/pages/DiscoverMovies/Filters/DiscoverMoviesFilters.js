@@ -9,7 +9,7 @@ import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import configSelectors from 'store/config/config.selectors';
 import type { State as FiltersState } from 'store/common/filters/filters.reducer';
-import type { Genre } from 'store/config/config.reducer';
+import type { Genre } from 'types';
 
 type Props = {
   allGenres: Genre[],

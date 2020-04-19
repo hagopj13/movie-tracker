@@ -1,9 +1,9 @@
 // @flow
 import { handleActions } from 'redux-actions';
 
-import ConfigActionTypes from './config.types';
+import type { Genre } from 'types';
 
-export type Genre = { id: number, name: string };
+import ConfigActionTypes from './config.types';
 
 type State = {
   images: {

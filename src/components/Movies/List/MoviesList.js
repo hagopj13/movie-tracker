@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import InfiniteScroll from 'components/InfiniteScroll/InfiniteScroll';
-import type { MoviesListItem as MoviesListItemType } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem as MoviesListItemType } from 'types';
 
 import MoviesListItem from './Item/MoviesListItem';
 

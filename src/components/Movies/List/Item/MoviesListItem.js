@@ -14,7 +14,7 @@ import Rating from '@material-ui/lab/Rating';
 import Image from '@material-ui/icons/Image';
 
 import configSelectors from 'store/config/config.selectors';
-import type { MoviesListItem as MovieListItemType } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem as MovieListItemType } from 'types';
 
 type Props = {
   movie: MovieListItemType,

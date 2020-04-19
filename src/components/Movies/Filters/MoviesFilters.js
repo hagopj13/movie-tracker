@@ -11,7 +11,7 @@ import ChipsList from 'components/Input/ChipsList/ChipsList';
 import DatePicker from 'components/Input/DatePicker/DatePicker';
 import { sortOptions } from 'store/common/filters/filters.reducer';
 import type { State as FiltersState } from 'store/common/filters/filters.reducer';
-import type { Genre } from 'store/config/config.reducer';
+import type { Genre } from 'types';
 
 type Props = {
   allGenres: Genre[],

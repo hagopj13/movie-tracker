@@ -2,13 +2,9 @@
 import { handleActions } from 'redux-actions';
 
 import { convertResponseToMovieDetails } from 'api/tmdb/utils';
+import type { MovieDetails } from 'types';
 
 import MovieDetailsActionTypes from './movieDetails.types';
-
-export type MovieDetails = {
-  id: string,
-  title: string,
-};
 
 type State = MovieDetails | null;
 

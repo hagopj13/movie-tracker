@@ -9,7 +9,7 @@ import upcomingActions from 'store/upcoming/upcoming.actions';
 import upcomingSelectors from 'store/upcoming/upcoming.selectors';
 import UpcomingActionTypes from 'store/upcoming/upcoming.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem } from 'types';
 
 type Props = {
   moviesList: MoviesListItem[],

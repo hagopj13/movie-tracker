@@ -9,7 +9,7 @@ import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import DiscoverActionTypes from 'store/discover/discover.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem } from 'types';
 
 type Props = {
   moviesList: MoviesListItem[],
