@@ -44,9 +44,10 @@ export type MovieDetails = {
   keywords: Keyword[],
   reviews: Review[],
   recommendations: MoviesListItem[],
-  userState: {
-    isFavorite: boolean,
-    isInWatchlist: boolean,
-    rating: number | null,
-  },
+};
+
+export type MovieUserState = {
+  isFavorite: boolean,
+  isInWatchlist: boolean,
+  rating: number | null,
 };

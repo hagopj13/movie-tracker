@@ -1,4 +1,4 @@
-import type { MoviesListItem, MovieDetails, Actor } from 'types';
+import type { MoviesListItem, MovieDetails, MovieUserState, Actor } from 'types';
 
 export const convertResponseToMoviesListItem = (response: any): MoviesListItem => ({
   id: response.id,
@@ -35,9 +35,10 @@ export const convertResponseToMovieDetails = (response: any): MovieDetails => ({
   keywords: response.keywords.keywords,
   reviews: response.reviews.results,
   recommendations: response.recommendations.results.map(convertResponseToMoviesListItem),
-  userState: {
-    isFavorite: response.account_states?.favorite ?? false,
-    isInWatchlist: response.account_states?.watchlist ?? false,
-    rating: response.account_states?.rated ? response.account_states.rated.value : null,
-  },
+});
+
+export const convertResponseToMovieUserState = (response: any): MovieUserState => ({
+  isFavorite: response.account_states?.favorite ?? false,
+  isInWatchlist: response.account_states?.watchlist ?? false,
+  rating: response.account_states?.rated ? response.account_states.rated.value : null,
 });

@@ -6,15 +6,15 @@ import { useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import MovieDetailsActionTypes from 'store/movieDetails/movieDetails.types';
-import movieDetailsActions from 'store/movieDetails/movieDetails.actions';
+import MovieActionTypes from 'store/movie/movie.types';
+import movieActions from 'store/movie/movie.actions';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 import Spinner from 'components/Spinner/Spinner';
 
 type Props = {
   isLoading: boolean,
-  onFetchMovieDetails: (id: string) => void,
+  onFetchMovie: (id: string) => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetailsPage = (props: Props) => {
-  const { isLoading, onFetchMovieDetails } = props;
+const MoviePage = (props: Props) => {
+  const { isLoading, onFetchMovie } = props;
 
   const { id } = useParams();
 
@@ -32,9 +32,9 @@ const MovieDetailsPage = (props: Props) => {
 
   useLayoutEffect(() => {
     if (id) {
-      onFetchMovieDetails(id);
+      onFetchMovie(id);
     }
-  }, [id, onFetchMovieDetails]);
+  }, [id, onFetchMovie]);
 
   if (isLoading) {
     return (
@@ -46,7 +46,7 @@ const MovieDetailsPage = (props: Props) => {
 
   return (
     <div>
-      MovieDetailsPage for movie with id=
+      MoviePage for movie with id=
       {id}
     </div>
   );
@@ -54,13 +54,13 @@ const MovieDetailsPage = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   isLoading: loadingSelectors.createIsLoadingSelector([
-    MovieDetailsActionTypes.FETCH_MOVIE_DETAILS,
+    MovieActionTypes.FETCH_MOVIE,
     ConfigActionTypes.FETCH_IMAGES_CONFIG,
   ]),
 });
 
 const mapDispatchToProps = {
-  onFetchMovieDetails: movieDetailsActions.fetchMovieDetails,
+  onFetchMovie: movieActions.fetchMovie,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
