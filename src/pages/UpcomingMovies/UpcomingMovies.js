@@ -56,7 +56,9 @@ const UpcomingMoviesPage = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isLoadingConfig: loadingSelectors.createIsLoadingSelector([ConfigActionTypes.GET_IMAGES_CONFIG]),
+  isLoadingConfig: loadingSelectors.createIsLoadingSelector([
+    ConfigActionTypes.FETCH_IMAGES_CONFIG,
+  ]),
 });
 
 const mapDispatchToProps = {

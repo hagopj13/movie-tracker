@@ -23,3 +23,5 @@ export type SearchMoviesParams = {
   query: string,
 };
 export const searchMovies = (params: SearchMoviesParams) => axios.get('/search/movie', { params });
+
+export const getMovieDetails = (id: string) => axios.get(`/movie/${id}`);

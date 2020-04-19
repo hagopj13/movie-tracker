@@ -5,13 +5,13 @@ import { Switch, Route } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 import DiscoverMoviesPage from 'pages/DiscoverMovies/DiscoverMovies';
-import SearchResultsPage from 'pages/SearchResults/SearchResults';
 
 import PrivateRoute from './PrivateRoute';
 
 const UpcomingMoviesPage = lazy(() => import('pages/UpcomingMovies/UpcomingMovies'));
 const ProfilePage = lazy(() => import('pages/Profile/Profile'));
-const MoviePage = lazy(() => import('pages/Movie/Movie'));
+const SearchResultsPage = lazy(() => import('pages/SearchResults/SearchResults'));
+const MovieDetailsPage = lazy(() => import('pages/MovieDetails/MovieDetails'));
 
 const AppRoutes = () => (
   <Switch>
@@ -21,7 +21,7 @@ const AppRoutes = () => (
         <Route exact path="/upcoming" component={UpcomingMoviesPage} />
         <PrivateRoute exact path="/profile" component={ProfilePage} />
         <Route path="/search" component={SearchResultsPage} />
-        <Route path="/movies/:id" component={MoviePage} />
+        <Route path="/movies/:id" component={MovieDetailsPage} />
       </Suspense>
     </ErrorBoundary>
   </Switch>

@@ -14,16 +14,16 @@ import 'styles/global.scss';
 
 type Props = {
   onCheckAuthState: () => void,
-  onGetImagesConfig: () => void,
+  onFetchImagesConfig: () => void,
 };
 
 const App = (props: Props) => {
-  const { onCheckAuthState, onGetImagesConfig } = props;
+  const { onCheckAuthState, onFetchImagesConfig } = props;
 
   useEffect(() => {
     onCheckAuthState();
-    onGetImagesConfig();
-  }, [onCheckAuthState, onGetImagesConfig]);
+    onFetchImagesConfig();
+  }, [onCheckAuthState, onFetchImagesConfig]);
 
   return (
     <>
@@ -38,7 +38,7 @@ const App = (props: Props) => {
 
 const mapDispatchToProps = {
   onCheckAuthState: authActions.checkAuthState,
-  onGetImagesConfig: configActions.getImagesConfig,
+  onFetchImagesConfig: configActions.fetchImagesConfig,
 };
 
 export default connect(null, mapDispatchToProps)(App);

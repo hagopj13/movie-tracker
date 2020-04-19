@@ -1,49 +1,49 @@
 // @flow
 import ConfigActionTypes from './config.types';
 
-const getImagesConfig = () => ({
-  type: ConfigActionTypes.GET_IMAGES_CONFIG,
+const fetchImagesConfig = () => ({
+  type: ConfigActionTypes.FETCH_IMAGES_CONFIG,
 });
 
-const getImagesConfigStart = () => ({
-  type: ConfigActionTypes.GET_IMAGES_CONFIG_START,
+const fetchImagesConfigStart = () => ({
+  type: ConfigActionTypes.FETCH_IMAGES_CONFIG_START,
 });
 
-const getImagesConfigSuccess = (data: any) => ({
-  type: ConfigActionTypes.GET_IMAGES_CONFIG_SUCCESS,
+const fetchImagesConfigSuccess = (data: any) => ({
+  type: ConfigActionTypes.FETCH_IMAGES_CONFIG_SUCCESS,
   payload: { data },
 });
 
-const getImagesConfigFailure = (error: string) => ({
-  type: ConfigActionTypes.GET_IMAGES_CONFIG_FAILURE,
+const fetchImagesConfigFailure = (error: string) => ({
+  type: ConfigActionTypes.FETCH_IMAGES_CONFIG_FAILURE,
   payload: { error },
 });
 
-const getAllGenres = () => ({
-  type: ConfigActionTypes.GET_ALL_GENRES,
+const fetchAllGenres = () => ({
+  type: ConfigActionTypes.FETCH_ALL_GENRES,
 });
 
-const getAllGenresStart = () => ({
-  type: ConfigActionTypes.GET_ALL_GENRES_START,
+const fetchAllGenresStart = () => ({
+  type: ConfigActionTypes.FETCH_ALL_GENRES_START,
 });
 
-const getAllGenresSuccess = (data: any) => ({
-  type: ConfigActionTypes.GET_ALL_GENRES_SUCCESS,
+const fetchAllGenresSuccess = (data: any) => ({
+  type: ConfigActionTypes.FETCH_ALL_GENRES_SUCCESS,
   payload: { data },
 });
 
-const getAllGenresFailure = (error: string) => ({
-  type: ConfigActionTypes.GET_ALL_GENRES_FAILURE,
+const fetchAllGenresFailure = (error: string) => ({
+  type: ConfigActionTypes.FETCH_ALL_GENRES_FAILURE,
   payload: { error },
 });
 
 export default {
-  getImagesConfig,
-  getImagesConfigStart,
-  getImagesConfigSuccess,
-  getImagesConfigFailure,
-  getAllGenres,
-  getAllGenresStart,
-  getAllGenresSuccess,
-  getAllGenresFailure,
+  fetchImagesConfig,
+  fetchImagesConfigStart,
+  fetchImagesConfigSuccess,
+  fetchImagesConfigFailure,
+  fetchAllGenres,
+  fetchAllGenresStart,
+  fetchAllGenresSuccess,
+  fetchAllGenresFailure,
 };

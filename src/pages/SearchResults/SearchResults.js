@@ -71,7 +71,7 @@ const SearchResultsPage = (props: Props) => {
 
 const mapStateToProps = createStructuredSelector({
   isLoading: loadingSelectors.createIsLoadingSelector([
-    ConfigActionTypes.GET_IMAGES_CONFIG,
+    ConfigActionTypes.FETCH_IMAGES_CONFIG,
     SearchActionTypes.FETCH_MOVIES,
   ]),
   selectedSearchQuery: searchSelectors.selectQuery,

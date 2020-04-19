@@ -30,7 +30,7 @@ const getDesiredSizeFromList = (desiredSize: string, sizesList: string[]): strin
   return sizesList.length > 1 ? sizesList[sizesList.length - 2] : 'original';
 };
 
-const getImagesConfigSuccess = (state: State, action: any) => ({
+const fetchImagesConfigSuccess = (state: State, action: any) => ({
   ...state,
   images: {
     ...state.images,
@@ -40,14 +40,14 @@ const getImagesConfigSuccess = (state: State, action: any) => ({
   },
 });
 
-const getAllGenresSuccess = (state: State, action: any) => ({
+const fetchAllGenresSuccess = (state: State, action: any) => ({
   ...state,
   genres: action.payload.data,
 });
 
 const actionHandler = {
-  [ConfigActionTypes.GET_IMAGES_CONFIG_SUCCESS]: getImagesConfigSuccess,
-  [ConfigActionTypes.GET_ALL_GENRES_SUCCESS]: getAllGenresSuccess,
+  [ConfigActionTypes.FETCH_IMAGES_CONFIG_SUCCESS]: fetchImagesConfigSuccess,
+  [ConfigActionTypes.FETCH_ALL_GENRES_SUCCESS]: fetchAllGenresSuccess,
 };
 
 export default handleActions(actionHandler, initialState);
