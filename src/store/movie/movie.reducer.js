@@ -23,9 +23,51 @@ const fetchMovieSuccess = (state: State, action) => ({
   userState: convertResponseToMovieUserState(action.payload.data),
 });
 
+const setIsMovieFavoriteSuccess = (state: State, action) => {
+  if (action.payload.id === state.details?.id) {
+    return {
+      ...state,
+      userState: {
+        ...state.userState,
+        isFavorite: action.payload.isFavorite,
+      },
+    };
+  }
+  return state;
+};
+
+const setIsMovieInWatchlistSuccess = (state: State, action) => {
+  if (action.payload.id === state.details?.id) {
+    return {
+      ...state,
+      userState: {
+        ...state.userState,
+        isInWatchlist: action.payload.isInWatchlist,
+      },
+    };
+  }
+  return state;
+};
+
+const rateMovieSuccess = (state: State, action) => {
+  if (action.payload.id === state.details?.id) {
+    return {
+      ...state,
+      userState: {
+        ...state.userState,
+        rating: action.payload.rating,
+      },
+    };
+  }
+  return state;
+};
+
 const movieActionHandler = {
   [MovieActionTypes.FETCH_MOVIE_START]: fetchMovieStart,
   [MovieActionTypes.FETCH_MOVIE_SUCCESS]: fetchMovieSuccess,
+  [MovieActionTypes.SET_IS_MOVIE_FAVORITE_SUCCESS]: setIsMovieFavoriteSuccess,
+  [MovieActionTypes.SET_IS_MOVIE_IN_WATCHLIST_SUCCESS]: setIsMovieInWatchlistSuccess,
+  [MovieActionTypes.RATE_MOVIE_SUCCESS]: rateMovieSuccess,
 };
 
 export default handleActions(movieActionHandler, initialState);

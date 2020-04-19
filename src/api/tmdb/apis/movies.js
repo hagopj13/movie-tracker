@@ -31,3 +31,23 @@ export const getMovieDetails = (id: string, sessionId?: string) =>
       append_to_response: 'credits,keywords,reviews,recommendations,account_states',
     },
   });
+
+export const setIsMovieFavorite = (id: string, isFavorite: boolean, sessionId: string) =>
+  axios.post(`/account/favorite?sessionId=${sessionId}`, {
+    media_type: 'movie',
+    media_id: id,
+    favorite: isFavorite,
+  });
+
+export const setIsMovieInWatchlist = (id: string, isInWatchlist: boolean, sessionId: string) =>
+  axios.post(`/account/watchlist?sessionId=${sessionId}`, {
+    media_type: 'movie',
+    media_id: id,
+    watchlist: isInWatchlist,
+  });
+
+export const rateMovie = (id: string, rating: number, sessionId: string) =>
+  axios.post(`/movie/${id}/rating?sessionId=${sessionId}`, { value: rating });
+
+export const deleteMovieRating = (id: string, sessionId: string) =>
+  axios.delete(`/movie/${id}/rating?sessionId=${sessionId}`);
