@@ -1,6 +1,8 @@
 // @flow
 import { handleActions } from 'redux-actions';
 
+import { convertResponseToMovieDetails } from 'api/tmdb/utils';
+
 import MovieDetailsActionTypes from './movieDetails.types';
 
 export type MovieDetails = {
@@ -12,14 +14,8 @@ type State = MovieDetails | null;
 
 const initialState: MovieDetails = null;
 
-const convertResponseToMovieDetails = (response: any): MovieDetails => ({
-  id: response.id,
-  title: response.title,
-});
-
 const fetchMovieDetailsStart = () => null;
 
-// TODO
 const fetchMovieDetailsSuccess = (state: State, action) =>
   convertResponseToMovieDetails(action.payload.data);
 
