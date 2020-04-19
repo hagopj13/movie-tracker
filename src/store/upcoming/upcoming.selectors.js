@@ -6,9 +6,7 @@ const selectUpcoming = (state) => state.upcoming;
 
 const selectMovies = createSelector([selectUpcoming], (upcoming) => upcoming.movies);
 
-const selectResults = createSelector([selectMovies], (movies) =>
-  moviesSelectors.selectResults(movies),
-);
+const selectList = createSelector([selectMovies], (movies) => moviesSelectors.selectList(movies));
 
 const selectCurrentPage = createSelector([selectMovies], (movies) =>
   moviesSelectors.selectCurrentPage(movies),
@@ -23,7 +21,7 @@ const selectTotalResults = createSelector([selectMovies], (movies) =>
 );
 
 export default {
-  selectResults,
+  selectList,
   selectCurrentPage,
   selectTotalPages,
   selectTotalResults,

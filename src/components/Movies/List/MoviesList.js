@@ -4,12 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import InfiniteScroll from 'components/InfiniteScroll/InfiniteScroll';
-import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem as MoviesListItemType } from 'store/common/movies/movies.reducer';
 
 import MoviesListItem from './Item/MoviesListItem';
 
 type Props = {
-  moviesList: MoviesResultsItem[],
+  moviesList: MoviesListItemType[],
   onLoadMore: () => void,
 };
 

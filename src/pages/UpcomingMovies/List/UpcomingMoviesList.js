@@ -9,17 +9,17 @@ import upcomingActions from 'store/upcoming/upcoming.actions';
 import upcomingSelectors from 'store/upcoming/upcoming.selectors';
 import UpcomingActionTypes from 'store/upcoming/upcoming.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem } from 'store/common/movies/movies.reducer';
 
 type Props = {
-  moviesResults: MoviesResultsItem[],
+  moviesList: MoviesListItem[],
   isLoading: boolean,
   isLoadingMore: boolean,
   onFetchMoreMovies: () => void,
 };
 
 const UpcomingMoviesList = (props: Props) => {
-  const { moviesResults, isLoading, isLoadingMore, onFetchMoreMovies } = props;
+  const { moviesList, isLoading, isLoadingMore, onFetchMoreMovies } = props;
 
   const handleLoadMore = useCallback(() => {
     onFetchMoreMovies();
@@ -31,14 +31,14 @@ const UpcomingMoviesList = (props: Props) => {
 
   return (
     <>
-      <MoviesList moviesList={moviesResults} onLoadMore={handleLoadMore} />
+      <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
       {isLoadingMore && <Spinner />}
     </>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesResults: upcomingSelectors.selectResults,
+  moviesList: upcomingSelectors.selectList,
   isLoading: loadingSelectors.createIsLoadingSelector([UpcomingActionTypes.FETCH_MOVIES]),
   isLoadingMore: loadingSelectors.createIsLoadingSelector([UpcomingActionTypes.FETCH_MORE_MOVIES]),
 });

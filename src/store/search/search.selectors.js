@@ -8,9 +8,7 @@ const selectQuery = createSelector([selectSearch], (search) => search.query);
 
 const selectMovies = createSelector([selectSearch], (search) => search.movies);
 
-const selectResults = createSelector([selectMovies], (movies) =>
-  moviesSelectors.selectResults(movies),
-);
+const selectList = createSelector([selectMovies], (movies) => moviesSelectors.selectList(movies));
 
 const selectCurrentPage = createSelector([selectMovies], (movies) =>
   moviesSelectors.selectCurrentPage(movies),
@@ -26,7 +24,7 @@ const selectTotalResults = createSelector([selectMovies], (movies) =>
 
 export default {
   selectQuery,
-  selectResults,
+  selectList,
   selectCurrentPage,
   selectTotalPages,
   selectTotalResults,

@@ -9,9 +9,7 @@ const selectMovies = createSelector([selectDiscover], (discover) => discover.mov
 
 const selectFilters = createSelector([selectDiscover], (discover) => discover.filters);
 
-const selectResults = createSelector([selectMovies], (movies) =>
-  moviesSelectors.selectResults(movies),
-);
+const selectList = createSelector([selectMovies], (movies) => moviesSelectors.selectList(movies));
 
 const selectCurrentPage = createSelector([selectMovies], (movies) =>
   moviesSelectors.selectCurrentPage(movies),
@@ -43,7 +41,7 @@ const selectReleaseDateEnd = createSelector([selectFilters], (filters) =>
 
 export default {
   selectFilters,
-  selectResults,
+  selectList,
   selectCurrentPage,
   selectTotalPages,
   selectTotalResults,

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const selectResults = (state) => state.results;
+const selectList = (state) => state.list;
 
 const selectPagination = (state) => state.pagination;
 
@@ -17,7 +17,7 @@ const selectTotalResults = createSelector(
 );
 
 export default {
-  selectResults,
+  selectList,
   selectCurrentPage,
   selectTotalPages,
   selectTotalResults,

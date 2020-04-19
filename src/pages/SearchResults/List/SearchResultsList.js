@@ -9,35 +9,35 @@ import searchActions from 'store/search/search.actions';
 import searchSelectors from 'store/search/search.selectors';
 import SearchActionTypes from 'store/search/search.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesResultsItem } from 'store/common/movies/movies.reducer';
+import type { MoviesListItem } from 'store/common/movies/movies.reducer';
 
 type Props = {
-  moviesResults: MoviesResultsItem[],
+  moviesList: MoviesListItem[],
   isLoadingMore: boolean,
   onFetchMoreMovies: () => void,
 };
 
 const SearchResultsList = (props: Props) => {
-  const { moviesResults, isLoadingMore, onFetchMoreMovies } = props;
+  const { moviesList, isLoadingMore, onFetchMoreMovies } = props;
 
   const handleLoadMore = useCallback(() => {
     onFetchMoreMovies();
   }, [onFetchMoreMovies]);
 
-  if (moviesResults.length === 0) {
+  if (moviesList.length === 0) {
     return null;
   }
 
   return (
     <>
-      <MoviesList moviesList={moviesResults} onLoadMore={handleLoadMore} />
+      <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
       {isLoadingMore && <Spinner />}
     </>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesResults: searchSelectors.selectResults,
+  moviesList: searchSelectors.selectList,
   isLoadingMore: loadingSelectors.createIsLoadingSelector([SearchActionTypes.FETCH_MORE_MOVIES]),
 });
 

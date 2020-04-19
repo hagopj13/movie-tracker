@@ -3,7 +3,7 @@ import reducerGenerator from 'store/common/utils/reducerGenerator';
 
 import MoviesActionTypes from './movies.types';
 
-export type MoviesResultsItem = {
+export type MoviesListItem = {
   id: string,
   title: string,
   releaseDate: string,
@@ -13,7 +13,7 @@ export type MoviesResultsItem = {
 };
 
 type State = {
-  results: MoviesResultsItem[],
+  list: MoviesListItem[],
   pagination: {
     page: number,
     totalPages: number,
@@ -22,11 +22,11 @@ type State = {
 };
 
 const defaultInitialState: State = {
-  results: [],
+  list: [],
   pagination: null,
 };
 
-const convertResults = (results: any): MoviesResultsItem[] => {
+const convertResultsToList = (results: any): MoviesListItem[] => {
   return results.map((result) => ({
     id: result.id,
     title: result.title,
@@ -43,7 +43,7 @@ const fetchMoviesStart = () => ({
 
 const fetchMoviesSuccess = (state: State, action) => ({
   ...state,
-  results: convertResults(action.payload.data.results),
+  list: convertResultsToList(action.payload.data.results),
   pagination: {
     ...state.pagination,
     page: action.payload.data.page,
@@ -54,7 +54,7 @@ const fetchMoviesSuccess = (state: State, action) => ({
 
 const fetchMoreMoviesSuccess = (state: State, action) => ({
   ...state,
-  results: state.results.concat(convertResults(action.payload.data.results)),
+  list: state.results.concat(convertResultsToList(action.payload.data.results)),
   pagination: {
     ...state.pagination,
     page: action.payload.data.page,
