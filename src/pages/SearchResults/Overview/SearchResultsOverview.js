@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   bold: {
-    display: 'inline',
     fontWeight: theme.typography.fontWeightBold,
   },
 }));
@@ -29,13 +28,9 @@ const SearchResultsOverview = (props: Props) => {
   return (
     <Typography className={classes.root} variant="h6">
       Found
-      <Typography className={classes.bold} variant="h6">
-        {` ${totalResults} `}
-      </Typography>
+      <span className={classes.bold}>{` ${totalResults} `}</span>
       results for
-      <Typography className={classes.bold} variant="h6">
-        {` ${searchQuery} `}
-      </Typography>
+      <span className={classes.bold}>{` ${searchQuery} `}</span>
     </Typography>
   );
 };
