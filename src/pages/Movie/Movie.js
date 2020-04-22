@@ -5,15 +5,21 @@ import { createStructuredSelector } from 'reselect';
 import { useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 import MovieActionTypes from 'store/movie/movie.types';
 import movieActions from 'store/movie/movie.actions';
+import movieSelectors from 'store/movie/movie.selectors';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 import Spinner from 'components/Spinner/Spinner';
+import type { MovieDetails } from 'types';
+
+import MoviePageHeader from './Header/MoviePageHeader';
 
 type Props = {
   isLoading: boolean,
+  movie: MovieDetails,
   onFetchMovie: (id: string) => void,
 };
 
@@ -21,10 +27,14 @@ const useStyles = makeStyles((theme) => ({
   spinnerContainer: {
     marginTop: theme.spacing(5),
   },
+  notFoundText: {
+    marginTop: theme.spacing(5),
+    textAlign: 'center',
+  },
 }));
 
 const MoviePage = (props: Props) => {
-  const { isLoading, onFetchMovie } = props;
+  const { isLoading, movie, onFetchMovie } = props;
 
   const { id } = useParams();
 
@@ -44,10 +54,17 @@ const MoviePage = (props: Props) => {
     );
   }
 
+  if (!movie) {
+    return (
+      <Typography className={classes.notFoundText} variant="h5">
+        Movie not found!
+      </Typography>
+    );
+  }
+
   return (
     <div>
-      MoviePage for movie with id=
-      {id}
+      <MoviePageHeader movie={movie} />
     </div>
   );
 };
@@ -57,6 +74,7 @@ const mapStateToProps = createStructuredSelector({
     MovieActionTypes.FETCH_MOVIE,
     ConfigActionTypes.FETCH_IMAGES_CONFIG,
   ]),
+  movie: movieSelectors.selectMovieDetails,
 });
 
 const mapDispatchToProps = {
