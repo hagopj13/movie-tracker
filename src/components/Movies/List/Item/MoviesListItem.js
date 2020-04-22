@@ -1,24 +1,19 @@
 // @flow
 import React, { useCallback } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
-import Image from '@material-ui/icons/Image';
 
-import configSelectors from 'store/config/config.selectors';
+import MoviePoster from 'components/Movie/Poster/MoviePoster';
 import type { MoviesListItem as MovieListItemType } from 'types';
 
 type Props = {
   movie: MovieListItemType,
-  fullPosterPath: string,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -27,19 +22,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 200,
     cursor: 'pointer',
   },
-  media: {
-    height: 300,
-  },
   title: {
     fontSize: 16,
-  },
-  brokenMediaContainer: {
-    height: 300,
-    width: 200,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: theme.palette.grey[200],
   },
   rating: {
     display: 'flex',
@@ -51,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MoviesListItem = (props: Props) => {
-  const { movie, fullPosterPath } = props;
+  const { movie } = props;
 
   const classes = useStyles();
   const history = useHistory();
@@ -63,16 +47,6 @@ const MoviesListItem = (props: Props) => {
   const handleItemClick = useCallback(() => {
     history.push(`/movies/${movie.id}`);
   }, [history, movie]);
-
-  const renderMedia = () => {
-    return movie.posterPath ? (
-      <CardMedia className={classes.media} image={fullPosterPath} />
-    ) : (
-      <div className={classes.brokenMediaContainer}>
-        <Image fontSize="large" />
-      </div>
-    );
-  };
 
   const renderRating = () => {
     return movie.voteCount ? (
@@ -88,7 +62,7 @@ const MoviesListItem = (props: Props) => {
   return (
     <Card className={classes.root} elevation={3} onClick={handleItemClick}>
       <CardActionArea>
-        {renderMedia()}
+        <MoviePoster posterPath={movie.posterPath} height={300} width={200} />
         <CardContent>
           <Typography className={classes.title} gutterBottom variant="h6">
             {movie.title}
@@ -101,9 +75,4 @@ const MoviesListItem = (props: Props) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  fullPosterPath: (state, ownProps: Props) =>
-    configSelectors.createPosterFullPathSelector(ownProps.movie.posterPath)(state),
-});
-
-export default connect(mapStateToProps)(MoviesListItem);
+export default MoviesListItem;
