@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 8,
     width: 300,
     minWidth: 300,
+    height: 450,
   },
   summaryContainer: {
     minWidth: 500,
