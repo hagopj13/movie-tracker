@@ -29,10 +29,7 @@ export const convertResponseToMovieDetails = (response: any): MovieDetails => ({
   voteCount: response.vote_count,
   posterPath: response.poster_path,
   backdropPath: response.backdrop_path,
-  budget: response.budget,
-  revenue: response.revenue,
   cast: response.credits.cast.map(convertResponseToActor),
-  keywords: response.keywords.keywords,
   reviews: response.reviews.results,
   recommendations: response.recommendations.results.map(convertResponseToMoviesListItem),
 });

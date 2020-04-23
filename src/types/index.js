@@ -7,8 +7,6 @@ export type Actor = {
   profilePath: string,
 };
 
-export type Keyword = { id: number, name: string };
-
 export type Review = {
   id: number,
   author: string,
@@ -38,10 +36,7 @@ export type MovieDetails = {
   voteCount: number,
   posterPath: string,
   backdropPath: string,
-  budget: number,
-  revenue: number,
   cast: Actor[],
-  keywords: Keyword[],
   reviews: Review[],
   recommendations: MoviesListItem[],
 };

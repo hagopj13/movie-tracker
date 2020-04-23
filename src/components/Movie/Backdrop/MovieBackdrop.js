@@ -15,13 +15,13 @@ type Props = {
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
-    boxShadow: 'inset 0 0 0 100vw rgba(0, 0, 0, 0.6)',
+    boxShadow: 'inset 0 0 0 100vw rgba(0, 0, 0, 0.7)',
     backgroundImage: (props) => `url(${props.fullBackdropPath})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center, center',
   },
   noImageBackdrop: {
-    backgroundColor: theme.palette.grey.A200,
+    backgroundColor: theme.palette.grey[500],
   },
 }));
 
