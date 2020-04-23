@@ -92,13 +92,13 @@ const MovieSummary = (props: Props) => {
         <Typography variant="h6">
           <Box component="span">Release Date: </Box>
           <Box component="span" fontWeight="fontWeightLight">
-            {movie.releaseDate ? moment(movie.releaseDate).format('MMM D, YYYY') : '-'}
+            {movie.releaseDate ? moment(movie.releaseDate).format('MMM D, YYYY') : 'Unknown'}
           </Box>
           <Box component="span" ml={8}>
             {'Status: '}
           </Box>
           <Box component="span" fontWeight="fontWeightLight">
-            {movie.status || '-'}
+            {movie.status || 'Unknown'}
           </Box>
         </Typography>
       </Box>
