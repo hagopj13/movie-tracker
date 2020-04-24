@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AuthButtons = (props: Props) => {
+const AuthButton = (props: Props) => {
   const { isAuth, isLogoutLoading, onLogout, onShowLoginDialog } = props;
   const classes = useStyles();
 
@@ -67,4 +67,4 @@ const mapDispatchToProps = {
   onShowLoginDialog: () => dialogActions.showDialog(DialogTypes.LOGIN),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthButtons);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthButton);

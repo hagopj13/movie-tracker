@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 
 import Search from 'components/Search/Search';
 import Navigation from 'components/Navigation/Navigation';
-import AuthButton from 'components/Auth/Buttons/AuthButton';
+import AuthButton from 'components/Auth/Button/AuthButton';
 import colors from 'styles/colors.scss';
 
 const useStyles = makeStyles((theme) => ({

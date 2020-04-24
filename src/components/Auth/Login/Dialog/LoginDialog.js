@@ -13,7 +13,7 @@ import authActions from 'store/auth/auth.actions';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import errorSelectors from 'store/api/error/error.selectors';
 
-import LoginForm from './Form/LoginForm';
+import LoginForm from 'components/Auth/Login/Form/LoginForm';
 
 type Props = {
   isOpen: boolean,
