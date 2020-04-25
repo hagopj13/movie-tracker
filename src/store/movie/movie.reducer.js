@@ -2,24 +2,34 @@
 import { handleActions } from 'redux-actions';
 
 import { convertResponseToMovieDetails, convertResponseToMovieUserState } from 'api/tmdb/utils';
+import AuthActionTypes from 'store/auth/auth.types';
 import type { MovieDetails, MovieUserState } from 'types';
 
 import MovieActionTypes from './movie.types';
 
 type State = {
-  details: MovieDetails | null,
-  userState: MovieUserState | null,
+  details: MovieDetails | {},
+  userState: MovieUserState,
 };
 
 const initialState: MovieDetails = {
-  details: null,
-  userState: null,
+  details: {},
+  userState: {
+    isFavorite: false,
+    isInWatchlist: false,
+    rating: null,
+  },
 };
 
 const fetchMovieStart = () => initialState;
 
 const fetchMovieSuccess = (state: State, action) => ({
   details: convertResponseToMovieDetails(action.payload.data),
+  userState: convertResponseToMovieUserState(action.payload.data.account_states),
+});
+
+const fetchMovieUserStateSuccess = (state: State, action) => ({
+  ...state,
   userState: convertResponseToMovieUserState(action.payload.data),
 });
 
@@ -62,12 +72,19 @@ const rateMovieSuccess = (state: State, action) => {
   return state;
 };
 
+const logoutSuccess = (state: State) => ({
+  ...state,
+  userState: initialState.userState,
+});
+
 const movieActionHandler = {
   [MovieActionTypes.FETCH_MOVIE_START]: fetchMovieStart,
   [MovieActionTypes.FETCH_MOVIE_SUCCESS]: fetchMovieSuccess,
+  [MovieActionTypes.FETCH_MOVIE_USER_STATE_SUCCESS]: fetchMovieUserStateSuccess,
   [MovieActionTypes.SET_IS_MOVIE_FAVORITE_SUCCESS]: setIsMovieFavoriteSuccess,
   [MovieActionTypes.SET_IS_MOVIE_IN_WATCHLIST_SUCCESS]: setIsMovieInWatchlistSuccess,
   [MovieActionTypes.RATE_MOVIE_SUCCESS]: rateMovieSuccess,
+  [AuthActionTypes.LOGOUT_SUCCESS]: logoutSuccess,
 };
 
 export default handleActions(movieActionHandler, initialState);

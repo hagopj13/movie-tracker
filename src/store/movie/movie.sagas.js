@@ -17,6 +17,17 @@ function* fetchMovie({ payload: { id } }) {
   }
 }
 
+function* fetchMovieUserState({ payload: { id } }) {
+  yield put(movieActions.fetchMovieUserStateStart());
+  const sessionId = yield select(authSelectors.selectSessionId);
+  try {
+    const { data } = yield call(api.getMovieUserState, id, sessionId);
+    yield put(movieActions.fetchMovieUserStateSuccess(data));
+  } catch (error) {
+    yield put(movieActions.fetchMovieUserStateFailure(error.status_message));
+  }
+}
+
 function* setIsMovieFavorite({ payload: { id, isFavorite } }) {
   yield put(movieActions.setIsMovieFavoriteStart());
   const sessionId = yield select(authSelectors.selectSessionId);
@@ -60,6 +71,10 @@ function* onFetchMovie() {
   yield takeLatest(MovieActionTypes.FETCH_MOVIE, fetchMovie);
 }
 
+function* onFetchMovieUserState() {
+  yield takeLatest(MovieActionTypes.FETCH_MOVIE_USER_STATE, fetchMovieUserState);
+}
+
 function* onSetIsMovieFavorite() {
   yield takeLatest(MovieActionTypes.SET_IS_MOVIE_FAVORITE, setIsMovieFavorite);
 }
@@ -75,6 +90,7 @@ function* onRateMovie() {
 export default function* movieSagas() {
   yield all([
     call(onFetchMovie),
+    call(onFetchMovieUserState),
     call(onSetIsMovieFavorite),
     call(onSetIsMovieInWatchlist),
     call(onRateMovie),

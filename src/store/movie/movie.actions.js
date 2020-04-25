@@ -20,6 +20,25 @@ const fetchMovieFailure = (error: string) => ({
   payload: { error },
 });
 
+const fetchMovieUserState = (id: string) => ({
+  type: MovieActionTypes.FETCH_MOVIE_USER_STATE,
+  payload: { id },
+});
+
+const fetchMovieUserStateStart = () => ({
+  type: MovieActionTypes.FETCH_MOVIE_USER_STATE_START,
+});
+
+const fetchMovieUserStateSuccess = (data: any) => ({
+  type: MovieActionTypes.FETCH_MOVIE_USER_STATE_SUCCESS,
+  payload: { data },
+});
+
+const fetchMovieUserStateFailure = (error: string) => ({
+  type: MovieActionTypes.FETCH_MOVIE_USER_STATE_FAILURE,
+  payload: { error },
+});
+
 const setIsMovieFavorite = (id: number, isFavorite: boolean) => ({
   type: MovieActionTypes.SET_IS_MOVIE_FAVORITE,
   payload: { id, isFavorite },
@@ -82,6 +101,10 @@ export default {
   fetchMovieStart,
   fetchMovieSuccess,
   fetchMovieFailure,
+  fetchMovieUserState,
+  fetchMovieUserStateStart,
+  fetchMovieUserStateSuccess,
+  fetchMovieUserStateFailure,
   setIsMovieFavorite,
   setIsMovieFavoriteStart,
   setIsMovieFavoriteSuccess,

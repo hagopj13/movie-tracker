@@ -1,5 +1,5 @@
 // @flow
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { useParams } from 'react-router-dom';
@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import MovieActionTypes from 'store/movie/movie.types';
 import movieActions from 'store/movie/movie.actions';
 import movieSelectors from 'store/movie/movie.selectors';
+import authSelectors from 'store/auth/auth.selectors';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 import Spinner from 'components/Spinner/Spinner';
@@ -20,7 +21,9 @@ import MoviePageHeader from './Header/MoviePageHeader';
 type Props = {
   isLoading: boolean,
   movie: MovieDetails,
+  isAuth: boolean,
   onFetchMovie: (id: string) => void,
+  onUpdateMovieUserState: (id: string) => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -34,8 +37,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MoviePage = (props: Props) => {
-  const { isLoading, movie, onFetchMovie } = props;
+  const { isLoading, movie, isAuth, onFetchMovie, onUpdateMovieUserState } = props;
 
+  const isAuthRef = useRef(isAuth);
   const { id } = useParams();
 
   const classes = useStyles();
@@ -45,6 +49,15 @@ const MoviePage = (props: Props) => {
       onFetchMovie(id);
     }
   }, [id, onFetchMovie]);
+
+  useEffect(() => {
+    if (isAuth !== isAuthRef.current) {
+      isAuthRef.current = isAuth;
+      if (id && isAuth) {
+        onUpdateMovieUserState(id);
+      }
+    }
+  }, [id, isAuth, onUpdateMovieUserState]);
 
   if (isLoading) {
     return (
@@ -75,10 +88,12 @@ const mapStateToProps = createStructuredSelector({
     ConfigActionTypes.FETCH_IMAGES_CONFIG,
   ]),
   movie: movieSelectors.selectMovieDetails,
+  isAuth: authSelectors.selectIsAuth,
 });
 
 const mapDispatchToProps = {
   onFetchMovie: movieActions.fetchMovie,
+  onUpdateMovieUserState: movieActions.fetchMovieUserState,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
