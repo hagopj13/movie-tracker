@@ -3,11 +3,10 @@ import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import StarRateIcon from '@material-ui/icons/StarRate';
-import { lightBlue, red, yellow, green } from '@material-ui/core/colors';
+import { red, yellow, green } from '@material-ui/core/colors';
 
 import MovieRatingPopover from 'components/Movie/Rating/Popover/MovieRatingPopover';
 import DialogTypes from 'components/Dialog/types';
@@ -16,6 +15,8 @@ import movieSelectors from 'store/movie/movie.selectors';
 import authSelectors from 'store/auth/auth.selectors';
 import dialogActions from 'store/ui/dialog/dialog.actions';
 import { MovieDetails, MovieUserState } from 'types';
+
+import MovieActionButton from './Button/MovieActionButton';
 
 type Props = {
   movie: MovieDetails,
@@ -28,11 +29,9 @@ type Props = {
 };
 
 const useStyles = makeStyles((theme) => ({
-  fab: {
-    marginRight: theme.spacing(1.5),
-    backgroundColor: lightBlue[800],
-    '&:hover': {
-      backgroundColor: lightBlue[900],
+  buttonsContainer: {
+    '& > *': {
+      marginRight: theme.spacing(1.5),
     },
   },
   favoriteIcon: {
@@ -46,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
   ratingIcon: {
     fontSize: 28,
     color: (props) => (props.userState.rating ? yellow[600] : 'white'),
+  },
+  tooltip: {
+    fontSize: 14,
   },
 }));
 
@@ -96,22 +98,53 @@ const MovieActions = (props: Props) => {
     onRateMovie(movie.id, newValue);
   };
 
+  const getFavoriteTooltipTitle = () => {
+    if (!isAuth) {
+      return 'Login to add movie to your favorite list';
+    }
+    if (userState.isFavorite) {
+      return 'Remove movie from your favorite list';
+    }
+    return 'Add movie to your favorite list';
+  };
+
+  const getWatchlistTooltipTitle = () => {
+    if (!isAuth) {
+      return 'Login to add movie to your watchlist';
+    }
+    if (userState.isInWatchlist) {
+      return 'Remove movie from your watchlist';
+    }
+    return 'Add movie to your watchlist';
+  };
+
+  const getRateTooltipTitle = () => {
+    if (!isAuth) {
+      return 'Login to rate movie';
+    }
+    if (userState.rating) {
+      return `Rated ${userState.rating}`;
+    }
+    return 'Rate movie';
+  };
+
   return (
-    <div>
-      <Fab className={classes.fab} size="medium" onClick={handleFavoriteButtonClick}>
-        <FavoriteIcon className={classes.favoriteIcon} />
-      </Fab>
-      <Fab className={classes.fab} size="medium" onClick={handleWatchlistButtonClick}>
-        <BookmarkIcon className={classes.watchlistIcon} />
-      </Fab>
-      <Fab
-        className={classes.fab}
-        size="medium"
-        onClick={handleRatingButtonClick}
-        ref={ratingButtonRef}
-      >
-        <StarRateIcon className={classes.ratingIcon} />
-      </Fab>
+    <>
+      <div className={classes.buttonsContainer}>
+        <MovieActionButton onClick={handleFavoriteButtonClick} title={getFavoriteTooltipTitle()}>
+          <FavoriteIcon className={classes.favoriteIcon} />
+        </MovieActionButton>
+        <MovieActionButton onClick={handleWatchlistButtonClick} title={getWatchlistTooltipTitle()}>
+          <BookmarkIcon className={classes.watchlistIcon} />
+        </MovieActionButton>
+        <MovieActionButton
+          ref={ratingButtonRef}
+          onClick={handleRatingButtonClick}
+          title={getRateTooltipTitle()}
+        >
+          <StarRateIcon className={classes.ratingIcon} />
+        </MovieActionButton>
+      </div>
       <MovieRatingPopover
         isOpen={isRatingPopoverOpen}
         anchorEl={ratingButtonRef.current}
@@ -119,7 +152,7 @@ const MovieActions = (props: Props) => {
         onClose={handleRatingPopoverClose}
         onChange={handleRatingChange}
       />
-    </div>
+    </>
   );
 };
 
