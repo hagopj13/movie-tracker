@@ -4,14 +4,12 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-import Popover from '@material-ui/core/Popover';
-import Box from '@material-ui/core/Box';
-import Rating from '@material-ui/lab/Rating';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import { lightBlue, red, yellow, green } from '@material-ui/core/colors';
 
+import MovieRatingPopover from 'components/Movie/Rating/Popover/MovieRatingPopover';
 import DialogTypes from 'components/Dialog/types';
 import movieActions from 'store/movie/movie.actions';
 import movieSelectors from 'store/movie/movie.selectors';
@@ -49,12 +47,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 28,
     color: (props) => (props.userState.rating ? yellow[600] : 'white'),
   },
-  ratingContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(1.5),
-    width: 165,
-  },
 }));
 
 const MovieActions = (props: Props) => {
@@ -69,9 +61,6 @@ const MovieActions = (props: Props) => {
   } = props;
 
   const [isRatingPopoverOpen, setIsRatingPopoverOpen] = useState(false);
-  const [ratingValue, setRatingValue] = useState(userState.rating);
-  const [ratingHoverValue, setRatingHoverValue] = useState(-1);
-
   const ratingButtonRef = useRef(null);
   const classes = useStyles(props);
 
@@ -103,12 +92,9 @@ const MovieActions = (props: Props) => {
 
   const handleRatingPopoverClose = () => setIsRatingPopoverOpen(false);
 
-  const handleRatingChange = (event, newValue: number | null) => {
-    setRatingValue(newValue);
+  const handleRatingChange = (newValue: number | null) => {
     onRateMovie(movie.id, newValue);
   };
-
-  const handleRatingChangeActive = (event, newHover: number) => setRatingHoverValue(newHover);
 
   return (
     <div>
@@ -126,25 +112,13 @@ const MovieActions = (props: Props) => {
       >
         <StarRateIcon className={classes.ratingIcon} />
       </Fab>
-      <Popover
-        open={isRatingPopoverOpen}
+      <MovieRatingPopover
+        isOpen={isRatingPopoverOpen}
         anchorEl={ratingButtonRef.current}
+        initialValue={userState.rating}
         onClose={handleRatingPopoverClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        transformOrigin={{ vertical: -10, horizontal: 'center' }}
-        disableScrollLock
-      >
-        <div className={classes.ratingContainer}>
-          <Rating
-            name="rating"
-            value={ratingValue}
-            precision={0.5}
-            onChange={handleRatingChange}
-            onChangeActive={handleRatingChangeActive}
-          />
-          <Box ml={1}>{ratingHoverValue !== -1 ? ratingHoverValue : ratingValue}</Box>
-        </div>
-      </Popover>
+        onChange={handleRatingChange}
+      />
     </div>
   );
 };

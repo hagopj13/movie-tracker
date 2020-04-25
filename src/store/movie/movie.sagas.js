@@ -46,7 +46,7 @@ function* rateMovie({ payload: { id, rating } }) {
   const sessionId = yield select(authSelectors.selectSessionId);
   try {
     if (rating) {
-      yield call(api.rateMovie, id, rating, sessionId);
+      yield call(api.rateMovie, id, rating * 2, sessionId);
     } else {
       yield call(api.deleteMovieRating, id, sessionId);
     }

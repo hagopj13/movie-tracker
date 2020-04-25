@@ -37,5 +37,5 @@ export const convertResponseToMovieDetails = (response: any): MovieDetails => ({
 export const convertResponseToMovieUserState = (response: any): MovieUserState => ({
   isFavorite: response.account_states?.favorite ?? false,
   isInWatchlist: response.account_states?.watchlist ?? false,
-  rating: response.account_states?.rated ? response.account_states.rated.value : null,
+  rating: response.account_states?.rated ? response.account_states.rated.value / 2 : null,
 });
