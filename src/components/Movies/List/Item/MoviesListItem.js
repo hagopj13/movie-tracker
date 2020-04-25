@@ -1,5 +1,5 @@
 // @flow
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,9 +44,9 @@ const MoviesListItem = (props: Props) => {
     ? moment(movie.releaseDate).format('MMM D, YYYY')
     : 'Unknown release date';
 
-  const handleItemClick = useCallback(() => {
+  const handleItemClick = () => {
     history.push(`/movies/${movie.id}`);
-  }, [history, movie]);
+  };
 
   const renderRating = () => {
     return movie.voteCount ? (

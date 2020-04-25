@@ -1,5 +1,5 @@
 // @flow
-import React, { useCallback } from 'react';
+import React from 'react';
 import type { Moment } from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -35,14 +35,11 @@ const DatePicker = (props: Props) => {
 
   const classes = useStyles();
 
-  const handleDateChange = useCallback(
-    (date: Moment) => {
-      if (date !== selectedDate && !date?.isSame(selectedDate)) {
-        onDateChange(date);
-      }
-    },
-    [onDateChange, selectedDate],
-  );
+  const handleDateChange = (date: Moment) => {
+    if (date !== selectedDate && !date?.isSame(selectedDate)) {
+      onDateChange(date);
+    }
+  };
 
   return (
     <div className={classes.root}>

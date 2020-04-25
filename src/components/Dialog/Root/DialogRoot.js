@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { useTheme } from '@material-ui/core/styles';
@@ -45,9 +45,9 @@ const DialogRoot = (props: Props) => {
     }
   }, [dialogType, theme]);
 
-  const handleHideDialog = useCallback(() => {
+  const handleHideDialog = () => {
     onHideDialog(dialogType);
-  }, [dialogType, onHideDialog]);
+  };
 
   if (!SelectedDialog) {
     return null;

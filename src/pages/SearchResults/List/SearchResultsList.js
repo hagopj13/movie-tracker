@@ -1,5 +1,5 @@
 // @flow
-import React, { useCallback } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -20,9 +20,9 @@ type Props = {
 const SearchResultsList = (props: Props) => {
   const { moviesList, isLoadingMore, onFetchMoreMovies } = props;
 
-  const handleLoadMore = useCallback(() => {
+  const handleLoadMore = () => {
     onFetchMoreMovies();
-  }, [onFetchMoreMovies]);
+  };
 
   if (moviesList.length === 0) {
     return null;

@@ -1,5 +1,5 @@
 // @flow
-import React, { useCallback } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -21,9 +21,9 @@ type Props = {
 const UpcomingMoviesList = (props: Props) => {
   const { moviesList, isLoading, isLoadingMore, onFetchMoreMovies } = props;
 
-  const handleLoadMore = useCallback(() => {
+  const handleLoadMore = () => {
     onFetchMoreMovies();
-  }, [onFetchMoreMovies]);
+  };
 
   if (isLoading) {
     return <Spinner />;

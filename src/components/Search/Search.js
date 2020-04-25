@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -30,14 +30,11 @@ const Search = (props: Props) => {
     }
   }, [location, selectedSearchQuery, onSetSearchQuery]);
 
-  const handleSubmit = useCallback(
-    ({ query }) => {
-      if (query) {
-        history.push(`/search?query=${query}`);
-      }
-    },
-    [history],
-  );
+  const handleSubmit = ({ query }) => {
+    if (query) {
+      history.push(`/search?query=${query}`);
+    }
+  };
 
   return <SearchForm onSubmit={handleSubmit} selectedQuery={selectedSearchQuery} />;
 };

@@ -1,5 +1,5 @@
 // @flow
-import React, { useCallback } from 'react';
+import React from 'react';
 import type { Moment } from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
@@ -49,37 +49,25 @@ const MoviesFilters = (props: Props) => {
 
   const classes = useStyles();
 
-  const handleSetSortBy = useCallback(
-    (sortBy) => {
-      onSetSortBy(sortBy);
-      onFiltersChanged();
-    },
-    [onSetSortBy, onFiltersChanged],
-  );
+  const handleSetSortBy = (sortBy) => {
+    onSetSortBy(sortBy);
+    onFiltersChanged();
+  };
 
-  const handleToggleGenre = useCallback(
-    (genreId) => {
-      onToggleGenre(genreId);
-      onFiltersChanged();
-    },
-    [onToggleGenre, onFiltersChanged],
-  );
+  const handleToggleGenre = (genreId) => {
+    onToggleGenre(genreId);
+    onFiltersChanged();
+  };
 
-  const handleSetReleaseDateStart = useCallback(
-    (releaseDateStart) => {
-      onSetReleaseDateStart(releaseDateStart);
-      onFiltersChanged();
-    },
-    [onSetReleaseDateStart, onFiltersChanged],
-  );
+  const handleSetReleaseDateStart = (releaseDateStart) => {
+    onSetReleaseDateStart(releaseDateStart);
+    onFiltersChanged();
+  };
 
-  const handleSetReleaseDateEnd = useCallback(
-    (releaseDateEnd) => {
-      onSetReleaseDateEnd(releaseDateEnd);
-      onFiltersChanged();
-    },
-    [onSetReleaseDateEnd, onFiltersChanged],
-  );
+  const handleSetReleaseDateEnd = (releaseDateEnd) => {
+    onSetReleaseDateEnd(releaseDateEnd);
+    onFiltersChanged();
+  };
 
   return (
     <div className={classes.root}>
