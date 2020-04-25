@@ -10,7 +10,7 @@ function* fetchMovie({ payload: { id } }) {
   yield put(movieActions.fetchMovieStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   try {
-    const { data } = yield api.getMovieDetails(id, sessionId);
+    const { data } = yield call(api.getMovieDetails, id, sessionId);
     yield put(movieActions.fetchMovieSuccess(data));
   } catch (error) {
     yield put(movieActions.fetchMovieFailure(error.status_message));
@@ -20,8 +20,9 @@ function* fetchMovie({ payload: { id } }) {
 function* setIsMovieFavorite({ payload: { id, isFavorite } }) {
   yield put(movieActions.setIsMovieFavoriteStart());
   const sessionId = yield select(authSelectors.selectSessionId);
+  const accountId = yield select(authSelectors.selectAccountId);
   try {
-    yield api.setIsMovieFavorite(id, isFavorite, sessionId);
+    yield call(api.setIsMovieFavorite, id, isFavorite, sessionId, accountId);
     yield put(movieActions.setIsMovieFavoriteSuccess(id, isFavorite));
   } catch (error) {
     yield put(movieActions.setIsMovieFavoriteFailure(error.status_message));
@@ -31,8 +32,9 @@ function* setIsMovieFavorite({ payload: { id, isFavorite } }) {
 function* setIsMovieInWatchlist({ payload: { id, isInWatchlist } }) {
   yield put(movieActions.setIsMovieInWatchlistStart());
   const sessionId = yield select(authSelectors.selectSessionId);
+  const accountId = yield select(authSelectors.selectAccountId);
   try {
-    yield api.setIsMovieInWatchlist(id, isInWatchlist, sessionId);
+    yield call(api.setIsMovieInWatchlist, id, isInWatchlist, sessionId, accountId);
     yield put(movieActions.setIsMovieInWatchlistSuccess(id, isInWatchlist));
   } catch (error) {
     yield put(movieActions.setIsMovieInWatchlistFailure(error.status_message));
@@ -44,9 +46,9 @@ function* rateMovie({ payload: { id, rating } }) {
   const sessionId = yield select(authSelectors.selectSessionId);
   try {
     if (rating) {
-      yield api.rateMovie(id, rating, sessionId);
+      yield call(api.rateMovie, id, rating, sessionId);
     } else {
-      yield api.deleteMovieRating(id, sessionId);
+      yield call(api.deleteMovieRating, id, sessionId);
     }
     yield put(movieActions.rateMovieSuccess(id, rating));
   } catch (error) {

@@ -27,7 +27,7 @@ function* fetchMovies() {
   yield put(discoverActions.fetchMoviesStart());
   try {
     const filterParams = yield getFilterParams();
-    const { data } = yield api.getDiscoverMovies({ ...filterParams });
+    const { data } = yield call(api.getDiscoverMovies, { ...filterParams });
     yield put(discoverActions.fetchMoviesSuccess(data));
   } catch (error) {
     yield put(discoverActions.fetchMoviesFailure(error.status_message));
@@ -48,7 +48,10 @@ function* fetchMoreMovies() {
   if (!isLoading && currentPage < totalPages) {
     yield put(discoverActions.fetchMoreMoviesStart());
     try {
-      const { data } = yield api.getDiscoverMovies({ page: currentPage + 1, ...filterParams });
+      const { data } = yield call(api.getDiscoverMovies, {
+        page: currentPage + 1,
+        ...filterParams,
+      });
       yield put(discoverActions.fetchMoreMoviesSuccess(data));
     } catch (error) {
       yield put(discoverActions.fetchMoreMoviesFailure(error.status_message));

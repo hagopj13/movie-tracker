@@ -10,7 +10,7 @@ import upcomingSelectors from './upcoming.selectors';
 function* fetchMovies() {
   yield put(upcomingActions.fetchMoviesStart());
   try {
-    const { data } = yield api.getUpcomingMovies({});
+    const { data } = yield call(api.getUpcomingMovies, {});
     yield put(upcomingActions.fetchMoviesSuccess(data));
   } catch (error) {
     yield put(upcomingActions.fetchMoviesFailure(error.status_message));
@@ -30,7 +30,7 @@ function* fetchMoreMovies() {
   if (!isLoading && currentPage < totalPages) {
     yield put(upcomingActions.fetchMoreMoviesStart());
     try {
-      const { data } = yield api.getUpcomingMovies({ page: currentPage + 1 });
+      const { data } = yield call(api.getUpcomingMovies, { page: currentPage + 1 });
       yield put(upcomingActions.fetchMoreMoviesSuccess(data));
     } catch (error) {
       yield put(upcomingActions.fetchMoreMoviesFailure(error.status_message));

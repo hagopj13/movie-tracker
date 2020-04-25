@@ -10,9 +10,9 @@ const loginStart = () => ({
   type: AuthActionTypes.LOGIN_START,
 });
 
-const loginSuccess = (sessionId: string) => ({
+const loginSuccess = (sessionId: string, accountId: string) => ({
   type: AuthActionTypes.LOGIN_SUCCESS,
-  payload: { sessionId },
+  payload: { sessionId, accountId },
 });
 
 const loginFailure = (error: string) => ({

@@ -5,21 +5,21 @@ import AuthActionTypes from './auth.types';
 
 type State = {
   sessionId: string | null,
+  accountId: string | null,
 };
 
 const initialState: State = {
   sessionId: null,
+  accountId: null,
 };
 
 const loginSuccess = (state: State, action: any) => ({
   ...state,
   sessionId: action.payload.sessionId,
+  accountId: action.payload.accountId,
 });
 
-const logoutSuccess = (state: State) => ({
-  ...state,
-  sessionId: null,
-});
+const logoutSuccess = () => initialState;
 
 const actionHandler = {
   [AuthActionTypes.LOGIN_SUCCESS]: loginSuccess,

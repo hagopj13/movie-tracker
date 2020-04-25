@@ -22,8 +22,13 @@ function* login({ payload: { username, password } }) {
       data: { session_id: sessionId },
     } = yield call(api.createSession, { requestToken });
 
+    const {
+      data: { id: accountId },
+    } = yield call(api.getAccountDetails, sessionId);
+
     yield call(LocalStorageService.setItem, 'sessionId', sessionId);
-    yield put(authActions.loginSuccess(sessionId));
+    yield call(LocalStorageService.setItem, 'accountId', accountId);
+    yield put(authActions.loginSuccess(sessionId, accountId));
     yield put(dialogActions.hideDialog(DialogTypes.LOGIN));
   } catch (error) {
     yield put(authActions.loginFailure('Incorrect username or password'));
@@ -36,6 +41,7 @@ function* logout() {
     const sessionId = yield select(authSelectors.selectSessionId);
     yield call(api.deleteSession, { sessionId });
     yield call(LocalStorageService.removeItem, 'sessionId');
+    yield call(LocalStorageService.removeItem, 'accountId');
     yield put(authActions.logoutSuccess());
   } catch (error) {
     yield put(authActions.logoutFailure(error.status_message));
@@ -44,8 +50,9 @@ function* logout() {
 
 function* checkAuthState() {
   const sessionId = yield call(LocalStorageService.getItem, 'sessionId');
-  if (sessionId) {
-    yield put(authActions.loginSuccess(sessionId));
+  const accountId = yield call(LocalStorageService.getItem, 'accountId');
+  if (sessionId && accountId) {
+    yield put(authActions.loginSuccess(sessionId, accountId));
   } else {
     yield put(authActions.logoutSuccess());
   }

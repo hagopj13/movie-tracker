@@ -11,7 +11,7 @@ function* fetchMovies() {
   const query = yield select(searchSelectors.selectQuery);
   yield put(searchActions.fetchMoviesStart());
   try {
-    const { data } = yield api.searchMovies({ query });
+    const { data } = yield call(api.searchMovies, { query });
     yield put(searchActions.fetchMoviesSuccess(data));
   } catch (error) {
     yield put(searchActions.fetchMoviesFailure(error.status_message));
@@ -32,7 +32,7 @@ function* fetchMoreMovies() {
   if (!isLoading && currentPage < totalPages) {
     yield put(searchActions.fetchMoreMoviesStart());
     try {
-      const { data } = yield api.searchMovies({ query, page: currentPage + 1 });
+      const { data } = yield call(api.searchMovies, { query, page: currentPage + 1 });
       yield put(searchActions.fetchMoreMoviesSuccess(data));
     } catch (error) {
       yield put(searchActions.fetchMoreMoviesFailure(error.status_message));

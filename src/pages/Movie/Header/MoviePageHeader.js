@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import MovieBackdrop from 'components/Movie/Backdrop/MovieBackdrop';
 import MoviePoster from 'components/Movie/Poster/MoviePoster';
 import MovieSummary from 'components/Movie/Summary/MovieSummary';
+import MovieActions from 'components/Movie/Actions/MovieActions';
 import type { MovieDetails } from 'types';
 
 type Props = {
@@ -25,9 +26,12 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 300,
     height: 450,
   },
-  summaryContainer: {
+  infoContainer: {
     minWidth: 500,
     padding: theme.spacing(1, 1, 0, 5),
+  },
+  actionsContainer: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -42,8 +46,11 @@ const MoviePageHeader = (props: Props) => {
         <Card className={classes.poster} elevation={5}>
           <MoviePoster posterPath={movie.posterPath} height={450} width={300} />
         </Card>
-        <div className={classes.summaryContainer}>
+        <div className={classes.infoContainer}>
           <MovieSummary movie={movie} />
+          <div className={classes.actionsContainer}>
+            <MovieActions movie={movie} />
+          </div>
         </div>
       </Container>
     </MovieBackdrop>
