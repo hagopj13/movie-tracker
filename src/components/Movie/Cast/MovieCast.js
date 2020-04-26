@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2.25, 0, 0, 2.25),
     },
   },
+  noActorsText: {
+    fontWeight: theme.typography.fontWeightRegular,
+  },
 }));
 
 const MovieCast = (props: Props) => {
@@ -27,7 +30,11 @@ const MovieCast = (props: Props) => {
   const classes = useStyles();
 
   if (cast.length === 0) {
-    return <Typography>No actors found</Typography>;
+    return (
+      <Typography className={classes.noActorsText} variant="h6">
+        No actors found
+      </Typography>
+    );
   }
 
   return (

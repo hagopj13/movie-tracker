@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 
 import MovieCast from 'components/Movie/Cast/MovieCast';
 import MovieReviews from 'components/Movie/Reviews/MovieReviews';
+import MovieRecommendations from 'components/Movie/Recommendations/MovieRecommendations';
 import { MovieDetails } from 'types';
 
 import MoviePageBodySection from './Section/MoviePageBodySection';
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MAX_NUMBER_OF_ACTORS = 7;
 const MAX_NUMBER_OF_REVIEWS = 4;
+const MAX_NUMBER_OF_RECOMMENDATIONS = 10;
 
 const MoviePageBody = (props: Props) => {
   const { movie } = props;
@@ -40,6 +42,11 @@ const MoviePageBody = (props: Props) => {
       </MoviePageBodySection>
       <MoviePageBodySection title="Top Reviews">
         <MovieReviews reviews={movie.reviews.slice(0, MAX_NUMBER_OF_REVIEWS)} />
+      </MoviePageBodySection>
+      <MoviePageBodySection title="Recommendations">
+        <MovieRecommendations
+          recommendations={movie.recommendations.slice(0, MAX_NUMBER_OF_RECOMMENDATIONS)}
+        />
       </MoviePageBodySection>
     </Container>
   );

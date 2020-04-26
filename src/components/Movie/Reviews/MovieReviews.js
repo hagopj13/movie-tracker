@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 import Review from 'components/Review/Review';
 import type { Review as ReviewType } from 'types';
@@ -11,6 +12,7 @@ type Props = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    minWidth: 500,
     '& > *': {
       marginBottom: theme.spacing(3),
       '&:last-child': {
@@ -18,12 +20,23 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  noReviewsText: {
+    fontWeight: theme.typography.fontWeightRegular,
+  },
 }));
 
 const MovieReviews = (props: Props) => {
   const { reviews } = props;
 
   const classes = useStyles();
+
+  if (reviews.length === 0) {
+    return (
+      <Typography className={classes.noReviewsText} variant="h6">
+        No reviews found
+      </Typography>
+    );
+  }
 
   return (
     <div className={classes.root}>
