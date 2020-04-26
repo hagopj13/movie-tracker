@@ -12,7 +12,7 @@ type State = {
   userState: MovieUserState,
 };
 
-const initialState: MovieDetails = {
+const initialState: State = {
   details: {
     id: null,
     title: '',

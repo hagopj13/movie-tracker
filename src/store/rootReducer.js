@@ -8,6 +8,7 @@ import movieReducer from './movie/movie.reducer';
 import searchReducer from './search/search.reducer';
 import uiReducer from './ui/ui.reducer';
 import upcomingReducer from './upcoming/upcoming.reducer';
+import userReducer from './user/user.reducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -18,4 +19,5 @@ export default combineReducers({
   search: searchReducer,
   ui: uiReducer,
   upcoming: upcomingReducer,
+  user: userReducer,
 });
