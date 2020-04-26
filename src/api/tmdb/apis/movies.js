@@ -32,7 +32,7 @@ export const getMovieDetails = (id: string, sessionId?: string) =>
     },
   });
 
-export const getMovieUserState = (id: string, sessionId?: string) =>
+export const getMovieUserState = (id: string, sessionId: string) =>
   axios.get(`/movie/${id}/account_states?session_id=${sessionId}`);
 
 export const setIsMovieFavorite = (

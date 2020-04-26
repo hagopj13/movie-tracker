@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MoviesListItem = (props: Props) => {
+const MovieCard = (props: Props) => {
   const { movie } = props;
 
   const classes = useStyles();
@@ -75,4 +75,4 @@ const MoviesListItem = (props: Props) => {
   );
 };
 
-export default MoviesListItem;
+export default MovieCard;

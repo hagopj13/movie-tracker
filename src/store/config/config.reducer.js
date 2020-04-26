@@ -10,6 +10,7 @@ type State = {
     baseImageUrl: string,
     backdropSize: string,
     posterSize: string,
+    profileSize: string,
   },
   genres: Genre[],
 };
@@ -19,6 +20,7 @@ const initialState: State = {
     baseImageUrl: '',
     backdropSize: '',
     posterSize: '',
+    profileSize: '',
   },
   genres: [],
 };
@@ -36,7 +38,8 @@ const fetchImagesConfigSuccess = (state: State, action: any) => ({
     ...state.images,
     baseImageUrl: action.payload.data.secure_base_url,
     backdropSize: getDesiredSizeFromList('w1280', action.payload.data.backdrop_sizes),
-    posterSize: getDesiredSizeFromList('w500', action.payload.data.poster_sizes),
+    posterSize: getDesiredSizeFromList('w342', action.payload.data.poster_sizes),
+    profileSize: getDesiredSizeFromList('w185', action.payload.data.profile_sizes),
   },
 });
 

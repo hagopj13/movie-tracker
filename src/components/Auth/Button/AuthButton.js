@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 72,
     textTransform: 'none',
-    fontSize: 14,
+    fontSize: theme.typography.h6.fontSize,
+    fontWeight: theme.typography.fontWeightRegular,
     '&$disabled': {
       color: theme.palette.grey[300],
     },

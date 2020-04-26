@@ -8,12 +8,28 @@ import type { MovieDetails, MovieUserState } from 'types';
 import MovieActionTypes from './movie.types';
 
 type State = {
-  details: MovieDetails | {},
+  details: MovieDetails,
   userState: MovieUserState,
 };
 
 const initialState: MovieDetails = {
-  details: {},
+  details: {
+    id: null,
+    title: '',
+    tagline: '',
+    overview: '',
+    runtime: 0,
+    status: '',
+    releaseDate: '',
+    genres: [],
+    voteAverage: 0,
+    voteCount: 0,
+    posterPath: '',
+    backdropPath: '',
+    cast: [],
+    reviews: [],
+    recommendations: [],
+  },
   userState: {
     isFavorite: false,
     isInWatchlist: false,

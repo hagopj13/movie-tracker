@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import InfiniteScroll from 'components/InfiniteScroll/InfiniteScroll';
 import type { MoviesListItem as MoviesListItemType } from 'types';
 
-import MoviesListItem from './Item/MoviesListItem';
+import MovieCard from 'components/Movie/Card/MovieCard';
 
 type Props = {
   moviesList: MoviesListItemType[],
@@ -46,7 +46,7 @@ const MoviesList = (props: Props) => {
     <InfiniteScroll onLoadMore={onLoadMore}>
       <div className={classes.root}>
         {moviesList.map((movie) => (
-          <MoviesListItem key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </InfiniteScroll>

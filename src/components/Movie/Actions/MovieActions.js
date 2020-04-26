@@ -25,7 +25,7 @@ type Props = {
   onSetIsMovieFavorite: (id: string, isFavorite: boolean) => void,
   onSetIsMovieInWatchlist: (id: string, isInWatchlist: boolean) => void,
   onRateMovie: (id: string, rating: number | null) => void,
-  onShowDialog: () => void,
+  onShowDialog: (dialogType: string) => void,
 };
 
 const useStyles = makeStyles((theme) => ({

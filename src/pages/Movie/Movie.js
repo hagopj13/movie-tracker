@@ -17,6 +17,7 @@ import Spinner from 'components/Spinner/Spinner';
 import type { MovieDetails } from 'types';
 
 import MoviePageHeader from './Header/MoviePageHeader';
+import MoviePageBody from './Body/MoviePageBody';
 
 type Props = {
   isLoading: boolean,
@@ -78,6 +79,7 @@ const MoviePage = (props: Props) => {
   return (
     <div>
       <MoviePageHeader movie={movie} />
+      <MoviePageBody movie={movie} />
     </div>
   );
 };

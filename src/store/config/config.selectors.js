@@ -19,6 +19,11 @@ const selectPosterSize = createSelector(
   (imagesConfig) => imagesConfig.posterSize,
 );
 
+const selectProfileSize = createSelector(
+  [selectImagesConfig],
+  (imagesConfig) => imagesConfig.profileSize,
+);
+
 const createBackdropFullPathSelector = (backdropPath: string) => {
   return createSelector(
     [selectBaseImageUrl, selectBackdropSize],
@@ -33,10 +38,18 @@ const createPosterFullPathSelector = (posterPath: string) => {
   );
 };
 
+const createProfileFullPathSelector = (profilePath: string) => {
+  return createSelector(
+    [selectBaseImageUrl, selectProfileSize],
+    (baseImageUrl, profileSize) => `${baseImageUrl}${profileSize}${profilePath}`,
+  );
+};
+
 const selectAllGenres = createSelector([selectConfig], (config) => config.genres);
 
 export default {
   createBackdropFullPathSelector,
   createPosterFullPathSelector,
+  createProfileFullPathSelector,
   selectAllGenres,
 };

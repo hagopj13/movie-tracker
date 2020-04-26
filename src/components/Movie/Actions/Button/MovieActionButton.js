@@ -38,4 +38,4 @@ const MovieActionButton = (props: Props, ref) => {
   );
 };
 
-export default React.forwardRef(MovieActionButton);
+export default React.forwardRef<Props, Fab>(MovieActionButton);

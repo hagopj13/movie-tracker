@@ -1,4 +1,4 @@
-function actionCreatorGenerator<T = any>(namespace: string, actionCreators: any): T {
+function actionCreatorGenerator<T = any>(namespace: string, actionCreators: T): T {
   return Object.keys(actionCreators).reduce((result, key) => {
     result[key] = actionCreators[key](namespace);
     return result;

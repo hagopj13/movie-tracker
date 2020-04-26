@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   navLink: {
     color: theme.palette.common.white,
     marginRight: theme.spacing(3),
+    fontSize: theme.typography.h6.fontSize,
     '&:last-child': {
       marginRight: 0,
     },

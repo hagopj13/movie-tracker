@@ -1,6 +1,6 @@
 import typeGenerator from './typeGenerator';
 
-function typesGenerator<T = any>(namespace: string, types: any): T {
+function typesGenerator<T = any>(namespace: string, types: T): T {
   return Object.keys(types).reduce((result, key) => {
     result[key] = typeGenerator(namespace, types[key]);
     return result;

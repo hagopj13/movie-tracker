@@ -7,7 +7,7 @@ import Rating from '@material-ui/lab/Rating';
 
 type Props = {
   isOpen: boolean,
-  anchorEl: HTMLElement,
+  anchorEl: HTMLElement | null,
   initialValue: number,
   onClose: () => void,
   onChange: (newValue: number | null) => void,
@@ -46,7 +46,6 @@ const MovieRatingPopover = (props: Props) => {
       onClose={onClose}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       transformOrigin={{ vertical: -10, horizontal: 'center' }}
-      disableScrollLock
     >
       <div className={classes.content}>
         <Rating

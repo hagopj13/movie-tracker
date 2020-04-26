@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
-import Image from '@material-ui/icons/Image';
+import ImageIcon from '@material-ui/icons/Image';
 
 import configSelectors from 'store/config/config.selectors';
 
@@ -30,16 +30,19 @@ const MoviePoster = (props: Props) => {
   const classes = useStyles();
 
   const isImageFound = posterPath && fullPosterPath;
-  const imageStyle = {
-    ...(height && { height }),
-    ...(width && { width }),
-  };
+  const imageStyle = {};
+  if (height) {
+    imageStyle.height = height;
+  }
+  if (width) {
+    imageStyle.width = width;
+  }
 
   return isImageFound ? (
     <CardMedia image={fullPosterPath} style={imageStyle} />
   ) : (
     <div className={classes.brokenMediaContainer} style={imageStyle}>
-      <Image fontSize="large" />
+      <ImageIcon fontSize="large" />
     </div>
   );
 };
