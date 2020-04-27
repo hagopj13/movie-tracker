@@ -10,7 +10,7 @@ function* fetchProfile() {
   yield put(profileActions.fetchProfileStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   try {
-    const { data } = yield call(api.getAccountDetails(sessionId));
+    const { data } = yield call(api.getAccountDetails, sessionId);
     yield put(profileActions.fetchProfileSuccess(data));
   } catch (error) {
     yield put(profileActions.fetchProfileFailure(error.status_message));

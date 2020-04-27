@@ -17,8 +17,8 @@ const fetchProfileStart = () => initialState;
 
 const fetchProfileSuccess = (state: State, action: any): State => ({
   ...state,
-  id: action.data.id,
-  name: action.data.username,
+  id: action.payload.data.id,
+  name: action.payload.data.username,
 });
 
 const actionHandler = {
