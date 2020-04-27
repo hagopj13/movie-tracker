@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 import Search from 'components/Search/Search';
 import Navigation from 'components/Navigation/Navigation';
@@ -30,9 +31,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 0,
     },
   },
-  navigation: {
-    flexGrow: 1,
-  },
   offsetToolbar: {
     minHeight: 64,
   },
@@ -46,7 +44,9 @@ const Header = () => {
       <AppBar className={classes.root} elevation={4}>
         <Toolbar className={classes.toolbar}>
           <Container className={classes.toolbarContent}>
-            <Navigation className={classes.navigation} />
+            <Box flexGrow={1}>
+              <Navigation />
+            </Box>
             <Search />
             <AuthButton />
           </Container>

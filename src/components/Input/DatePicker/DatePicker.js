@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 300,
     marginTop: 15,
   },
+  datePicker: {
+    width: '100%',
+  },
   icon: {
     padding: 0,
   },
@@ -46,6 +49,7 @@ const DatePicker = (props: Props) => {
       {label && <Typography className={classes.label}>{label}</Typography>}
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
+          className={classes.datePicker}
           disableToolbar
           variant="inline"
           inputVariant="outlined"

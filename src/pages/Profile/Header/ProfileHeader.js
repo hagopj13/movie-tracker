@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     color: theme.palette.common.white,
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+    },
   },
   avatar: {
     fontSize: 40,
@@ -31,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     textTransform: 'uppercase',
     marginRight: theme.spacing(4),
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0,
+      marginBottom: theme.spacing(2),
+    },
   },
 }));
 

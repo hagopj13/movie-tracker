@@ -28,10 +28,19 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(5, 5, 2),
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
   },
   moviesFiltersContainer: {
     maxWidth: 270,
     marginRight: theme.spacing(3),
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: 'unset',
+      marginRight: 0,
+      marginBottom: theme.spacing(3),
+    },
   },
   moviesListContainer: {
     flexGrow: 1,

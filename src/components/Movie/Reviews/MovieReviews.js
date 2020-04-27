@@ -12,7 +12,6 @@ type Props = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 500,
     '& > *': {
       marginBottom: theme.spacing(3),
       '&:last-child': {

@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(4, 0, 0, 4),
     },
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'center',
+    },
   },
   noRecommendationsText: {
     fontWeight: theme.typography.fontWeightRegular,

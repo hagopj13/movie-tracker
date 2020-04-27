@@ -10,7 +10,6 @@ import authSelectors from 'store/auth/auth.selectors';
 
 type Props = {
   isAuth: boolean,
-  className: string,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -28,12 +27,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navigation = (props: Props) => {
-  const { isAuth, className } = props;
+  const { isAuth } = props;
 
   const classes = useStyles();
 
   return (
-    <div className={className}>
+    <>
       <Link
         component={NavLink}
         exact
@@ -62,7 +61,7 @@ const Navigation = (props: Props) => {
           Profile
         </Link>
       )}
-    </div>
+    </>
   );
 };
 

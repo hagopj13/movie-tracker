@@ -19,19 +19,30 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     padding: theme.spacing(5),
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
   },
   poster: {
     borderRadius: 8,
     width: 300,
     minWidth: 300,
     height: 450,
+    marginRight: theme.spacing(5),
+    [theme.breakpoints.down('xs')]: {
+      marginRight: theme.spacing(0),
+      marginBottom: theme.spacing(2),
+    },
   },
   infoContainer: {
-    minWidth: 500,
-    padding: theme.spacing(1, 1, 0, 5),
+    paddingTop: theme.spacing(1),
   },
   actionsContainer: {
     marginTop: theme.spacing(2),
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center',
+    },
   },
 }));
 

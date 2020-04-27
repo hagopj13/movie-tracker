@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(2.25, 0, 0, 2.25),
     },
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'center',
+    },
   },
   noActorsText: {
     fontWeight: theme.typography.fontWeightRegular,

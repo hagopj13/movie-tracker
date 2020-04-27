@@ -10,6 +10,13 @@ type Props = {
 };
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+  },
   title: {
     marginBottom: theme.spacing(2),
   },
@@ -21,7 +28,7 @@ const MoviePageBodySection = (props: Props) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.root}>
       {title && (
         <Typography className={classes.title} variant="h5">
           {title}
