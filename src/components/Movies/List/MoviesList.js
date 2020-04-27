@@ -37,7 +37,7 @@ const MoviesList = (props: Props) => {
   if (moviesList.length === 0) {
     return (
       <Typography className={classes.noResultsText} variant="h6">
-        No results found
+        No movies found
       </Typography>
     );
   }

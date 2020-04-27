@@ -13,8 +13,6 @@ const initialState: State = {
   name: '',
 };
 
-const fetchProfileStart = () => initialState;
-
 const fetchProfileSuccess = (state: State, action: any): State => ({
   ...state,
   id: action.payload.data.id,
@@ -22,7 +20,6 @@ const fetchProfileSuccess = (state: State, action: any): State => ({
 });
 
 const actionHandler = {
-  [ProfileActionTypes.FETCH_PROFILE_START]: fetchProfileStart,
   [ProfileActionTypes.FETCH_PROFILE_SUCCESS]: fetchProfileSuccess,
 };
 

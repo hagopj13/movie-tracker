@@ -19,9 +19,7 @@ const defaultInitialState: State = {
   pagination: null,
 };
 
-const fetchMoviesStart = () => ({
-  ...defaultInitialState,
-});
+const fetchMoviesStart = () => defaultInitialState;
 
 const fetchMoviesSuccess = (state: State, action) => ({
   ...state,

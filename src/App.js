@@ -10,19 +10,21 @@ import DialogRoot from 'components/Dialog/Root/DialogRoot';
 import Spinner from 'components/Spinner/Spinner';
 import AppRoutes from 'routes/AppRoutes';
 import authActions from 'store/auth/auth.actions';
-import authSelectors from 'store/auth/auth.selectors';
+import AuthActionTypes from 'store/auth/auth.types';
+import loadedSelectors from 'store/api/loaded/loaded.selectors';
 import configActions from 'store/config/config.actions';
 import theme from 'styles/muiTheme';
 import 'styles/global.scss';
 
 type Props = {
-  isAuthLoading: boolean,
+  isLogoutLoaded: boolean,
+  isLoginLoaded: boolean,
   onCheckAuthState: () => void,
   onFetchImagesConfig: () => void,
 };
 
 const App = (props: Props) => {
-  const { isAuthLoading, onCheckAuthState, onFetchImagesConfig } = props;
+  const { isLogoutLoaded, isLoginLoaded, onCheckAuthState, onFetchImagesConfig } = props;
 
   useEffect(() => {
     onCheckAuthState();
@@ -30,7 +32,7 @@ const App = (props: Props) => {
   }, [onCheckAuthState, onFetchImagesConfig]);
 
   const renderApp = () => {
-    if (isAuthLoading) {
+    if (!isLogoutLoaded && !isLoginLoaded) {
       return <Spinner />;
     }
     return (
@@ -46,7 +48,8 @@ const App = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  isAuthLoading: authSelectors.selectIsLoading,
+  isLogoutLoaded: loadedSelectors.createIsLoadedSelector([AuthActionTypes.LOGOUT]),
+  isLoginLoaded: loadedSelectors.createIsLoadedSelector([AuthActionTypes.LOGIN]),
 });
 
 const mapDispatchToProps = {

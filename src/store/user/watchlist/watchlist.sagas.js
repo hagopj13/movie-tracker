@@ -14,7 +14,7 @@ function* fetchMovies() {
   const accountId = yield select(authSelectors.selectAccountId);
   try {
     const { data } = yield call(api.getWatchlistMovies, sessionId, accountId, {
-      sortBy: 'created_at.desc',
+      sort_by: 'created_at.desc',
     });
     yield put(watchlistActions.fetchMoviesSuccess(data));
   } catch (error) {
@@ -38,7 +38,7 @@ function* fetchMoreMovies() {
     yield put(watchlistActions.fetchMoreMoviesStart());
     try {
       const { data } = yield call(api.getWatchlistMovies, sessionId, accountId, {
-        sortBy: 'created_at.desc',
+        sort_by: 'created_at.desc',
         page: currentPage + 1,
       });
       yield put(watchlistActions.fetchMoreMoviesSuccess(data));

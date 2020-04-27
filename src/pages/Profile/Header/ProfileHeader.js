@@ -16,7 +16,7 @@ type Props = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: `linear-gradient(${blueGrey[700]}, ${blueGrey[500]} 70%, ${blueGrey[400]})`,
+    background: `linear-gradient(${blueGrey[700]}, ${blueGrey[600]} 70%, ${blueGrey[500]})`,
   },
   container: {
     padding: theme.spacing(5),
