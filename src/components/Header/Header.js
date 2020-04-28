@@ -4,35 +4,52 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
+import IconButton from '@material-ui/core/IconButton';
 import Box from '@material-ui/core/Box';
+import Hidden from '@material-ui/core/Hidden';
+import MenuIcon from '@material-ui/icons/Menu';
 
-import Search from 'components/Search/Search';
-import Navigation from 'components/Navigation/Navigation';
-import AuthButton from 'components/Auth/Button/AuthButton';
 import colors from 'styles/colors.scss';
+
+import Navigation from './Navigation/HeaderNavigation';
+import Search from './Search/HeaderSearch';
+import AuthButton from './AuthButton/HeaderAuthButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: colors.darkBlue,
+    color: theme.palette.common.white,
   },
   toolbar: {
     justifyContent: 'center',
     minHeight: 64,
     padding: 0,
   },
-  toolbarContent: {
-    alignItems: 'center',
+  container: {
     display: 'flex',
-    padding: theme.spacing(0, 4, 0, 5),
-    '& > *': {
-      marginLeft: theme.spacing(2.5),
+    alignItems: 'center',
+    padding: theme.spacing(0, 5),
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(3.5),
     },
-    '& > :first-child': {
-      marginLeft: 0,
+    '& > *': {
+      marginRight: theme.spacing(2.5),
+      '&:last-child': {
+        marginRight: 0,
+      },
     },
   },
   offsetToolbar: {
     minHeight: 64,
+  },
+  menuIcon: {
+    color: theme.palette.common.white,
+    fontSize: 24,
+  },
+  searchContainer: {
+    [theme.breakpoints.down('xs')]: {
+      flexGrow: 1,
+    },
   },
 }));
 
@@ -43,12 +60,24 @@ const Header = () => {
     <>
       <AppBar className={classes.root} elevation={4}>
         <Toolbar className={classes.toolbar}>
-          <Container className={classes.toolbarContent}>
-            <Box flexGrow={1}>
+          <Container className={classes.container}>
+            <Hidden mdUp>
+              <IconButton>
+                <MenuIcon className={classes.menuIcon} />
+              </IconButton>
+            </Hidden>
+            <Hidden smDown>
               <Navigation />
+            </Hidden>
+            <Hidden xsDown>
+              <Box flexGrow={1} />
+            </Hidden>
+            <Box className={classes.searchContainer}>
+              <Search />
             </Box>
-            <Search />
-            <AuthButton />
+            <Hidden smDown>
+              <AuthButton />
+            </Hidden>
           </Container>
         </Toolbar>
       </AppBar>

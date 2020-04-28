@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 
 import authSelectors from 'store/auth/auth.selectors';
+import { navigationItems } from 'config';
 
 type Props = {
   isAuth: boolean,
@@ -26,42 +27,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navigation = (props: Props) => {
+const HeaderNavigation = (props: Props) => {
   const { isAuth } = props;
 
   const classes = useStyles();
 
   return (
-    <>
-      <Link
-        component={NavLink}
-        exact
-        to="/"
-        className={classes.navLink}
-        activeClassName={classes.selectedNavLink}
-      >
-        Discover
-      </Link>
-      <Link
-        component={NavLink}
-        exact
-        to="/upcoming"
-        className={classes.navLink}
-        activeClassName={classes.selectedNavLink}
-      >
-        Upcoming
-      </Link>
-      {isAuth && (
-        <Link
-          component={NavLink}
-          to="/profile"
-          className={classes.navLink}
-          activeClassName={classes.selectedNavLink}
-        >
-          Profile
-        </Link>
+    <div>
+      {navigationItems.map(
+        (navItem) =>
+          (isAuth || !navItem.requiresAuth) && (
+            <Link
+              key={navItem.id}
+              component={NavLink}
+              exact
+              to={navItem.to}
+              className={classes.navLink}
+              activeClassName={classes.selectedNavLink}
+            >
+              {navItem.label}
+            </Link>
+          ),
       )}
-    </>
+    </div>
   );
 };
 
@@ -69,4 +57,4 @@ const mapStateToProps = createStructuredSelector({
   isAuth: authSelectors.selectIsAuth,
 });
 
-export default connect(mapStateToProps)(Navigation);
+export default connect(mapStateToProps)(HeaderNavigation);

@@ -9,11 +9,11 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import { red, yellow, green } from '@material-ui/core/colors';
 
 import MovieRatingPopover from 'components/Movie/Rating/Popover/MovieRatingPopover';
-import DialogTypes from 'components/Dialog/types';
 import movieActions from 'store/movie/movie.actions';
 import movieSelectors from 'store/movie/movie.selectors';
 import authSelectors from 'store/auth/auth.selectors';
 import dialogActions from 'store/ui/dialog/dialog.actions';
+import { dialogTypes } from 'config';
 import { MovieDetails, MovieUserState } from 'types';
 
 import MovieActionButton from './Button/MovieActionButton';
@@ -66,7 +66,7 @@ const MovieActions = (props: Props) => {
   const ratingButtonRef = useRef(null);
   const classes = useStyles(props);
 
-  const showLoginDialog = () => onShowDialog(DialogTypes.LOGIN);
+  const showLoginDialog = () => onShowDialog(dialogTypes.LOGIN);
 
   const handleFavoriteButtonClick = () => {
     if (isAuth) {

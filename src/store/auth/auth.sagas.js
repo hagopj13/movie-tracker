@@ -1,9 +1,9 @@
 import { takeLatest, all, call, put, select } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
-import DialogTypes from 'components/Dialog/types';
-import dialogActions from 'store/ui/dialog/dialog.actions';
 import LocalStorageService from 'services/LocalStorageService';
+import dialogActions from 'store/ui/dialog/dialog.actions';
+import { dialogTypes } from 'config';
 
 import AuthActionTypes from './auth.types';
 import authActions from './auth.actions';
@@ -29,7 +29,7 @@ function* login({ payload: { username, password } }) {
     yield call(LocalStorageService.setItem, 'sessionId', sessionId);
     yield call(LocalStorageService.setItem, 'accountId', accountId);
     yield put(authActions.loginSuccess(sessionId, accountId));
-    yield put(dialogActions.hideDialog(DialogTypes.LOGIN));
+    yield put(dialogActions.hideDialog(dialogTypes.LOGIN));
   } catch (error) {
     yield put(authActions.loginFailure('Incorrect username or password'));
   }

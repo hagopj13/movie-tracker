@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import DialogTypes from 'components/Dialog/types';
+import { dialogTypes } from 'config';
 import authSelectors from 'store/auth/auth.selectors';
 import authActions from 'store/auth/auth.actions';
 import AuthActionTypes from 'store/auth/auth.types';
@@ -30,31 +30,27 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   disabled: {},
-  logout: {
+  logoutText: {
     color: theme.palette.common.white,
   },
 }));
 
-const AuthButton = (props: Props) => {
+const HeaderAuthButton = (props: Props) => {
   const { isAuth, isLogoutLoading, onLogout, onShowLoginDialog } = props;
   const classes = useStyles();
 
-  return (
-    <>
-      {isAuth ? (
-        <Button
-          classes={{ root: classes.root, disabled: classes.disabled, text: classes.logout }}
-          disabled={isLogoutLoading}
-          onClick={onLogout}
-        >
-          Logout
-        </Button>
-      ) : (
-        <Button className={classes.root} color="primary" onClick={onShowLoginDialog}>
-          Login
-        </Button>
-      )}
-    </>
+  return isAuth ? (
+    <Button
+      classes={{ root: classes.root, disabled: classes.disabled, text: classes.logoutText }}
+      disabled={isLogoutLoading}
+      onClick={onLogout}
+    >
+      Logout
+    </Button>
+  ) : (
+    <Button className={classes.root} color="primary" onClick={onShowLoginDialog}>
+      Login
+    </Button>
   );
 };
 
@@ -65,7 +61,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = {
   onLogout: authActions.logout,
-  onShowLoginDialog: () => dialogActions.showDialog(DialogTypes.LOGIN),
+  onShowLoginDialog: () => dialogActions.showDialog(dialogTypes.LOGIN),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthButton);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderAuthButton);

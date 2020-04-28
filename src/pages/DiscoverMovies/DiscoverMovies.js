@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 270,
     marginRight: theme.spacing(3),
     [theme.breakpoints.down('xs')]: {
-      maxWidth: 'unset',
+      maxWidth: 330,
       marginRight: 0,
       marginBottom: theme.spacing(3),
     },

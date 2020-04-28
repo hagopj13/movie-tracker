@@ -5,8 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { MuiThemeProvider } from '@material-ui/core';
 import 'normalize.css/normalize.css';
 
-import Header from 'components/Header/Header';
-import DialogRoot from 'components/Dialog/Root/DialogRoot';
+import Layout from 'components/Layout/Layout';
 import Spinner from 'components/Spinner/Spinner';
 import AppRoutes from 'routes/AppRoutes';
 import authActions from 'store/auth/auth.actions';
@@ -31,20 +30,19 @@ const App = (props: Props) => {
     onFetchImagesConfig();
   }, [onCheckAuthState, onFetchImagesConfig]);
 
-  const renderApp = () => {
-    if (!isLogoutLoaded && !isLoginLoaded) {
-      return <Spinner />;
-    }
-    return (
-      <>
-        <Header />
-        <DialogRoot />
-        <AppRoutes />
-      </>
-    );
-  };
+  const isAuthLoaded = isLogoutLoaded || isLoginLoaded;
 
-  return <MuiThemeProvider theme={theme}>{renderApp()}</MuiThemeProvider>;
+  return (
+    <MuiThemeProvider theme={theme}>
+      {!isAuthLoaded ? (
+        <Spinner />
+      ) : (
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      )}
+    </MuiThemeProvider>
+  );
 };
 
 const mapStateToProps = createStructuredSelector({

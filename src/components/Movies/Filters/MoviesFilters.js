@@ -9,7 +9,7 @@ import FilterBoxItem from 'components/Filter/Box/Item/FilterBoxItem';
 import Select from 'components/Input/Select/Select';
 import ChipsList from 'components/Input/ChipsList/ChipsList';
 import DatePicker from 'components/Input/DatePicker/DatePicker';
-import { sortOptions } from 'store/common/filters/filters.reducer';
+import { sortOptions } from 'config';
 import type { State as FiltersState } from 'store/common/filters/filters.reducer';
 import type { Genre } from 'types';
 
