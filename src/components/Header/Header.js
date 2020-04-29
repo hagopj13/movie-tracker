@@ -15,6 +15,10 @@ import Navigation from './Navigation/HeaderNavigation';
 import Search from './Search/HeaderSearch';
 import AuthButton from './AuthButton/HeaderAuthButton';
 
+type Props = {
+  onOpenDrawer: () => void,
+};
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: colors.darkBlue,
@@ -53,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = (props: Props) => {
+  const { onOpenDrawer } = props;
   const classes = useStyles();
 
   return (
@@ -62,7 +67,7 @@ const Header = () => {
         <Toolbar className={classes.toolbar}>
           <Container className={classes.container}>
             <Hidden mdUp>
-              <IconButton>
+              <IconButton onClick={onOpenDrawer}>
                 <MenuIcon className={classes.menuIcon} />
               </IconButton>
             </Hidden>
