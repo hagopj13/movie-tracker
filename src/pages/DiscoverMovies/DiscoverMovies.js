@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import Spinner from 'components/Spinner/Spinner';
+import Attribution from 'components/Attribution/Attribution';
 import discoverActions from 'store/discover/discover.actions';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
@@ -23,11 +24,17 @@ type Props = {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
-  container: {
-    padding: theme.spacing(5, 5, 2),
+  attributionContainer: {
     display: 'flex',
+    justifyContent: 'center',
+    padding: theme.spacing(5, 5, 0),
+  },
+  moviesContainer: {
+    display: 'flex',
+    padding: theme.spacing(5, 5, 2),
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
       alignItems: 'center',
@@ -63,7 +70,10 @@ const DiscoverMoviesPage = (props: Props) => {
 
   return (
     <div className={classes.root}>
-      <Container className={classes.container}>
+      <Container className={classes.attributionContainer}>
+        <Attribution />
+      </Container>
+      <Container className={classes.moviesContainer}>
         <div className={classes.moviesFiltersContainer}>
           <DiscoverMoviesFilters />
         </div>

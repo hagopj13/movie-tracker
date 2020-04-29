@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(0, 5),
+    padding: theme.spacing(0, 4, 0, 5),
     [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing(3.5),
     },

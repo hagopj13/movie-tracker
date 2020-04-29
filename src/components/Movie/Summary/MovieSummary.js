@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   tagline: {
-    marginTop: theme.spacing(0),
+    marginTop: 0,
   },
   iconEmpty: {
     color: theme.palette.grey[500],
