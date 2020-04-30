@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MoviePageBodySection = (props: Props) => {
+const MovieOverviewBodySection = (props: Props) => {
   const { title, children } = props;
 
   const classes = useStyles();
@@ -39,4 +39,4 @@ const MoviePageBodySection = (props: Props) => {
   );
 };
 
-export default MoviePageBodySection;
+export default MovieOverviewBodySection;

@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MoviePageHeader = (props: Props) => {
+const MovieOverviewHeader = (props: Props) => {
   const { movie } = props;
 
   const classes = useStyles();
@@ -68,4 +68,4 @@ const MoviePageHeader = (props: Props) => {
   );
 };
 
-export default MoviePageHeader;
+export default MovieOverviewHeader;

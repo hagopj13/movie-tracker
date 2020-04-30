@@ -11,7 +11,7 @@ import PrivateRoute from './PrivateRoute';
 const UpcomingMoviesPage = lazy(() => import('pages/UpcomingMovies/UpcomingMovies'));
 const ProfilePage = lazy(() => import('pages/Profile/Profile'));
 const SearchResultsPage = lazy(() => import('pages/SearchResults/SearchResults'));
-const MoviePage = lazy(() => import('pages/Movie/Movie'));
+const MovieOverviewPage = lazy(() => import('pages/MovieOverview/MovieOverview'));
 
 const AppRoutes = () => (
   <Switch>
@@ -21,7 +21,7 @@ const AppRoutes = () => (
         <Route exact path="/upcoming" component={UpcomingMoviesPage} />
         <PrivateRoute exact path="/profile" component={ProfilePage} />
         <Route path="/search" component={SearchResultsPage} />
-        <Route path="/movies/:id" component={MoviePage} />
+        <Route path="/movies/:id" component={MovieOverviewPage} />
       </Suspense>
     </ErrorBoundary>
   </Switch>

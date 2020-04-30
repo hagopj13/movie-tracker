@@ -16,8 +16,8 @@ import ConfigActionTypes from 'store/config/config.types';
 import Spinner from 'components/Spinner/Spinner';
 import type { MovieDetails } from 'types';
 
-import MoviePageHeader from './Header/MoviePageHeader';
-import MoviePageBody from './Body/MoviePageBody';
+import MovieOverviewHeader from './Header/MovieOverviewHeader';
+import MovieOverviewBody from './Body/MovieOverviewBody';
 
 type Props = {
   isLoading: boolean,
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MoviePage = (props: Props) => {
+const MovieOverview = (props: Props) => {
   const { isLoading, movie, isAuth, onFetchMovie, onUpdateMovieUserState } = props;
 
   const isAuthRef = useRef(isAuth);
@@ -78,8 +78,8 @@ const MoviePage = (props: Props) => {
 
   return (
     <div>
-      <MoviePageHeader movie={movie} />
-      <MoviePageBody movie={movie} />
+      <MovieOverviewHeader movie={movie} />
+      <MovieOverviewBody movie={movie} />
     </div>
   );
 };
@@ -98,4 +98,4 @@ const mapDispatchToProps = {
   onUpdateMovieUserState: movieActions.fetchMovieUserState,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieOverview);

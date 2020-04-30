@@ -3,12 +3,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import MovieCast from 'components/Movie/Cast/MovieCast';
-import MovieReviews from 'components/Movie/Reviews/MovieReviews';
-import MovieRecommendations from 'components/Movie/Recommendations/MovieRecommendations';
+import Cast from 'components/Cast/Cast';
+import Reviews from 'components/Reviews/Reviews';
+import Recommendations from 'components/Recommendations/Recommendations';
 import { MovieDetails } from 'types';
 
-import MoviePageBodySection from './Section/MoviePageBodySection';
+import MovieOverviewBodySection from './Section/MovieOverviewBodySection';
 
 type Props = {
   movie: MovieDetails,
@@ -30,26 +30,26 @@ const MAX_NUMBER_OF_ACTORS = 7;
 const MAX_NUMBER_OF_REVIEWS = 4;
 const MAX_NUMBER_OF_RECOMMENDATIONS = 10;
 
-const MoviePageBody = (props: Props) => {
+const MovieOverviewBody = (props: Props) => {
   const { movie } = props;
 
   const classes = useStyles();
 
   return (
     <Container className={classes.root}>
-      <MoviePageBodySection title="Top Cast">
-        <MovieCast cast={movie.cast.slice(0, MAX_NUMBER_OF_ACTORS)} />
-      </MoviePageBodySection>
-      <MoviePageBodySection title="Top Reviews">
-        <MovieReviews reviews={movie.reviews.slice(0, MAX_NUMBER_OF_REVIEWS)} />
-      </MoviePageBodySection>
-      <MoviePageBodySection title="Recommendations">
-        <MovieRecommendations
+      <MovieOverviewBodySection title="Top Cast">
+        <Cast cast={movie.cast.slice(0, MAX_NUMBER_OF_ACTORS)} />
+      </MovieOverviewBodySection>
+      <MovieOverviewBodySection title="Top Reviews">
+        <Reviews reviews={movie.reviews.slice(0, MAX_NUMBER_OF_REVIEWS)} />
+      </MovieOverviewBodySection>
+      <MovieOverviewBodySection title="Recommendations">
+        <Recommendations
           recommendations={movie.recommendations.slice(0, MAX_NUMBER_OF_RECOMMENDATIONS)}
         />
-      </MoviePageBodySection>
+      </MovieOverviewBodySection>
     </Container>
   );
 };
 
-export default MoviePageBody;
+export default MovieOverviewBody;

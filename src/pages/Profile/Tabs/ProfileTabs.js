@@ -7,8 +7,8 @@ import Tab from '@material-ui/core/Tab';
 
 import TabPanel from 'components/TabPanel/TabPanel';
 
-import ProfileFavortiesTab from './Favorites/ProfileFavortiesTab';
-import ProfileWatchlistTab from './Watchlist/ProfileWatchlistTab';
+import FavortiesTab from './Favorites/ProfileFavortiesTab';
+import WatchlistTab from './Watchlist/ProfileWatchlistTab';
 
 const useStyles = makeStyles((theme) => ({
   tab: {
@@ -39,10 +39,10 @@ const ProfileTabs = () => {
         </Tabs>
       </Paper>
       <TabPanel value={currentTab} index={0}>
-        <ProfileFavortiesTab />
+        <FavortiesTab />
       </TabPanel>
       <TabPanel value={currentTab} index={1}>
-        <ProfileWatchlistTab />
+        <WatchlistTab />
       </TabPanel>
     </>
   );

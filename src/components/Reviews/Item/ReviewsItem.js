@@ -8,10 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Truncate from 'react-truncate';
 
-import { Review as ReviewType } from 'types';
+import { Review } from 'types';
 
 type Props = {
-  review: ReviewType,
+  review: Review,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Review = (props: Props) => {
+const ReviewsItem = (props: Props) => {
   const { review } = props;
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -97,4 +97,4 @@ const Review = (props: Props) => {
   );
 };
 
-export default Review;
+export default ReviewsItem;

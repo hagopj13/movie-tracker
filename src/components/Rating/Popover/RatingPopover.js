@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieRatingPopover = (props: Props) => {
+const RatingPopover = (props: Props) => {
   const { isOpen, anchorEl, initialValue, onClose, onChange } = props;
 
   const [value, setValue] = useState(initialValue);
@@ -61,4 +61,4 @@ const MovieRatingPopover = (props: Props) => {
   );
 };
 
-export default MovieRatingPopover;
+export default RatingPopover;

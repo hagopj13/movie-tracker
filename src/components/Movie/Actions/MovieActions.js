@@ -8,7 +8,7 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import { red, yellow, green } from '@material-ui/core/colors';
 
-import MovieRatingPopover from 'components/Movie/Rating/Popover/MovieRatingPopover';
+import RatingPopover from 'components/Rating/Popover/RatingPopover';
 import movieActions from 'store/movie/movie.actions';
 import movieSelectors from 'store/movie/movie.selectors';
 import authSelectors from 'store/auth/auth.selectors';
@@ -145,7 +145,7 @@ const MovieActions = (props: Props) => {
           <StarRateIcon className={classes.ratingIcon} />
         </MovieActionButton>
       </div>
-      <MovieRatingPopover
+      <RatingPopover
         isOpen={isRatingPopoverOpen}
         anchorEl={ratingButtonRef.current}
         initialValue={userState.rating}

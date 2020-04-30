@@ -3,8 +3,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-import Review from 'components/Review/Review';
 import type { Review as ReviewType } from 'types';
+
+import ReviewsItem from './Item/ReviewsItem';
 
 type Props = {
   reviews: ReviewType[],
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieReviews = (props: Props) => {
+const Reviews = (props: Props) => {
   const { reviews } = props;
 
   const classes = useStyles();
@@ -40,10 +41,10 @@ const MovieReviews = (props: Props) => {
   return (
     <div className={classes.root}>
       {reviews.map((review) => (
-        <Review key={review.id} review={review} />
+        <ReviewsItem key={review.id} review={review} />
       ))}
     </div>
   );
 };
 
-export default MovieReviews;
+export default Reviews;

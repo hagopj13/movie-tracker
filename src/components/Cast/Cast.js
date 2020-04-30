@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieCast = (props: Props) => {
+const Cast = (props: Props) => {
   const { cast } = props;
 
   const classes = useStyles();
@@ -49,4 +49,4 @@ const MovieCast = (props: Props) => {
   );
 };
 
-export default MovieCast;
+export default Cast;

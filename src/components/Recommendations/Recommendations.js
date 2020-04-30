@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MoviesList = (props: Props) => {
+const Recommendations = (props: Props) => {
   const { recommendations } = props;
+
   const classes = useStyles();
 
   if (recommendations.length === 0) {
@@ -49,4 +50,4 @@ const MoviesList = (props: Props) => {
   );
 };
 
-export default MoviesList;
+export default Recommendations;
