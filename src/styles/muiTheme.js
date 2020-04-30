@@ -1,15 +1,12 @@
 import { createMuiTheme } from '@material-ui/core';
 
-import colors from './colors.scss';
-
 export default createMuiTheme({
   palette: {
     primary: {
-      main: colors.lightGreen,
+      main: '#4ebdb6',
     },
-    common: {
-      black: colors.black,
-      white: colors.white,
+    secondary: {
+      main: '#072c4b',
     },
   },
   typography: {

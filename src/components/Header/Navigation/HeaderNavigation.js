@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
 import authSelectors from 'store/auth/auth.selectors';
@@ -17,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
   navLink: {
     color: theme.palette.common.white,
     marginRight: theme.spacing(3),
-    fontSize: theme.typography.h6.fontSize,
     '&:last-child': {
       marginRight: 0,
     },
@@ -45,7 +45,9 @@ const HeaderNavigation = (props: Props) => {
               className={classes.navLink}
               activeClassName={classes.selectedNavLink}
             >
-              {navItem.label}
+              <Typography variant="h6" component="span">
+                {navItem.label}
+              </Typography>
             </Link>
           ),
       )}

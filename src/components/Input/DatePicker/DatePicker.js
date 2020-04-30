@@ -17,13 +17,12 @@ type Props = {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    alignItems: 'center',
     marginLeft: theme.spacing(0.5),
   },
   label: {
-    minWidth: 38,
-    width: 38,
-    fontWeight: 300,
-    marginTop: 15,
+    minWidth: theme.spacing(5),
+    width: theme.spacing(5),
   },
   datePicker: {
     width: '100%',

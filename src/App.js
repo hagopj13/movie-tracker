@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { MuiThemeProvider } from '@material-ui/core';
-import 'normalize.css/normalize.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Layout from 'components/Layout/Layout';
 import Spinner from 'components/Spinner/Spinner';
@@ -13,7 +13,7 @@ import AuthActionTypes from 'store/auth/auth.types';
 import loadedSelectors from 'store/api/loaded/loaded.selectors';
 import configActions from 'store/config/config.actions';
 import theme from 'styles/muiTheme';
-import 'styles/global.scss';
+import 'styles/global.css';
 
 type Props = {
   isLogoutLoaded: boolean,
@@ -34,6 +34,7 @@ const App = (props: Props) => {
 
   return (
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       {!isAuthLoaded ? (
         <Spinner />
       ) : (

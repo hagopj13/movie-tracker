@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1, 0, 0, 1),
     },
   },
+  chipLabel: {
+    fontSize: 12,
+  },
   selectedChip: {
     color: theme.palette.common.white,
     border: `1px solid ${theme.palette.primary.main}`,
@@ -36,8 +39,9 @@ const ChipsList = (props: Props) => {
       {items.map((item) => (
         <Chip
           key={item.id}
-          label={item.name}
           className={isItemSelected(item.id) ? classes.selectedChip : null}
+          classes={{ label: classes.chipLabel }}
+          label={item.name}
           color={isItemSelected(item.id) ? 'primary' : 'default'}
           variant={isItemSelected(item.id) ? 'default' : 'outlined'}
           onClick={() => onItemClick(item.id)}

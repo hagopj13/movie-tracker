@@ -9,8 +9,6 @@ import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import colors from 'styles/colors.scss';
-
 import Navigation from './Navigation/HeaderNavigation';
 import Search from './Search/HeaderSearch';
 import AuthButton from './AuthButton/HeaderAuthButton';
@@ -21,7 +19,7 @@ type Props = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: colors.darkBlue,
+    backgroundColor: theme.palette.secondary.main,
     color: theme.palette.common.white,
   },
   toolbar: {

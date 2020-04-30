@@ -36,15 +36,15 @@ const useStyles = makeStyles((theme) => ({
   },
   favoriteIcon: {
     fontSize: 24,
-    color: (props) => (props.userState.isFavorite ? red[600] : 'white'),
+    color: (props) => (props.userState.isFavorite ? red[600] : theme.palette.common.white),
   },
   watchlistIcon: {
     fontSize: 24,
-    color: (props) => (props.userState.isInWatchlist ? green[500] : 'white'),
+    color: (props) => (props.userState.isInWatchlist ? green[500] : theme.palette.common.white),
   },
   ratingIcon: {
     fontSize: 28,
-    color: (props) => (props.userState.rating ? yellow[600] : 'white'),
+    color: (props) => (props.userState.rating ? yellow[600] : theme.palette.common.white),
   },
   tooltip: {
     fontSize: 14,
