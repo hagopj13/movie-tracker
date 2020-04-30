@@ -1,8 +1,7 @@
 import React from 'react';
 import type { Node } from 'react';
 
-import brokenPage from './brokenPage.png';
-import './errorBoundary.scss';
+import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
 type Props = {
   children: Node,
@@ -32,12 +31,7 @@ class ErrorBoundary extends React.Component<Props, State> {
     const { hasError } = this.state;
 
     if (hasError) {
-      return (
-        <div className="imageOverlay">
-          <img src={brokenPage} alt="page broken" className="errorImage" />
-          <h2 className="errorImageText">Sorry, this page is broken</h2>
-        </div>
-      );
+      return <ErrorPage errorText="Sorry, this page is broken" />;
     }
 
     return children;
