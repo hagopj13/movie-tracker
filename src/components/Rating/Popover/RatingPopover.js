@@ -55,7 +55,9 @@ const RatingPopover = (props: Props) => {
           onChange={handleChange}
           onChangeActive={handleChangeActive}
         />
-        <Box ml={1}>{hover !== -1 ? hover : value}</Box>
+        <Box component="span" ml={1} fontSize={15}>
+          {hover !== -1 ? hover : value}
+        </Box>
       </div>
     </Popover>
   );
