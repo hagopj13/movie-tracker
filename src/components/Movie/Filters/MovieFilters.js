@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MoviesFilters = (props: Props) => {
+const MovieFilters = (props: Props) => {
   const {
     allGenres,
     selectedFilters,
@@ -106,4 +106,4 @@ const MoviesFilters = (props: Props) => {
   );
 };
 
-export default MoviesFilters;
+export default MovieFilters;

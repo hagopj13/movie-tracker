@@ -1,14 +1,14 @@
 // @flow
 import { handleActions } from 'redux-actions';
 
-import { convertResponseToMovieDetails, convertResponseToMovieUserState } from 'api/tmdb/utils';
+import { convertResponseToMovie, convertResponseToMovieUserState } from 'api/tmdb/utils';
 import AuthActionTypes from 'store/auth/auth.types';
-import type { MovieDetails, MovieUserState } from 'types';
+import type { Movie, MovieUserState } from 'types';
 
 import MovieActionTypes from './movie.types';
 
 type State = {
-  details: MovieDetails,
+  details: Movie,
   userState: MovieUserState,
 };
 
@@ -16,17 +16,17 @@ const initialState: State = {
   details: {
     id: null,
     title: '',
-    tagline: '',
-    overview: '',
-    runtime: 0,
-    status: '',
     releaseDate: '',
-    genres: [],
     voteAverage: 0,
     voteCount: 0,
     posterPath: '',
     backdropPath: '',
-    cast: [],
+    tagline: '',
+    overview: '',
+    runtime: 0,
+    status: '',
+    genres: [],
+    actors: [],
     reviews: [],
     recommendations: [],
   },
@@ -40,7 +40,7 @@ const initialState: State = {
 const fetchMovieStart = () => initialState;
 
 const fetchMovieSuccess = (state: State, action) => ({
-  details: convertResponseToMovieDetails(action.payload.data),
+  details: convertResponseToMovie(action.payload.data),
   userState: convertResponseToMovieUserState(action.payload.data.account_states),
 });
 

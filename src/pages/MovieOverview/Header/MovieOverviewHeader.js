@@ -8,10 +8,10 @@ import MovieBackdrop from 'components/Movie/Backdrop/MovieBackdrop';
 import MoviePoster from 'components/Movie/Poster/MoviePoster';
 import MovieSummary from 'components/Movie/Summary/MovieSummary';
 import MovieActions from 'components/Movie/Actions/MovieActions';
-import type { MovieDetails } from 'types';
+import type { Movie } from 'types';
 
 type Props = {
-  movie: MovieDetails,
+  movie: Movie,
 };
 
 const useStyles = makeStyles((theme) => ({

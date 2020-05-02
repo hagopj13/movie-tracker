@@ -3,15 +3,16 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import Cast from 'components/Cast/Cast';
-import Reviews from 'components/Reviews/Reviews';
-import Recommendations from 'components/Recommendations/Recommendations';
-import { MovieDetails } from 'types';
+import ActorList from 'components/Actor/List/ActorList';
+import ReviewList from 'components/Review/List/ReviewList';
+// import Recommendations from 'components/Recommendations/Recommendations';
+import MovieList from 'components/Movie/List/MovieList';
+import { Movie } from 'types';
 
 import MovieOverviewBodySection from './Section/MovieOverviewBodySection';
 
 type Props = {
-  movie: MovieDetails,
+  movie: Movie,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -35,18 +36,20 @@ const MovieOverviewBody = (props: Props) => {
 
   const classes = useStyles();
 
+  const actors = movie.actors?.slice(0, MAX_NUMBER_OF_ACTORS) ?? [];
+  const reviews = movie.reviews?.slice(0, MAX_NUMBER_OF_REVIEWS) ?? [];
+  const recommendations = movie.recommendations?.slice(0, MAX_NUMBER_OF_RECOMMENDATIONS) ?? [];
+
   return (
     <Container className={classes.root}>
       <MovieOverviewBodySection title="Top Cast">
-        <Cast cast={movie.cast.slice(0, MAX_NUMBER_OF_ACTORS)} />
+        <ActorList actors={actors} />
       </MovieOverviewBodySection>
       <MovieOverviewBodySection title="Top Reviews">
-        <Reviews reviews={movie.reviews.slice(0, MAX_NUMBER_OF_REVIEWS)} />
+        <ReviewList reviews={reviews} />
       </MovieOverviewBodySection>
       <MovieOverviewBodySection title="Recommendations">
-        <Recommendations
-          recommendations={movie.recommendations.slice(0, MAX_NUMBER_OF_RECOMMENDATIONS)}
-        />
+        <MovieList movies={recommendations} center={false} />
       </MovieOverviewBodySection>
     </Container>
   );

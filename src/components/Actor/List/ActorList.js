@@ -3,11 +3,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-import ActorCard from 'components/Actor/Card/ActorCard';
 import { Actor } from 'types';
 
+import ActorListItem from './Item/ActorListItem';
+
 type Props = {
-  cast: Actor[],
+  actors: Actor[],
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -27,12 +28,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Cast = (props: Props) => {
-  const { cast } = props;
+const ActorList = (props: Props) => {
+  const { actors } = props;
 
   const classes = useStyles();
 
-  if (cast.length === 0) {
+  if (actors.length === 0) {
     return (
       <Typography className={classes.noActorsText} variant="h6">
         No actors found
@@ -42,11 +43,11 @@ const Cast = (props: Props) => {
 
   return (
     <div className={classes.root}>
-      {cast.map((actor) => (
-        <ActorCard key={actor.id} actor={actor} />
+      {actors.map((actor) => (
+        <ActorListItem key={actor.id} actor={actor} />
       ))}
     </div>
   );
 };
 
-export default Cast;
+export default ActorList;

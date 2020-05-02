@@ -3,23 +3,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import MoviesList from 'components/Movies/List/MoviesList';
+import MovieList from 'components/Movie/List/MovieList';
 import Spinner from 'components/Spinner/Spinner';
 import discoverActions from 'store/discover/discover.actions';
 import discoverSelectors from 'store/discover/discover.selectors';
 import DiscoverActionTypes from 'store/discover/discover.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'types';
+import type { Movie } from 'types';
 
 type Props = {
-  moviesList: MoviesListItem[],
+  movies: Movie[],
   isLoading: boolean,
   isLoadingMore: boolean,
   onFetchMoreMovies: () => void,
 };
 
 const DiscoverMoviesList = (props: Props) => {
-  const { moviesList, isLoading, isLoadingMore, onFetchMoreMovies } = props;
+  const { movies, isLoading, isLoadingMore, onFetchMoreMovies } = props;
 
   const handleLoadMore = () => {
     onFetchMoreMovies();
@@ -31,14 +31,14 @@ const DiscoverMoviesList = (props: Props) => {
 
   return (
     <>
-      <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
+      <MovieList movies={movies} onLoadMore={handleLoadMore} />
       {isLoadingMore && <Spinner />}
     </>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesList: discoverSelectors.selectList,
+  movies: discoverSelectors.selectList,
   isLoading: loadingSelectors.createIsLoadingSelector([DiscoverActionTypes.FETCH_MOVIES]),
   isLoadingMore: loadingSelectors.createIsLoadingSelector([DiscoverActionTypes.FETCH_MORE_MOVIES]),
 });

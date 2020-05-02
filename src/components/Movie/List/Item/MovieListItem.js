@@ -10,10 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 
 import MoviePoster from 'components/Movie/Poster/MoviePoster';
-import type { MoviesListItem as MovieListItemType } from 'types';
+import type { Movie } from 'types';
 
 type Props = {
-  movie: MovieListItemType,
+  movie: Movie,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieCard = (props: Props) => {
+const MovieListItem = (props: Props) => {
   const { movie } = props;
 
   const classes = useStyles();
@@ -75,4 +75,4 @@ const MovieCard = (props: Props) => {
   );
 };
 
-export default MovieCard;
+export default MovieListItem;

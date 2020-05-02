@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ActorCard = (props: Props) => {
+const ActorListItem = (props: Props) => {
   const { actor, fullProfilePath } = props;
 
   const classes = useStyles();
@@ -74,4 +74,4 @@ const mapStateToProps = createStructuredSelector({
     configSelectors.createProfileFullPathSelector(ownProps.actor.profilePath)(state),
 });
 
-export default connect(mapStateToProps)(ActorCard);
+export default connect(mapStateToProps)(ActorListItem);

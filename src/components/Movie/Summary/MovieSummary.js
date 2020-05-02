@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Rating from '@material-ui/lab/Rating';
 
-import type { MovieDetails } from 'types';
+import type { Movie } from 'types';
 
 const SummarySection = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(1),
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type Props = {
-  movie: MovieDetails,
+  movie: Movie,
 };
 
 const MovieSummary = (props: Props) => {
@@ -86,7 +86,7 @@ const MovieSummary = (props: Props) => {
     ) : null;
 
   const renderGenres = () =>
-    movie.genres && movie.genres.length > 0 ? (
+    movie.genres?.length > 0 ? (
       <SummarySection>
         <Typography variant="h6">
           <Box component="span">Genres: </Box>

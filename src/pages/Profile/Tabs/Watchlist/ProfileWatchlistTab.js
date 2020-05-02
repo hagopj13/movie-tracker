@@ -7,12 +7,12 @@ import watchlistActions from 'store/user/watchlist/watchlist.actions';
 import watchlistSelectors from 'store/user/watchlist/watchlist.selectors';
 import WatchlistActionTypes from 'store/user/watchlist/watchlist.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'types';
+import type { Movie } from 'types';
 
-import ProfileMoviesList from '../../MoviesList/ProfileMoviesList';
+import ProfileMovieList from '../../MovieList/ProfileMovieList';
 
 type Props = {
-  moviesList: MoviesListItem[],
+  movies: Movie[],
   isLoading: boolean,
   isLoadingMore: boolean,
   onFetchMovies: () => void,
@@ -20,11 +20,11 @@ type Props = {
 };
 
 const ProfileWatchlistTab = (props: Props) => {
-  const { moviesList, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
+  const { movies, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
 
   return (
-    <ProfileMoviesList
-      moviesList={moviesList}
+    <ProfileMovieList
+      movies={movies}
       isLoading={isLoading}
       isLoadingMore={isLoadingMore}
       onFetchMovies={onFetchMovies}
@@ -34,7 +34,7 @@ const ProfileWatchlistTab = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesList: watchlistSelectors.selectList,
+  movies: watchlistSelectors.selectList,
   isLoading: loadingSelectors.createIsLoadingSelector([WatchlistActionTypes.FETCH_MOVIES]),
   isLoadingMore: loadingSelectors.createIsLoadingSelector([WatchlistActionTypes.FETCH_MORE_MOVIES]),
 });

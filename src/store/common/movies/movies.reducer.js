@@ -1,12 +1,12 @@
 // @flow
 import reducerGenerator from 'store/common/utils/reducerGenerator';
-import { convertResponseToMoviesListItem } from 'api/tmdb/utils';
-import type { MoviesListItem } from 'types';
+import { convertResponseToMovie } from 'api/tmdb/utils';
+import type { Movie } from 'types';
 
 import MoviesActionTypes from './movies.types';
 
 type State = {
-  list: MoviesListItem[],
+  list: Movie[],
   pagination: {
     page: number,
     totalPages: number,
@@ -23,7 +23,7 @@ const fetchMoviesStart = () => defaultInitialState;
 
 const fetchMoviesSuccess = (state: State, action) => ({
   ...state,
-  list: action.payload.data.results.map(convertResponseToMoviesListItem),
+  list: action.payload.data.results.map(convertResponseToMovie),
   pagination: {
     ...state.pagination,
     page: action.payload.data.page,
@@ -34,7 +34,7 @@ const fetchMoviesSuccess = (state: State, action) => ({
 
 const fetchMoreMoviesSuccess = (state: State, action) => ({
   ...state,
-  list: state.list.concat(action.payload.data.results.map(convertResponseToMoviesListItem)),
+  list: state.list.concat(action.payload.data.results.map(convertResponseToMovie)),
   pagination: {
     ...state.pagination,
     page: action.payload.data.page,

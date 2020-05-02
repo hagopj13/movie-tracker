@@ -14,31 +14,22 @@ export type Review = {
   url: string,
 };
 
-export type MoviesListItem = {
+export type Movie = {
   id: number,
   title: string,
   releaseDate: string,
-  voteAverage: number,
-  voteCount: number,
-  posterPath: string,
-};
-
-export type MovieDetails = {
-  id: number,
-  title: string,
-  tagline: string,
-  overview: string,
-  runtime: number,
-  status: string,
-  releaseDate: string,
-  genres: Genre[],
   voteAverage: number,
   voteCount: number,
   posterPath: string,
   backdropPath: string,
-  cast: Actor[],
+  tagline: string,
+  overview: string,
+  runtime: number,
+  status: string,
+  genres: Genre[],
+  actors: Actor[],
   reviews: Review[],
-  recommendations: MoviesListItem[],
+  recommendations: Movie[],
 };
 
 export type MovieUserState = {

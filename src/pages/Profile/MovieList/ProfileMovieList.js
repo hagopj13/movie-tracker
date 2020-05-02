@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import MoviesList from 'components/Movies/List/MoviesList';
+import MovieList from 'components/Movie/List/MovieList';
 import Spinner from 'components/Spinner/Spinner';
-import type { MoviesListItem } from 'types';
+import type { Movie } from 'types';
 
 type Props = {
-  moviesList: MoviesListItem[],
+  movies: Movie[],
   isLoading: boolean,
   isLoadingMore: boolean,
   onFetchMovies: () => void,
@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfileMoviesList = (props: Props) => {
-  const { moviesList, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
+const ProfileMovieList = (props: Props) => {
+  const { movies, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
 
   const [showView, setShowView] = useState(false);
   const classes = useStyles();
@@ -55,11 +55,11 @@ const ProfileMoviesList = (props: Props) => {
   return (
     <div className={classes.root}>
       <Container className={classes.container}>
-        <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
+        <MovieList movies={movies} onLoadMore={handleLoadMore} />
         {isLoadingMore && <Spinner />}
       </Container>
     </div>
   );
 };
 
-export default ProfileMoviesList;
+export default ProfileMovieList;

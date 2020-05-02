@@ -14,14 +14,14 @@ import authSelectors from 'store/auth/auth.selectors';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import ConfigActionTypes from 'store/config/config.types';
 import Spinner from 'components/Spinner/Spinner';
-import type { MovieDetails } from 'types';
+import type { Movie } from 'types';
 
 import MovieOverviewHeader from './Header/MovieOverviewHeader';
 import MovieOverviewBody from './Body/MovieOverviewBody';
 
 type Props = {
   isLoading: boolean,
-  movie: MovieDetails,
+  movie: Movie,
   isAuth: boolean,
   onFetchMovie: (id: string) => void,
   onUpdateMovieUserState: (id: string) => void,

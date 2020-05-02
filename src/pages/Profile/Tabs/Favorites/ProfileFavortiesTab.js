@@ -7,12 +7,12 @@ import favoritesActions from 'store/user/favorites/favorites.actions';
 import favoritesSelectors from 'store/user/favorites/favorites.selectors';
 import FavoritesActionTypes from 'store/user/favorites/favorites.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'types';
+import type { Movie } from 'types';
 
-import ProfileMoviesList from '../../MoviesList/ProfileMoviesList';
+import ProfileMovieList from '../../MovieList/ProfileMovieList';
 
 type Props = {
-  moviesList: MoviesListItem[],
+  movies: Movie[],
   isLoading: boolean,
   isLoadingMore: boolean,
   onFetchMovies: () => void,
@@ -20,11 +20,11 @@ type Props = {
 };
 
 const ProfileFavoritesTab = (props: Props) => {
-  const { moviesList, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
+  const { movies, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
 
   return (
-    <ProfileMoviesList
-      moviesList={moviesList}
+    <ProfileMovieList
+      movies={movies}
       isLoading={isLoading}
       isLoadingMore={isLoadingMore}
       onFetchMovies={onFetchMovies}
@@ -34,7 +34,7 @@ const ProfileFavoritesTab = (props: Props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesList: favoritesSelectors.selectList,
+  movies: favoritesSelectors.selectList,
   isLoading: loadingSelectors.createIsLoadingSelector([FavoritesActionTypes.FETCH_MOVIES]),
   isLoadingMore: loadingSelectors.createIsLoadingSelector([FavoritesActionTypes.FETCH_MORE_MOVIES]),
 });

@@ -3,41 +3,41 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import MoviesList from 'components/Movies/List/MoviesList';
+import MovieList from 'components/Movie/List/MovieList';
 import Spinner from 'components/Spinner/Spinner';
 import searchActions from 'store/search/search.actions';
 import searchSelectors from 'store/search/search.selectors';
 import SearchActionTypes from 'store/search/search.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'types';
+import type { Movie } from 'types';
 
 type Props = {
-  moviesList: MoviesListItem[],
+  movies: Movie[],
   isLoadingMore: boolean,
   onFetchMoreMovies: () => void,
 };
 
 const SearchResultsList = (props: Props) => {
-  const { moviesList, isLoadingMore, onFetchMoreMovies } = props;
+  const { movies, isLoadingMore, onFetchMoreMovies } = props;
 
   const handleLoadMore = () => {
     onFetchMoreMovies();
   };
 
-  if (moviesList.length === 0) {
+  if (movies.length === 0) {
     return null;
   }
 
   return (
     <>
-      <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
+      <MovieList movies={movies} onLoadMore={handleLoadMore} />
       {isLoadingMore && <Spinner />}
     </>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesList: searchSelectors.selectList,
+  movies: searchSelectors.selectList,
   isLoadingMore: loadingSelectors.createIsLoadingSelector([SearchActionTypes.FETCH_MORE_MOVIES]),
 });
 

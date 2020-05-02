@@ -3,12 +3,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-import type { Review as ReviewType } from 'types';
+import type { Review } from 'types';
 
-import ReviewsItem from './Item/ReviewsItem';
+import ReviewsListItem from './Item/ReviewListItem';
 
 type Props = {
-  reviews: ReviewType[],
+  reviews: Review[],
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Reviews = (props: Props) => {
+const ReviewList = (props: Props) => {
   const { reviews } = props;
 
   const classes = useStyles();
@@ -41,10 +41,10 @@ const Reviews = (props: Props) => {
   return (
     <div className={classes.root}>
       {reviews.map((review) => (
-        <ReviewsItem key={review.id} review={review} />
+        <ReviewsListItem key={review.id} review={review} />
       ))}
     </div>
   );
 };
 
-export default Reviews;
+export default ReviewList;

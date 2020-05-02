@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ReviewsItem = (props: Props) => {
+const ReviewsListItem = (props: Props) => {
   const { review } = props;
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -97,4 +97,4 @@ const ReviewsItem = (props: Props) => {
   );
 };
 
-export default ReviewsItem;
+export default ReviewsListItem;

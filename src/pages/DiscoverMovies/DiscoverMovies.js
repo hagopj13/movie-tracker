@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
     },
   },
-  moviesFiltersContainer: {
+  movieFiltersContainer: {
     maxWidth: 270,
     marginRight: theme.spacing(3),
     [theme.breakpoints.down('xs')]: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(3),
     },
   },
-  moviesListContainer: {
+  movieListContainer: {
     flexGrow: 1,
   },
 }));
@@ -74,10 +74,10 @@ const DiscoverMoviesPage = (props: Props) => {
         <Attribution />
       </Container>
       <Container className={classes.moviesContainer}>
-        <div className={classes.moviesFiltersContainer}>
+        <div className={classes.movieFiltersContainer}>
           <DiscoverMoviesFilters />
         </div>
-        <div className={classes.moviesListContainer}>
+        <div className={classes.movieListContainer}>
           <DiscoverMoviesList />
         </div>
       </Container>

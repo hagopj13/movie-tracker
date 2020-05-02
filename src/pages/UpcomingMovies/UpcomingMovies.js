@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(5, 5, 2),
     display: 'flex',
   },
-  moviesListContainer: {
+  movieListContainer: {
     flexGrow: 1,
   },
 }));
@@ -47,7 +47,7 @@ const UpcomingMoviesPage = (props: Props) => {
   return (
     <div className={classes.root}>
       <Container className={classes.container}>
-        <div className={classes.moviesListContainer}>
+        <div className={classes.movieListContainer}>
           <UpcomingMoviesList />
         </div>
       </Container>

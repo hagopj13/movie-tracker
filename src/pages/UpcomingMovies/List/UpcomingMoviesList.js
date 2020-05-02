@@ -3,23 +3,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import MoviesList from 'components/Movies/List/MoviesList';
+import MovieList from 'components/Movie/List/MovieList';
 import Spinner from 'components/Spinner/Spinner';
 import upcomingActions from 'store/upcoming/upcoming.actions';
 import upcomingSelectors from 'store/upcoming/upcoming.selectors';
 import UpcomingActionTypes from 'store/upcoming/upcoming.types';
 import loadingSelectors from 'store/api/loading/loading.selectors';
-import type { MoviesListItem } from 'types';
+import type { Movie } from 'types';
 
 type Props = {
-  moviesList: MoviesListItem[],
+  movies: Movie[],
   isLoading: boolean,
   isLoadingMore: boolean,
   onFetchMoreMovies: () => void,
 };
 
 const UpcomingMoviesList = (props: Props) => {
-  const { moviesList, isLoading, isLoadingMore, onFetchMoreMovies } = props;
+  const { movies, isLoading, isLoadingMore, onFetchMoreMovies } = props;
 
   const handleLoadMore = () => {
     onFetchMoreMovies();
@@ -31,14 +31,14 @@ const UpcomingMoviesList = (props: Props) => {
 
   return (
     <>
-      <MoviesList moviesList={moviesList} onLoadMore={handleLoadMore} />
+      <MovieList movies={movies} onLoadMore={handleLoadMore} />
       {isLoadingMore && <Spinner />}
     </>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  moviesList: upcomingSelectors.selectList,
+  movies: upcomingSelectors.selectList,
   isLoading: loadingSelectors.createIsLoadingSelector([UpcomingActionTypes.FETCH_MOVIES]),
   isLoadingMore: loadingSelectors.createIsLoadingSelector([UpcomingActionTypes.FETCH_MORE_MOVIES]),
 });

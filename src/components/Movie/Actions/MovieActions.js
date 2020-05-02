@@ -14,12 +14,12 @@ import movieSelectors from 'store/movie/movie.selectors';
 import authSelectors from 'store/auth/auth.selectors';
 import dialogActions from 'store/ui/dialog/dialog.actions';
 import { dialogTypes } from 'config';
-import { MovieDetails, MovieUserState } from 'types';
+import { Movie, MovieUserState } from 'types';
 
 import MovieActionButton from './Button/MovieActionButton';
 
 type Props = {
-  movie: MovieDetails,
+  movie: Movie,
   userState: MovieUserState,
   isAuth: boolean,
   onSetIsMovieFavorite: (id: string, isFavorite: boolean) => void,
