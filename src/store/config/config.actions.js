@@ -1,5 +1,5 @@
 // @flow
-import { ImagesConfig, Genre } from 'types';
+import type { ImagesConfig, Genre } from 'types';
 
 import ConfigActionTypes from './config.types';
 

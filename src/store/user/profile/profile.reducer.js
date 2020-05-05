@@ -1,12 +1,11 @@
 // @flow
 import { handleActions } from 'redux-actions';
 
+import type { Profile } from 'types';
+
 import ProfileActionTypes from './profile.types';
 
-type State = {
-  id: string | null,
-  name: string,
-};
+type State = Profile;
 
 const initialState: State = {
   id: null,
@@ -15,8 +14,7 @@ const initialState: State = {
 
 const fetchProfileSuccess = (state: State, action: any): State => ({
   ...state,
-  id: action.payload.data.id,
-  name: action.payload.data.username,
+  ...action.payload.profile,
 });
 
 const actionHandler = {

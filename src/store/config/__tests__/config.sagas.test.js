@@ -38,7 +38,7 @@ describe('Config sagas', () => {
         .run();
     });
 
-    it('should fire fetchImagesConfigStart and then fetchImagesConfigFailure if error occures', () => {
+    it('should fire fetchImagesConfigStart and then fetchImagesConfigFailure if error is thrown', () => {
       const errorMessage = 'some error message';
       expectSaga(configSagas.fetchImagesConfig)
         .provide([[matchers.call.fn(api.getConfig), throwError({ status_message: errorMessage })]])
@@ -57,7 +57,7 @@ describe('Config sagas', () => {
         .run();
     });
 
-    it('should fire fetchAllGenresStart and then fetchAllGenresFailure if error occurs', () => {
+    it('should fire fetchAllGenresStart and then fetchAllGenresFailure if error is thrown', () => {
       const errorMessage = 'some error message';
       expectSaga(configSagas.fetchAllGenres)
         .provide([

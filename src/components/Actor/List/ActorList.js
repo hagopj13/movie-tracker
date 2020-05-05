@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-import { Actor } from 'types';
+import type { Actor } from 'types';
 
 import ActorListItem from './Item/ActorListItem';
 

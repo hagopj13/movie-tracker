@@ -7,7 +7,7 @@ import ActorList from 'components/Actor/List/ActorList';
 import ReviewList from 'components/Review/List/ReviewList';
 // import Recommendations from 'components/Recommendations/Recommendations';
 import MovieList from 'components/Movie/List/MovieList';
-import { Movie } from 'types';
+import type { Movie } from 'types';
 
 import MovieOverviewBodySection from './Section/MovieOverviewBodySection';
 

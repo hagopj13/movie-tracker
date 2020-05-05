@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Truncate from 'react-truncate';
 
-import { Review } from 'types';
+import type { Review } from 'types';
 
 type Props = {
   review: Review,

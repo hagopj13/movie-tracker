@@ -44,3 +44,8 @@ export type ImagesConfig = {
   posterSize: string,
   profileSize: string,
 };
+
+export type Profile = {
+  id: string | null,
+  name: string,
+};

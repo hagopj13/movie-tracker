@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import ImageIcon from '@material-ui/icons/Image';
 
 import configSelectors from 'store/config/config.selectors';
-import { Actor } from 'types';
+import type { Actor } from 'types';
 
 type Props = {
   actor: Actor,

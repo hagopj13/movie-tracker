@@ -1,4 +1,4 @@
-import type { Movie, MovieUserState, Actor, ImagesConfig } from 'types';
+import type { Movie, MovieUserState, Actor, ImagesConfig, Profile } from 'types';
 
 export const convertResponseToActor = (response: any): Actor => ({
   id: response.id,
@@ -43,4 +43,9 @@ export const convertResponseToImagesConfig = (response: any): ImagesConfig => ({
   backdropSize: getDesiredSizeFromList('w1280', response.images.backdrop_sizes),
   posterSize: getDesiredSizeFromList('w342', response.images.poster_sizes),
   profileSize: getDesiredSizeFromList('w185', response.images.profile_sizes),
+});
+
+export const convertResponseToProfile = (response: any): Profile => ({
+  id: response.id,
+  name: response.username,
 });

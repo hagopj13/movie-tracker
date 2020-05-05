@@ -1,4 +1,6 @@
 // @flow
+import type { Profile } from 'types';
+
 import ProfileActionTypes from './profile.types';
 
 const fetchProfile = () => ({
@@ -9,9 +11,9 @@ const fetchProfileStart = () => ({
   type: ProfileActionTypes.FETCH_PROFILE_START,
 });
 
-const fetchProfileSuccess = (data: any) => ({
+const fetchProfileSuccess = (profile: Profile) => ({
   type: ProfileActionTypes.FETCH_PROFILE_SUCCESS,
-  payload: { data },
+  payload: { profile },
 });
 
 const fetchProfileFailure = (error: string) => ({
