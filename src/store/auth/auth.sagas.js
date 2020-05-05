@@ -9,7 +9,7 @@ import AuthActionTypes from './auth.types';
 import authActions from './auth.actions';
 import authSelectors from './auth.selectors';
 
-function* login({ payload: { username, password } }) {
+export function* login({ payload: { username, password } }) {
   yield put(authActions.loginStart());
   try {
     const {
@@ -35,7 +35,7 @@ function* login({ payload: { username, password } }) {
   }
 }
 
-function* logout() {
+export function* logout() {
   yield put(authActions.logoutStart());
   try {
     const sessionId = yield select(authSelectors.selectSessionId);
@@ -48,7 +48,7 @@ function* logout() {
   }
 }
 
-function* checkAuthState() {
+export function* checkAuthState() {
   const sessionId = yield call(LocalStorageService.getItem, 'sessionId');
   const accountId = yield call(LocalStorageService.getItem, 'accountId');
   if (sessionId && accountId) {
@@ -58,15 +58,15 @@ function* checkAuthState() {
   }
 }
 
-function* onLogin() {
+export function* onLogin() {
   yield takeLatest(AuthActionTypes.LOGIN, login);
 }
 
-function* onLogout() {
+export function* onLogout() {
   yield takeLatest(AuthActionTypes.LOGOUT, logout);
 }
 
-function* onCheckAuthState() {
+export function* onCheckAuthState() {
   yield takeLatest(AuthActionTypes.CHECK_AUTH_STATE, checkAuthState);
 }
 

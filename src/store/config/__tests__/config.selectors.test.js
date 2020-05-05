@@ -7,8 +7,8 @@ describe('Config selectors', () => {
       const path = 'test.png';
       const currentState = { config: configState };
       const selectBackdropFullPath = configSelectors.createBackdropFullPathSelector(path);
-      const backdropFullPath = selectBackdropFullPath(currentState);
-      expect(backdropFullPath).toBe(
+      const selectedBackdropFullPath = selectBackdropFullPath(currentState);
+      expect(selectedBackdropFullPath).toBe(
         `${imagesConfig.baseImageUrl}${imagesConfig.backdropSize}${path}`,
       );
     });
@@ -19,8 +19,10 @@ describe('Config selectors', () => {
       const path = 'test.png';
       const currentState = { config: configState };
       const selectPosterFullPath = configSelectors.createPosterFullPathSelector(path);
-      const posterFullPath = selectPosterFullPath(currentState);
-      expect(posterFullPath).toBe(`${imagesConfig.baseImageUrl}${imagesConfig.posterSize}${path}`);
+      const selectedPosterFullPath = selectPosterFullPath(currentState);
+      expect(selectedPosterFullPath).toBe(
+        `${imagesConfig.baseImageUrl}${imagesConfig.posterSize}${path}`,
+      );
     });
   });
 
@@ -29,8 +31,8 @@ describe('Config selectors', () => {
       const path = 'test.png';
       const currentState = { config: configState };
       const selectProfileFullPath = configSelectors.createProfileFullPathSelector(path);
-      const profileFullPath = selectProfileFullPath(currentState);
-      expect(profileFullPath).toBe(
+      const selectedProfileFullPath = selectProfileFullPath(currentState);
+      expect(selectedProfileFullPath).toBe(
         `${imagesConfig.baseImageUrl}${imagesConfig.profileSize}${path}`,
       );
     });
@@ -39,8 +41,8 @@ describe('Config selectors', () => {
   describe('selectAllGenres', () => {
     it('should return all genres', () => {
       const currentState = { config: configState };
-      const allGenres = configSelectors.selectAllGenres(currentState);
-      expect(allGenres).toEqual(genres);
+      const selectedAllGenres = configSelectors.selectAllGenres(currentState);
+      expect(selectedAllGenres).toEqual(genres);
     });
   });
 });
