@@ -49,11 +49,11 @@ type Action = {
 type MoviesActionCreators = {
   fetchMovies: () => Action,
   fetchMoviesStart: () => Action,
-  fetchMoviesSuccess: (data: any) => Action,
+  fetchMoviesSuccess: (results: Results<Movie>) => Action,
   fetchMoviesFailure: (error: string) => Action,
   fetchMoreMovies: () => Action,
   fetchMoreMoviesStart: () => Action,
-  fetchMoreMoviesSuccess: (data: any) => Action,
+  fetchMoreMoviesSuccess: (results: Results<Movie>) => Action,
   fetchMoreMoviesFailure: (error: string) => Action,
 };
 
