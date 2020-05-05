@@ -1,7 +1,8 @@
 import { all, call, takeLatest, takeEvery, put, select } from 'redux-saga/effects';
 
-import * as api from 'api/tmdb';
 import loadingSelectors from 'store/api/loading/loading.selectors';
+import * as api from 'api/tmdb';
+import { convertResponseToMovieResults } from 'api/tmdb/utils';
 
 import UpcomingActionTypes from './upcoming.types';
 import upcomingActions from './upcoming.actions';
@@ -11,7 +12,8 @@ function* fetchMovies() {
   yield put(upcomingActions.fetchMoviesStart());
   try {
     const { data } = yield call(api.getUpcomingMovies, {});
-    yield put(upcomingActions.fetchMoviesSuccess(data));
+    const results = yield call(convertResponseToMovieResults, data);
+    yield put(upcomingActions.fetchMoviesSuccess(results));
   } catch (error) {
     yield put(upcomingActions.fetchMoviesFailure(error.status_message));
   }
@@ -31,7 +33,8 @@ function* fetchMoreMovies() {
     yield put(upcomingActions.fetchMoreMoviesStart());
     try {
       const { data } = yield call(api.getUpcomingMovies, { page: currentPage + 1 });
-      yield put(upcomingActions.fetchMoreMoviesSuccess(data));
+      const results = yield call(convertResponseToMovieResults, data);
+      yield put(upcomingActions.fetchMoreMoviesSuccess(results));
     } catch (error) {
       yield put(upcomingActions.fetchMoreMoviesFailure(error.status_message));
     }

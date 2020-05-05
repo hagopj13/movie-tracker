@@ -49,3 +49,12 @@ export type Profile = {
   id: string | null,
   name: string,
 };
+
+export type Results<T> = {
+  list: T[],
+  pagination: {
+    page: number,
+    totalPages: number,
+    totalResults: number,
+  },
+};

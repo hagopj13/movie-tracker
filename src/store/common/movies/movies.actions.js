@@ -1,6 +1,7 @@
 // @flow
 import typeGenerator from 'store/common/utils/typeGenerator';
 import actionCreatorGenerator from 'store/common/utils/actionCreatorGenerator';
+import type { Movie, Results } from 'types';
 
 import MoviesActionTypes from './movies.types';
 
@@ -12,9 +13,9 @@ const fetchMoviesStart = (namespace) => () => ({
   type: typeGenerator(namespace, MoviesActionTypes.FETCH_MOVIES_START),
 });
 
-const fetchMoviesSuccess = (namespace) => (data: any) => ({
+const fetchMoviesSuccess = (namespace) => (results: Results<Movie>) => ({
   type: typeGenerator(namespace, MoviesActionTypes.FETCH_MOVIES_SUCCESS),
-  payload: { data },
+  payload: { results },
 });
 
 const fetchMoviesFailure = (namespace) => (error: string) => ({
@@ -30,9 +31,9 @@ const fetchMoreMoviesStart = (namespace) => () => ({
   type: typeGenerator(namespace, MoviesActionTypes.FETCH_MORE_MOVIES_START),
 });
 
-const fetchMoreMoviesSuccess = (namespace) => (data: any) => ({
+const fetchMoreMoviesSuccess = (namespace) => (results: Results<Movie>) => ({
   type: typeGenerator(namespace, MoviesActionTypes.FETCH_MORE_MOVIES_SUCCESS),
-  payload: { data },
+  payload: { results },
 });
 
 const fetchMoreMoviesFailure = (namespace) => (error: string) => ({

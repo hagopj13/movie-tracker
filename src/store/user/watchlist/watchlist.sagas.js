@@ -1,8 +1,9 @@
 import { all, call, takeLatest, takeEvery, put, select } from 'redux-saga/effects';
 
-import * as api from 'api/tmdb';
 import loadingSelectors from 'store/api/loading/loading.selectors';
 import authSelectors from 'store/auth/auth.selectors';
+import * as api from 'api/tmdb';
+import { convertResponseToMovieResults } from 'api/tmdb/utils';
 
 import WatchlistActionTypes from './watchlist.types';
 import watchlistActions from './watchlist.actions';
@@ -16,7 +17,8 @@ function* fetchMovies() {
     const { data } = yield call(api.getWatchlistMovies, sessionId, accountId, {
       sort_by: 'created_at.desc',
     });
-    yield put(watchlistActions.fetchMoviesSuccess(data));
+    const results = yield call(convertResponseToMovieResults, data);
+    yield put(watchlistActions.fetchMoviesSuccess(results));
   } catch (error) {
     yield put(watchlistActions.fetchMoviesFailure(error.status_message));
   }
@@ -41,7 +43,8 @@ function* fetchMoreMovies() {
         sort_by: 'created_at.desc',
         page: currentPage + 1,
       });
-      yield put(watchlistActions.fetchMoreMoviesSuccess(data));
+      const results = yield call(convertResponseToMovieResults, data);
+      yield put(watchlistActions.fetchMoreMoviesSuccess(results));
     } catch (error) {
       yield put(watchlistActions.fetchMoreMoviesFailure(error.status_message));
     }

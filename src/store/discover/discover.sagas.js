@@ -1,7 +1,8 @@
 import { all, call, takeLatest, takeEvery, put, select } from 'redux-saga/effects';
 
-import * as api from 'api/tmdb';
 import loadingSelectors from 'store/api/loading/loading.selectors';
+import * as api from 'api/tmdb';
+import { convertResponseToMovieResults } from 'api/tmdb/utils';
 import type { GetDiscoverMoviesParams } from 'api/tmdb/apis/movies';
 
 import DiscoverActionTypes from './discover.types';
@@ -28,7 +29,8 @@ function* fetchMovies() {
   try {
     const filterParams = yield getFilterParams();
     const { data } = yield call(api.getDiscoverMovies, { ...filterParams });
-    yield put(discoverActions.fetchMoviesSuccess(data));
+    const results = yield call(convertResponseToMovieResults, data);
+    yield put(discoverActions.fetchMoviesSuccess(results));
   } catch (error) {
     yield put(discoverActions.fetchMoviesFailure(error.status_message));
   }
@@ -52,7 +54,8 @@ function* fetchMoreMovies() {
         page: currentPage + 1,
         ...filterParams,
       });
-      yield put(discoverActions.fetchMoreMoviesSuccess(data));
+      const results = yield call(convertResponseToMovieResults, data);
+      yield put(discoverActions.fetchMoreMoviesSuccess(results));
     } catch (error) {
       yield put(discoverActions.fetchMoreMoviesFailure(error.status_message));
     }

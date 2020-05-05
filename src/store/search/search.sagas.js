@@ -1,7 +1,8 @@
 import { all, call, takeLatest, takeEvery, put, select } from 'redux-saga/effects';
 
-import * as api from 'api/tmdb';
 import loadingSelectors from 'store/api/loading/loading.selectors';
+import * as api from 'api/tmdb';
+import { convertResponseToMovieResults } from 'api/tmdb/utils';
 
 import SearchActionTypes from './search.types';
 import searchActions from './search.actions';
@@ -12,7 +13,8 @@ function* fetchMovies() {
   yield put(searchActions.fetchMoviesStart());
   try {
     const { data } = yield call(api.searchMovies, { query });
-    yield put(searchActions.fetchMoviesSuccess(data));
+    const results = yield call(convertResponseToMovieResults, data);
+    yield put(searchActions.fetchMoviesSuccess(results));
   } catch (error) {
     yield put(searchActions.fetchMoviesFailure(error.status_message));
   }
@@ -33,7 +35,8 @@ function* fetchMoreMovies() {
     yield put(searchActions.fetchMoreMoviesStart());
     try {
       const { data } = yield call(api.searchMovies, { query, page: currentPage + 1 });
-      yield put(searchActions.fetchMoreMoviesSuccess(data));
+      const results = yield call(convertResponseToMovieResults, data);
+      yield put(searchActions.fetchMoreMoviesSuccess(results));
     } catch (error) {
       yield put(searchActions.fetchMoreMoviesFailure(error.status_message));
     }

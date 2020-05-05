@@ -1,4 +1,4 @@
-import type { Movie, MovieUserState, Actor, ImagesConfig, Profile } from 'types';
+import type { Movie, MovieUserState, Actor, ImagesConfig, Profile, Results } from 'types';
 
 export const convertResponseToActor = (response: any): Actor => ({
   id: response.id,
@@ -48,4 +48,13 @@ export const convertResponseToImagesConfig = (response: any): ImagesConfig => ({
 export const convertResponseToProfile = (response: any): Profile => ({
   id: response.id,
   name: response.username,
+});
+
+export const convertResponseToMovieResults = (response: any): Results<Movie> => ({
+  list: response.results.map(convertResponseToMovie),
+  pagination: {
+    page: response.page,
+    totalPages: response.total_pages,
+    totalResults: response.total_results,
+  },
 });
