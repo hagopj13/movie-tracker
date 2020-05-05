@@ -21,7 +21,7 @@ describe('Config action creators', () => {
     it('should create the fetchImagesConfigSuccess action', () => {
       const action = configActions.fetchImagesConfigSuccess(imagesConfig);
       expect(action.type).toBe(ConfigActionTypes.FETCH_IMAGES_CONFIG_SUCCESS);
-      expect(action.payload).toMatchObject({ imagesConfig });
+      expect(action.payload).toEqual({ imagesConfig });
     });
   });
 
@@ -30,7 +30,7 @@ describe('Config action creators', () => {
       const error = 'some error message';
       const action = configActions.fetchImagesConfigFailure(error);
       expect(action.type).toBe(ConfigActionTypes.FETCH_IMAGES_CONFIG_FAILURE);
-      expect(action.payload).toMatchObject({ error });
+      expect(action.payload).toEqual({ error });
     });
   });
 
@@ -52,7 +52,7 @@ describe('Config action creators', () => {
     it('should create the fetchAllGenresSuccess action', () => {
       const action = configActions.fetchAllGenresSuccess(genres);
       expect(action.type).toBe(ConfigActionTypes.FETCH_ALL_GENRES_SUCCESS);
-      expect(action.payload).toMatchObject({ genres });
+      expect(action.payload).toEqual({ genres });
     });
   });
 
@@ -61,7 +61,7 @@ describe('Config action creators', () => {
       const error = 'some error message';
       const action = configActions.fetchAllGenresFailure(error);
       expect(action.type).toBe(ConfigActionTypes.FETCH_ALL_GENRES_FAILURE);
-      expect(action.payload).toMatchObject({ error });
+      expect(action.payload).toEqual({ error });
     });
   });
 });

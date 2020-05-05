@@ -19,11 +19,16 @@ const showDialog = (state: State, action: any) => ({
   dialogProps: action.payload.dialogProps,
 });
 
-const hideDialog = (state: State) => ({
-  ...state,
-  dialogType: null,
-  dialogProps: {},
-});
+const hideDialog = (state: State, action: any) => {
+  if (action.payload.dialogType === state.dialogType) {
+    return {
+      ...state,
+      dialogType: null,
+      dialogProps: {},
+    };
+  }
+  return state;
+};
 
 const actionHandler = {
   [DialogActionTypes.SHOW_DIALOG]: showDialog,
