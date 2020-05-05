@@ -1,4 +1,6 @@
 // @flow
+import type { Movie, MovieUserState } from 'types';
+
 import MovieActionTypes from './movie.types';
 
 const fetchMovie = (id: string) => ({
@@ -10,9 +12,9 @@ const fetchMovieStart = () => ({
   type: MovieActionTypes.FETCH_MOVIE_START,
 });
 
-const fetchMovieSuccess = (data: any) => ({
+const fetchMovieSuccess = (movie: Movie, movieUserState: MovieUserState) => ({
   type: MovieActionTypes.FETCH_MOVIE_SUCCESS,
-  payload: { data },
+  payload: { movie, movieUserState },
 });
 
 const fetchMovieFailure = (error: string) => ({
@@ -29,9 +31,9 @@ const fetchMovieUserStateStart = () => ({
   type: MovieActionTypes.FETCH_MOVIE_USER_STATE_START,
 });
 
-const fetchMovieUserStateSuccess = (data: any) => ({
+const fetchMovieUserStateSuccess = (movieUserState: MovieUserState) => ({
   type: MovieActionTypes.FETCH_MOVIE_USER_STATE_SUCCESS,
-  payload: { data },
+  payload: { movieUserState },
 });
 
 const fetchMovieUserStateFailure = (error: string) => ({

@@ -2,33 +2,37 @@ import { all, call, takeLatest, put, select } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
 import authSelectors from 'store/auth/auth.selectors';
+import { convertResponseToMovie, convertResponseToMovieUserState } from 'api/tmdb/utils';
 
 import MovieActionTypes from './movie.types';
 import movieActions from './movie.actions';
 
-function* fetchMovie({ payload: { id } }) {
+export function* fetchMovie({ payload: { id } }) {
   yield put(movieActions.fetchMovieStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   try {
     const { data } = yield call(api.getMovieDetails, id, sessionId);
-    yield put(movieActions.fetchMovieSuccess(data));
+    const movie = yield call(convertResponseToMovie, data);
+    const movieUserState = yield call(convertResponseToMovieUserState, data.account_states);
+    yield put(movieActions.fetchMovieSuccess(movie, movieUserState));
   } catch (error) {
     yield put(movieActions.fetchMovieFailure(error.status_message));
   }
 }
 
-function* fetchMovieUserState({ payload: { id } }) {
+export function* fetchMovieUserState({ payload: { id } }) {
   yield put(movieActions.fetchMovieUserStateStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   try {
     const { data } = yield call(api.getMovieUserState, id, sessionId);
-    yield put(movieActions.fetchMovieUserStateSuccess(data));
+    const movieUserState = yield call(convertResponseToMovieUserState, data);
+    yield put(movieActions.fetchMovieUserStateSuccess(movieUserState));
   } catch (error) {
     yield put(movieActions.fetchMovieUserStateFailure(error.status_message));
   }
 }
 
-function* setIsMovieFavorite({ payload: { id, isFavorite } }) {
+export function* setIsMovieFavorite({ payload: { id, isFavorite } }) {
   yield put(movieActions.setIsMovieFavoriteStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   const accountId = yield select(authSelectors.selectAccountId);
@@ -40,7 +44,7 @@ function* setIsMovieFavorite({ payload: { id, isFavorite } }) {
   }
 }
 
-function* setIsMovieInWatchlist({ payload: { id, isInWatchlist } }) {
+export function* setIsMovieInWatchlist({ payload: { id, isInWatchlist } }) {
   yield put(movieActions.setIsMovieInWatchlistStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   const accountId = yield select(authSelectors.selectAccountId);
@@ -52,7 +56,7 @@ function* setIsMovieInWatchlist({ payload: { id, isInWatchlist } }) {
   }
 }
 
-function* rateMovie({ payload: { id, rating } }) {
+export function* rateMovie({ payload: { id, rating } }) {
   yield put(movieActions.rateMovieStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   try {
@@ -67,23 +71,23 @@ function* rateMovie({ payload: { id, rating } }) {
   }
 }
 
-function* onFetchMovie() {
+export function* onFetchMovie() {
   yield takeLatest(MovieActionTypes.FETCH_MOVIE, fetchMovie);
 }
 
-function* onFetchMovieUserState() {
+export function* onFetchMovieUserState() {
   yield takeLatest(MovieActionTypes.FETCH_MOVIE_USER_STATE, fetchMovieUserState);
 }
 
-function* onSetIsMovieFavorite() {
+export function* onSetIsMovieFavorite() {
   yield takeLatest(MovieActionTypes.SET_IS_MOVIE_FAVORITE, setIsMovieFavorite);
 }
 
-function* onSetIsMovieInWatchlist() {
+export function* onSetIsMovieInWatchlist() {
   yield takeLatest(MovieActionTypes.SET_IS_MOVIE_IN_WATCHLIST, setIsMovieInWatchlist);
 }
 
-function* onRateMovie() {
+export function* onRateMovie() {
   yield takeLatest(MovieActionTypes.RATE_MOVIE, rateMovie);
 }
 

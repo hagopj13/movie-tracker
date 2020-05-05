@@ -1,7 +1,6 @@
 // @flow
 import { handleActions } from 'redux-actions';
 
-import { convertResponseToMovie, convertResponseToMovieUserState } from 'api/tmdb/utils';
 import AuthActionTypes from 'store/auth/auth.types';
 import type { Movie, MovieUserState } from 'types';
 
@@ -40,13 +39,14 @@ const initialState: State = {
 const fetchMovieStart = () => initialState;
 
 const fetchMovieSuccess = (state: State, action) => ({
-  details: convertResponseToMovie(action.payload.data),
-  userState: convertResponseToMovieUserState(action.payload.data.account_states),
+  ...state,
+  details: action.payload.movie,
+  userState: action.payload.movieUserState,
 });
 
 const fetchMovieUserStateSuccess = (state: State, action) => ({
   ...state,
-  userState: convertResponseToMovieUserState(action.payload.data),
+  userState: action.payload.movieUserState,
 });
 
 const setIsMovieFavoriteSuccess = (state: State, action) => {
