@@ -1,4 +1,4 @@
-import type { Movie, MovieUserState, Actor } from 'types';
+import type { Movie, MovieUserState, Actor, ImagesConfig } from 'types';
 
 export const convertResponseToActor = (response: any): Actor => ({
   id: response.id,
@@ -29,4 +29,18 @@ export const convertResponseToMovieUserState = (response: any): MovieUserState =
   isFavorite: response?.favorite ?? false,
   isInWatchlist: response?.watchlist ?? false,
   rating: response?.rated ? response.rated.value / 2 : null,
+});
+
+const getDesiredSizeFromList = (desiredSize: string, sizesList: string[]): string => {
+  if (sizesList.includes(desiredSize)) {
+    return desiredSize;
+  }
+  return sizesList.length > 1 ? sizesList[sizesList.length - 2] : 'original';
+};
+
+export const convertResponseToImagesConfig = (response: any): ImagesConfig => ({
+  baseImageUrl: response.images.secure_base_url,
+  backdropSize: getDesiredSizeFromList('w1280', response.images.backdrop_sizes),
+  posterSize: getDesiredSizeFromList('w342', response.images.poster_sizes),
+  profileSize: getDesiredSizeFromList('w185', response.images.profile_sizes),
 });

@@ -37,3 +37,10 @@ export type MovieUserState = {
   isInWatchlist: boolean,
   rating: number | null,
 };
+
+export type ImagesConfig = {
+  baseImageUrl: string,
+  backdropSize: string,
+  posterSize: string,
+  profileSize: string,
+};

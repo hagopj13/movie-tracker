@@ -1,4 +1,6 @@
 // @flow
+import { ImagesConfig, Genre } from 'types';
+
 import ConfigActionTypes from './config.types';
 
 const fetchImagesConfig = () => ({
@@ -9,9 +11,9 @@ const fetchImagesConfigStart = () => ({
   type: ConfigActionTypes.FETCH_IMAGES_CONFIG_START,
 });
 
-const fetchImagesConfigSuccess = (data: any) => ({
+const fetchImagesConfigSuccess = (imagesConfig: ImagesConfig) => ({
   type: ConfigActionTypes.FETCH_IMAGES_CONFIG_SUCCESS,
-  payload: { data },
+  payload: { imagesConfig },
 });
 
 const fetchImagesConfigFailure = (error: string) => ({
@@ -27,9 +29,9 @@ const fetchAllGenresStart = () => ({
   type: ConfigActionTypes.FETCH_ALL_GENRES_START,
 });
 
-const fetchAllGenresSuccess = (data: any) => ({
+const fetchAllGenresSuccess = (genres: Genre[]) => ({
   type: ConfigActionTypes.FETCH_ALL_GENRES_SUCCESS,
-  payload: { data },
+  payload: { genres },
 });
 
 const fetchAllGenresFailure = (error: string) => ({

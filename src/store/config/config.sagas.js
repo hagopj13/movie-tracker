@@ -1,21 +1,23 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
+import { convertResponseToImagesConfig } from 'api/tmdb/utils';
 
 import ConfigActionTypes from './config.types';
 import configActions from './config.actions';
 
-function* fetchImagesConfig() {
+export function* fetchImagesConfig() {
   yield put(configActions.fetchImagesConfigStart());
   try {
     const { data } = yield call(api.getConfig);
-    yield put(configActions.fetchImagesConfigSuccess(data.images));
+    const imagesConfig = yield call(convertResponseToImagesConfig, data);
+    yield put(configActions.fetchImagesConfigSuccess(imagesConfig));
   } catch (error) {
     yield put(configActions.fetchImagesConfigFailure(error.status_message));
   }
 }
 
-function* fetchAllGenres() {
+export function* fetchAllGenres() {
   yield put(configActions.fetchAllGenresStart());
   try {
     const { data } = yield call(api.getAllGenres);
@@ -25,11 +27,11 @@ function* fetchAllGenres() {
   }
 }
 
-function* onFetchImagesConfig() {
+export function* onFetchImagesConfig() {
   yield takeLatest(ConfigActionTypes.FETCH_IMAGES_CONFIG, fetchImagesConfig);
 }
 
-function* onFetchAllGenres() {
+export function* onFetchAllGenres() {
   yield takeLatest(ConfigActionTypes.FETCH_ALL_GENRES, fetchAllGenres);
 }
 
