@@ -103,7 +103,7 @@ describe('Discover sagas', () => {
         });
     });
 
-    it('should not fire any actions if currentPage is greater than or equal to totalPages', () => {
+    it('should not fire any actions if current page is greater than or equal to totalPages', () => {
       expectSaga(discoverSagas.fetchMoreMovies)
         .provide([
           [matchers.call.fn(loadingSelectors.createIsLoadingSelector), () => false],

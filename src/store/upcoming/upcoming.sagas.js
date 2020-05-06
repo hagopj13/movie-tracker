@@ -8,7 +8,7 @@ import UpcomingActionTypes from './upcoming.types';
 import upcomingActions from './upcoming.actions';
 import upcomingSelectors from './upcoming.selectors';
 
-function* fetchMovies() {
+export function* fetchMovies() {
   yield put(upcomingActions.fetchMoviesStart());
   try {
     const { data } = yield call(api.getUpcomingMovies, {});
@@ -19,13 +19,12 @@ function* fetchMovies() {
   }
 }
 
-function* fetchMoreMovies() {
-  const isLoading = yield select(
-    loadingSelectors.createIsLoadingSelector([
-      UpcomingActionTypes.FETCH_MOVIES,
-      UpcomingActionTypes.FETCH_MORE_MOVIES,
-    ]),
-  );
+export function* fetchMoreMovies() {
+  const selectIsLoading = yield call(loadingSelectors.createIsLoadingSelector, [
+    UpcomingActionTypes.FETCH_MOVIES,
+    UpcomingActionTypes.FETCH_MORE_MOVIES,
+  ]);
+  const isLoading = yield select(selectIsLoading);
   const currentPage = yield select(upcomingSelectors.selectCurrentPage);
   const totalPages = yield select(upcomingSelectors.selectTotalPages);
 
@@ -41,11 +40,11 @@ function* fetchMoreMovies() {
   }
 }
 
-function* onFetchMovies() {
+export function* onFetchMovies() {
   yield takeLatest(UpcomingActionTypes.FETCH_MOVIES, fetchMovies);
 }
 
-function* onFetchMoreMovies() {
+export function* onFetchMoreMovies() {
   yield takeEvery(UpcomingActionTypes.FETCH_MORE_MOVIES, fetchMoreMovies);
 }
 
