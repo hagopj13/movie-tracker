@@ -9,7 +9,7 @@ import DiscoverActionTypes from './discover.types';
 import discoverActions from './discover.actions';
 import discoverSelectors from './discover.selectors';
 
-function* getFilterParams(): $Rest<GetDiscoverMoviesParams, {| page?: number |}> {
+export function* getFilterParams(): $Rest<GetDiscoverMoviesParams, {| page?: number |}> {
   const sortBy = yield select(discoverSelectors.selectSortBy);
   const genres = yield select(discoverSelectors.selectGenres);
   const releaseDateStart = yield select(discoverSelectors.selectReleaseDateStart);
@@ -24,10 +24,10 @@ function* getFilterParams(): $Rest<GetDiscoverMoviesParams, {| page?: number |}>
   };
 }
 
-function* fetchMovies() {
+export function* fetchMovies() {
   yield put(discoverActions.fetchMoviesStart());
   try {
-    const filterParams = yield getFilterParams();
+    const filterParams = yield call(getFilterParams);
     const { data } = yield call(api.getDiscoverMovies, { ...filterParams });
     const results = yield call(convertResponseToMovieResults, data);
     yield put(discoverActions.fetchMoviesSuccess(results));
@@ -36,16 +36,15 @@ function* fetchMovies() {
   }
 }
 
-function* fetchMoreMovies() {
-  const isLoading = yield select(
-    loadingSelectors.createIsLoadingSelector([
-      DiscoverActionTypes.FETCH_MOVIES,
-      DiscoverActionTypes.FETCH_MORE_MOVIES,
-    ]),
-  );
+export function* fetchMoreMovies() {
+  const selectIsLoading = yield call(loadingSelectors.createIsLoadingSelector, [
+    DiscoverActionTypes.FETCH_MOVIES,
+    DiscoverActionTypes.FETCH_MORE_MOVIES,
+  ]);
+  const isLoading = yield select(selectIsLoading);
   const currentPage = yield select(discoverSelectors.selectCurrentPage);
   const totalPages = yield select(discoverSelectors.selectTotalPages);
-  const filterParams = yield getFilterParams();
+  const filterParams = yield call(getFilterParams);
 
   if (!isLoading && currentPage < totalPages) {
     yield put(discoverActions.fetchMoreMoviesStart());
@@ -62,11 +61,11 @@ function* fetchMoreMovies() {
   }
 }
 
-function* onFetchMovies() {
+export function* onFetchMovies() {
   yield takeLatest(DiscoverActionTypes.FETCH_MOVIES, fetchMovies);
 }
 
-function* onFetchMoreMovies() {
+export function* onFetchMoreMovies() {
   yield takeEvery(DiscoverActionTypes.FETCH_MORE_MOVIES, fetchMoreMovies);
 }
 

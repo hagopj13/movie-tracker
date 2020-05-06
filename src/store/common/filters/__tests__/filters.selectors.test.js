@@ -1,13 +1,5 @@
-import moment from 'moment';
-
 import filtersSelectors from 'store/common/filters/filters.selectors';
-
-const filtersState = {
-  sortBy: 'someSortBy',
-  genres: [1, 2, 3],
-  releaseDateStart: moment(),
-  releaseDateEnd: moment(),
-};
+import filtersState from 'store/fixtures/filters';
 
 describe('Filters selectors', () => {
   describe('selectSortBy', () => {
