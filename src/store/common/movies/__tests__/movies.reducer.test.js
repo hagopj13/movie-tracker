@@ -1,15 +1,10 @@
-import moviesReducerGenerator from 'store/common/movies/movies.reducer';
+import moviesReducerGenerator, { defaultInitialState } from 'store/common/movies/movies.reducer';
 import MoviesActionTypes from 'store/common/movies/movies.types';
 import typeGenerator from 'store/common/utils/typeGenerator';
 import moviesState from 'store/fixtures/movies';
 
 const namespace = 'someNamespace';
 const moviesReducer = moviesReducerGenerator(namespace);
-
-const defaultInitialState = {
-  list: [],
-  pagination: null,
-};
 
 describe('Movies reducer', () => {
   it('should return the default initial state if no initial state is specified', () => {

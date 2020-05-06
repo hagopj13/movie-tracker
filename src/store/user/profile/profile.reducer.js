@@ -7,7 +7,7 @@ import ProfileActionTypes from './profile.types';
 
 type State = Profile;
 
-const initialState: State = {
+export const initialState: State = {
   id: null,
   name: '',
 };

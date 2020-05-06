@@ -1,10 +1,5 @@
-import authReducer from 'store/auth/auth.reducer';
+import authReducer, { initialState } from 'store/auth/auth.reducer';
 import AuthActionTypes from 'store/auth/auth.types';
-
-const initialState = {
-  sessionId: null,
-  accountId: null,
-};
 
 describe('Auth reducer', () => {
   it('should return the initial state', () => {

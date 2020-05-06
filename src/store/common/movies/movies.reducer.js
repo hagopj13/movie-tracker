@@ -13,7 +13,7 @@ type State = {
   } | null,
 };
 
-const defaultInitialState: State = {
+export const defaultInitialState: State = {
   list: [],
   pagination: null,
 };

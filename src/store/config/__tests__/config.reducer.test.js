@@ -1,16 +1,6 @@
-import configReducer from 'store/config/config.reducer';
+import configReducer, { initialState } from 'store/config/config.reducer';
 import ConfigActionTypes from 'store/config/config.types';
 import { images as imagesConfig, genres } from 'store/fixtures/config';
-
-const initialState = {
-  images: {
-    baseImageUrl: '',
-    backdropSize: '',
-    posterSize: '',
-    profileSize: '',
-  },
-  genres: [],
-};
 
 describe('Config reducer', () => {
   it('should return the initial state', () => {

@@ -1,6 +1,4 @@
-import errorReducer from 'store/api/error/error.reducer';
-
-const initialState = {};
+import errorReducer, { initialState } from 'store/api/error/error.reducer';
 
 describe('Error reducer', () => {
   it('should return the initial state', () => {

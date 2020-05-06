@@ -1,10 +1,5 @@
-import profileReducer from 'store/user/profile/profile.reducer';
+import profileReducer, { initialState } from 'store/user/profile/profile.reducer';
 import ProfileActionTypes from 'store/user/profile/profile.types';
-
-const initialState = {
-  id: null,
-  name: '',
-};
 
 describe('Profile reducer', () => {
   it('should return the initial state', () => {

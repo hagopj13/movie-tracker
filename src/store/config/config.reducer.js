@@ -10,7 +10,7 @@ type State = {
   genres: Genre[],
 };
 
-const initialState: State = {
+export const initialState: State = {
   images: {
     baseImageUrl: '',
     backdropSize: '',

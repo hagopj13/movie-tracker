@@ -1,6 +1,4 @@
-import loadingReducer from 'store/api/loading/loading.reducer';
-
-const initialState = {};
+import loadingReducer, { initialState } from 'store/api/loading/loading.reducer';
 
 describe('Loading reducer', () => {
   it('should return the initial state', () => {

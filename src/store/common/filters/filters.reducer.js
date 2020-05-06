@@ -13,7 +13,7 @@ export type State = {
   releaseDateEnd: Moment,
 };
 
-const defaultInitialState: State = {
+export const defaultInitialState: State = {
   sortBy: sortOptions[0].value,
   genres: [],
   releaseDateStart: null,

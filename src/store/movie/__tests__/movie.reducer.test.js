@@ -1,32 +1,7 @@
-import movieReducer from 'store/movie/movie.reducer';
+import movieReducer, { initialState } from 'store/movie/movie.reducer';
 import MovieActionTypes from 'store/movie/movie.types';
 import AuthActionTypes from 'store/auth/auth.types';
 import { details as movie, userState as movieUserState } from 'store/fixtures/movie';
-
-const initialState = {
-  details: {
-    id: null,
-    title: '',
-    releaseDate: '',
-    voteAverage: 0,
-    voteCount: 0,
-    posterPath: '',
-    backdropPath: '',
-    tagline: '',
-    overview: '',
-    runtime: 0,
-    status: '',
-    genres: [],
-    actors: [],
-    reviews: [],
-    recommendations: [],
-  },
-  userState: {
-    isFavorite: false,
-    isInWatchlist: false,
-    rating: null,
-  },
-};
 
 describe('Movie reducer', () => {
   it('should return the initial state', () => {

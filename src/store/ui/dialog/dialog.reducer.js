@@ -8,7 +8,7 @@ type State = {
   dialogProps: any,
 };
 
-const initialState: State = {
+export const initialState: State = {
   dialogType: null,
   dialogProps: {},
 };

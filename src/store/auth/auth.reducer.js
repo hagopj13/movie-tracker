@@ -8,7 +8,7 @@ type State = {
   accountId: string | null,
 };
 
-const initialState: State = {
+export const initialState: State = {
   sessionId: null,
   accountId: null,
 };

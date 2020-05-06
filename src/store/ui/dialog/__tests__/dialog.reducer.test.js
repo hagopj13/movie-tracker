@@ -1,10 +1,5 @@
-import dialogReducer from 'store/ui/dialog/dialog.reducer';
+import dialogReducer, { initialState } from 'store/ui/dialog/dialog.reducer';
 import DialogActionTypes from 'store/ui/dialog/dialog.types';
-
-const initialState = {
-  dialogType: null,
-  dialogProps: {},
-};
 
 describe('Dialog reducer', () => {
   it('should return the initial state', () => {

@@ -3,7 +3,7 @@ type State = {
   [key: string]: boolean,
 };
 
-const initialState: $Shape<State> = {};
+export const initialState: $Shape<State> = {};
 
 export default (state: State = initialState, action: any): State => {
   const { type } = action;

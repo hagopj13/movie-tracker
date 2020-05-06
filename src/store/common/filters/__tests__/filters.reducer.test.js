@@ -1,19 +1,11 @@
 import moment from 'moment';
 
-import filtersReducerGenerator from 'store/common/filters/filters.reducer';
+import filtersReducerGenerator, { defaultInitialState } from 'store/common/filters/filters.reducer';
 import FiltersActionTypes from 'store/common/filters/filters.types';
 import typeGenerator from 'store/common/utils/typeGenerator';
-import { sortOptions } from 'config';
 
 const namespace = 'someNamespace';
 const filtersReducer = filtersReducerGenerator(namespace);
-
-const defaultInitialState = {
-  sortBy: sortOptions[0].value,
-  genres: [],
-  releaseDateStart: null,
-  releaseDateEnd: null,
-};
 
 describe('Filters reducer', () => {
   it('should return the default initial state if no initial state is specified', () => {

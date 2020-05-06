@@ -11,7 +11,7 @@ type State = {
   userState: MovieUserState,
 };
 
-const initialState: State = {
+export const initialState: State = {
   details: {
     id: null,
     title: '',
