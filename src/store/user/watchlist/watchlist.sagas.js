@@ -9,7 +9,7 @@ import WatchlistActionTypes from './watchlist.types';
 import watchlistActions from './watchlist.actions';
 import watchlistSelectors from './watchlist.selectors';
 
-function* fetchMovies() {
+export function* fetchMovies() {
   yield put(watchlistActions.fetchMoviesStart());
   const sessionId = yield select(authSelectors.selectSessionId);
   const accountId = yield select(authSelectors.selectAccountId);
@@ -24,13 +24,12 @@ function* fetchMovies() {
   }
 }
 
-function* fetchMoreMovies() {
-  const isLoading = yield select(
-    loadingSelectors.createIsLoadingSelector([
-      WatchlistActionTypes.FETCH_MOVIES,
-      WatchlistActionTypes.FETCH_MORE_MOVIES,
-    ]),
-  );
+export function* fetchMoreMovies() {
+  const selectIsLoading = yield call(loadingSelectors.createIsLoadingSelector, [
+    WatchlistActionTypes.FETCH_MOVIES,
+    WatchlistActionTypes.FETCH_MORE_MOVIES,
+  ]);
+  const isLoading = yield select(selectIsLoading);
   const sessionId = yield select(authSelectors.selectSessionId);
   const accountId = yield select(authSelectors.selectAccountId);
   const currentPage = yield select(watchlistSelectors.selectCurrentPage);
@@ -51,11 +50,11 @@ function* fetchMoreMovies() {
   }
 }
 
-function* onFetchMovies() {
+export function* onFetchMovies() {
   yield takeLatest(WatchlistActionTypes.FETCH_MOVIES, fetchMovies);
 }
 
-function* onFetchMoreMovies() {
+export function* onFetchMoreMovies() {
   yield takeEvery(WatchlistActionTypes.FETCH_MORE_MOVIES, fetchMoreMovies);
 }
 
