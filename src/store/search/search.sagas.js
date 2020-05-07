@@ -8,7 +8,7 @@ import SearchActionTypes from './search.types';
 import searchActions from './search.actions';
 import searchSelectors from './search.selectors';
 
-function* fetchMovies() {
+export function* fetchMovies() {
   const query = yield select(searchSelectors.selectQuery);
   yield put(searchActions.fetchMoviesStart());
   try {
@@ -20,14 +20,13 @@ function* fetchMovies() {
   }
 }
 
-function* fetchMoreMovies() {
+export function* fetchMoreMovies() {
   const query = yield select(searchSelectors.selectQuery);
-  const isLoading = yield select(
-    loadingSelectors.createIsLoadingSelector([
-      SearchActionTypes.FETCH_MOVIES,
-      SearchActionTypes.FETCH_MORE_MOVIES,
-    ]),
-  );
+  const selectIsLoading = yield call(loadingSelectors.createIsLoadingSelector, [
+    SearchActionTypes.FETCH_MOVIES,
+    SearchActionTypes.FETCH_MORE_MOVIES,
+  ]);
+  const isLoading = yield select(selectIsLoading);
   const currentPage = yield select(searchSelectors.selectCurrentPage);
   const totalPages = yield select(searchSelectors.selectTotalPages);
 
@@ -43,11 +42,11 @@ function* fetchMoreMovies() {
   }
 }
 
-function* onFetchMovies() {
+export function* onFetchMovies() {
   yield takeLatest(SearchActionTypes.FETCH_MOVIES, fetchMovies);
 }
 
-function* onFetchMoreMovies() {
+export function* onFetchMoreMovies() {
   yield takeEvery(SearchActionTypes.FETCH_MORE_MOVIES, fetchMoreMovies);
 }
 

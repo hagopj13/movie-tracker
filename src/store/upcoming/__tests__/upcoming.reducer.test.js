@@ -1,10 +1,8 @@
-import upcomingReducer from 'store/upcoming/upcoming.reducer';
-import { defaultInitialState as moviesInitialState } from 'store/common/movies/movies.reducer';
+import upcomingReducer, { initialState } from 'store/upcoming/upcoming.reducer';
 
 describe('Upcoming reducer', () => {
   it('should return the initial state', () => {
     const state = upcomingReducer(undefined, { type: '@@INIT' });
-    expect(state).toBeDefined();
-    expect(state.movies).toEqual(moviesInitialState);
+    expect(state).toEqual(initialState);
   });
 });

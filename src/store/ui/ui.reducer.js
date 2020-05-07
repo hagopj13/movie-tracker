@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
 
-import dialogReducer from './dialog/dialog.reducer';
+import dialogReducer, { initialState as dialogInitialState } from './dialog/dialog.reducer';
+
+export const initialState = {
+  dialog: dialogInitialState,
+};
 
 export default combineReducers({
   dialog: dialogReducer,

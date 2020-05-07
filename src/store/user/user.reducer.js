@@ -1,8 +1,18 @@
 import { combineReducers } from 'redux';
 
-import profileReducer from './profile/profile.reducer';
-import favoritesReducer from './favorites/favorites.reducer';
-import watchlistReducer from './watchlist/watchlist.reducer';
+import profileReducer, { initialState as profileInitialState } from './profile/profile.reducer';
+import favoritesReducer, {
+  initialState as favoritesInitialState,
+} from './favorites/favorites.reducer';
+import watchlistReducer, {
+  initialState as watchlistInitialState,
+} from './watchlist/watchlist.reducer';
+
+export const initialState = {
+  profile: profileInitialState,
+  favorites: favoritesInitialState,
+  watchlist: watchlistInitialState,
+};
 
 export default combineReducers({
   profile: profileReducer,
