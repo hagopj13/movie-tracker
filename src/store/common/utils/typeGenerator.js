@@ -1,3 +1,2 @@
 // @flow
-export default (namespace: string, type: string) =>
-  `${namespace !== '' ? `${namespace}/` : ''}${type}`;
+export default (namespace: string, type: string) => `${namespace ? `${namespace}/` : ''}${type}`;
