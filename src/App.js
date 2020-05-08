@@ -22,7 +22,7 @@ type Props = {
   onFetchImagesConfig: () => void,
 };
 
-const App = (props: Props) => {
+export const App = (props: Props) => {
   const { isLogoutLoaded, isLoginLoaded, onCheckAuthState, onFetchImagesConfig } = props;
 
   useEffect(() => {
