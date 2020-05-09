@@ -11,7 +11,7 @@ type Props = {
   component: Node,
 };
 
-const PrivateRoute = (props: Props) => {
+export const PrivateRoute = (props: Props) => {
   const { isAuth, component: Component, ...otherProps } = props;
 
   return (
