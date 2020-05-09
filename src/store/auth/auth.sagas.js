@@ -1,7 +1,6 @@
 import { takeLatest, all, call, put, select } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
-import LocalStorageService from 'services/LocalStorageService';
 import dialogActions from 'store/ui/dialog/dialog.actions';
 import { dialogTypes } from 'config';
 
@@ -26,8 +25,8 @@ export function* login({ payload: { username, password } }) {
       data: { id: accountId },
     } = yield call(api.getAccountDetails, sessionId);
 
-    yield call(LocalStorageService.setItem, 'sessionId', sessionId);
-    yield call(LocalStorageService.setItem, 'accountId', accountId);
+    yield call([localStorage, 'setItem'], 'sessionId', sessionId);
+    yield call([localStorage, 'setItem'], 'accountId', accountId);
     yield put(authActions.loginSuccess(sessionId, accountId));
     yield put(dialogActions.hideDialog(dialogTypes.LOGIN));
   } catch (error) {
@@ -40,8 +39,8 @@ export function* logout() {
   try {
     const sessionId = yield select(authSelectors.selectSessionId);
     yield call(api.deleteSession, { sessionId });
-    yield call(LocalStorageService.removeItem, 'sessionId');
-    yield call(LocalStorageService.removeItem, 'accountId');
+    yield call([localStorage, 'removeItem'], 'sessionId');
+    yield call([localStorage, 'removeItem'], 'accountId');
     yield put(authActions.logoutSuccess());
   } catch (error) {
     yield put(authActions.logoutFailure(error.status_message));
@@ -49,8 +48,8 @@ export function* logout() {
 }
 
 export function* checkAuthState() {
-  const sessionId = yield call(LocalStorageService.getItem, 'sessionId');
-  const accountId = yield call(LocalStorageService.getItem, 'accountId');
+  const sessionId = yield call([localStorage, 'getItem'], 'sessionId');
+  const accountId = yield call([localStorage, 'getItem'], 'accountId');
   if (sessionId && accountId) {
     yield put(authActions.loginSuccess(sessionId, accountId));
   } else {
