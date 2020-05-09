@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UpcomingMoviesPage = (props: Props) => {
+const UpcomingMovies = (props: Props) => {
   const { isLoadingConfig, onFetchMovies } = props;
 
   const classes = useStyles();
@@ -65,4 +65,4 @@ const mapDispatchToProps = {
   onFetchMovies: upcomingActions.fetchMovies,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UpcomingMoviesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(UpcomingMovies);

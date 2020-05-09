@@ -19,7 +19,7 @@ type Props = {
   onFetchProfile: () => void,
 };
 
-const ProfilePage = (props: Props) => {
+const Profile = (props: Props) => {
   const { isLoading, isLoaded, onFetchProfile } = props;
 
   useLayoutEffect(() => {
@@ -50,4 +50,4 @@ const mapDispatchToProps = {
   onFetchProfile: profileActions.fetchProfile,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

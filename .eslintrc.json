@@ -9,6 +9,7 @@
     "no-param-reassign": ["error", { "props": false }],
     "object-curly-newline": "off",
     "import/prefer-default-export": "off",
+    "import/no-named-as-default": "off",
     "jsx-a11y/alt-text": "off",
     "jsx-a11y/anchor-is-valid": "off"
   },

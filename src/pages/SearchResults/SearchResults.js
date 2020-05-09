@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchResultsPage = (props: Props) => {
+const SearchResults = (props: Props) => {
   const { isLoading, selectedSearchQuery, onFetchMovies } = props;
 
   const classes = useStyles();
@@ -81,4 +81,4 @@ const mapDispatchToProps = {
   onFetchMovies: searchActions.fetchMovies,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResultsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

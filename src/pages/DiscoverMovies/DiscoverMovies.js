@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DiscoverMoviesPage = (props: Props) => {
+const DiscoverMovies = (props: Props) => {
   const { isLoadingConfig, onFetchAllGenres, onFetchMovies } = props;
 
   const classes = useStyles();
@@ -97,4 +97,4 @@ const mapDispatchToProps = {
   onFetchMovies: discoverActions.fetchMovies,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DiscoverMoviesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(DiscoverMovies);
