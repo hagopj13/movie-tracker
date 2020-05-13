@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Attribution component should render Attribution component 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-root-1"
+>
+  <img
+    alt="tmdb logo"
+    className="makeStyles-logo-2"
+    src="tmdbLogo.svg"
+  />
+  <WithStyles(ForwardRef(Typography))
+    className="makeStyles-text-3"
+    variant="h6"
+  >
+    This product uses the TMDb API but is not endorsed or certified by TMDb.
+  </WithStyles(ForwardRef(Typography))>
+</WithStyles(ForwardRef(Paper))>
+`;
