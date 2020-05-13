@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ActorListItem = (props: Props) => {
+export const ActorListItem = (props: Props) => {
   const { actor, fullProfilePath } = props;
 
   const classes = useStyles();

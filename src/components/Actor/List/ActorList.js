@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ActorList = (props: Props) => {
+export const ActorList = (props: Props) => {
   const { actors } = props;
 
   const classes = useStyles();

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActorListItem component should render ActorListItem component 1`] = `
+<WithStyles(ForwardRef(Card))
+  className="makeStyles-root-1"
+  elevation={3}
+>
+  <WithStyles(ForwardRef(CardMedia))
+    className="makeStyles-profileMedia-3"
+    image="fullPathToProfileImage.png"
+  />
+  <WithStyles(ForwardRef(CardContent))
+    className="makeStyles-cardContent-2"
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      Some name
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))>
+      Some character
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(CardContent))>
+</WithStyles(ForwardRef(Card))>
+`;

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActorList component should render ActorList component 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <Connect(ActorListItem)
+    actor={
+      Object {
+        "character": "Sherlock Holmes",
+        "id": 3223,
+        "name": "Robert Downey Jr.",
+        "profilePath": "/1YjdSym1jTG7xjHSI0yGGWEsw5i.jpg",
+      }
+    }
+    key="3223"
+  />
+  <Connect(ActorListItem)
+    actor={
+      Object {
+        "character": "Dr. John Watson",
+        "id": 9642,
+        "name": "Jude Law",
+        "profilePath": "/aQD9e9SPjxCdyqxyXKBmEhNgjtR.jpg",
+      }
+    }
+    key="9642"
+  />
+  <Connect(ActorListItem)
+    actor={
+      Object {
+        "character": "Professor James Moriarty",
+        "id": 15440,
+        "name": "Jared Harris",
+        "profilePath": "/mGODbYpkR1NKBOV3rtTfZ7EWoIl.jpg",
+      }
+    }
+    key="15440"
+  />
+</div>
+`;
