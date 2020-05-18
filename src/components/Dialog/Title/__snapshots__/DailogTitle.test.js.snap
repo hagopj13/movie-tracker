@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogTitle component should render the DialogTitle component correctly 1`] = `
+<WithStyles(ForwardRef(DialogTitle))
+  disableTypography={true}
+>
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    Some title
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(IconButton))
+    aria-label="close"
+    className="makeStyles-closeButton-1"
+    onClick={[MockFunction]}
+  >
+    <CloseIcon />
+  </WithStyles(ForwardRef(IconButton))>
+</WithStyles(ForwardRef(DialogTitle))>
+`;

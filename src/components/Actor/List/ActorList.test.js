@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { createShallow } from '@material-ui/core/test-utils';
 
 import { details as movieDetails } from 'store/fixtures/movie';
 
@@ -7,19 +7,23 @@ import { ActorList } from './ActorList';
 import ActorListItem from './Item/ActorListItem';
 
 describe('ActorList component', () => {
+  let shallow;
   let actors;
   let wrapper;
+
+  beforeAll(() => {
+    shallow = createShallow();
+  });
 
   beforeEach(() => {
     actors = movieDetails.actors;
     const mockProps = {
       actors,
     };
-
     wrapper = shallow(<ActorList {...mockProps} />);
   });
 
-  it('should render ActorList component', () => {
+  it('should render the ActorList component correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -31,7 +35,7 @@ describe('ActorList component', () => {
     const mockProps = {
       actors: [],
     };
-    wrapper = shallow(<ActorList {...mockProps} />);
-    expect(wrapper.text()).toBe('No actors found');
+    const newWrapper = shallow(<ActorList {...mockProps} />);
+    expect(newWrapper.text()).toBe('No actors found');
   });
 });

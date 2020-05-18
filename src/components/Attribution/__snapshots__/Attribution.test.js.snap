@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Attribution component should render Attribution component 1`] = `
+exports[`Attribution component should render the Attribution component correctly 1`] = `
 <WithStyles(ForwardRef(Paper))
   className="makeStyles-root-1"
 >

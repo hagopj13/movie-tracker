@@ -1,16 +1,20 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
-import { shallow, mount } from 'enzyme';
+import { createShallow } from '@material-ui/core/test-utils';
 
-import store from 'store/store';
+import { mountWithStore } from 'testUtils';
 
 import { App } from './App';
 
 describe('App component', () => {
+  let shallow;
   let mockCheckAuthState;
   let mockFetchImagesConfig;
   let wrapper;
+
+  beforeAll(() => {
+    shallow = createShallow();
+  });
 
   beforeEach(() => {
     mockCheckAuthState = jest.fn();
@@ -35,12 +39,10 @@ describe('App component', () => {
       onCheckAuthState: mockCheckAuthState,
       onFetchImagesConfig: mockFetchImagesConfig,
     };
-    wrapper = mount(
-      <Provider store={store}>
-        <MemoryRouter>
-          <App {...mockProps} />
-        </MemoryRouter>
-      </Provider>,
+    mountWithStore(
+      <MemoryRouter>
+        <App {...mockProps} />
+      </MemoryRouter>,
     );
     expect(mockCheckAuthState).toHaveBeenCalled();
     expect(mockFetchImagesConfig).toHaveBeenCalled();
@@ -59,10 +61,10 @@ describe('App component', () => {
       onCheckAuthState: mockCheckAuthState,
       onFetchImagesConfig: mockFetchImagesConfig,
     };
-    wrapper = shallow(<App {...mockNewProps} />);
-    expect(wrapper.exists('Layout')).toBe(true);
-    expect(wrapper.exists('AppRoutes')).toBe(true);
-    expect(wrapper.exists('Spinner')).toBe(false);
+    const newWrapper = shallow(<App {...mockNewProps} />);
+    expect(newWrapper.exists('Layout')).toBe(true);
+    expect(newWrapper.exists('AppRoutes')).toBe(true);
+    expect(newWrapper.exists('Spinner')).toBe(false);
   });
 
   it('should render Spinner if isLogoutLoaded and isLoginLoaded are both false', () => {
@@ -72,9 +74,9 @@ describe('App component', () => {
       onCheckAuthState: mockCheckAuthState,
       onFetchImagesConfig: mockFetchImagesConfig,
     };
-    wrapper = shallow(<App {...mockNewProps} />);
-    expect(wrapper.exists('Spinner')).toBe(true);
-    expect(wrapper.exists('Layout')).toBe(false);
-    expect(wrapper.exists('AppRoutes')).toBe(false);
+    const newWrapper = shallow(<App {...mockNewProps} />);
+    expect(newWrapper.exists('Spinner')).toBe(true);
+    expect(newWrapper.exists('Layout')).toBe(false);
+    expect(newWrapper.exists('AppRoutes')).toBe(false);
   });
 });

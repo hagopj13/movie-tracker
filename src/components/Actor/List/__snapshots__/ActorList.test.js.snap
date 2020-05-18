@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActorList component should render ActorList component 1`] = `
+exports[`ActorList component should render the ActorList component correctly 1`] = `
 <div
   className="makeStyles-root-1"
 >

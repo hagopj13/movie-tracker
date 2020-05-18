@@ -1,8 +1,8 @@
 import React from 'react';
+import { createShallow } from '@material-ui/core/test-utils';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import ImageIcon from '@material-ui/icons/Image';
-import { createShallow } from '@material-ui/core/test-utils';
 
 import { ActorListItem } from './ActorListItem';
 
@@ -28,11 +28,10 @@ describe('ActorListItem component', () => {
       actor,
       fullProfilePath,
     };
-
     wrapper = shallow(<ActorListItem {...mockProps} />);
   });
 
-  it('should render ActorListItem component', () => {
+  it('should render the ActorListItem component correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -46,10 +45,9 @@ describe('ActorListItem component', () => {
       actor,
       fullProfilePath: null,
     };
-    wrapper = shallow(<ActorListItem {...mockProps} />);
-
-    expect(wrapper.find(CardMedia)).toHaveLength(0);
-    expect(wrapper.find(ImageIcon)).toHaveLength(1);
+    const newWrapper = shallow(<ActorListItem {...mockProps} />);
+    expect(newWrapper.find(CardMedia)).toHaveLength(0);
+    expect(newWrapper.find(ImageIcon)).toHaveLength(1);
   });
 
   it('should render actor name in CardContent', () => {

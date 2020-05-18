@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActorListItem component should render ActorListItem component 1`] = `
+exports[`ActorListItem component should render the ActorListItem component correctly 1`] = `
 <WithStyles(ForwardRef(Card))
   className="makeStyles-root-1"
   elevation={3}

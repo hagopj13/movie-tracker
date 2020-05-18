@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog component should render the Dialog component correctly 1`] = `
+<WithStyles(ForwardRef(Dialog))
+  disableRestoreFocus={true}
+  onClose={[MockFunction]}
+  open={true}
+>
+  <DialogTitle
+    onClose={[MockFunction]}
+    title="Some title"
+  />
+  <FakeDialogContent />
+</WithStyles(ForwardRef(Dialog))>
+`;

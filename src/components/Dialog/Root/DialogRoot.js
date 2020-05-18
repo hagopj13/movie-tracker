@@ -19,7 +19,7 @@ type Props = {
   onHideDialog: (dialogType: string) => void,
 };
 
-const DialogRoot = (props: Props) => {
+export const DialogRoot = (props: Props) => {
   const { dialogType, dialogProps, onHideDialog } = props;
   const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);

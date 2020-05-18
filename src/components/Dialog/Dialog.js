@@ -18,7 +18,7 @@ const Dialog = (props: Props) => {
 
   return (
     <MuiDialog open={isOpen} onClose={onClose} disableRestoreFocus {...(dialogProps: any)}>
-      <DialogTitle onClose={onClose}>{title}</DialogTitle>
+      <DialogTitle title={title} onClose={onClose} />
       {children}
     </MuiDialog>
   );

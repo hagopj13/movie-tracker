@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import type { Node } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
@@ -8,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
 type Props = {
-  children: Node,
+  title: string,
   onClose: () => void,
 };
 
@@ -22,17 +21,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DialogTitle = (props: Props) => {
-  const { children, onClose, ...otherProps } = props;
+  const { title, onClose, ...otherProps } = props;
   const classes = useStyles();
 
   return (
     <MuiDialogTitle disableTypography {...(otherProps: any)}>
-      <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
-        </IconButton>
-      ) : null}
+      <Typography variant="h6">{title}</Typography>
+      <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+        <CloseIcon />
+      </IconButton>
     </MuiDialogTitle>
   );
 };
