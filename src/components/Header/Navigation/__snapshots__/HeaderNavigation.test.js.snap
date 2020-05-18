@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderNavigation component should render the HeaderNavigation component correctly 1`] = `
+<div>
+  <WithStyles(ForwardRef(Link))
+    activeClassName="makeStyles-selectedNavLink-2"
+    className="makeStyles-navLink-1"
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "NavLink",
+        "propTypes": Object {
+          "activeClassName": [Function],
+          "activeStyle": [Function],
+          "aria-current": [Function],
+          "className": [Function],
+          "exact": [Function],
+          "innerRef": [Function],
+          "isActive": [Function],
+          "location": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "strict": [Function],
+          "style": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    exact={true}
+    key="DISCOVER"
+    to="/"
+  >
+    <WithStyles(ForwardRef(Typography))
+      component="span"
+      variant="h6"
+    >
+      Discover
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Link))>
+  <WithStyles(ForwardRef(Link))
+    activeClassName="makeStyles-selectedNavLink-2"
+    className="makeStyles-navLink-1"
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "NavLink",
+        "propTypes": Object {
+          "activeClassName": [Function],
+          "activeStyle": [Function],
+          "aria-current": [Function],
+          "className": [Function],
+          "exact": [Function],
+          "innerRef": [Function],
+          "isActive": [Function],
+          "location": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "strict": [Function],
+          "style": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    exact={true}
+    key="UPCOMING"
+    to="/upcoming"
+  >
+    <WithStyles(ForwardRef(Typography))
+      component="span"
+      variant="h6"
+    >
+      Upcoming
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Link))>
+  <WithStyles(ForwardRef(Link))
+    activeClassName="makeStyles-selectedNavLink-2"
+    className="makeStyles-navLink-1"
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "NavLink",
+        "propTypes": Object {
+          "activeClassName": [Function],
+          "activeStyle": [Function],
+          "aria-current": [Function],
+          "className": [Function],
+          "exact": [Function],
+          "innerRef": [Function],
+          "isActive": [Function],
+          "location": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "strict": [Function],
+          "style": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    exact={true}
+    key="PROFILE"
+    to="/profile"
+  >
+    <WithStyles(ForwardRef(Typography))
+      component="span"
+      variant="h6"
+    >
+      Profile
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Link))>
+</div>
+`;

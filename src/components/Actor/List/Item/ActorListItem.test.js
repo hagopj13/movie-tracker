@@ -36,7 +36,7 @@ describe('ActorListItem component', () => {
   });
 
   it('should render CardMedia if fullProfilePath is defined', () => {
-    expect(wrapper.find(CardMedia)).toHaveLength(1);
+    expect(wrapper.exists(CardMedia)).toBe(true);
     expect(wrapper.find(CardMedia).prop('image')).toBe(fullProfilePath);
   });
 
@@ -46,8 +46,8 @@ describe('ActorListItem component', () => {
       fullProfilePath: null,
     };
     const newWrapper = shallow(<ActorListItem {...mockProps} />);
-    expect(newWrapper.find(CardMedia)).toHaveLength(0);
-    expect(newWrapper.find(ImageIcon)).toHaveLength(1);
+    expect(newWrapper.exists(CardMedia)).toBe(false);
+    expect(newWrapper.exists(ImageIcon)).toBe(true);
   });
 
   it('should render actor name in CardContent', () => {

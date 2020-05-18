@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render the Header component correctly 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(AppBar))
+    className="makeStyles-root-1"
+    elevation={4}
+  >
+    <WithStyles(ForwardRef(Toolbar))
+      className="makeStyles-toolbar-2"
+    >
+      <WithStyles(ForwardRef(Container))
+        className="makeStyles-container-3"
+      >
+        <Hidden
+          mdUp={true}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            onClick={[MockFunction]}
+          >
+            <MenuIcon
+              className="makeStyles-menuIcon-5"
+            />
+          </WithStyles(ForwardRef(IconButton))>
+        </Hidden>
+        <Hidden
+          smDown={true}
+        >
+          <Connect(HeaderNavigation) />
+        </Hidden>
+        <Hidden
+          xsDown={true}
+        >
+          <Styled(MuiBox)
+            flexGrow={1}
+          />
+        </Hidden>
+        <Styled(MuiBox)
+          className="makeStyles-searchContainer-6"
+        >
+          <Connect(HeaderSearch) />
+        </Styled(MuiBox)>
+        <Hidden
+          smDown={true}
+        >
+          <Connect(HeaderAuthButton) />
+        </Hidden>
+      </WithStyles(ForwardRef(Container))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+  <WithStyles(ForwardRef(Toolbar))
+    className="makeStyles-offsetToolbar-4"
+  />
+</Fragment>
+`;

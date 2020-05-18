@@ -14,7 +14,7 @@ type Props = {
   onSetSearchQuery: (query: string) => void,
 };
 
-const HeaderSearch = (props: Props) => {
+export const HeaderSearch = (props: Props) => {
   const { selectedSearchQuery, onSetSearchQuery } = props;
 
   const history = useHistory();

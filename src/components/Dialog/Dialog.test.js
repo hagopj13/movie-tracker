@@ -36,7 +36,7 @@ describe('Dialog component', () => {
   });
 
   it('should render the child component', () => {
-    expect(wrapper.find(FakeDialogContent)).toHaveLength(1);
+    expect(wrapper.exists(FakeDialogContent)).toBe(true);
   });
 
   it('should pass isOpen as a prop to MuiDialog', () => {

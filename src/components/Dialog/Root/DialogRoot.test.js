@@ -23,7 +23,7 @@ describe('DialogRoot component', () => {
   });
 
   it('should render LoginDialog inside DialogRoot if dialogType is login', () => {
-    expect(wrapper.find(LoginDialog)).toHaveLength(1);
+    expect(wrapper.exists(LoginDialog)).toBe(true);
   });
 
   it('should set isOpen prop on the selected dialog to true if it is open', () => {

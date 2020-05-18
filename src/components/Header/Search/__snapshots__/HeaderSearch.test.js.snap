@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderSearch component should render the HeaderSearch component correctly 1`] = `
+<SearchForm
+  onSubmit={[Function]}
+  selectedQuery="Some query"
+/>
+`;

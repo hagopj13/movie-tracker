@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HeaderNavigation = (props: Props) => {
+export const HeaderNavigation = (props: Props) => {
   const { isAuth } = props;
 
   const classes = useStyles();

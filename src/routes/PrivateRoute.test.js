@@ -13,7 +13,7 @@ describe('PrivateRoute HOC', () => {
         <PrivateRoute isAuth path="/privateRoute" component={PrivateComponent} />
       </MemoryRouter>,
     );
-    expect(wrapper.find(PrivateComponent)).toHaveLength(1);
+    expect(wrapper.exists(PrivateComponent)).toBe(true);
     expect(wrapper.find('Router').prop('history').location.pathname).toEqual('/privateRoute');
   });
 
@@ -23,7 +23,7 @@ describe('PrivateRoute HOC', () => {
         <PrivateRoute isAuth={false} path="/privateRoute" component={PrivateComponent} />
       </MemoryRouter>,
     );
-    expect(wrapper.find(PrivateComponent)).toHaveLength(0);
+    expect(wrapper.exists(PrivateComponent)).toBe(false);
     expect(wrapper.find('Router').prop('history').location.pathname).toEqual('/');
   });
 });

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderAuthButton component isAuth is false should render the HeaderAuthButton component correctly 1`] = `
+<WithStyles(ForwardRef(Button))
+  className="makeStyles-root-1"
+  color="primary"
+  onClick={[MockFunction]}
+>
+  Login
+</WithStyles(ForwardRef(Button))>
+`;
+
+exports[`HeaderAuthButton component isAuth is true should render the HeaderAuthButton component correctly 1`] = `
+<WithStyles(ForwardRef(Button))
+  classes={
+    Object {
+      "disabled": "makeStyles-disabled-2",
+      "root": "makeStyles-root-1",
+      "text": "makeStyles-logoutText-3",
+    }
+  }
+  disabled={false}
+  onClick={[MockFunction]}
+>
+  Logout
+</WithStyles(ForwardRef(Button))>
+`;

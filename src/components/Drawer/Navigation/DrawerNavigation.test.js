@@ -48,7 +48,7 @@ describe('DrawerNavigation component', () => {
   });
 
   it('should set the icon as a child of ListItemIcon', () => {
-    expect(wrapper.find(ListItemIcon).at(0).children().find(DiscoverIcon)).toHaveLength(1);
+    expect(wrapper.find(ListItemIcon).at(0).children().exists(DiscoverIcon)).toBe(true);
   });
 
   it('should set selected prop of MenuItem to true when it matched the current location', () => {

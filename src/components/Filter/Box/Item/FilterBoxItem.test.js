@@ -26,7 +26,7 @@ describe('FilterBoxItem component', () => {
   });
 
   it('should render the child component', () => {
-    expect(wrapper.find(SomeComponent)).toHaveLength(1);
+    expect(wrapper.exists(SomeComponent)).toBe(true);
   });
 
   it('should render the FilterBoxItem component correctly if title prop is specified', () => {

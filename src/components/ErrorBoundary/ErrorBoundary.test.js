@@ -18,7 +18,7 @@ describe('ErrorBoundary HOC', () => {
   });
 
   it('should render children if no errors have occured', () => {
-    expect(wrapper.find(SomeComponent)).toHaveLength(1);
+    expect(wrapper.exists(SomeComponent)).toBe(true);
     expect(wrapper.state('hasError')).toBe(false);
   });
 
@@ -27,6 +27,6 @@ describe('ErrorBoundary HOC', () => {
     wrapper.find(SomeComponent).simulateError(new Error());
     expect(mockConsoleError).toHaveBeenCalled();
     expect(wrapper.state('hasError')).toBe(true);
-    expect(wrapper.find(ErrorPage)).toHaveLength(1);
+    expect(wrapper.exists(ErrorPage)).toBe(true);
   });
 });

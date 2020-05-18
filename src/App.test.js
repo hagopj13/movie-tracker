@@ -3,6 +3,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { createShallow } from '@material-ui/core/test-utils';
 
 import { mountWithStore } from 'testUtils';
+import Layout from 'components/Layout/Layout';
+import Spinner from 'components/Spinner/Spinner';
+import AppRoutes from 'routes/AppRoutes';
 
 import { App } from './App';
 
@@ -49,9 +52,9 @@ describe('App component', () => {
   });
 
   it('should render Layout and AppRoutes if isLoginLoaded is true', () => {
-    expect(wrapper.exists('Layout')).toBe(true);
-    expect(wrapper.exists('AppRoutes')).toBe(true);
-    expect(wrapper.exists('Spinner')).toBe(false);
+    expect(wrapper.exists(Layout)).toBe(true);
+    expect(wrapper.exists(AppRoutes)).toBe(true);
+    expect(wrapper.exists(Spinner)).toBe(false);
   });
 
   it('should render Layout and AppRoutes if isLogoutLoaded is true', () => {
@@ -62,9 +65,9 @@ describe('App component', () => {
       onFetchImagesConfig: mockFetchImagesConfig,
     };
     const newWrapper = shallow(<App {...mockNewProps} />);
-    expect(newWrapper.exists('Layout')).toBe(true);
-    expect(newWrapper.exists('AppRoutes')).toBe(true);
-    expect(newWrapper.exists('Spinner')).toBe(false);
+    expect(newWrapper.exists(Layout)).toBe(true);
+    expect(newWrapper.exists(AppRoutes)).toBe(true);
+    expect(newWrapper.exists(Spinner)).toBe(false);
   });
 
   it('should render Spinner if isLogoutLoaded and isLoginLoaded are both false', () => {
@@ -75,8 +78,8 @@ describe('App component', () => {
       onFetchImagesConfig: mockFetchImagesConfig,
     };
     const newWrapper = shallow(<App {...mockNewProps} />);
-    expect(newWrapper.exists('Spinner')).toBe(true);
-    expect(newWrapper.exists('Layout')).toBe(false);
-    expect(newWrapper.exists('AppRoutes')).toBe(false);
+    expect(newWrapper.exists(Layout)).toBe(false);
+    expect(newWrapper.exists(AppRoutes)).toBe(false);
+    expect(newWrapper.exists(Spinner)).toBe(true);
   });
 });

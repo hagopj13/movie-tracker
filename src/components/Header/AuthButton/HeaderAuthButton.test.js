@@ -1,0 +1,82 @@
+import React from 'react';
+import { createShallow } from '@material-ui/core/test-utils';
+import Button from '@material-ui/core/Button';
+
+import { HeaderAuthButton } from './HeaderAuthButton';
+
+describe('HeaderAuthButton component', () => {
+  let shallow;
+  let mockLogout;
+  let mockShowLoginDialog;
+  let wrapper;
+
+  beforeAll(() => {
+    shallow = createShallow();
+  });
+
+  beforeEach(() => {
+    mockLogout = jest.fn();
+    mockShowLoginDialog = jest.fn();
+  });
+
+  describe('isAuth is true', () => {
+    beforeEach(() => {
+      const mockProps = {
+        isAuth: true,
+        isLogoutLoading: false,
+        onLogout: mockLogout,
+        onShowLoginDialog: mockShowLoginDialog,
+      };
+      wrapper = shallow(<HeaderAuthButton {...mockProps} />);
+    });
+
+    it('should render the HeaderAuthButton component correctly', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render the logout button', () => {
+      expect(wrapper.find(Button).text()).toBe('Logout');
+    });
+
+    it('should call onLogout when the button is clicked', () => {
+      wrapper.find(Button).simulate('click');
+      expect(mockLogout).toHaveBeenCalled();
+    });
+
+    it('should disable the logout button when logout is loading', () => {
+      const mockProps = {
+        isAuth: true,
+        isLogoutLoading: true,
+        onLogout: mockLogout,
+        onShowLoginDialog: mockShowLoginDialog,
+      };
+      const newWrapper = shallow(<HeaderAuthButton {...mockProps} />);
+      expect(newWrapper.find(Button).prop('disabled')).toBe(true);
+    });
+  });
+
+  describe('isAuth is false', () => {
+    beforeEach(() => {
+      const mockProps = {
+        isAuth: false,
+        isLogoutLoading: false,
+        onLogout: mockLogout,
+        onShowLoginDialog: mockShowLoginDialog,
+      };
+      wrapper = shallow(<HeaderAuthButton {...mockProps} />);
+    });
+
+    it('should render the HeaderAuthButton component correctly', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render the login button', () => {
+      expect(wrapper.find(Button).text()).toBe('Login');
+    });
+
+    it('should call onShowLoginDialog when the button is clicked', () => {
+      wrapper.find(Button).simulate('click');
+      expect(mockShowLoginDialog).toHaveBeenCalled();
+    });
+  });
+});

@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HeaderAuthButton = (props: Props) => {
+export const HeaderAuthButton = (props: Props) => {
   const { isAuth, isLogoutLoading, onLogout, onShowLoginDialog } = props;
   const classes = useStyles();
 
