@@ -1,14 +1,13 @@
 import React from 'react';
 import { createShallow } from '@material-ui/core/test-utils';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 
-import DialogTitle from './DialogTitle';
+import FilterBox from './FilterBox';
 
-describe('DialogTitle component', () => {
+describe('FilterBox component', () => {
   let shallow;
   const title = 'Some title';
-  let mockClose;
+  const SomeComponent = () => <div>Some component</div>;
   let wrapper;
 
   beforeAll(() => {
@@ -16,15 +15,17 @@ describe('DialogTitle component', () => {
   });
 
   beforeEach(() => {
-    mockClose = jest.fn();
     const mockProps = {
       title,
-      onClose: mockClose,
     };
-    wrapper = shallow(<DialogTitle {...mockProps} />);
+    wrapper = shallow(
+      <FilterBox {...mockProps}>
+        <SomeComponent />
+      </FilterBox>,
+    );
   });
 
-  it('should render the DialogTitle component correctly', () => {
+  it('should render the FilterBox component correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -32,8 +33,7 @@ describe('DialogTitle component', () => {
     expect(wrapper.find(Typography).text()).toBe(title);
   });
 
-  it('should trigger the onClose prop when close icon is clicked', () => {
-    wrapper.find(IconButton).simulate('click');
-    expect(mockClose).toHaveBeenCalled();
+  it('should render the child component', () => {
+    expect(wrapper.find(SomeComponent)).toHaveLength(1);
   });
 });

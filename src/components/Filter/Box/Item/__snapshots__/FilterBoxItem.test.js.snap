@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBoxItem component should render the FilterBoxItem component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <SomeComponent />
+</div>
+`;
+
+exports[`FilterBoxItem component should render the FilterBoxItem component correctly if title prop is specified 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Typography))
+    className="makeStyles-title-2"
+  >
+    Some title
+  </WithStyles(ForwardRef(Typography))>
+  <SomeComponent />
+</div>
+`;

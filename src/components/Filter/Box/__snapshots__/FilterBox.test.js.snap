@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBox component should render the FilterBox component correctly 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-root-1"
+  elevation={3}
+>
+  <WithStyles(ForwardRef(Typography))
+    className="makeStyles-title-2"
+    variant="h6"
+  >
+    Some title
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Divider)) />
+  <div
+    className="makeStyles-filters-3"
+  >
+    <SomeComponent />
+  </div>
+</WithStyles(ForwardRef(Paper))>
+`;
