@@ -2,6 +2,9 @@ import React from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import { createShallow } from '@material-ui/core/test-utils';
 import MenuItem from '@material-ui/core/MenuItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import DiscoverIcon from '@material-ui/icons/Movie';
 
 import { navigationItems } from 'config';
 
@@ -34,6 +37,18 @@ describe('DrawerNavigation component', () => {
 
   it('should render NavLink for each navigation item', () => {
     expect(wrapper.find(NavLink)).toHaveLength(navigationItems.length);
+  });
+
+  it('should pass the path to the "to" prop of NavLink', () => {
+    expect(wrapper.find(NavLink).at(0).prop('to')).toBe(navigationItems[0].to);
+  });
+
+  it('should pass the label to the "primary" prop of ListItemText', () => {
+    expect(wrapper.find(ListItemText).at(0).prop('primary')).toBe(navigationItems[0].label);
+  });
+
+  it('should set the icon as a child of ListItemIcon', () => {
+    expect(wrapper.find(ListItemIcon).at(0).children().find(DiscoverIcon)).toHaveLength(1);
   });
 
   it('should set selected prop of MenuItem to true when it matched the current location', () => {
