@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer component should render the Drawer component correctly 1`] = `
+<WithStyles(ForwardRef(Drawer))
+  anchor="left"
+  classes={
+    Object {
+      "paper": "makeStyles-drawerPaper-1",
+    }
+  }
+  onClose={[MockFunction]}
+  open={true}
+>
+  <div
+    className="makeStyles-drawerHeader-2"
+  >
+    <WithStyles(ForwardRef(IconButton))
+      onClick={[MockFunction]}
+    >
+      <ChevronLeftIcon />
+    </WithStyles(ForwardRef(IconButton))>
+  </div>
+  <WithStyles(ForwardRef(Divider)) />
+  <div
+    onClick={[MockFunction]}
+    role="presentation"
+  >
+    <Connect(DrawerNavigation) />
+  </div>
+  <WithStyles(ForwardRef(Divider)) />
+  <div
+    onClick={[MockFunction]}
+    role="presentation"
+  >
+    <Connect(DrawerAuthButton) />
+  </div>
+</WithStyles(ForwardRef(Drawer))>
+`;

@@ -20,7 +20,7 @@ type Props = {
   onShowLoginDialog: () => void,
 };
 
-const HeaderAuthButton = (props: Props) => {
+export const DrawerAuthButton = (props: Props) => {
   const { isAuth, onLogout, onShowLoginDialog } = props;
 
   return (
@@ -53,4 +53,4 @@ const mapDispatchToProps = {
   onShowLoginDialog: () => dialogActions.showDialog(dialogTypes.LOGIN),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderAuthButton);
+export default connect(mapStateToProps, mapDispatchToProps)(DrawerAuthButton);

@@ -15,7 +15,7 @@ type Props = {
   isAuth: boolean,
 };
 
-const DrawerNavigation = (props: Props) => {
+export const DrawerNavigation = (props: Props) => {
   const { isAuth } = props;
 
   const location = useLocation();

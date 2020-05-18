@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawerNavigation component should render the DrawerNavigation component correctly 1`] = `
+<ForwardRef(MenuList)>
+  <NavLink
+    key="DISCOVER"
+    style={
+      Object {
+        "color": "inherit",
+        "textDecoration": "none",
+      }
+    }
+    to="/"
+  >
+    <WithStyles(ForwardRef(MenuItem))
+      selected={true}
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MovieIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Discover"
+      />
+    </WithStyles(ForwardRef(MenuItem))>
+  </NavLink>
+  <NavLink
+    key="UPCOMING"
+    style={
+      Object {
+        "color": "inherit",
+        "textDecoration": "none",
+      }
+    }
+    to="/upcoming"
+  >
+    <WithStyles(ForwardRef(MenuItem))
+      selected={false}
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <UpdateIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Upcoming"
+      />
+    </WithStyles(ForwardRef(MenuItem))>
+  </NavLink>
+  <NavLink
+    key="PROFILE"
+    style={
+      Object {
+        "color": "inherit",
+        "textDecoration": "none",
+      }
+    }
+    to="/profile"
+  >
+    <WithStyles(ForwardRef(MenuItem))
+      selected={false}
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <PersonIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Profile"
+      />
+    </WithStyles(ForwardRef(MenuItem))>
+  </NavLink>
+</ForwardRef(MenuList)>
+`;

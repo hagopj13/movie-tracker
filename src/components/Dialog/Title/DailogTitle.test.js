@@ -32,7 +32,7 @@ describe('DialogTitle component', () => {
     expect(wrapper.find(Typography).at(0).text()).toBe(title);
   });
 
-  it('should call the onClose prop when close icon is clicked', () => {
+  it('should trigger the onClose prop when close icon is clicked', () => {
     wrapper.find(IconButton).simulate('click');
     expect(mockClose).toHaveBeenCalled();
   });

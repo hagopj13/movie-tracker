@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawerAuthButton component isAuth is false should render the DrawerAuthButton component correctly 1`] = `
+<WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    onClick={[MockFunction]}
+  >
+    <WithStyles(ForwardRef(ListItemIcon))>
+      <LockOpenIcon />
+    </WithStyles(ForwardRef(ListItemIcon))>
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Login"
+    />
+  </WithStyles(ForwardRef(ListItem))>
+</WithStyles(ForwardRef(List))>
+`;
+
+exports[`DrawerAuthButton component isAuth is true should render the DrawerAuthButton component correctly 1`] = `
+<WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    onClick={[MockFunction]}
+  >
+    <WithStyles(ForwardRef(ListItemIcon))>
+      <LockIcon />
+    </WithStyles(ForwardRef(ListItemIcon))>
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Logout"
+    />
+  </WithStyles(ForwardRef(ListItem))>
+</WithStyles(ForwardRef(List))>
+`;
