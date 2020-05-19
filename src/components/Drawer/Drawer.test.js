@@ -36,16 +36,16 @@ describe('Drawer component', () => {
 
   it('should call the onClose prop when close icon is clicked', () => {
     wrapper.find(IconButton).simulate('click');
-    expect(mockClose).toHaveBeenCalled();
+    expect(mockClose).toHaveBeenCalledTimes(1);
   });
 
   it('should call the onClose prop when a click occurs in the navigation div', () => {
     wrapper.find(Navigation).parent().simulate('click');
-    expect(mockClose).toHaveBeenCalled();
+    expect(mockClose).toHaveBeenCalledTimes(1);
   });
 
   it('should call the onClose prop when a click occurs in the auth button div', () => {
     wrapper.find(AuthButton).parent().simulate('click');
-    expect(mockClose).toHaveBeenCalled();
+    expect(mockClose).toHaveBeenCalledTimes(1);
   });
 });

@@ -36,7 +36,7 @@ describe('DialogRoot component', () => {
 
   it('should call the onHideDialog prop when the selected dialog is closed', () => {
     wrapper.find(LoginDialog).prop('onClose')();
-    expect(mockHideDialog).toHaveBeenCalled();
+    expect(mockHideDialog).toHaveBeenCalledTimes(1);
   });
 
   it('should render DialogRoot with no children if no dialogType is specified', () => {

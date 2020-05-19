@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginDialog component should render the LoginDialog component correctly 1`] = `
+<Dialog
+  isOpen={true}
+  onClose={[MockFunction]}
+  onExited={[MockFunction]}
+  title="Login"
+>
+  <WithStyles(ForwardRef(DialogContent))
+    className="makeStyles-content-1"
+  >
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-contentText-2"
+    >
+      This app gets its data from the TMDb APIs. To view your account information, login with your TMDb credentials in the form below. To create one, 
+      <WithStyles(ForwardRef(Link))
+        color="primary"
+        href="https://www.themoviedb.org/account/signup"
+        target="_blank"
+      >
+        click here
+      </WithStyles(ForwardRef(Link))>
+      .
+    </WithStyles(ForwardRef(Typography))>
+    <LoginForm
+      isLoginLoading={false}
+      loginError="some error"
+      onSubmit={[MockFunction]}
+    />
+  </WithStyles(ForwardRef(DialogContent))>
+</Dialog>
+`;

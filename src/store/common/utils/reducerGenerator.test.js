@@ -9,7 +9,7 @@ describe('reducerGenerator', () => {
     const reducer = reducerGenerator(namespace, actionHandler);
     const action = { type: `${namespace}/action1` };
     reducer(undefined, action);
-    expect(actionHandler.action1).toHaveBeenCalled();
+    expect(actionHandler.action1).toHaveBeenCalledTimes(1);
   });
 
   it('should generate a reducer that returns the intial state when an unknown action is fired', () => {

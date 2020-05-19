@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 const DIALOG_TITLE = 'Login';
 
-const LoginDialog = (props: Props) => {
+export const LoginDialog = (props: Props) => {
   const { isOpen, isLoginLoading, loginError, onClose, onLogin, onLoginClear } = props;
   const classes = useStyles();
 

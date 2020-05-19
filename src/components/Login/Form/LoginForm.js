@@ -39,6 +39,7 @@ const schema = yup.object().shape({
 
 const LoginForm = (props: Props) => {
   const { isLoginLoading, loginError, onSubmit } = props;
+
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onSubmit',

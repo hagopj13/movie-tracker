@@ -47,8 +47,8 @@ describe('App component', () => {
         <App {...mockProps} />
       </MemoryRouter>,
     );
-    expect(mockCheckAuthState).toHaveBeenCalled();
-    expect(mockFetchImagesConfig).toHaveBeenCalled();
+    expect(mockCheckAuthState).toHaveBeenCalledTimes(1);
+    expect(mockFetchImagesConfig).toHaveBeenCalledTimes(1);
   });
 
   it('should render Layout and AppRoutes if isLoginLoaded is true', () => {

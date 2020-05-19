@@ -40,7 +40,7 @@ describe('HeaderAuthButton component', () => {
 
     it('should call onLogout when the button is clicked', () => {
       wrapper.find(Button).simulate('click');
-      expect(mockLogout).toHaveBeenCalled();
+      expect(mockLogout).toHaveBeenCalledTimes(1);
     });
 
     it('should disable the logout button when logout is loading', () => {
@@ -76,7 +76,7 @@ describe('HeaderAuthButton component', () => {
 
     it('should call onShowLoginDialog when the button is clicked', () => {
       wrapper.find(Button).simulate('click');
-      expect(mockShowLoginDialog).toHaveBeenCalled();
+      expect(mockShowLoginDialog).toHaveBeenCalledTimes(1);
     });
   });
 });

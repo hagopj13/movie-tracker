@@ -25,7 +25,7 @@ describe('ErrorBoundary HOC', () => {
   it('should display the error page if wrapper component throws', () => {
     const mockConsoleError = jest.spyOn(global.console, 'error').mockImplementation();
     wrapper.find(ChildComponent).simulateError(new Error());
-    expect(mockConsoleError).toHaveBeenCalled();
+    expect(mockConsoleError).toHaveBeenCalledTimes(1);
     expect(wrapper.state('hasError')).toBe(true);
     expect(wrapper.exists(ErrorPage)).toBe(true);
   });

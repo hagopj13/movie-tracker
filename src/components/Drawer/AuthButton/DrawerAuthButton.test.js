@@ -40,7 +40,7 @@ describe('DrawerAuthButton component', () => {
 
     it('should call onLogout when the button is clicked', () => {
       wrapper.find(ListItem).simulate('click');
-      expect(mockLogout).toHaveBeenCalled();
+      expect(mockLogout).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -64,7 +64,7 @@ describe('DrawerAuthButton component', () => {
 
     it('should call onShowLoginDialog when the button is clicked', () => {
       wrapper.find(ListItem).simulate('click');
-      expect(mockShowLoginDialog).toHaveBeenCalled();
+      expect(mockShowLoginDialog).toHaveBeenCalledTimes(1);
     });
   });
 });

@@ -44,6 +44,6 @@ describe('Header component', () => {
 
   it('should call the onOpenDrawer prop when icon button is clicked', () => {
     wrapper.find(IconButton).simulate('click');
-    expect(mockOpenDrawer).toHaveBeenCalled();
+    expect(mockOpenDrawer).toHaveBeenCalledTimes(1);
   });
 });

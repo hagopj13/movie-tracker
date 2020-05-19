@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm component should render the LoginForm component correctly 1`] = `
+<form
+  className="makeStyles-root-1"
+  onSubmit={[Function]}
+>
+  <WithStyles(ForwardRef(TextField))
+    autoFocus={true}
+    error={false}
+    fullWidth={true}
+    helperText=" "
+    inputRef={[Function]}
+    label="Username"
+    name="username"
+    size="small"
+    variant="outlined"
+  />
+  <PasswordTextField
+    error={false}
+    fullWidth={true}
+    helperText=" "
+    inputRef={[Function]}
+    label="Password"
+    name="password"
+    size="small"
+    variant="outlined"
+  />
+  <div
+    className="makeStyles-bottomContainer-2"
+  >
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-errorText-3"
+      color="error"
+    />
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      disabled={false}
+      size="large"
+      type="submit"
+      variant="outlined"
+    >
+      Login
+    </WithStyles(ForwardRef(Button))>
+  </div>
+</form>
+`;

@@ -34,6 +34,6 @@ describe('DialogTitle component', () => {
 
   it('should trigger the onClose prop when close icon is clicked', () => {
     wrapper.find(IconButton).simulate('click');
-    expect(mockClose).toHaveBeenCalled();
+    expect(mockClose).toHaveBeenCalledTimes(1);
   });
 });

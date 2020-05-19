@@ -49,6 +49,6 @@ describe('Dialog component', () => {
 
   it('should call onClose when onClose of MuiDialog is triggered', () => {
     wrapper.find(MuiDialog).prop('onClose')();
-    expect(mockClose).toHaveBeenCalled();
+    expect(mockClose).toHaveBeenCalledTimes(1);
   });
 });
