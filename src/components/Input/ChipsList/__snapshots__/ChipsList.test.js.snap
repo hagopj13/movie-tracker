@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChipsList component should render the ChipsList component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Chip))
+    className={null}
+    classes={
+      Object {
+        "label": "makeStyles-chipLabel-2",
+      }
+    }
+    color="default"
+    key="28"
+    label="Action"
+    onClick={[Function]}
+    variant="outlined"
+  />
+  <WithStyles(ForwardRef(Chip))
+    className={null}
+    classes={
+      Object {
+        "label": "makeStyles-chipLabel-2",
+      }
+    }
+    color="default"
+    key="12"
+    label="Adventure"
+    onClick={[Function]}
+    variant="outlined"
+  />
+  <WithStyles(ForwardRef(Chip))
+    className={null}
+    classes={
+      Object {
+        "label": "makeStyles-chipLabel-2",
+      }
+    }
+    color="default"
+    key="16"
+    label="Animation"
+    onClick={[Function]}
+    variant="outlined"
+  />
+  <WithStyles(ForwardRef(Chip))
+    className={null}
+    classes={
+      Object {
+        "label": "makeStyles-chipLabel-2",
+      }
+    }
+    color="default"
+    key="35"
+    label="Comedy"
+    onClick={[Function]}
+    variant="outlined"
+  />
+</div>
+`;

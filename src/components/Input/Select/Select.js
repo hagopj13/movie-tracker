@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Select from '@material-ui/core/Select';
+import MuiSelect from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 type Props = {
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SortBySelect = (props: Props) => {
+const Select = (props: Props) => {
   const { options, selectedValue, onValueChange } = props;
 
   const classes = useStyles();
@@ -26,7 +26,7 @@ const SortBySelect = (props: Props) => {
   };
 
   return (
-    <Select
+    <MuiSelect
       className={classes.root}
       value={selectedValue}
       onChange={handleValueChange}
@@ -38,8 +38,8 @@ const SortBySelect = (props: Props) => {
           {option.label}
         </MenuItem>
       ))}
-    </Select>
+    </MuiSelect>
   );
 };
 
-export default SortBySelect;
+export default Select;

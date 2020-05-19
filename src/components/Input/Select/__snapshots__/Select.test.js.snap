@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select component should render the Select component correctly 1`] = `
+<WithStyles(ForwardRef(Select))
+  className="makeStyles-root-1"
+  margin="dense"
+  onChange={[Function]}
+  value="popularity.desc"
+  variant="outlined"
+>
+  <WithStyles(ForwardRef(MenuItem))
+    key="popularity.desc"
+    value="popularity.desc"
+  >
+    Popularity Descending
+  </WithStyles(ForwardRef(MenuItem))>
+  <WithStyles(ForwardRef(MenuItem))
+    key="popularity.asc"
+    value="popularity.asc"
+  >
+    Popularity Ascending
+  </WithStyles(ForwardRef(MenuItem))>
+  <WithStyles(ForwardRef(MenuItem))
+    key="vote_average.desc"
+    value="vote_average.desc"
+  >
+    Rating Descending
+  </WithStyles(ForwardRef(MenuItem))>
+  <WithStyles(ForwardRef(MenuItem))
+    key="vote_average.asc"
+    value="vote_average.asc"
+  >
+    Rating Ascending
+  </WithStyles(ForwardRef(MenuItem))>
+  <WithStyles(ForwardRef(MenuItem))
+    key="release_date.desc"
+    value="release_date.desc"
+  >
+    Release Date Descending
+  </WithStyles(ForwardRef(MenuItem))>
+  <WithStyles(ForwardRef(MenuItem))
+    key="release_date.asc"
+    value="release_date.asc"
+  >
+    Release Date Ascending
+  </WithStyles(ForwardRef(MenuItem))>
+</WithStyles(ForwardRef(Select))>
+`;

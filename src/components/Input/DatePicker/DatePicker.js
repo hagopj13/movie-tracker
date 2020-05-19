@@ -45,7 +45,7 @@ const DatePicker = (props: Props) => {
 
   return (
     <div className={classes.root}>
-      {label && <Typography className={classes.label}>{label}</Typography>}
+      <Typography className={classes.label}>{label}</Typography>
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
           className={classes.datePicker}

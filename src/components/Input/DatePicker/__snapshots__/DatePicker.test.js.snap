@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker component should render the DatePicker component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Typography))
+    className="makeStyles-label-2"
+  >
+    Some label
+  </WithStyles(ForwardRef(Typography))>
+  <MuiPickersUtilsProvider
+    utils={[Function]}
+  >
+    <PickerWithState
+      InputAdornmentProps={
+        Object {
+          "position": "start",
+        }
+      }
+      InputProps={
+        Object {
+          "endAdornment": <ForwardRef(WithStyles)
+            className="makeStyles-icon-4"
+            onClick={[Function]}
+          >
+            <UNDEFINED />
+          </ForwardRef(WithStyles)>,
+        }
+      }
+      KeyboardButtonProps={
+        Object {
+          "className": "makeStyles-icon-4",
+        }
+      }
+      allowKeyboardControl={true}
+      className="makeStyles-datePicker-3"
+      color="primary"
+      disableToolbar={true}
+      format="DD/MM/YYYY"
+      inputVariant="outlined"
+      invalidDateMessage="Invalid Date Format"
+      margin="dense"
+      maxDate={2100-01-01T00:00:00.000Z}
+      maxDateMessage="Date should not be after maximal date"
+      minDate={1900-01-01T00:00:00.000Z}
+      minDateMessage="Date should not be before minimal date"
+      onChange={[Function]}
+      openTo="date"
+      value={"2019-12-31T23:00:00.000Z"}
+      variant="inline"
+      views={
+        Array [
+          "year",
+          "date",
+        ]
+      }
+    />
+  </MuiPickersUtilsProvider>
+</div>
+`;
