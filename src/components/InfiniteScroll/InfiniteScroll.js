@@ -4,20 +4,20 @@ import type { Node } from 'react';
 
 type Props = {
   children: Node,
+  activationDistance?: number,
   onLoadMore: () => void,
 };
 
 const InfiniteScroll = (props: Props) => {
-  const { children, onLoadMore } = props;
+  const { children, activationDistance, onLoadMore } = props;
 
-  const activationDistance = 20;
   const handleScroll = useCallback(() => {
-    const documentHeight = document.body?.offsetHeight;
+    const documentHeight = document.body.offsetHeight;
     const scrollHeight = window.innerHeight + window.scrollY;
     if (scrollHeight + activationDistance >= documentHeight) {
       onLoadMore();
     }
-  }, [onLoadMore]);
+  }, [activationDistance, onLoadMore]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -25,6 +25,10 @@ const InfiniteScroll = (props: Props) => {
   }, [handleScroll]);
 
   return <>{children}</>;
+};
+
+InfiniteScroll.defaultProps = {
+  activationDistance: 20,
 };
 
 export default InfiniteScroll;

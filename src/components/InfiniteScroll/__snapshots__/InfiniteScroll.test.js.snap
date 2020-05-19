@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfiniteScroll component should render the InfiniteScroll component correctly 1`] = `
+<InfiniteScroll
+  activationDistance={0}
+  onLoadMore={[MockFunction]}
+>
+  <SomeComponent>
+    <div>
+      Some component
+    </div>
+  </SomeComponent>
+</InfiniteScroll>
+`;

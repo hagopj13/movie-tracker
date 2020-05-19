@@ -28,7 +28,7 @@ describe('HeaderSearch component', () => {
   });
 
   beforeEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
     useLocation.mockReturnValue({ pathname: '/search', search: `?query=${selectedSearchQuery}` });
     mockSetSearchQuery = jest.fn();
     const mockProps = {
