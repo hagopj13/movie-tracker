@@ -15,7 +15,7 @@ exports[`FilterBox component should render the FilterBox component correctly 1`]
   <div
     className="makeStyles-filters-3"
   >
-    <SomeComponent />
+    <ChildComponent />
   </div>
 </WithStyles(ForwardRef(Paper))>
 `;

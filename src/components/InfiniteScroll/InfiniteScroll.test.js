@@ -5,7 +5,7 @@ import InfiniteScroll from './InfiniteScroll';
 
 describe('InfiniteScroll component', () => {
   let mount;
-  const SomeComponent = () => <div>Some component</div>;
+  const ChildComponent = () => <div>Child component</div>;
   let mockScrollCallbackRemove;
   let mockLoadMore;
   let wrapper;
@@ -33,7 +33,7 @@ describe('InfiniteScroll component', () => {
     };
     wrapper = mount(
       <InfiniteScroll {...mockProps}>
-        <SomeComponent />
+        <ChildComponent />
       </InfiniteScroll>,
     );
   });

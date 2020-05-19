@@ -6,25 +6,25 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import ErrorBoundary from './ErrorBoundary';
 
 describe('ErrorBoundary HOC', () => {
-  const SomeComponent = () => <div>Some component</div>;
+  const ChildComponent = () => <div>Child component</div>;
   let wrapper;
 
   beforeEach(() => {
     wrapper = mount(
       <ErrorBoundary>
-        <SomeComponent />
+        <ChildComponent />
       </ErrorBoundary>,
     );
   });
 
   it('should render children if no errors have occured', () => {
-    expect(wrapper.exists(SomeComponent)).toBe(true);
+    expect(wrapper.exists(ChildComponent)).toBe(true);
     expect(wrapper.state('hasError')).toBe(false);
   });
 
   it('should display the error page if wrapper component throws', () => {
     const mockConsoleError = jest.spyOn(global.console, 'error').mockImplementation();
-    wrapper.find(SomeComponent).simulateError(new Error());
+    wrapper.find(ChildComponent).simulateError(new Error());
     expect(mockConsoleError).toHaveBeenCalled();
     expect(wrapper.state('hasError')).toBe(true);
     expect(wrapper.exists(ErrorPage)).toBe(true);

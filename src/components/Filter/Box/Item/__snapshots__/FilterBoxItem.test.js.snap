@@ -4,7 +4,7 @@ exports[`FilterBoxItem component should render the FilterBoxItem component corre
 <div
   className="makeStyles-root-1"
 >
-  <SomeComponent />
+  <ChildComponent />
 </div>
 `;
 
@@ -17,6 +17,6 @@ exports[`FilterBoxItem component should render the FilterBoxItem component corre
   >
     Some title
   </WithStyles(ForwardRef(Typography))>
-  <SomeComponent />
+  <ChildComponent />
 </div>
 `;

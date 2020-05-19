@@ -5,10 +5,10 @@ exports[`InfiniteScroll component should render the InfiniteScroll component cor
   activationDistance={0}
   onLoadMore={[MockFunction]}
 >
-  <SomeComponent>
+  <ChildComponent>
     <div>
-      Some component
+      Child component
     </div>
-  </SomeComponent>
+  </ChildComponent>
 </InfiniteScroll>
 `;

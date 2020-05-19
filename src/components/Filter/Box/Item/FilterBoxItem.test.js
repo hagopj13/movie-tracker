@@ -6,7 +6,7 @@ import FilterBoxItem from './FilterBoxItem';
 
 describe('FilterBoxItem component', () => {
   let shallow;
-  const SomeComponent = () => <div>Some component</div>;
+  const ChildComponent = () => <div>Child component</div>;
   let wrapper;
 
   beforeAll(() => {
@@ -16,7 +16,7 @@ describe('FilterBoxItem component', () => {
   beforeEach(() => {
     wrapper = shallow(
       <FilterBoxItem>
-        <SomeComponent />
+        <ChildComponent />
       </FilterBoxItem>,
     );
   });
@@ -26,7 +26,7 @@ describe('FilterBoxItem component', () => {
   });
 
   it('should render the child component', () => {
-    expect(wrapper.exists(SomeComponent)).toBe(true);
+    expect(wrapper.exists(ChildComponent)).toBe(true);
   });
 
   it('should render the FilterBoxItem component correctly if title prop is specified', () => {
@@ -34,7 +34,7 @@ describe('FilterBoxItem component', () => {
     const mockProps = { title };
     const newWrapper = shallow(
       <FilterBoxItem {...mockProps}>
-        <SomeComponent />
+        <ChildComponent />
       </FilterBoxItem>,
     );
     expect(newWrapper).toMatchSnapshot();
@@ -45,7 +45,7 @@ describe('FilterBoxItem component', () => {
     const mockProps = { title };
     const newWrapper = shallow(
       <FilterBoxItem {...mockProps}>
-        <SomeComponent />
+        <ChildComponent />
       </FilterBoxItem>,
     );
     expect(newWrapper.find(Typography).text()).toBe(title);
