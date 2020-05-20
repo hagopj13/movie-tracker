@@ -9,16 +9,18 @@ import HeaderAuthButton from './AuthButton/HeaderAuthButton';
 
 describe('Header component', () => {
   let shallow;
-  const title = 'Some title';
-  let mockOpenDrawer;
+  let title;
   let wrapper;
+
+  const mockOpenDrawer = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
-    mockOpenDrawer = jest.fn();
+    jest.clearAllMocks();
+    title = 'Some title';
     const mockProps = {
       title,
       onOpenDrawer: mockOpenDrawer,

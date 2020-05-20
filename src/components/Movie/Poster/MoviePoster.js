@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MoviePoster = (props: Props) => {
+export const MoviePoster = (props: Props) => {
   const { posterPath, fullPosterPath, height, width } = props;
 
   const classes = useStyles();

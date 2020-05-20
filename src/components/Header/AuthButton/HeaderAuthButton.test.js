@@ -6,17 +6,17 @@ import { HeaderAuthButton } from './HeaderAuthButton';
 
 describe('HeaderAuthButton component', () => {
   let shallow;
-  let mockLogout;
-  let mockShowLoginDialog;
   let wrapper;
+
+  const mockLogout = jest.fn();
+  const mockShowLoginDialog = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
-    mockLogout = jest.fn();
-    mockShowLoginDialog = jest.fn();
+    jest.clearAllMocks();
   });
 
   describe('isAuth is true', () => {

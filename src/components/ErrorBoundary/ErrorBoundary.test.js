@@ -6,8 +6,9 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import ErrorBoundary from './ErrorBoundary';
 
 describe('ErrorBoundary HOC', () => {
-  const ChildComponent = () => <div>Child component</div>;
   let wrapper;
+
+  const ChildComponent = () => <div>Child component</div>;
 
   beforeEach(() => {
     wrapper = mount(

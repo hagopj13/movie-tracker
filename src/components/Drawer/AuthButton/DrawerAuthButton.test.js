@@ -7,17 +7,17 @@ import { DrawerAuthButton } from './DrawerAuthButton';
 
 describe('DrawerAuthButton component', () => {
   let shallow;
-  let mockLogout;
-  let mockShowLoginDialog;
   let wrapper;
+
+  const mockShowLoginDialog = jest.fn();
+  const mockLogout = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
-    mockLogout = jest.fn();
-    mockShowLoginDialog = jest.fn();
+    jest.clearAllMocks();
   });
 
   describe('isAuth is true', () => {

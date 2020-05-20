@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieActionButton component should render the MovieActionButton component correctly 1`] = `
+<WithStyles(ForwardRef(Tooltip))
+  classes={
+    Object {
+      "tooltip": "makeStyles-tooltip-1",
+    }
+  }
+  title="Some title"
+>
+  <WithStyles(ForwardRef(Fab))
+    className="makeStyles-fab-2"
+    onClick={[MockFunction]}
+    size="medium"
+  >
+    <ChildComponent />
+  </WithStyles(ForwardRef(Fab))>
+</WithStyles(ForwardRef(Tooltip))>
+`;

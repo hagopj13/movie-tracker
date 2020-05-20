@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieBackdrop component should render the MovieBackdrop component correctly 1`] = `
+<div
+  className="makeStyles-backdrop-1 makeStyles-backdrop-3"
+>
+  <ChildComponent />
+</div>
+`;

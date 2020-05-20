@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviePoster component should render the MoviePoster component correctly 1`] = `
+<WithStyles(ForwardRef(CardMedia))
+  image="pathToFullPosterImage.png"
+  style={Object {}}
+/>
+`;

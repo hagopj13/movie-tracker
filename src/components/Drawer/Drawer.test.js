@@ -9,16 +9,18 @@ import AuthButton from './AuthButton/DrawerAuthButton';
 
 describe('Drawer component', () => {
   let shallow;
-  const isOpen = true;
-  let mockClose;
+  let isOpen;
   let wrapper;
+
+  const mockClose = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
-    mockClose = jest.fn();
+    jest.clearAllMocks();
+    isOpen = true;
     const mockProps = {
       isOpen,
       onClose: mockClose,

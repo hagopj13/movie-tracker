@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ChipsList = (props: Props) => {
+const ChipList = (props: Props) => {
   const { items, selectedItems, onItemClick } = props;
 
   const classes = useStyles();
@@ -51,4 +51,4 @@ const ChipsList = (props: Props) => {
   );
 };
 
-export default ChipsList;
+export default ChipList;

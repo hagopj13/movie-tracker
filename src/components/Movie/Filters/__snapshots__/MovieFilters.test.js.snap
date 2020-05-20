@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieFilters component should render the MovieFilters component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <FilterBox
+    title="Sort"
+  >
+    <FilterBox
+      title="Sort by"
+    >
+      <Select
+        onValueChange={[Function]}
+        options={
+          Array [
+            Object {
+              "label": "Popularity Descending",
+              "value": "popularity.desc",
+            },
+            Object {
+              "label": "Popularity Ascending",
+              "value": "popularity.asc",
+            },
+            Object {
+              "label": "Rating Descending",
+              "value": "vote_average.desc",
+            },
+            Object {
+              "label": "Rating Ascending",
+              "value": "vote_average.asc",
+            },
+            Object {
+              "label": "Release Date Descending",
+              "value": "release_date.desc",
+            },
+            Object {
+              "label": "Release Date Ascending",
+              "value": "release_date.asc",
+            },
+          ]
+        }
+        selectedValue="popularity.asc"
+      />
+    </FilterBox>
+  </FilterBox>
+  <FilterBox
+    title="Filters"
+  >
+    <FilterBox
+      title="Release date"
+    >
+      <DatePicker
+        label="Start"
+        onDateChange={[Function]}
+        selectedDate={"2019-12-31T23:00:00.000Z"}
+      />
+      <DatePicker
+        label="End"
+        onDateChange={[Function]}
+        selectedDate={"2020-01-31T23:00:00.000Z"}
+      />
+    </FilterBox>
+    <WithStyles(ForwardRef(Divider))
+      light={true}
+    />
+    <FilterBox
+      title="Genres"
+    >
+      <ChipList
+        items={
+          Array [
+            Object {
+              "id": 28,
+              "name": "Action",
+            },
+            Object {
+              "id": 12,
+              "name": "Adventure",
+            },
+            Object {
+              "id": 16,
+              "name": "Animation",
+            },
+            Object {
+              "id": 35,
+              "name": "Comedy",
+            },
+          ]
+        }
+        onItemClick={[Function]}
+        selectedItems={
+          Array [
+            12,
+          ]
+        }
+      />
+    </FilterBox>
+  </FilterBox>
+</div>
+`;

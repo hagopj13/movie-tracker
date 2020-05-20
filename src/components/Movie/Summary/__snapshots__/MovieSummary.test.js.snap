@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieSummary component should render the MovieSummary component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <Styled(Styled(MuiBox))>
+    <WithStyles(ForwardRef(Typography))>
+      <Styled(MuiBox)
+        component="span"
+        fontSize={34}
+        fontWeight="fontWeightMedium"
+      >
+        Ad Astra
+      </Styled(MuiBox)>
+      <Styled(MuiBox)
+        component="span"
+        fontSize={34}
+        fontWeight="fontWeightLight"
+      >
+         (2019)
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(Styled(MuiBox))>
+  <Styled(Styled(MuiBox))>
+    <Styled(MuiBox)
+      alignItems="center"
+      display="flex"
+    >
+      <WithStyles(ForwardRef(Rating))
+        classes={
+          Object {
+            "iconEmpty": "makeStyles-iconEmpty-3",
+          }
+        }
+        precision={0.5}
+        readOnly={true}
+        value={3}
+      />
+      <Styled(MuiBox)
+        component="span"
+        fontSize="h6.fontSize"
+        fontWeight="fontWeightMedium"
+        ml={0.75}
+      >
+        3
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+  </Styled(Styled(MuiBox))>
+  <Styled(Styled(MuiBox))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      <Styled(MuiBox)
+        component="span"
+      >
+        Release Date: 
+      </Styled(MuiBox)>
+      <Styled(MuiBox)
+        component="span"
+        fontWeight="fontWeightLight"
+      >
+        Sep 17, 2019
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(Styled(MuiBox))>
+  <Styled(Styled(MuiBox))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      <Styled(MuiBox)
+        component="span"
+      >
+        Status: 
+      </Styled(MuiBox)>
+      <Styled(MuiBox)
+        component="span"
+        fontWeight="fontWeightLight"
+      >
+        Unknown
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(Styled(MuiBox))>
+  <Styled(Styled(MuiBox))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      Overview
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      <Styled(MuiBox)
+        fontWeight="fontWeightLight"
+      >
+        The near future, a time when both hope and hardships drive humanity to look to the stars and beyond. While a mysterious phenomenon menaces to destroy life on planet Earth, astronaut Roy McBride undertakes a mission across the immensity of space and its many perils to uncover the truth about a lost expedition that decades before boldly faced emptiness and silence in search of the unknown.
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(Styled(MuiBox))>
+</div>
+`;

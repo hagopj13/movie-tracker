@@ -8,6 +8,10 @@ import Rating from '@material-ui/lab/Rating';
 
 import type { Movie } from 'types';
 
+type Props = {
+  movie: Movie,
+};
+
 const SummarySection = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(1),
   [theme.breakpoints.down('xs')]: {
@@ -30,10 +34,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[500],
   },
 }));
-
-type Props = {
-  movie: Movie,
-};
 
 const MovieSummary = (props: Props) => {
   const { movie } = props;

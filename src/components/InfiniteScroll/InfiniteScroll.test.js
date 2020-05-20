@@ -5,19 +5,20 @@ import InfiniteScroll from './InfiniteScroll';
 
 describe('InfiniteScroll component', () => {
   let mount;
-  const ChildComponent = () => <div>Child component</div>;
-  let mockScrollCallbackRemove;
-  let mockLoadMore;
+  let eventsMap;
   let wrapper;
+
+  const mockScrollCallbackRemove = jest.fn();
+  const mockLoadMore = jest.fn();
+  const ChildComponent = () => <div>Child component</div>;
 
   beforeAll(() => {
     mount = createMount();
   });
 
-  const eventsMap = new Map();
-
   beforeEach(() => {
-    mockScrollCallbackRemove = jest.fn();
+    jest.clearAllMocks();
+    eventsMap = new Map();
     global.addEventListener = jest.fn().mockImplementation((event, callback) => {
       eventsMap.set(event, callback);
     });
@@ -26,7 +27,6 @@ describe('InfiniteScroll component', () => {
         mockScrollCallbackRemove();
       }
     });
-    mockLoadMore = jest.fn();
     const mockProps = {
       activationDistance: 0,
       onLoadMore: mockLoadMore,

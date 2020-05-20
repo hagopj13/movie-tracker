@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieBackdrop = (props: Props) => {
+export const MovieBackdrop = (props: Props) => {
   const { backdropPath, fullBackdropPath, children } = props;
 
   const classes = useStyles(props);

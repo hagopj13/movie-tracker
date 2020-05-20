@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import FilterBox from 'components/Filter/Box/FilterBox';
 import FilterBoxItem from 'components/Filter/Box/Item/FilterBoxItem';
 import Select from 'components/Input/Select/Select';
-import ChipsList from 'components/Input/ChipsList/ChipsList';
+import ChipList from 'components/Input/ChipList/ChipList';
 import DatePicker from 'components/Input/DatePicker/DatePicker';
 import { sortOptions } from 'config';
 import type { State as FiltersState } from 'store/common/filters/filters.reducer';
@@ -95,7 +95,7 @@ const MovieFilters = (props: Props) => {
         </FilterBoxItem>
         <Divider light />
         <FilterBoxItem title="Genres">
-          <ChipsList
+          <ChipList
             items={allGenres}
             selectedItems={selectedFilters.genres}
             onItemClick={handleToggleGenre}

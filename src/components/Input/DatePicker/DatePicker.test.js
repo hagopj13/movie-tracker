@@ -8,17 +8,20 @@ import DatePicker from './DatePicker';
 
 describe('DatePicker component', () => {
   let shallow;
-  const label = 'Some label';
-  const selectedDate = moment('2020-01-01');
-  let mockDateChange;
+  let label;
+  let selectedDate;
   let wrapper;
+
+  const mockDateChange = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
-    mockDateChange = jest.fn();
+    jest.clearAllMocks();
+    label = 'Some label';
+    selectedDate = moment('2020-01-01');
     const mockProps = {
       label,
       selectedDate,

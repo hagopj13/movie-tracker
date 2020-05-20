@@ -8,22 +8,24 @@ import LoginForm from '../Form/LoginForm';
 
 describe('LoginDialog component', () => {
   let shallow;
-  const isOpen = true;
-  const isLoginLoading = false;
-  const loginError = 'some error';
-  let mockClose;
-  let mockLogin;
-  let mockLoginClear;
+  let isOpen;
+  let isLoginLoading;
+  let loginError;
   let wrapper;
+
+  const mockClose = jest.fn();
+  const mockLogin = jest.fn();
+  const mockLoginClear = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
-    mockClose = jest.fn();
-    mockLogin = jest.fn();
-    mockLoginClear = jest.fn();
+    jest.clearAllMocks();
+    isOpen = true;
+    isLoginLoading = false;
+    loginError = 'some error';
     const mockProps = {
       isOpen,
       isLoginLoading,

@@ -25,7 +25,7 @@ type Props = {
   onSetIsMovieFavorite: (id: string, isFavorite: boolean) => void,
   onSetIsMovieInWatchlist: (id: string, isInWatchlist: boolean) => void,
   onRateMovie: (id: string, rating: number | null) => void,
-  onShowDialog: (dialogType: string) => void,
+  onShowLoginDialog: () => void,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieActions = (props: Props) => {
+export const MovieActions = (props: Props) => {
   const {
     movie,
     userState,
@@ -59,20 +59,18 @@ const MovieActions = (props: Props) => {
     onSetIsMovieFavorite,
     onSetIsMovieInWatchlist,
     onRateMovie,
-    onShowDialog,
+    onShowLoginDialog,
   } = props;
 
   const [isRatingPopoverOpen, setIsRatingPopoverOpen] = useState(false);
   const ratingButtonRef = useRef(null);
   const classes = useStyles(props);
 
-  const showLoginDialog = () => onShowDialog(dialogTypes.LOGIN);
-
   const handleFavoriteButtonClick = () => {
     if (isAuth) {
       onSetIsMovieFavorite(movie.id, !userState.isFavorite);
     } else {
-      showLoginDialog();
+      onShowLoginDialog();
     }
   };
 
@@ -80,7 +78,7 @@ const MovieActions = (props: Props) => {
     if (isAuth) {
       onSetIsMovieInWatchlist(movie.id, !userState.isInWatchlist);
     } else {
-      showLoginDialog();
+      onShowLoginDialog();
     }
   };
 
@@ -88,7 +86,7 @@ const MovieActions = (props: Props) => {
     if (isAuth) {
       setIsRatingPopoverOpen(true);
     } else {
-      showLoginDialog();
+      onShowLoginDialog();
     }
   };
 
@@ -165,7 +163,7 @@ const mapDispatchToProps = {
   onSetIsMovieFavorite: movieActions.setIsMovieFavorite,
   onSetIsMovieInWatchlist: movieActions.setIsMovieInWatchlist,
   onRateMovie: movieActions.rateMovie,
-  onShowDialog: dialogActions.showDialog,
+  onShowLoginDialog: () => dialogActions.showDialog(dialogTypes.LOGIN),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieActions);

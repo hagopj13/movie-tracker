@@ -6,15 +6,17 @@ import FilterBox from './FilterBox';
 
 describe('FilterBox component', () => {
   let shallow;
-  const title = 'Some title';
-  const ChildComponent = () => <div>Child component</div>;
+  let title;
   let wrapper;
+
+  const ChildComponent = () => <div>Child component</div>;
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
+    title = 'Some title';
     const mockProps = {
       title,
     };

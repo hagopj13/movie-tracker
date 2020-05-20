@@ -5,8 +5,9 @@ import Layout from './Layout';
 
 describe('Layout component', () => {
   let shallow;
-  const ChildComponent = () => <div>Child component</div>;
   let wrapper;
+
+  const ChildComponent = () => <div>Child component</div>;
 
   beforeAll(() => {
     shallow = createShallow();

@@ -7,16 +7,18 @@ import DialogTitle from './DialogTitle';
 
 describe('DialogTitle component', () => {
   let shallow;
-  const title = 'Some title';
-  let mockClose;
+  let title;
   let wrapper;
+
+  const mockClose = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
-    mockClose = jest.fn();
+    jest.clearAllMocks();
+    title = 'Some title';
     const mockProps = {
       title,
       onClose: mockClose,

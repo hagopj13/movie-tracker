@@ -7,12 +7,14 @@ import LoginDialog from 'components/Login/Dialog/LoginDialog';
 import { DialogRoot } from './DialogRoot';
 
 describe('DialogRoot component', () => {
+  let dialogProps;
   let wrapper;
-  const dialogProps = { someProp: 'someValue' };
-  let mockHideDialog;
+
+  const mockHideDialog = jest.fn();
 
   beforeEach(() => {
-    mockHideDialog = jest.fn();
+    jest.clearAllMocks();
+    dialogProps = { someProp: 'someValue' };
     const mockProps = {
       dialogType: dialogTypes.LOGIN,
       dialogProps,

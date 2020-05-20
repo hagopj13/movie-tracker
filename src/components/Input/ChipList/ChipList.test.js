@@ -4,30 +4,33 @@ import Chip from '@material-ui/core/Chip';
 
 import { genres } from 'store/fixtures/config';
 
-import ChipsList from './ChipsList';
+import ChipList from './ChipList';
 
-describe('ChipsList component', () => {
+describe('ChipList component', () => {
   let shallow;
   let items;
-  let mockItemClick;
+  let selectedItems;
   let wrapper;
+
+  const mockItemClick = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
+    jest.clearAllMocks();
     items = genres;
-    mockItemClick = jest.fn();
+    selectedItems = [];
     const mockProps = {
       items,
-      selectedItems: [],
+      selectedItems,
       onItemClick: mockItemClick,
     };
-    wrapper = shallow(<ChipsList {...mockProps} />);
+    wrapper = shallow(<ChipList {...mockProps} />);
   });
 
-  it('should render the ChipsList component correctly', () => {
+  it('should render the ChipList component correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -45,12 +48,13 @@ describe('ChipsList component', () => {
   });
 
   it('should set the primary color on the Chip if the item is selected', () => {
+    selectedItems = [items[1].id];
     const mockProps = {
       items,
-      selectedItems: [items[1].id],
+      selectedItems,
       onItemClick: mockItemClick,
     };
-    const newWrapper = shallow(<ChipsList {...mockProps} />);
+    const newWrapper = shallow(<ChipList {...mockProps} />);
     expect(newWrapper.find(Chip).at(1).prop('color')).toBe('primary');
     expect(newWrapper.find(Chip).at(0).prop('color')).toBe('default');
   });

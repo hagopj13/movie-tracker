@@ -10,17 +10,18 @@ describe('Select component', () => {
   let shallow;
   let options;
   let selectedValue;
-  let mockValueChange;
   let wrapper;
+
+  const mockValueChange = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
   });
 
   beforeEach(() => {
+    jest.clearAllMocks();
     options = sortOptions;
     selectedValue = options[0].value;
-    mockValueChange = jest.fn();
     const mockProps = {
       options,
       selectedValue,

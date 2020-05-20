@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieListItem component should render the MovieListItem component correctly 1`] = `
+<WithStyles(ForwardRef(Card))
+  className="makeStyles-root-1"
+  elevation={3}
+  onClick={[Function]}
+>
+  <WithStyles(ForwardRef(CardActionArea))>
+    <Connect(MoviePoster)
+      height={300}
+      posterPath="/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg"
+      width={200}
+    />
+    <WithStyles(ForwardRef(CardContent))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-title-2"
+        gutterBottom={true}
+        variant="h6"
+      >
+        Ad Astra
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))>
+        Sep 17, 2019
+      </WithStyles(ForwardRef(Typography))>
+      <div
+        className="makeStyles-rating-3"
+      >
+        <WithStyles(ForwardRef(Rating))
+          precision={0.5}
+          readOnly={true}
+          value={3}
+        />
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-ratingText-4"
+        >
+          3
+        </WithStyles(ForwardRef(Typography))>
+      </div>
+    </WithStyles(ForwardRef(CardContent))>
+  </WithStyles(ForwardRef(CardActionArea))>
+</WithStyles(ForwardRef(Card))>
+`;

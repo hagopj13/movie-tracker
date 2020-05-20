@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieActions component isAuth is false should render the MovieActions component correctly 1`] = `
+<Fragment>
+  <div
+    className="makeStyles-buttonsContainer-1"
+  >
+    <ForwardRef(MovieActionButton)
+      onClick={[Function]}
+      title="Login to add movie to your favorite list"
+    >
+      <FavoriteIcon
+        className="makeStyles-favoriteIcon-2 makeStyles-favoriteIcon-27"
+      />
+    </ForwardRef(MovieActionButton)>
+    <ForwardRef(MovieActionButton)
+      onClick={[Function]}
+      title="Login to add movie to your watchlist"
+    >
+      <BookmarkIcon
+        className="makeStyles-watchlistIcon-3 makeStyles-watchlistIcon-28"
+      />
+    </ForwardRef(MovieActionButton)>
+    <ForwardRef(MovieActionButton)
+      onClick={[Function]}
+      title="Login to rate movie"
+    >
+      <StarRateIcon
+        className="makeStyles-ratingIcon-4 makeStyles-ratingIcon-29"
+      />
+    </ForwardRef(MovieActionButton)>
+  </div>
+  <RatingPopover
+    anchorEl={null}
+    initialValue={null}
+    isOpen={false}
+    onChange={[Function]}
+    onClose={[Function]}
+  />
+</Fragment>
+`;
+
+exports[`MovieActions component isAuth is true should render the MovieActions component correctly 1`] = `
+<Fragment>
+  <div
+    className="makeStyles-buttonsContainer-1"
+  >
+    <ForwardRef(MovieActionButton)
+      onClick={[Function]}
+      title="Add movie to your favorite list"
+    >
+      <FavoriteIcon
+        className="makeStyles-favoriteIcon-2 makeStyles-favoriteIcon-6"
+      />
+    </ForwardRef(MovieActionButton)>
+    <ForwardRef(MovieActionButton)
+      onClick={[Function]}
+      title="Add movie to your watchlist"
+    >
+      <BookmarkIcon
+        className="makeStyles-watchlistIcon-3 makeStyles-watchlistIcon-7"
+      />
+    </ForwardRef(MovieActionButton)>
+    <ForwardRef(MovieActionButton)
+      onClick={[Function]}
+      title="Rate movie"
+    >
+      <StarRateIcon
+        className="makeStyles-ratingIcon-4 makeStyles-ratingIcon-8"
+      />
+    </ForwardRef(MovieActionButton)>
+  </div>
+  <RatingPopover
+    anchorEl={null}
+    initialValue={null}
+    isOpen={false}
+    onChange={[Function]}
+    onClose={[Function]}
+  />
+</Fragment>
+`;

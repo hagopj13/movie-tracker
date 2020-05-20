@@ -19,9 +19,10 @@ jest.mock('react-router-dom', () => ({
 
 describe('HeaderSearch component', () => {
   let shallow;
-  const selectedSearchQuery = 'Some query';
-  let mockSetSearchQuery;
+  let selectedSearchQuery;
   let wrapper;
+
+  const mockSetSearchQuery = jest.fn();
 
   beforeAll(() => {
     shallow = createShallow();
@@ -30,7 +31,7 @@ describe('HeaderSearch component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     useLocation.mockReturnValue({ pathname: '/search', search: `?query=${selectedSearchQuery}` });
-    mockSetSearchQuery = jest.fn();
+    selectedSearchQuery = 'Some query';
     const mockProps = {
       selectedSearchQuery,
       onSetSearchQuery: mockSetSearchQuery,
