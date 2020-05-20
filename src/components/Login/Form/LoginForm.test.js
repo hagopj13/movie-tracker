@@ -55,20 +55,22 @@ describe('LoginForm component', () => {
     };
     const newWrapper = mount(<LoginForm {...mockProps} />);
 
+    const username = 'someUsername';
+    const password = 'somePassword';
+
     await act(async () => {
       const usernameElement = newWrapper.find('input').at(0);
-      usernameElement.getDOMNode().value = 'someUsername';
+      usernameElement.getDOMNode().value = username;
       usernameElement.getDOMNode().dispatchEvent(new Event('input'));
 
       const passwordElement = newWrapper.find('input').at(1);
-      passwordElement.getDOMNode().value = 'somePassword';
+      passwordElement.getDOMNode().value = password;
       passwordElement.getDOMNode().dispatchEvent(new Event('input'));
 
       newWrapper.find('form').simulate('submit');
     });
 
-    await act(async () => {
-      expect(mockSubmit).toHaveBeenCalledTimes(1);
-    });
+    expect(mockSubmit).toHaveBeenCalledTimes(1);
+    expect(mockSubmit.mock.calls[0][0]).toEqual({ username, password });
   });
 });
