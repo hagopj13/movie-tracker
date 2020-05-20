@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm component should render the SearchForm component correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <SearchField
+    inputRef={[Function]}
+    name="query"
+  />
+</form>
+`;

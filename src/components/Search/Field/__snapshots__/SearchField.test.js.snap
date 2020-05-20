@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchField component should render the SearchField component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <div
+    className="makeStyles-searchIcon-2"
+  >
+    <SearchIcon />
+  </div>
+  <WithStyles(ForwardRef(InputBase))
+    classes={
+      Object {
+        "input": "makeStyles-inputInput-4",
+        "root": "makeStyles-inputRoot-3",
+      }
+    }
+    placeholder="Search…"
+  />
+</div>
+`;

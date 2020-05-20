@@ -63,21 +63,21 @@ describe('LoginForm component', () => {
       loginError: '',
       onSubmit: mockSubmit,
     };
-    const newWrapper = mount(<LoginForm {...mockProps} />);
+    const wrapper = mount(<LoginForm {...mockProps} />);
 
     const username = 'someUsername';
     const password = 'somePassword';
 
     await act(async () => {
-      const usernameElement = newWrapper.find('input').at(0);
+      const usernameElement = wrapper.find('input').at(0);
       usernameElement.getDOMNode().value = username;
       usernameElement.getDOMNode().dispatchEvent(new Event('input'));
 
-      const passwordElement = newWrapper.find('input').at(1);
+      const passwordElement = wrapper.find('input').at(1);
       passwordElement.getDOMNode().value = password;
       passwordElement.getDOMNode().dispatchEvent(new Event('input'));
 
-      newWrapper.find('form').simulate('submit');
+      wrapper.find('form').simulate('submit');
     });
 
     expect(mockSubmit).toHaveBeenCalledTimes(1);
