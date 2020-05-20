@@ -43,6 +43,10 @@ describe('HeaderAuthButton component', () => {
       expect(mockLogout).toHaveBeenCalledTimes(1);
     });
 
+    it('should not disable the logout button when logout it not loading', () => {
+      expect(wrapper.find(Button).prop('disabled')).toBe(false);
+    });
+
     it('should disable the logout button when logout is loading', () => {
       const mockProps = {
         isAuth: true,

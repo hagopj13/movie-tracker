@@ -25,7 +25,17 @@ describe('LoginForm component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should disabled the login button when isLoginLoading is true', () => {
+  it('should not disable the login button when login is not loading', () => {
+    const mockProps = {
+      isLoginLoading: false,
+      loginError: '',
+      onSubmit: jest.fn(),
+    };
+    const wrapper = shallow(<LoginForm {...mockProps} />);
+    expect(wrapper.find(Button).prop('disabled')).toBe(false);
+  });
+
+  it('should disable the login button when login is loading', () => {
     const mockProps = {
       isLoginLoading: true,
       loginError: '',
@@ -38,7 +48,7 @@ describe('LoginForm component', () => {
   it('should render the error text when loginError is set', () => {
     const loginError = 'some error';
     const mockProps = {
-      isLoginLoading: true,
+      isLoginLoading: false,
       loginError,
       onSubmit: jest.fn(),
     };
