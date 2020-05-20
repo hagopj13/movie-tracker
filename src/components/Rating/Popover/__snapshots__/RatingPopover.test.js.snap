@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RatingPopover component should render the RatingPopover component correctly 1`] = `
+<WithStyles(ForwardRef(Popover))
+  anchorOrigin={
+    Object {
+      "horizontal": "center",
+      "vertical": "bottom",
+    }
+  }
+  onClose={[MockFunction]}
+  open={true}
+  transformOrigin={
+    Object {
+      "horizontal": "center",
+      "vertical": -10,
+    }
+  }
+>
+  <div
+    className="makeStyles-content-1"
+  >
+    <WithStyles(ForwardRef(Rating))
+      name="rating"
+      onChange={[Function]}
+      onChangeActive={[Function]}
+      precision={0.5}
+      value={5}
+    />
+    <Styled(MuiBox)
+      component="span"
+      fontSize={15}
+      ml={1}
+    >
+      5
+    </Styled(MuiBox)>
+  </div>
+</WithStyles(ForwardRef(Popover))>
+`;
