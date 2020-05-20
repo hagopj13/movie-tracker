@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewListItem component should render the ReviewListItem component correctly 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-root-1"
+  elevation={3}
+>
+  <WithStyles(ForwardRef(Avatar))
+    className="makeStyles-avatar-2"
+  >
+    A
+  </WithStyles(ForwardRef(Avatar))>
+  <div
+    className="makeStyles-contentContainer-3"
+  >
+    <WithStyles(ForwardRef(Typography))
+      gutterBottom={true}
+      variant="h6"
+    >
+      Author Name
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-content-4"
+    >
+      <Truncate
+        ellipsis={
+          <ForwardRef(WithStyles)
+            color="primary"
+            href="#"
+            onClick={[Function]}
+          >
+            ...show more
+          </ForwardRef(WithStyles)>
+        }
+        lines={5}
+        onTruncate={[Function]}
+        trimWhitespace={false}
+        width={0}
+      >
+        <span
+          key="0"
+        >
+          As a general adventure and action movie I would consider this as a decent, even good, movie. As a Sherlock Holmes movie…not so much. Unfortunately, watching this movie confirms my suspicions. This is a Hollywood version of Sherlock Holmes. No style, no finesse. A Sherlock Holmes movie should not be a Hollywood action rollercoaster. It should be intelligent, stylish, witty perhaps involving detective work and, above all, British. It didn’t help that they enrolled Stephen Frey. This film is just not right.
+        </span>
+        <br
+          key="0_br"
+        />
+        <span
+          key="1"
+        >
+          
+        </span>
+        <br
+          key="1_br"
+        />
+        <span
+          key="2"
+        >
+          I really cannot stand the hostility between Sherlock Holmes and Doctor Watson. There no justification for it in the works of Sir Arthur Conan Doyle. The slow motion scenes are nothing but annoying. The lame jokes are out of place in a Sherlock Holmes movie.
+        </span>
+        <br
+          key="2_br"
+        />
+        <span
+          key="3"
+        >
+          
+        </span>
+        <br
+          key="3_br"
+        />
+        <span
+          key="4"
+        >
+          It gets a 5 out of 10 just because it’s actually a decent movie…if you can forget that they claim it to be a Sherlock Holmes one.
+        </span>
+      </Truncate>
+    </WithStyles(ForwardRef(Typography))>
+  </div>
+</WithStyles(ForwardRef(Paper))>
+`;

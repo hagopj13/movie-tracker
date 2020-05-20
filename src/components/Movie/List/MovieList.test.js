@@ -33,6 +33,7 @@ describe('MovieList component', () => {
 
   it('should render MovieListItem for each movie', () => {
     expect(wrapper.find(MovieListItem)).toHaveLength(movies.list.length);
+    expect(wrapper.find(MovieListItem).at(0).prop('movie')).toBe(movies.list[0]);
   });
 
   it('should render the movies inside InfiniteScroll if onLoadMore is defined', () => {

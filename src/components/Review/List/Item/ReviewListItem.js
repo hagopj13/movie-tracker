@@ -31,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const MAX_NUMBER_OF_LINES_IF_NOT_EXPANDED = 5;
+
 const ReviewsListItem = (props: Props) => {
   const { review } = props;
 
@@ -84,7 +86,7 @@ const ReviewsListItem = (props: Props) => {
         </Typography>
         <Typography className={classes.content}>
           <Truncate
-            lines={!isExpanded && 5}
+            lines={!isExpanded && MAX_NUMBER_OF_LINES_IF_NOT_EXPANDED}
             ellipsis={renderEllipsis()}
             onTruncate={handleTruncate}
           >

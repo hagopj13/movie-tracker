@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import type { Review } from 'types';
 
-import ReviewsListItem from './Item/ReviewListItem';
+import ReviewListItem from './Item/ReviewListItem';
 
 type Props = {
   reviews: Review[],
@@ -41,7 +41,7 @@ const ReviewList = (props: Props) => {
   return (
     <div className={classes.root}>
       {reviews.map((review) => (
-        <ReviewsListItem key={review.id} review={review} />
+        <ReviewListItem key={review.id} review={review} />
       ))}
     </div>
   );

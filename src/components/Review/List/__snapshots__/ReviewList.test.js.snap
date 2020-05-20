@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewList component should render the ReviewList component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <ReviewsListItem
+    key="5af7018fc3a3681256009e81"
+    review={
+      Object {
+        "author": "Author Name",
+        "content": "As a general adventure and action movie I would consider this as a decent, even good, movie. As a Sherlock Holmes movie…not so much. Unfortunately, watching this movie confirms my suspicions. This is a Hollywood version of Sherlock Holmes. No style, no finesse. A Sherlock Holmes movie should not be a Hollywood action rollercoaster. It should be intelligent, stylish, witty perhaps involving detective work and, above all, British. It didn’t help that they enrolled Stephen Frey. This film is just not right.
+
+I really cannot stand the hostility between Sherlock Holmes and Doctor Watson. There no justification for it in the works of Sir Arthur Conan Doyle. The slow motion scenes are nothing but annoying. The lame jokes are out of place in a Sherlock Holmes movie.
+
+It gets a 5 out of 10 just because it’s actually a decent movie…if you can forget that they claim it to be a Sherlock Holmes one.",
+        "id": "5af7018fc3a3681256009e81",
+        "url": "https://www.themoviedb.org/review/5af7018fc3a3681256009e81",
+      }
+    }
+  />
+</div>
+`;
