@@ -68,15 +68,15 @@ describe('LoginForm component', () => {
     const username = 'someUsername';
     const password = 'somePassword';
 
+    const usernameElement = wrapper.find('input').at(0);
+    usernameElement.getDOMNode().value = username;
+    usernameElement.getDOMNode().dispatchEvent(new Event('input'));
+
+    const passwordElement = wrapper.find('input').at(1);
+    passwordElement.getDOMNode().value = password;
+    passwordElement.getDOMNode().dispatchEvent(new Event('input'));
+
     await act(async () => {
-      const usernameElement = wrapper.find('input').at(0);
-      usernameElement.getDOMNode().value = username;
-      usernameElement.getDOMNode().dispatchEvent(new Event('input'));
-
-      const passwordElement = wrapper.find('input').at(1);
-      passwordElement.getDOMNode().value = password;
-      passwordElement.getDOMNode().dispatchEvent(new Event('input'));
-
       wrapper.find('form').simulate('submit');
     });
 

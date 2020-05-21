@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchResults = (props: Props) => {
+export const SearchResults = (props: Props) => {
   const { isLoading, selectedSearchQuery, onFetchMovies } = props;
 
   const classes = useStyles();

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResultsOverview component should render the SearchResultsOverview component correctly 1`] = `
+<WithStyles(ForwardRef(Typography))
+  className="makeStyles-root-1"
+  variant="h6"
+>
+  Found
+  <span
+    className="makeStyles-bold-2"
+  >
+     100 
+  </span>
+  results for
+  <span
+    className="makeStyles-bold-2"
+  >
+     Some search query 
+  </span>
+</WithStyles(ForwardRef(Typography))>
+`;

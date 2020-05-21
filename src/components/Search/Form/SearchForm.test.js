@@ -67,11 +67,11 @@ describe('SearchForm component', () => {
     };
     const wrapper = mount(<SearchForm {...mockProps} />);
 
-    await act(async () => {
-      const searchElement = wrapper.find('input');
-      searchElement.getDOMNode().value = '';
-      searchElement.getDOMNode().dispatchEvent(new Event('input'));
+    const searchElement = wrapper.find('input');
+    searchElement.getDOMNode().value = '';
+    searchElement.getDOMNode().dispatchEvent(new Event('input'));
 
+    await act(async () => {
       wrapper.find('form').simulate('submit');
     });
 

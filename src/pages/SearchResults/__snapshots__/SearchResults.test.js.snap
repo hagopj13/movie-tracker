@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults page should render the SearchResults page correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-container-2"
+  >
+    <div
+      className="makeStyles-overview-3"
+    >
+      <Connect(SearchResultsOverview) />
+    </div>
+    <div>
+      <Connect(SearchResultsList) />
+    </div>
+  </WithStyles(ForwardRef(Container))>
+</div>
+`;

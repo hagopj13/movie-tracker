@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchResultsOverview = (props: Props) => {
+export const SearchResultsOverview = (props: Props) => {
   const { searchQuery, totalResults } = props;
 
   const classes = useStyles();
