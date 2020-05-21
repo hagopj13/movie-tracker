@@ -29,11 +29,9 @@ const MovieOverviewBodySection = (props: Props) => {
 
   return (
     <div className={classes.root}>
-      {title && (
-        <Typography className={classes.title} variant="h5">
-          {title}
-        </Typography>
-      )}
+      <Typography className={classes.title} variant="h5">
+        {title}
+      </Typography>
       {children}
     </div>
   );

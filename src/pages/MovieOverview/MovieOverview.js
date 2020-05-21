@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieOverview = (props: Props) => {
+export const MovieOverview = (props: Props) => {
   const { isLoading, movie, isAuth, onFetchMovie, onUpdateMovieUserState } = props;
 
   const isAuthRef = useRef(isAuth);

@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieOverviewHeader component should render the MovieOverviewHeader component correctly 1`] = `
+<Connect(MovieBackdrop)
+  backdropPath="/lWNASscWXn32Asr9vkB1wq6cKvD.jpg"
+>
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-root-1"
+  >
+    <WithStyles(ForwardRef(Card))
+      className="makeStyles-poster-2"
+      elevation={5}
+    >
+      <Connect(MoviePoster)
+        height={450}
+        posterPath="/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg"
+        width={300}
+      />
+    </WithStyles(ForwardRef(Card))>
+    <div
+      className="makeStyles-infoContainer-3"
+    >
+      <MovieSummary
+        movie={
+          Object {
+            "actors": Array [
+              Object {
+                "character": "Sherlock Holmes",
+                "id": 3223,
+                "name": "Robert Downey Jr.",
+                "profilePath": "/1YjdSym1jTG7xjHSI0yGGWEsw5i.jpg",
+              },
+              Object {
+                "character": "Dr. John Watson",
+                "id": 9642,
+                "name": "Jude Law",
+                "profilePath": "/aQD9e9SPjxCdyqxyXKBmEhNgjtR.jpg",
+              },
+              Object {
+                "character": "Professor James Moriarty",
+                "id": 15440,
+                "name": "Jared Harris",
+                "profilePath": "/mGODbYpkR1NKBOV3rtTfZ7EWoIl.jpg",
+              },
+            ],
+            "backdropPath": "/lWNASscWXn32Asr9vkB1wq6cKvD.jpg",
+            "genres": Array [
+              Object {
+                "id": 12,
+                "name": "Adventure",
+              },
+              Object {
+                "id": 28,
+                "name": "Action",
+              },
+              Object {
+                "id": 80,
+                "name": "Crime",
+              },
+              Object {
+                "id": 9648,
+                "name": "Mystery",
+              },
+            ],
+            "id": 58574,
+            "overview": "There is a new criminal mastermind at large (Professor Moriarty) and not only is he Holmes’ intellectual equal, but his capacity for evil and lack of conscience may give him an advantage over the  detective.",
+            "posterPath": "/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg",
+            "recommendations": Array [
+              Object {
+                "backdropPath": "/kqvEVAvKZpw3MX3hNH6bVK6heBH.jpg",
+                "id": 10528,
+                "overview": "Eccentric consulting detective, Sherlock Holmes and Doctor John Watson battle to bring down a new nemesis and unravel a deadly plot that could destroy England.",
+                "posterPath": "/momkKuWburNTqKBF6ez7rvhYVhE.jpg",
+                "releaseDate": "2009-12-23",
+                "title": "Sherlock Holmes",
+                "voteAverage": 3.6,
+                "voteCount": 10235,
+              },
+              Object {
+                "backdropPath": "/bdNHNvZc9fM6Cw3r7HHMCWacI9I.jpg",
+                "id": 10764,
+                "overview": "Quantum of Solace continues the adventures of James Bond after Casino Royale. Betrayed by Vesper, the woman he loved, 007 fights the urge to make his latest mission personal. Pursuing his determination to uncover the truth, Bond and M interrogate Mr. White, who reveals that the organization that blackmailed Vesper is far more complex and dangerous than anyone had imagined.",
+                "posterPath": "/f2rCskvSSr7ywPAnFGhk4FT6Piz.jpg",
+                "releaseDate": "2008-10-30",
+                "title": "Quantum of Solace",
+                "voteAverage": 3.2,
+                "voteCount": 5159,
+              },
+              Object {
+                "backdropPath": "/yiggfsFRk5z2005oGojfyKkv7DI.jpg",
+                "id": 20526,
+                "overview": "Sam Flynn, the tech-savvy and daring son of Kevin Flynn, investigates his father's disappearance and is pulled into The Grid. With the help of a mysterious program named Quorra, Sam quests to stop evil dictator Clu from crossing into the real world.",
+                "posterPath": "/xcO8Uun0mfmE3N9CaiCy0tvjpiu.jpg",
+                "releaseDate": "2010-12-10",
+                "title": "TRON: Legacy",
+                "voteAverage": 3.2,
+                "voteCount": 4944,
+              },
+            ],
+            "releaseDate": "2011-11-22",
+            "reviews": Array [
+              Object {
+                "author": "Author Name",
+                "content": "As a general adventure and action movie I would consider this as a decent, even good, movie. As a Sherlock Holmes movie…not so much. Unfortunately, watching this movie confirms my suspicions. This is a Hollywood version of Sherlock Holmes. No style, no finesse. A Sherlock Holmes movie should not be a Hollywood action rollercoaster. It should be intelligent, stylish, witty perhaps involving detective work and, above all, British. It didn’t help that they enrolled Stephen Frey. This film is just not right.
+
+I really cannot stand the hostility between Sherlock Holmes and Doctor Watson. There no justification for it in the works of Sir Arthur Conan Doyle. The slow motion scenes are nothing but annoying. The lame jokes are out of place in a Sherlock Holmes movie.
+
+It gets a 5 out of 10 just because it’s actually a decent movie…if you can forget that they claim it to be a Sherlock Holmes one.",
+                "id": "5af7018fc3a3681256009e81",
+                "url": "https://www.themoviedb.org/review/5af7018fc3a3681256009e81",
+              },
+            ],
+            "runtime": 129,
+            "status": "Released",
+            "tagline": "The game is afoot.",
+            "title": "Sherlock Holmes: A Game of Shadows",
+            "voteAverage": 3.6,
+            "voteCount": 7326,
+          }
+        }
+      />
+      <div
+        className="makeStyles-actionsContainer-4"
+      >
+        <Connect(MovieActions)
+          movie={
+            Object {
+              "actors": Array [
+                Object {
+                  "character": "Sherlock Holmes",
+                  "id": 3223,
+                  "name": "Robert Downey Jr.",
+                  "profilePath": "/1YjdSym1jTG7xjHSI0yGGWEsw5i.jpg",
+                },
+                Object {
+                  "character": "Dr. John Watson",
+                  "id": 9642,
+                  "name": "Jude Law",
+                  "profilePath": "/aQD9e9SPjxCdyqxyXKBmEhNgjtR.jpg",
+                },
+                Object {
+                  "character": "Professor James Moriarty",
+                  "id": 15440,
+                  "name": "Jared Harris",
+                  "profilePath": "/mGODbYpkR1NKBOV3rtTfZ7EWoIl.jpg",
+                },
+              ],
+              "backdropPath": "/lWNASscWXn32Asr9vkB1wq6cKvD.jpg",
+              "genres": Array [
+                Object {
+                  "id": 12,
+                  "name": "Adventure",
+                },
+                Object {
+                  "id": 28,
+                  "name": "Action",
+                },
+                Object {
+                  "id": 80,
+                  "name": "Crime",
+                },
+                Object {
+                  "id": 9648,
+                  "name": "Mystery",
+                },
+              ],
+              "id": 58574,
+              "overview": "There is a new criminal mastermind at large (Professor Moriarty) and not only is he Holmes’ intellectual equal, but his capacity for evil and lack of conscience may give him an advantage over the  detective.",
+              "posterPath": "/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg",
+              "recommendations": Array [
+                Object {
+                  "backdropPath": "/kqvEVAvKZpw3MX3hNH6bVK6heBH.jpg",
+                  "id": 10528,
+                  "overview": "Eccentric consulting detective, Sherlock Holmes and Doctor John Watson battle to bring down a new nemesis and unravel a deadly plot that could destroy England.",
+                  "posterPath": "/momkKuWburNTqKBF6ez7rvhYVhE.jpg",
+                  "releaseDate": "2009-12-23",
+                  "title": "Sherlock Holmes",
+                  "voteAverage": 3.6,
+                  "voteCount": 10235,
+                },
+                Object {
+                  "backdropPath": "/bdNHNvZc9fM6Cw3r7HHMCWacI9I.jpg",
+                  "id": 10764,
+                  "overview": "Quantum of Solace continues the adventures of James Bond after Casino Royale. Betrayed by Vesper, the woman he loved, 007 fights the urge to make his latest mission personal. Pursuing his determination to uncover the truth, Bond and M interrogate Mr. White, who reveals that the organization that blackmailed Vesper is far more complex and dangerous than anyone had imagined.",
+                  "posterPath": "/f2rCskvSSr7ywPAnFGhk4FT6Piz.jpg",
+                  "releaseDate": "2008-10-30",
+                  "title": "Quantum of Solace",
+                  "voteAverage": 3.2,
+                  "voteCount": 5159,
+                },
+                Object {
+                  "backdropPath": "/yiggfsFRk5z2005oGojfyKkv7DI.jpg",
+                  "id": 20526,
+                  "overview": "Sam Flynn, the tech-savvy and daring son of Kevin Flynn, investigates his father's disappearance and is pulled into The Grid. With the help of a mysterious program named Quorra, Sam quests to stop evil dictator Clu from crossing into the real world.",
+                  "posterPath": "/xcO8Uun0mfmE3N9CaiCy0tvjpiu.jpg",
+                  "releaseDate": "2010-12-10",
+                  "title": "TRON: Legacy",
+                  "voteAverage": 3.2,
+                  "voteCount": 4944,
+                },
+              ],
+              "releaseDate": "2011-11-22",
+              "reviews": Array [
+                Object {
+                  "author": "Author Name",
+                  "content": "As a general adventure and action movie I would consider this as a decent, even good, movie. As a Sherlock Holmes movie…not so much. Unfortunately, watching this movie confirms my suspicions. This is a Hollywood version of Sherlock Holmes. No style, no finesse. A Sherlock Holmes movie should not be a Hollywood action rollercoaster. It should be intelligent, stylish, witty perhaps involving detective work and, above all, British. It didn’t help that they enrolled Stephen Frey. This film is just not right.
+
+I really cannot stand the hostility between Sherlock Holmes and Doctor Watson. There no justification for it in the works of Sir Arthur Conan Doyle. The slow motion scenes are nothing but annoying. The lame jokes are out of place in a Sherlock Holmes movie.
+
+It gets a 5 out of 10 just because it’s actually a decent movie…if you can forget that they claim it to be a Sherlock Holmes one.",
+                  "id": "5af7018fc3a3681256009e81",
+                  "url": "https://www.themoviedb.org/review/5af7018fc3a3681256009e81",
+                },
+              ],
+              "runtime": 129,
+              "status": "Released",
+              "tagline": "The game is afoot.",
+              "title": "Sherlock Holmes: A Game of Shadows",
+              "voteAverage": 3.6,
+              "voteCount": 7326,
+            }
+          }
+        />
+      </div>
+    </div>
+  </WithStyles(ForwardRef(Container))>
+</Connect(MovieBackdrop)>
+`;

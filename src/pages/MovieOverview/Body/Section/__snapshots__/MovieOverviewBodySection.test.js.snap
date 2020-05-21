@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieOverviewBodySection component should render the MovieOverviewBodySection component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Typography))
+    className="makeStyles-title-2"
+    variant="h5"
+  >
+    Some title
+  </WithStyles(ForwardRef(Typography))>
+  <ChildComponent />
+</div>
+`;
