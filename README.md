@@ -1,4 +1,48 @@
+# Movie Tracker
+
+Demo: https://movie-tracker-react.herokuapp.com
+
+> This project is a front-end React application that I created just for fun. You can use it to discover the latest movies and get more information on them. If you have a [TMDb](https://www.themoviedb.org/) account, you can login with that account in this app to rate movies, add them to your favorites list, and view your profile overview.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+It uses:
+
+- **React**: as the main UI library
+- **Redux**: for state management (also using redux-saga and reselect)
+- **React Router**: for routing
+- **Material UI**: for React components that implement Material Design
+- **Axios**: for making API requests to TMDb
+- **Jest**: for testing
+- **Flow**: for type checking
+- ...many more
+
+## Installation
+
+**Clone the repo:**
+
+```bash
+git clone https://github.com/hagopj13/movie-tracker-react.git
+cd movie-tracker-react
+```
+
+**Install dependencies:**
+
+```bash
+npm install
+```
+
+**Environment varibales:**
+
+Create a `.env.development.local` file which includes all your secret environment variables. (Also `.env.production.local` for production builds and `.env.test.local` for testing).
+
+This project needs the following environment variables:
+
+```bash
+REACT_APP_TMDB_API_KEY=<INSERT TMDB API KEY HERE>
+```
+
+To get a TMDb API key, visit https://www.themoviedb.org/documentation/api
 
 ## Available Scripts
 
@@ -37,32 +81,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Attribution
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This product uses the TMDb API but is not endorsed or certified by TMDb.
