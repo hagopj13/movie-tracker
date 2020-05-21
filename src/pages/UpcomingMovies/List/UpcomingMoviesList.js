@@ -18,7 +18,7 @@ type Props = {
   onFetchMoreMovies: () => void,
 };
 
-const UpcomingMoviesList = (props: Props) => {
+export const UpcomingMoviesList = (props: Props) => {
   const { movies, isLoading, isLoadingMore, onFetchMoreMovies } = props;
 
   const handleLoadMore = () => {

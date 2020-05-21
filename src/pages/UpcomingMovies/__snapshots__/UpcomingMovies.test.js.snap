@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpcomingMovies page should render the UpcomingMovies page correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-container-2"
+  >
+    <div
+      className="makeStyles-movieListContainer-3"
+    >
+      <Connect(UpcomingMoviesList) />
+    </div>
+  </WithStyles(ForwardRef(Container))>
+</div>
+`;

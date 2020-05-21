@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UpcomingMovies = (props: Props) => {
+export const UpcomingMovies = (props: Props) => {
   const { isLoadingConfig, onFetchMovies } = props;
 
   const classes = useStyles();
