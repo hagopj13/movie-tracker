@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiscoverMoviesFilters component should render the DiscoverMoviesFilters component correctly 1`] = `
+<MovieFilters
+  allGenres={
+    Array [
+      Object {
+        "id": 28,
+        "name": "Action",
+      },
+      Object {
+        "id": 12,
+        "name": "Adventure",
+      },
+      Object {
+        "id": 16,
+        "name": "Animation",
+      },
+      Object {
+        "id": 35,
+        "name": "Comedy",
+      },
+    ]
+  }
+  onFiltersChanged={[MockFunction]}
+  onSetReleaseDateEnd={[MockFunction]}
+  onSetReleaseDateStart={[MockFunction]}
+  onSetSortBy={[MockFunction]}
+  onToggleGenre={[MockFunction]}
+  selectedFilters={
+    Object {
+      "genres": Array [
+        12,
+      ],
+      "releaseDateEnd": "2020-01-31T23:00:00.000Z",
+      "releaseDateStart": "2019-12-31T23:00:00.000Z",
+      "sortBy": "popularity.asc",
+    }
+  }
+/>
+`;

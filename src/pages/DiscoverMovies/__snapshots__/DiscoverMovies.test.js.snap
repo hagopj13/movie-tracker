@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiscoverMovies page should render the DiscoverMovies component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-attributionContainer-2"
+  >
+    <Attribution />
+  </WithStyles(ForwardRef(Container))>
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-moviesContainer-3"
+  >
+    <div
+      className="makeStyles-movieFiltersContainer-4"
+    >
+      <Connect(DiscoverMoviesFilters) />
+    </div>
+    <div
+      className="makeStyles-movieListContainer-5"
+    >
+      <Connect(DiscoverMoviesList) />
+    </div>
+  </WithStyles(ForwardRef(Container))>
+</div>
+`;

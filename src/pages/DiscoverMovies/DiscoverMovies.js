@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DiscoverMovies = (props: Props) => {
+export const DiscoverMovies = (props: Props) => {
   const { isLoadingConfig, onFetchAllGenres, onFetchMovies } = props;
 
   const classes = useStyles();

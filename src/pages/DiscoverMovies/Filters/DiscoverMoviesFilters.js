@@ -21,7 +21,7 @@ type Props = {
   onSetReleaseDateEnd: (releaseDateEnd: Moment) => void,
 };
 
-const DiscoverMoviesFilters = (props: Props) => {
+export const DiscoverMoviesFilters = (props: Props) => {
   const {
     allGenres,
     selectedFilters,

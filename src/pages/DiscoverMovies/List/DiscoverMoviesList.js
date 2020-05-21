@@ -18,12 +18,8 @@ type Props = {
   onFetchMoreMovies: () => void,
 };
 
-const DiscoverMoviesList = (props: Props) => {
+export const DiscoverMoviesList = (props: Props) => {
   const { movies, isLoading, isLoadingMore, onFetchMoreMovies } = props;
-
-  const handleLoadMore = () => {
-    onFetchMoreMovies();
-  };
 
   if (isLoading) {
     return <Spinner />;
@@ -31,7 +27,7 @@ const DiscoverMoviesList = (props: Props) => {
 
   return (
     <>
-      <MovieList movies={movies} onLoadMore={handleLoadMore} />
+      <MovieList movies={movies} onLoadMore={onFetchMoreMovies} />
       {isLoadingMore && <Spinner />}
     </>
   );

@@ -1,0 +1,70 @@
+import React from 'react';
+import { createShallow } from '@material-ui/core/test-utils';
+
+import movies from 'store/fixtures/movies';
+import MovieList from 'components/Movie/List/MovieList';
+import Spinner from 'components/Spinner/Spinner';
+
+import { DiscoverMoviesList } from './DiscoverMoviesList';
+
+describe('DiscoverMoviesList component', () => {
+  let shallow;
+  let isLoading;
+  let isLoadingMore;
+  let wrapper;
+
+  const mockFetchMoreMovies = jest.fn();
+
+  beforeAll(() => {
+    shallow = createShallow();
+  });
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    isLoading = false;
+    isLoadingMore = false;
+    const mockProps = {
+      movies: movies.list,
+      isLoading,
+      isLoadingMore,
+      onFetchMoreMovies: mockFetchMoreMovies,
+    };
+    wrapper = shallow(<DiscoverMoviesList {...mockProps} />);
+  });
+
+  it('should render the DiscoverMoviesList component correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should pass movies to MovieList', () => {
+    expect(wrapper.find(MovieList).prop('movies')).toBe(movies.list);
+  });
+
+  it('should not render Spinner if both isLoading and isLoadingMore are false', () => {
+    expect(wrapper.exists(Spinner)).toBe(false);
+  });
+
+  it('should render Spinner when isLoading is true', () => {
+    const mockProps = {
+      movies: movies.list,
+      isLoading: true,
+      isLoadingMore: false,
+      onFetchMoreMovies: mockFetchMoreMovies,
+    };
+    const newWrapper = shallow(<DiscoverMoviesList {...mockProps} />);
+    expect(newWrapper.exists(Spinner)).toBe(true);
+    expect(newWrapper.exists(MovieList)).toBe(false);
+  });
+
+  it('should render both MovieList and Spinner when isLoadingMore is true', () => {
+    const mockProps = {
+      movies: movies.list,
+      isLoading: false,
+      isLoadingMore: true,
+      onFetchMoreMovies: mockFetchMoreMovies,
+    };
+    const newWrapper = shallow(<DiscoverMoviesList {...mockProps} />);
+    expect(newWrapper.exists(MovieList)).toBe(true);
+    expect(newWrapper.exists(Spinner)).toBe(true);
+  });
+});
