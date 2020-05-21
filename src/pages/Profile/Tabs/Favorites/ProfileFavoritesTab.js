@@ -19,7 +19,7 @@ type Props = {
   onFetchMoreMovies: () => void,
 };
 
-const ProfileFavoritesTab = (props: Props) => {
+export const ProfileFavoritesTab = (props: Props) => {
   const { movies, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
 
   return (

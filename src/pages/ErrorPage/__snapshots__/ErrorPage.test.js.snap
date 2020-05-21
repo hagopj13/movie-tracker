@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorPage page should render the ErrorPage component correctly 1`] = `
+exports[`ErrorPage page should render the ErrorPage page correctly 1`] = `
 <div
   className="makeStyles-root-1"
 >

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileHeader component should render the ProfileHeader component correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-container-2"
+  >
+    <WithStyles(ForwardRef(Avatar))
+      className="makeStyles-avatar-3"
+      color="primary"
+    >
+      S
+    </WithStyles(ForwardRef(Avatar))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Some user name
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Container))>
+</div>
+`;

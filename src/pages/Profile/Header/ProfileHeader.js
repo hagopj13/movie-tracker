@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfileHeader = (props: Props) => {
+export const ProfileHeader = (props: Props) => {
   const { userName } = props;
 
   const classes = useStyles();

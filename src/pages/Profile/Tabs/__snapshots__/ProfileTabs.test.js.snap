@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileTabs component should render the ProfileTabs component correctly 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Paper))
+    square={true}
+  >
+    <WithStyles(ForwardRef(Tabs))
+      centered={true}
+      indicatorColor="primary"
+      onChange={[Function]}
+      textColor="primary"
+      value={0}
+    >
+      <WithStyles(ForwardRef(Tab))
+        className="makeStyles-tab-1"
+        disableRipple={true}
+        label="Favorites"
+      />
+      <WithStyles(ForwardRef(Tab))
+        className="makeStyles-tab-1"
+        disableRipple={true}
+        label="Watchlist"
+      />
+    </WithStyles(ForwardRef(Tabs))>
+  </WithStyles(ForwardRef(Paper))>
+  <TabPanel
+    index={0}
+    value={0}
+  >
+    <Connect(ProfileFavoritesTab) />
+  </TabPanel>
+  <TabPanel
+    index={1}
+    value={0}
+  >
+    <Connect(ProfileWatchlistTab) />
+  </TabPanel>
+</Fragment>
+`;

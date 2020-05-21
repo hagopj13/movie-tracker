@@ -21,7 +21,7 @@ describe('DiscoverMovies page', () => {
     jest.clearAllMocks();
   });
 
-  it('should render the DiscoverMovies component correctly', () => {
+  it('should render the DiscoverMovies page correctly', () => {
     const mockProps = {
       isLoadingConfig: false,
       onFetchAllGenres: mockFetchAllGenres,

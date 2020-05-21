@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile page should render the Profile page correctly 1`] = `
+<Fragment>
+  <Connect(ProfileHeader) />
+  <ProfileTabs />
+</Fragment>
+`;

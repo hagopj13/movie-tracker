@@ -19,7 +19,7 @@ type Props = {
   onFetchProfile: () => void,
 };
 
-const Profile = (props: Props) => {
+export const Profile = (props: Props) => {
   const { isLoading, isLoaded, onFetchProfile } = props;
 
   useLayoutEffect(() => {

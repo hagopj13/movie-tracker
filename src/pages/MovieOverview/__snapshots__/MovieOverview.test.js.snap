@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieOverview page should render the MovieOverview component correctly 1`] = `
+exports[`MovieOverview page should render the MovieOverview page correctly 1`] = `
 <div>
   <MovieOverviewHeader
     movie={

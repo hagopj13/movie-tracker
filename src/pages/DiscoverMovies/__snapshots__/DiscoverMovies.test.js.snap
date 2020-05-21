@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DiscoverMovies page should render the DiscoverMovies component correctly 1`] = `
+exports[`DiscoverMovies page should render the DiscoverMovies page correctly 1`] = `
 <div
   className="makeStyles-root-1"
 >

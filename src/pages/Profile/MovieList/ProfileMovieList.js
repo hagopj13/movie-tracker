@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfileMovieList = (props: Props) => {
+export const ProfileMovieList = (props: Props) => {
   const { movies, isLoading, isLoadingMore, onFetchMovies, onFetchMoreMovies } = props;
 
   const [showView, setShowView] = useState(false);
@@ -40,10 +40,6 @@ const ProfileMovieList = (props: Props) => {
     return () => clearTimeout(timeout);
   }, [onFetchMovies]);
 
-  const handleLoadMore = () => {
-    onFetchMoreMovies();
-  };
-
   if (!showView) {
     return null;
   }
@@ -55,7 +51,7 @@ const ProfileMovieList = (props: Props) => {
   return (
     <div className={classes.root}>
       <Container className={classes.container}>
-        <MovieList movies={movies} onLoadMore={handleLoadMore} />
+        <MovieList movies={movies} onLoadMore={onFetchMoreMovies} />
         {isLoadingMore && <Spinner />}
       </Container>
     </div>

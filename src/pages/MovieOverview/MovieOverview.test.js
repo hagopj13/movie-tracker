@@ -32,7 +32,7 @@ describe('MovieOverview page', () => {
     jest.clearAllMocks();
   });
 
-  it('should render the MovieOverview component correctly', () => {
+  it('should render the MovieOverview page correctly', () => {
     useParams.mockReturnValue({ id: movie.id });
     const mockProps = {
       isLoading: false,

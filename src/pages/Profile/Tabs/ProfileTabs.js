@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 
 import TabPanel from 'components/TabPanel/TabPanel';
 
-import FavortiesTab from './Favorites/ProfileFavortiesTab';
+import FavortiesTab from './Favorites/ProfileFavoritesTab';
 import WatchlistTab from './Watchlist/ProfileWatchlistTab';
 
 const useStyles = makeStyles((theme) => ({

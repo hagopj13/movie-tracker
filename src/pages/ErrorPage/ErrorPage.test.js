@@ -21,7 +21,7 @@ describe('ErrorPage page', () => {
     wrapper = shallow(<ErrorPage {...mockProps} />);
   });
 
-  it('should render the ErrorPage component correctly', () => {
+  it('should render the ErrorPage page correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
