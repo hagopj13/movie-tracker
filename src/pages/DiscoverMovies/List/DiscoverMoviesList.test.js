@@ -9,8 +9,6 @@ import { DiscoverMoviesList } from './DiscoverMoviesList';
 
 describe('DiscoverMoviesList component', () => {
   let shallow;
-  let isLoading;
-  let isLoadingMore;
   let wrapper;
 
   const mockFetchMoreMovies = jest.fn();
@@ -21,12 +19,10 @@ describe('DiscoverMoviesList component', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    isLoading = false;
-    isLoadingMore = false;
     const mockProps = {
       movies: movies.list,
-      isLoading,
-      isLoadingMore,
+      isLoading: false,
+      isLoadingMore: false,
       onFetchMoreMovies: mockFetchMoreMovies,
     };
     wrapper = shallow(<DiscoverMoviesList {...mockProps} />);
