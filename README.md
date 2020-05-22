@@ -26,13 +26,13 @@ git clone https://github.com/hagopj13/movie-tracker.git
 cd movie-tracker
 ```
 
-**Install dependencies:**
+**Install the dependencies:**
 
 ```bash
 npm install
 ```
 
-**Environment varibales:**
+**Set the environment variables:**
 
 Create a `.env.development.local` file which includes all your secret environment variables. (Also `.env.production.local` for production builds and `.env.test.local` for testing).
 
