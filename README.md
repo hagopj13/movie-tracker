@@ -22,8 +22,8 @@ It uses:
 **Clone the repo:**
 
 ```bash
-git clone https://github.com/hagopj13/movie-tracker-react.git
-cd movie-tracker-react
+git clone https://github.com/hagopj13/movie-tracker.git
+cd movie-tracker
 ```
 
 **Install dependencies:**
