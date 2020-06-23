@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Container from '@material-ui/core/Container';
 
 import ActorList from 'components/Actor/List/ActorList';
 import ReviewList from 'components/Review/List/ReviewList';
-// import Recommendations from 'components/Recommendations/Recommendations';
 import MovieList from 'components/Movie/List/MovieList';
 import type { Movie } from 'types';
 
@@ -35,6 +35,8 @@ const MovieOverviewBody = (props: Props) => {
   const { movie } = props;
 
   const classes = useStyles();
+  const theme = useTheme();
+  const centerRecommendations = useMediaQuery(theme.breakpoints.down('xs'));
 
   const actors = movie.actors?.slice(0, MAX_NUMBER_OF_ACTORS) ?? [];
   const reviews = movie.reviews?.slice(0, MAX_NUMBER_OF_REVIEWS) ?? [];
@@ -49,7 +51,7 @@ const MovieOverviewBody = (props: Props) => {
         <ReviewList reviews={reviews} />
       </MovieOverviewBodySection>
       <MovieOverviewBodySection title="Recommendations">
-        <MovieList movies={recommendations} center={false} />
+        <MovieList movies={recommendations} center={centerRecommendations} />
       </MovieOverviewBodySection>
     </Container>
   );
