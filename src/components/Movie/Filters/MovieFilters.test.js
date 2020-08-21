@@ -3,7 +3,7 @@ import moment from 'moment';
 import { createShallow } from '@material-ui/core/test-utils';
 
 import { genres } from 'store/fixtures/config';
-import { sortOptions } from 'config';
+import sortOptions from 'config/sortOptions';
 import Select from 'components/Input/Select/Select';
 import ChipList from 'components/Input/ChipList/ChipList';
 import DatePicker from 'components/Input/DatePicker/DatePicker';

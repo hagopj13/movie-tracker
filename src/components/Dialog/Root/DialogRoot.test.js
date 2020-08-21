@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { mountWithStore } from 'testUtils';
-import { dialogTypes } from 'config';
+import dialogTypes from 'config/dialogTypes';
 import LoginDialog from 'components/Login/Dialog/LoginDialog';
 
 import { DialogRoot } from './DialogRoot';

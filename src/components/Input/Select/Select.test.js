@@ -2,7 +2,7 @@ import React from 'react';
 import { createShallow } from '@material-ui/core/test-utils';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import { sortOptions } from 'config';
+import sortOptions from 'config/sortOptions';
 
 import Select from './Select';
 

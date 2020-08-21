@@ -3,7 +3,7 @@ import moment from 'moment';
 import { createShallow } from '@material-ui/core/test-utils';
 
 import { genres } from 'store/fixtures/config';
-import { sortOptions } from 'config';
+import sortOptions from 'config/sortOptions';
 
 import { DiscoverMoviesFilters } from './DiscoverMoviesFilters';
 

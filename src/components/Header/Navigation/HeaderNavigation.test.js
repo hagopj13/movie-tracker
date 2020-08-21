@@ -3,7 +3,7 @@ import { createShallow } from '@material-ui/core/test-utils';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
-import { navigationItems } from 'config';
+import navigationItems from 'config/navigationItems';
 
 import { HeaderNavigation } from './HeaderNavigation';
 

@@ -7,7 +7,7 @@ import { useTheme } from '@material-ui/core/styles';
 import LoginDialog from 'components/Login/Dialog/LoginDialog';
 import dialogSelectors from 'store/ui/dialog/dialog.selectors';
 import dialogActions from 'store/ui/dialog/dialog.actions';
-import { dialogTypes } from 'config';
+import dialogTypes from 'config/dialogTypes';
 
 const DIALOG_COMPONENTS = {
   [dialogTypes.LOGIN]: LoginDialog,

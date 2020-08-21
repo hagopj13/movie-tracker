@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
 import authSelectors from 'store/auth/auth.selectors';
-import { navigationItems } from 'config';
+import navigationItems from 'config/navigationItems';
 
 type Props = {
   isAuth: boolean,

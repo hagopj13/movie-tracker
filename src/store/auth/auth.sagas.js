@@ -2,7 +2,7 @@ import { takeLatest, all, call, put, select } from 'redux-saga/effects';
 
 import * as api from 'api/tmdb';
 import dialogActions from 'store/ui/dialog/dialog.actions';
-import { dialogTypes } from 'config';
+import dialogTypes from 'config/dialogTypes';
 
 import AuthActionTypes from './auth.types';
 import authActions from './auth.actions';

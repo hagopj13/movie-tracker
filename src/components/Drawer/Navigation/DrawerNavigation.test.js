@@ -6,7 +6,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DiscoverIcon from '@material-ui/icons/Movie';
 
-import { navigationItems } from 'config';
+import navigationItems from 'config/navigationItems';
 
 import { DrawerNavigation } from './DrawerNavigation';
 

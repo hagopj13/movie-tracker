@@ -2,7 +2,7 @@
 import type { Moment } from 'moment';
 
 import reducerGenerator from 'store/common/utils/reducerGenerator';
-import { sortOptions } from 'config';
+import sortOptions from 'config/sortOptions';
 
 import FiltersActionTypes from './filters.types';
 

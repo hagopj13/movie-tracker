@@ -9,7 +9,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import authSelectors from 'store/auth/auth.selectors';
-import { navigationItems } from 'config';
+import navigationItems from 'config/navigationItems';
 
 type Props = {
   isAuth: boolean,

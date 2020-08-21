@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import LogoutIcon from '@material-ui/icons/Lock';
 import LoginIcon from '@material-ui/icons/LockOpen';
 
-import { dialogTypes } from 'config';
+import dialogTypes from 'config/dialogTypes';
 import authSelectors from 'store/auth/auth.selectors';
 import authActions from 'store/auth/auth.actions';
 import dialogActions from 'store/ui/dialog/dialog.actions';

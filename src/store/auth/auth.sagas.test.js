@@ -4,7 +4,7 @@ import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
 
 import dialogActions from 'store/ui/dialog/dialog.actions';
-import { dialogTypes } from 'config';
+import dialogTypes from 'config/dialogTypes';
 import * as api from 'api/tmdb';
 import getRequestTokenResponse from 'api/tmdb/fixtures/getRequestTokenResponse';
 import loginResponse from 'api/tmdb/fixtures/loginResponse';

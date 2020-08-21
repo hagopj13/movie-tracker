@@ -13,7 +13,7 @@ import movieActions from 'store/movie/movie.actions';
 import movieSelectors from 'store/movie/movie.selectors';
 import authSelectors from 'store/auth/auth.selectors';
 import dialogActions from 'store/ui/dialog/dialog.actions';
-import { dialogTypes } from 'config';
+import dialogTypes from 'config/dialogTypes';
 import type { Movie, MovieUserState } from 'types';
 
 import MovieActionButton from './Button/MovieActionButton';
