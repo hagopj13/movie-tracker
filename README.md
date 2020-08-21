@@ -1,8 +1,10 @@
 # Movie Tracker
 
-Demo: https://movie-tracker-react.herokuapp.com
+Demo: https://movie-tracker-react.netlify.app
 
 > This project is a front-end React application that I created just for fun. You can use it to discover the latest movies and get more information on them. If you have a [TMDb](https://www.themoviedb.org/) account, you can login with that account in this app to rate movies, add them to your favorites list, and view your profile overview.
+
+![Screenshot](images/screenshot.png?raw=true)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
